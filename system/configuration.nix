@@ -12,11 +12,17 @@
       <sops-nix/modules/sops>
     ];
 
+  # make ready for nix flakes
+  #nix.package = pkgs.nixFlakes;
+  #nix.extraOptions = ''
+  #  experimental-features = nix-command flakes
+  #'';
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "xnix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -109,7 +115,6 @@
     #  thunderbird
     #];
   };
-  
 
   home-manager.users.x = { pkgs, ... }: {
     programs.bash.enable = true;
@@ -138,7 +143,7 @@
     enable = true;
     enableSSHSupport = true;
   };
- 
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
