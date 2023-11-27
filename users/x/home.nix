@@ -30,43 +30,52 @@
   };
 
   home.packages = with pkgs; [
+    # term/shell
     alacritty
+    file
+    htop
+    pciutils
+    ripgrep
+    tmux
+    usbutils
+
+    # net
+    aria2
+    persepolis
     discord
     dropbox
     firefox
+
+    # media
+    gimp
+
+    # dev
     git
     git-crypt
-    htop
-    gimp
 
     # crypto
     age
     gnupg
-    sops
     keepassxc
+    sops
 
-    # archivs
-    zip
+    # archives
     unzip
+    zip
 
     # network tools
-    mtr
     dnsutils
-    nmap
+    ethtool
     ipcalc
+    mtr
+    nmap
 
     # misc
-    ripgrep
-    file
-    tmux
     pinentry
 
     # system tools
-    sysstat
     lm_sensors
-    ethtool
-    pciutils
-    usbutils
+    sysstat
   ];
 
   # This value determines the Home Manager release that your
@@ -86,6 +95,7 @@
     enable = true;
     profiles."x" = {
       extensions = with config.nur.repos.rycee.firefox-addons; [
+        aria2-integration
         darkreader
         noscript
         plasma-integration
