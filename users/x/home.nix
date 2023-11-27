@@ -47,6 +47,9 @@
     dropbox
     firefox
 
+    # offixe
+    libreoffice
+
     # audio/video
     pavucontrol
     streamlink
