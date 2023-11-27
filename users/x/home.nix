@@ -10,6 +10,7 @@
   };
 
   imports = [];
+
   nixpkgs.overlays = [(
     self: super: {
       discord = super.discord.overrideAttrs (
@@ -80,6 +81,19 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.firefox = {
+    enable = true;
+    profiles."x" = {
+      extensions = with config.nur.repos.rycee.firefox-addons; [
+        darkreader
+        noscript
+        plasma-integration
+        privacy-badger
+        ublock-origin
+      ];
+    };
+  };
 
   programs.git = {
     enable = true;
