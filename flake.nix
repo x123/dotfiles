@@ -5,9 +5,10 @@
     nixpkgs.url = "nixpkgs/nixos-23.05";
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nur.url = "github:nix-community/NUR";
   };
   
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, nur, ... }:
   let 
     system = "x86_64-linux";
     
@@ -21,11 +22,11 @@
   in {
     homeManagerConfigurations = {
       x = home-manager.lib.homeManagerConfiguration {
-        #inherit system;
         inherit pkgs;
         #pkgs = nixpkgs.legacyPackages.${system};
 
         modules = [
+          nur.nixosModules.nur
           ./users/x/home.nix
           {
             home = {
