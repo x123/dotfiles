@@ -48,6 +48,7 @@
 
     # audio/video
     pavucontrol
+    streamlink
     vlc
 
     # art
