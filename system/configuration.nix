@@ -27,6 +27,8 @@
   boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.kernelModules = [ "it87" "k10temp" "nct6683" ];
 
+  services.fstrim.enable = true;
+
   networking.hostName = "xnix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 

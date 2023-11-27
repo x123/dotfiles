@@ -13,12 +13,17 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-label/NIXROOT";
-      fsType = "ext4";
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/NIXROOT";
+    fsType = "ext4";
+    options = [ "noatime" "nodiratime" ];
     };
 
-  boot.initrd.luks.devices."luks-3062db9e-0454-4188-b0ba-d751be39e6b9".device = "/dev/disk/by-uuid/3062db9e-0454-4188-b0ba-d751be39e6b9";
+    boot.initrd.luks.devices."luks-3062db9e-0454-4188-b0ba-d751be39e6b9" = {
+      device = "/dev/disk/by-uuid/3062db9e-0454-4188-b0ba-d751be39e6b9";
+      allowDiscards = true;
+      bypassWorkqueues = true;
+    };
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-label/NIXBOOT";
