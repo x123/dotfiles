@@ -6,21 +6,23 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [# Include the results of the hardware scan.
       ./hardware-configuration.nix
-      <home-manager/nixos>
-      <sops-nix/modules/sops>
     ];
 
   # make ready for nix flakes
-  #nix.package = pkgs.nixFlakes;
-  #nix.extraOptions = ''
-  #  experimental-features = nix-command flakes
-  #'';
+  nix.package = pkgs.nixFlakes;
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" ];
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelModules = [ "it87" "k10temp" "nct6683" "nct6775" ];
 
   networking.hostName = "xnix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -129,13 +131,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # nur package repo
-#  nixpkgs.config.packageOverrides = pkgs: {
-#    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-#      inherit pkgs;
-#    };
-#  };
-
 # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -174,5 +169,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
-
 }
