@@ -46,8 +46,9 @@
     dropbox
     firefox
 
-    # audio
+    # audio/video
     pavucontrol
+    vlc
 
     # art
     gimp
