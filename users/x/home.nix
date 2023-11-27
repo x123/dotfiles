@@ -123,6 +123,9 @@
 	# with tiling WMs on wayland
 	"privacy.webrtc.legacyGlobalIndicator" = false;
 
+        # never ask to remember passwords
+        "signon.rememberSignons" = false;
+
 	# Actual settings
 	"app.shield.optoutstudies.enabled" = false;
 	"app.update.auto" = false;
