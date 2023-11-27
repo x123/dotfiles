@@ -38,6 +38,7 @@
     ripgrep
     tmux
     usbutils
+    whois
 
     # net
     aria2
