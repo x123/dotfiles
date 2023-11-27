@@ -19,21 +19,40 @@
     lib = nixpkgs.lib;
 
   in {
+    homeManagerConfigurations = {
+      x = home-manager.lib.homeManagerConfiguration {
+        #inherit system;
+        inherit pkgs;
+        #pkgs = nixpkgs.legacyPackages.${system};
+
+        modules = [
+          ./users/x/home.nix
+          {
+            home = {
+              username = "x";
+              homeDirectory = "/home/x";
+              stateVersion = "23.05";
+            };
+          }
+        ];
+      };
+    };
+    
     nixosConfigurations = {
       xnix = lib.nixosSystem {
         inherit system;
 
         modules = [
           ./system/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-            home-manager.users.x = import ./users/x/home.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
-          }
+          #home-manager.nixosModules.home-manager
+          #{
+          #  home-manager.useGlobalPkgs = true;
+          #  home-manager.useUserPackages = true;
+          #  home-manager.users.x = import ./users/x/home.nix;
+          #
+          #  # Optionally, use home-manager.extraSpecialArgs to pass
+          #  # arguments to home.nix
+          #}
         ];  
       };      
     };

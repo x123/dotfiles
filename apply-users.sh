@@ -1,3 +1,4 @@
 #!/bin/sh
 pushd ~/.dotfiles
-home-manager switch -f ./users/x/home.nix
+nix build .#homeManagerConfigurations.x.activationPackage
+./result/activate
