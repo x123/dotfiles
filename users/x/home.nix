@@ -38,9 +38,6 @@
   ];
 
   home.packages = with pkgs; [
-    # term/shell
-    alacritty
-
     # net
     persepolis
     discord
