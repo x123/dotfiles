@@ -5,6 +5,7 @@
     ../modules/alacritty.nix
     ../modules/common-packages.nix
     ../modules/common-ssh.nix
+    ../modules/discord.nix
     ../modules/firefox.nix
     ../modules/git.nix
     ../modules/gpg-agent.nix
@@ -24,23 +25,9 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # discord
-  nixpkgs.overlays = [(
-    self: super: {
-      discord = super.discord.overrideAttrs (
-        _: { src = builtins.fetchTarball {
-          url = "https://discord.com/api/download?platform=linux&format=tar.gz";
-          sha256 = "1xjk77g9lj5b78c1w3fj42by9b483pkbfb41yzxrg4p36mnd2hkn";
-        }; }
-      );
-    }
-    )
-  ];
-
   home.packages = with pkgs; [
     # net
     persepolis
-    discord
     dropbox
 
     # office
