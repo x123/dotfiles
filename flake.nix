@@ -31,8 +31,6 @@
 
       x = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        #pkgs = nixpkgs.legacyPackages.${system};
-
         modules = [
           nur.nixosModules.nur
           ./users/x/home.nix
@@ -52,17 +50,8 @@
         inherit system;
 
         modules = [
-	  nixos-wsl.nixosModules.wsl
+	      nixos-wsl.nixosModules.wsl
           ./system/xnixwsl/configuration.nix
-          #home-manager.nixosModules.home-manager
-          #{
-          #  home-manager.useGlobalPkgs = true;
-          #  home-manager.useUserPackages = true;
-          #  home-manager.users.x = import ./users/x/home.nix;
-          #
-          #  # Optionally, use home-manager.extraSpecialArgs to pass
-          #  # arguments to home.nix
-          #}
         ];
       };
 
@@ -71,17 +60,9 @@
 
         modules = [
           ./system/configuration.nix
-          #home-manager.nixosModules.home-manager
-          #{
-          #  home-manager.useGlobalPkgs = true;
-          #  home-manager.useUserPackages = true;
-          #  home-manager.users.x = import ./users/x/home.nix;
-          #
-          #  # Optionally, use home-manager.extraSpecialArgs to pass
-          #  # arguments to home.nix
-          #}
         ];
       };
     };
+
   };
 }
