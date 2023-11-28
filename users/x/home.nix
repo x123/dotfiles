@@ -61,6 +61,7 @@
     # dev
     git
     git-crypt
+    rocgdb # for strings
 
     # crypto
     age
