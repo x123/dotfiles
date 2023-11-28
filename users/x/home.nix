@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../modules/common-packages.nix
     ../modules/firefox.nix
     ../modules/gpg-agent.nix
     ../modules/vim.nix
@@ -35,21 +36,13 @@
   home.packages = with pkgs; [
     # term/shell
     alacritty
-    file
-    htop
-    pciutils
-    ripgrep
-    tmux
-    usbutils
-    whois
 
     # net
-    aria2
     persepolis
     discord
     dropbox
 
-    # offixe
+    # office
     libreoffice
 
     # audio/video
@@ -60,35 +53,11 @@
     # art
     gimp
 
-    # dev
-    git
-    git-crypt
-    rocgdb # for strings
-
     # crypto
-    age
-    gnupg
     keepassxc
-    sops
-
-    # archives
-    unzip
-    zip
-
-    # network tools
-    dnsutils
-    ethtool
-    ipcalc
-    mtr
-    nmap
 
     # misc
-    pinentry
     xygrib
-
-    # system tools
-    lm_sensors
-    sysstat
   ];
 
   programs.yt-dlp = {
