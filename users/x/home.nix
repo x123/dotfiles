@@ -4,6 +4,7 @@
   imports = [
     ../modules/common-packages.nix
     ../modules/firefox.nix
+    ../modules/git.nix
     ../modules/gpg-agent.nix
     ../modules/vim.nix
   ];
@@ -69,12 +70,6 @@
       downloader = "aria2c";
       downloader-args = "aria2c:'-c -x8 -s8 -k1M'";
     };
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "x123";
-    userEmail = "x123@users.noreply.github.com";
   };
 
   programs.ssh = {
