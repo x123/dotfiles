@@ -3,6 +3,7 @@
 {
   imports = [
     ../modules/common-packages.nix
+    ../modules/common-ssh.nix
     ../modules/firefox.nix
     ../modules/git.nix
     ../modules/gpg-agent.nix
@@ -73,17 +74,7 @@
   };
 
   programs.ssh = {
-    enable = true;
-    compression = true;
-    forwardAgent = false;
-
     matchBlocks = {
-      "*" = {
-        serverAliveInterval = 60;
-        extraOptions = {
-          ConnectTimeout = "10";
-        };
-      };
       "adamantium" = {
         hostname = "adamantium.boxchop.city";
         user = "root";
@@ -92,17 +83,11 @@
       };
       "github.com" = {
         hostname = "github.com";
-        #user = "git";
         port = 22;
         identityFile = "/home/x/.ssh/id_xbox";
       };
     };
 
-  extraConfig = ''
-    AddKeysToAgent yes
-  '' + ''
-    Match host * exec "gpg-connect-agent UPDATESTARTUPTTY /bye"
-  '';
   };
 
   programs.alacritty = {
