@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./modules/common-packages.nix
+    ./modules/common-ssh.nix
     ./modules/git.nix
     ./modules/vim.nix
   ];
@@ -14,17 +15,7 @@
   programs.home-manager.enable = true;
 
   programs.ssh = {
-    enable = true;
-    compression = true;
-    forwardAgent = false;
-
     matchBlocks = {
-      "*" = {
-        serverAliveInterval = 60;
-        extraOptions = {
-          ConnectTimeout = "10";
-        };
-      };
       "adamantium" = {
         hostname = "adamantium.boxchop.city";
         user = "root";
@@ -38,12 +29,6 @@
         identityFile = "/home/nixos/.ssh/id_wslnix";
       };
     };
-
-    extraConfig = ''
-      AddKeysToAgent yes
-    '' + ''
-      Match host * exec "gpg-connect-agent UPDATESTARTUPTTY /bye"
-    '';
   };
 
 
