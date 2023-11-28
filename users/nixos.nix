@@ -3,6 +3,7 @@
     ./modules/common-packages.nix
     ./modules/common-ssh.nix
     ./modules/git.nix
+    ./modules/shell.nix
     ./modules/vim.nix
   ];
 
@@ -28,19 +29,6 @@
         port = 22;
         identityFile = "/home/nixos/.ssh/id_wslnix";
       };
-    };
-  };
-
-
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-    bashrcExtra = ''
-      export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
-    '';
-    shellAliases = {
-      adamantium = "ssh adamantium";
-      boxchop = "ssh adamantium";
     };
   };
 
