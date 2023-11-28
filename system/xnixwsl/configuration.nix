@@ -15,8 +15,10 @@
 
   wsl.enable = true;
   wsl.defaultUser = "nixos";
+  wsl.wslConf.network.generateResolvConf = false;
 
   networking.hostName = "xnixwsl"; # Define your hostname.
+  networking.nameservers = [ "1.1.1.1" ];
 
   # Enable networking
   networking.networkmanager.enable = true;
