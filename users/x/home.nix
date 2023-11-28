@@ -10,6 +10,7 @@
     ../modules/git.nix
     ../modules/gpg-agent.nix
     ../modules/shell.nix
+    ../modules/video.nix
     ../modules/vim.nix
   ];
 
@@ -33,11 +34,6 @@
     # office
     libreoffice
 
-    # audio/video
-    pavucontrol
-    streamlink
-    vlc
-
     # art
     gimp
 
@@ -47,17 +43,6 @@
     # misc
     xygrib
   ];
-
-  programs.yt-dlp = {
-    enable = true;
-    settings = {
-      embed-thumbnail = true;
-      embed-subs = true;
-      sub-langs = "all";
-      downloader = "aria2c";
-      downloader-args = "aria2c:'-c -x8 -s8 -k1M'";
-    };
-  };
 
   programs.ssh = {
     matchBlocks = {
