@@ -3,6 +3,7 @@
     ./modules/common-packages.nix
     ./modules/common-ssh.nix
     ./modules/git.nix
+    ./modules/gpg-agent.nix
     ./modules/shell.nix
     ./modules/vim.nix
   ];
@@ -32,19 +33,4 @@
     };
   };
 
-  services.gpg-agent = {
-    enable = true;
-
-    defaultCacheTtl = 86400;
-    defaultCacheTtlSsh = 86400;
-    maxCacheTtl = 86400;
-    maxCacheTtlSsh = 86400;
-    enableSshSupport = true;
-    pinentryFlavor = "tty";
-    extraConfig = ''
-      pinentry-program ${pkgs.pinentry-qt}/bin/pinentry
-    '' + ''
-      allow-loopback-pinentry
-    '';
-  };
 }
