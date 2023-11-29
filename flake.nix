@@ -20,6 +20,17 @@
 
   in {
     homeManagerConfigurations = {
+      fom-fom-mba14 = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+	  system = "aarch64-darwin";
+          config = { allowUnfree = true; };
+        };
+        modules = [
+          ./users/fom/home.nix
+      ];
+      
+      };
+
       nixos-xnixwsl = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = "x86_64-linux";
@@ -50,10 +61,11 @@
     };
 
     darwinConfigurations = {
-      FOM-MBA1415 = nix-darwin.lib.darwinSystem {
+      fom-mba14 = nix-darwin.lib.darwinSystem {
 	system = "aarch64-darwin";
 	modules = [
-          ./system/FOM-MBA1415/configuration.nix
+	  home-manager.darwinModules.home-manager
+          ./system/fom-mba14/configuration.nix
         ];
       };
     };
