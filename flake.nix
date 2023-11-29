@@ -25,7 +25,7 @@
       nixos = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [
-        ./users/nixos.nix
+        ./users/nixos/home.nix
       ];
     };
 
