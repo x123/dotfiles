@@ -50,7 +50,7 @@
         inherit system;
 
         modules = [
-	      nixos-wsl.nixosModules.wsl
+          nixos-wsl.nixosModules.wsl
           ./system/xnixwsl/configuration.nix
         ];
       };
