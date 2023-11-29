@@ -7,10 +7,10 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../modules/bluetooth.nix
-    ../modules/nvidia.nix
-    ../modules/sound.nix
-    ../modules/x11.nix
+    ../../modules/system/bluetooth.nix
+    ../../modules/system/nvidia.nix
+    ../../modules/system/sound.nix
+    ../../modules/system/x11.nix
     ];
 
   # support nix flakes
