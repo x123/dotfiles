@@ -2,16 +2,16 @@
 
 {
   imports = [
-    ../modules/alacritty.nix
-    ../modules/common-packages.nix
-    ../modules/common-ssh.nix
-    ../modules/discord.nix
-    ../modules/firefox.nix
-    ../modules/git.nix
-    ../modules/gpg-agent.nix
-    ../modules/shell.nix
-    ../modules/video.nix
-    ../modules/vim.nix
+    ../../modules/user/alacritty.nix
+    ../../modules/user/common-packages.nix
+    ../../modules/user/common-ssh.nix
+    ../../modules/user/discord.nix
+    ../../modules/user/firefox.nix
+    ../../modules/user/git.nix
+    ../../modules/user/gpg-agent.nix
+    ../../modules/user/shell.nix
+    ../../modules/user/video.nix
+    ../../modules/user/vim.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

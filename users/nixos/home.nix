@@ -1,11 +1,11 @@
 {pkgs, ...}: {
   imports = [
-    ../modules/common-packages.nix
-    ../modules/common-ssh.nix
-    ../modules/git.nix
-    ../modules/gpg-agent.nix
-    ../modules/shell.nix
-    ../modules/vim.nix
+    ../../modules/user/common-packages.nix
+    ../../modules/user/common-ssh.nix
+    ../../modules/user/git.nix
+    ../../modules/user/gpg-agent.nix
+    ../../modules/user/shell.nix
+    ../../modules/user/vim.nix
   ];
 
   home = {
