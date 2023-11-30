@@ -6,6 +6,7 @@
 
 {
   imports = [
+  ../../modules/system/darwin/karabiner.nix
   ../../modules/system/darwin/yabai.nix
   ];
 
