@@ -2,8 +2,8 @@
   description = "x123 system config";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-23.05";
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    nixpkgs.url = "nixpkgs/nixos-unstable"; # nixos-23.05
+    home-manager.url = "github:nix-community/home-manager"; # /release-23.05
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nur.url = "github:nix-community/NUR";
     nix-darwin.url = "github:LnL7/nix-darwin";
