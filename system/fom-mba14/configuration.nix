@@ -16,7 +16,13 @@
     git
   ];
 
-  environment.pathsToLink = [ "/share/bash-completion" ];
+  environment.shells = with pkgs; [
+    bash
+    zsh
+  ];
+  users.users.fom.shell = pkgs.bash;
+
+  #environment.pathsToLink = [ "/share/bash-completion" ];
 
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
