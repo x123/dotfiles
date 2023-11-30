@@ -50,13 +50,6 @@
         modules = [
           nur.nixosModules.nur
           ./users/x/home.nix
-          {
-            home = {
-              username = "x";
-              homeDirectory = "/home/x";
-              stateVersion = "23.05";
-            };
-          }
         ];
       };
     };
