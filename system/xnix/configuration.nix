@@ -17,17 +17,6 @@
   nix.package = pkgs.nixFlakes;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # bootloader
-  boot.loader = {
-    systemd-boot.enable = true;
-    systemd-boot.configurationLimit = 100;
-    efi.canTouchEfiVariables = true;
-  };
-
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" ];
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.kernelModules = [ "it87" "k10temp" "nct6683" ];
-
   services.fstrim.enable = true;
 
   networking.hostName = "xnix";
