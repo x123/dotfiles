@@ -21,6 +21,8 @@
   boot.kernelModules = [ "it87" "k10temp" "nct6683" "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  services.fstrim.enable = true;
+
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXROOT";
     fsType = "ext4";
