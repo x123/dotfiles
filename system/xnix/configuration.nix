@@ -13,6 +13,7 @@
     ../../modules/system/sound.nix
     ../../modules/system/steam.nix
     ../../modules/system/x11.nix
+    ../../modules/system/zsh.nix
     ];
 
   # support nix flakes
@@ -29,8 +30,6 @@
   # Set your time zone.
   time.timeZone = "Europe/Copenhagen";
 
-  users.defaultUserShell = pkgs.zsh;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.x = {
     isNormalUser = true;
@@ -40,16 +39,12 @@
     useDefaultShell = true;
   };
 
-  programs.zsh.enable = true;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-# List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
     wget
-    zsh
   ];
 
   system.stateVersion = "23.05"; # Did you read the comment?
