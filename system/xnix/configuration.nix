@@ -53,12 +53,15 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  users.defaultUserShell = pkgs.zsh;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.x = {
     isNormalUser = true;
     description = "x";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
+    useDefaultShell = true;
   };
 
   programs.zsh.enable = true;
@@ -70,6 +73,7 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
+    zsh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
