@@ -8,9 +8,4 @@
   targets.darwin.defaults.NSGlobalDomain.AppleMetricUnits = true;
   targets.darwin.defaults.NSGlobalDomain.AppleTemperatureUnit = "Celsius";
 
-  # typing/spelling
-  targets.darwin.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = true;
-  targets.darwin.defaults.NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = true;
-  targets.darwin.defaults.NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = true;
-
 }
