@@ -17,8 +17,16 @@
     mouse = true;
     keyMode = "vi";
     clock24 = true;
-    shell = "${pkgs.bash}/bin/bash";
     shortcut = "a";
+  };
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    shellAliases = {
+      adamantium = "ssh adamantium";
+      boxchop = "ssh adamantium";
+    };
   };
 
   programs.bash = {
