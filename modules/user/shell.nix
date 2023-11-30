@@ -1,6 +1,26 @@
 {pkgs, ...}: {
   imports = [];
 
+  home = {
+    packages = with pkgs; [
+      # term/shell
+      file
+      htop
+      pciutils
+      ripgrep
+    ];
+  };
+
+  programs.tmux = {
+    enable = true;
+    historyLimit = 100000;
+    mouse = true;
+    keyMode = "vi";
+    clock24 = true;
+    shell = "${pkgs.bash}/bin/bash";
+    shortcut = "a";
+  };
+
   programs.bash = {
     enable = true;
     enableCompletion = true;

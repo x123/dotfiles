@@ -8,7 +8,6 @@
       htop
       pciutils
       ripgrep
-      tmux
 
       # net
       aria2
