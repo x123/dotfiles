@@ -9,6 +9,11 @@
       pciutils
       ripgrep
     ];
+
+    shellAliases = {
+      adamantium = "ssh adamantium";
+      boxchop = "ssh adamantium";
+    };
   };
 
   programs.tmux = {
@@ -23,10 +28,6 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    shellAliases = {
-      adamantium = "ssh adamantium";
-      boxchop = "ssh adamantium";
-    };
   };
 
   programs.bash = {
@@ -40,10 +41,6 @@
      }
      starship_precmd_user_func="set_win_title"
     '';
-    shellAliases = {
-      adamantium = "ssh adamantium";
-      boxchop = "ssh adamantium";
-    };
   };
 
   programs.starship.enable = true;
