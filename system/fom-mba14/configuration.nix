@@ -22,19 +22,22 @@
     bash
     zsh
   ];
-  users.users.fom.shell = pkgs.bash;
 
   environment.variables = {
     EDITOR = "vim";
   };
 
-  nix.settings.extra-platforms = "x86_64-darwin";
+  # users
+  users.users.fom.shell = pkgs.bash;
 
-  services.nix-daemon.enable = true;
+  # nix settings
+  nix.settings.extra-platforms = "x86_64-darwin";
   nix.settings.allowed-users = [
     "@admin"
     "fom"
   ];
+
+  services.nix-daemon.enable = true;
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh = {
@@ -45,18 +48,6 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
-  };
-
-  system.defaults = {
-	dock = {
-	  autohide = true;
-	};
-
-	finder = {
-	  AppleShowAllExtensions = true;
-	  _FXShowPosixPathInTitle = true;
-	  FXEnableExtensionChangeWarning = false;
-	};
   };
 
   # Set Git commit hash for darwin-version.
