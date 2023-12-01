@@ -6,7 +6,7 @@
     ../../modules/user/darwin/macos.nix
     ../../modules/user/darwin/safari.nix
     ../../modules/user/git.nix
-    ../../modules/user/shell.nix
+    ../../modules/user/shell
     ../../modules/user/vim.nix
     ../../modules/user/keepass.nix
   ];

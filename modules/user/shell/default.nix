@@ -1,5 +1,7 @@
 {pkgs, ...}: {
-  imports = [];
+  imports = [
+    ./tmux.nix
+  ];
 
   home = {
     packages = with pkgs; [
@@ -14,15 +16,6 @@
       adamantium = "ssh adamantium";
       boxchop = "ssh adamantium";
     };
-  };
-
-  programs.tmux = {
-    enable = true;
-    historyLimit = 100000;
-    mouse = true;
-    keyMode = "vi";
-    clock24 = true;
-    shortcut = "a";
   };
 
   programs.zsh = {

@@ -4,7 +4,7 @@
     ../../modules/user/common-ssh.nix
     ../../modules/user/git.nix
     ../../modules/user/gpg-agent.nix
-    ../../modules/user/shell.nix
+    ../../modules/user/shell
     ../../modules/user/vim.nix
   ];
 
