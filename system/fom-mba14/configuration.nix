@@ -27,7 +27,6 @@
   environment.variables = {
     EDITOR = "vim";
   };
-  #environment.pathsToLink = [ "/share/bash-completion" ];
 
   nix.settings.extra-platforms = "x86_64-darwin";
 
@@ -51,7 +50,6 @@
   system.defaults = {
 	dock = {
 	  autohide = true;
-	  #orientation = "right";
 	};
 
 	finder = {
