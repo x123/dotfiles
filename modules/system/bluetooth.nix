@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   imports = [];
 
+  services.blueman.enable = true;
+
   hardware.bluetooth = {
     enable = true;
     hsphfpd.enable = false;
