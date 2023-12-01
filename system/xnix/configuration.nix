@@ -9,16 +9,13 @@
     ./hardware-configuration.nix
     ../../modules/system/bluetooth.nix
     ../../modules/system/locale.nix
+    ../../modules/system/nix-settings.nix # do not remove
     ../../modules/system/nvidia.nix
     ../../modules/system/sound.nix
     ../../modules/system/steam.nix
     ../../modules/system/x11.nix
     ../../modules/system/zsh.nix
     ];
-
-  # support nix flakes
-  nix.package = pkgs.nixFlakes;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
