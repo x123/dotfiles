@@ -7,13 +7,11 @@
 {
   imports = [
     ../../modules/system/bluetooth.nix
+    ../../modules/system/nix-settings.nix # do not remove
     ../../modules/system/nvidia.nix
     ../../modules/system/sound.nix
     #../../modules/system/x11.nix
     ];
-
-  nix.package = pkgs.nixFlakes;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;

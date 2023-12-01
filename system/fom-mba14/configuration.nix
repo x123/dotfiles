@@ -7,6 +7,7 @@
 {
   imports = [
   ../../modules/system/darwin/karabiner.nix
+  ../../modules/system/nix-settings.nix # do not remove
   ../../modules/system/darwin/yabai.nix
   ../../modules/system/darwin/skhd.nix
   ];
@@ -28,8 +29,6 @@
   };
   #environment.pathsToLink = [ "/share/bash-completion" ];
 
-  # Necessary for using flakes on this system.
-  nix.settings.experimental-features = "nix-command flakes";
   nix.settings.extra-platforms = "x86_64-darwin";
 
   services.nix-daemon.enable = true;
