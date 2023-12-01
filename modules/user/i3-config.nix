@@ -46,6 +46,10 @@
           "${my-modifier}+Tab" = "exec ${pkgs.rofi}/bin/rofi -show window";
           "${my-modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show combi";
         };
+        focus = {
+          followMouse = false;
+          mouseWarping = true;
+        };
       };
     };
 }
