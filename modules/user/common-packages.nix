@@ -6,6 +6,7 @@
       # term/shell
       file
       htop
+      killall
       pciutils
       ripgrep
       usbutils
