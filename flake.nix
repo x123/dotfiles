@@ -7,14 +7,16 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nur.url = "github:nix-community/NUR";
     nix-darwin.url = "github:LnL7/nix-darwin";
+    blender-bin.url = "github:edolstra/nix-warez/?dir=blender";
 
     # minimize duplicate instances of inputs
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    blender-bin.inputs.nixpkgs.follows = "nixpkgs";
   };
   
-  outputs = inputs@{ self, nixpkgs, home-manager, nur, nixos-wsl, nix-darwin, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, nur, nixos-wsl, nix-darwin, blender-bin,... }:
   let 
     lib = nixpkgs.lib;
 
@@ -26,6 +28,7 @@
           extra-platforms = "x86_64-darwin";
           config = { allowUnfree = true; };
         };
+        extraSpecialArgs = {inherit inputs;};
         modules = [
           ./users/fom/home.nix
         ];
@@ -36,6 +39,7 @@
           system = "x86_64-linux";
           config = { allowUnfree = true; };
         };
+        extraSpecialArgs = {inherit inputs;};
         modules = [
           ./users/nixos/home.nix
         ];
@@ -46,6 +50,7 @@
           system = "x86_64-linux";
           config = { allowUnfree = true; };
         };
+        extraSpecialArgs = {inherit inputs;};
         modules = [
           nur.nixosModules.nur
           ./users/x/home.nix
@@ -56,6 +61,7 @@
     darwinConfigurations = {
       fom-mba14 = nix-darwin.lib.darwinSystem {
 	    system = "aarch64-darwin";
+        specialArgs = {inherit inputs;};
 	    modules = [
 	      home-manager.darwinModules.home-manager
           ./system/fom-mba14/configuration.nix
@@ -66,6 +72,7 @@
     nixosConfigurations = {
       xnixwsl = lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
         modules = [
           nixos-wsl.nixosModules.wsl
           ./system/xnixwsl/configuration.nix
@@ -74,6 +81,7 @@
 
       xnix = lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
         modules = [
           ./system/xnix/configuration.nix
         ];

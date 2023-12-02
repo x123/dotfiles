@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   imports = [
     ../../modules/user/common-packages.nix
     ../../modules/user/common-ssh.nix
