@@ -40,6 +40,7 @@
           {command = "${pkgs.dunst}/bin/dunst &";}
           {command = "${pkgs.picom}/bin/picom --daemon";}
           {command = "${pkgs.i3}/bin/i3-msg workspace 1";}
+          {command = "systemctl --user start redshift";}
         ];
         modifier = my-modifier;
         terminal = "alacritty";

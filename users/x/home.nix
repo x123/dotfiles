@@ -16,7 +16,7 @@
     ../../modules/user/tor-browser.nix
     ../../modules/user/video.nix
     ../../modules/user/vim.nix
-    ../../modules/user/i3-config.nix
+    ../../modules/user/x11
   ];
 
   home = {
