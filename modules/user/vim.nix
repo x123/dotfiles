@@ -3,6 +3,11 @@
 
   programs.vim = {
     enable = true;
+    plugins = with pkgs.vimPlugins; [
+      vim-airline
+      vim-lastplace
+      vim-nix
+    ];
     defaultEditor = true;
     settings = {
       number = true;
