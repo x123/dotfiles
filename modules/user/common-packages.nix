@@ -1,51 +1,76 @@
-{pkgs, ...}: {
-  imports = [];
+{config, pkgs, lib, ...}:
+let
+  cfg = config.mypackages.common-packages;
+  broken_on_darwin = with pkgs; [
+    # system tools
+    ethtool
+    lm_sensors
+    strace
+    sysstat
 
-  home = {
-    packages = with pkgs; [
-      # term/shell
-      file
-      htop
-      killall
-      lsof
-      pciutils
-      ripgrep
-      tree
-      usbutils
-      whois
+    # term/shell
+    usbutils
+    whois
+  ];
 
-      # net
-      aria2
+in
 
-      # dev
-      git
-      git-crypt
-      jq
-	  rocmPackages.rocgdb
-      yq
+with lib;
+{
+  options = {
+    mypackages.common-packages = {
+      enable = mkOption {
+        default = true;
+        type = with types; bool;
+        description = ''
+          Whether to enable the common packages.
+        '';
+      };
+    };
+  };
 
-      # crypto
-      age
-      gnupg
-      sops
+  config = mkIf cfg.enable {
+    home = {
+      packages = with pkgs; [
+        # term/shell
+        file
+        htop
+        killall
+        lsof
+        pciutils
+        ripgrep
+        tree
 
-      # archives
-      unzip
-      zip
+        # net
+        aria2
 
-      # network tools
-      dnsutils
-      ethtool
-      ipcalc
-      mtr
-      nmap
+        # dev
+        difftastic
+        git
+        git-crypt
+        jq
+        yq
 
-      # misc
-      pinentry
+        # crypto
+        age
+        gnupg
+        sops
 
-      # system tools
-      lm_sensors
-      sysstat
-    ];
+        # archives
+        unzip
+        zip
+
+        # network tools
+        dnsutils
+        ipcalc
+        mtr
+        nmap
+
+        # misc
+        pinentry
+      ] ++ (if pkgs.stdenv.isDarwin then []
+      else broken_on_darwin
+      );
+    };
   };
 }
