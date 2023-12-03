@@ -8,6 +8,7 @@
       htop
       pciutils
       ripgrep
+      tree
 
       # net
       aria2
