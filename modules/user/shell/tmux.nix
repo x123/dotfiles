@@ -8,6 +8,9 @@
     keyMode = "vi";
     clock24 = true;
     shortcut = "a";
+    plugins = with pkgs; [
+      tmuxPlugins.nord
+    ];
   };
 
 }
