@@ -7,6 +7,7 @@
       file
       htop
       killall
+      lsof
       pciutils
       ripgrep
       tree

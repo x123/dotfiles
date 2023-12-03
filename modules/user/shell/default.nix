@@ -1,6 +1,7 @@
-{pkgs, ...}: {
+{pkgs, config, ...}: {
   imports = [
     ./fonts.nix
+    ./htop.nix
     ./tmux.nix
     ./starship.nix
   ];
