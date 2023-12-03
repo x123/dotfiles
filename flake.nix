@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable"; # nixos-23.05
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager.url = "github:nix-community/home-manager"; # /release-23.05
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nur.url = "github:nix-community/NUR";
@@ -16,7 +17,7 @@
     blender-bin.inputs.nixpkgs.follows = "nixpkgs";
   };
   
-  outputs = inputs@{ self, nixpkgs, home-manager, nur, nixos-wsl, nix-darwin, blender-bin,... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, nur, nixos-wsl, nix-darwin, blender-bin, nixos-hardware, ... }:
   let 
     lib = nixpkgs.lib;
 
@@ -83,6 +84,10 @@
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
         modules = [
+          nixos-hardware.nixosModules.common-cpu-amd-pstate
+          nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
+          nixos-hardware.nixosModules.common-pc
+          nixos-hardware.nixosModules.common-pc-ssd
           ./system/xnix/configuration.nix
         ];
       };
