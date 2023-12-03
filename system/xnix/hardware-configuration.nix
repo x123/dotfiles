@@ -18,8 +18,9 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" "usb_storage" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.kernelModules = [ "it87" "k10temp" "nct6683" "kvm-amd" "nct6687d"];
+  boot.kernelParams = [ ];
+  boot.kernelPackages = pkgs.linuxPackages_lqx; # or zen or latest
+  boot.kernelModules = [ "k10temp" "kvm-amd" "nct6683"];
   boot.extraModulePackages = [ ];
 
   services.fstrim.enable = true;
