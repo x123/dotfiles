@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../modules/user/alacritty.nix
+    ../../modules/user/alacritty
     ../../modules/user/blender.nix
     ../../modules/user/common-packages.nix
     ../../modules/user/common-ssh.nix

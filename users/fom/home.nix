@@ -1,6 +1,6 @@
 {pkgs, inputs, ...}: {
   imports = [
-    ../../modules/user/darwin/alacritty.nix
+    ../../modules/user/darwin/alacritty
     ../../modules/user/darwin/common-packages.nix
     ../../modules/user/darwin/common-ssh.nix
     ../../modules/user/darwin/macos.nix

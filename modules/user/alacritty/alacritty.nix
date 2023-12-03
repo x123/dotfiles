@@ -1,5 +1,7 @@
 {pkgs, ...}: {
-  imports = [];
+  imports = [
+    ./themes/nord.nix
+  ];
 
   home.packages = with pkgs; [
     alacritty
