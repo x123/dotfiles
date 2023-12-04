@@ -28,5 +28,5 @@ then
 fi
 echo "${USER}-${HOSTNAME}"
 pushd ~/.dotfiles
-nix build .#homeManagerConfigurations.${USER}-${HOSTNAME}.activationPackage
+nix build -v .#homeManagerConfigurations.${USER}-${HOSTNAME}.activationPackage
 ./result/activate
