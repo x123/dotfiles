@@ -18,15 +18,36 @@
 
   # force rofi font size for hidpi
   programs.rofi = lib.mkForce {
+    enable = true;
     font = "Fira Mono for Powerline 20";
+    theme = "${pkgs.rofi}/share/rofi/themes/Arc-Dark.rasi";
+    terminal = "${pkgs.alacritty}/bin/alacritty";
+    extraConfig = {
+      modes = "window,drun,ssh,run,combi";
+      combi-modes = "window,ssh,drun,run";
+    };
   };
 
   # force alacritty font size for hidpi
   programs.alacritty = lib.mkForce {
+    enable = true;
     settings = {
+      env.TERM = "xterm-256color";
       font = {
+        normal = {
+          family = "Fira Mono for Powerline";
+          style = "Regular";
+        };
+        bold = {
+          family = "Fira Mono for Powerline";
+          style = "Bold";
+        };
         size = 20;
+        draw_bold_text_with_bright_colors = true;
       };
+      window.opacity = 0.9;
+      scrolling.multiplier = 5;
+      selection.save_to_clipboard = true;
     };
   };
 
