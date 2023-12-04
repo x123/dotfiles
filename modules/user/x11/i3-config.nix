@@ -18,6 +18,24 @@
     };
   };
 
+  programs.autorandr = {
+    enable = true;
+    profiles = {
+      "home" = {
+        fingerprint.DP-0 = "00ffffffffffff000469b127b98b010027180104a53c2278064ce1a55850a0230b505400000001010101010101010101010101010101565e00a0a0a029503020350056502100001a000000ff002341534d764c30494c30655064000000fd001e961ed236010a202020202020000000fc00524f47205047323738510a202001fb02030a01654b040001015a8700a0a0a03b503020350056502100001a5aa000a0a0a046503020350056502100001a6fc200a0a0a055503020350056502100001a74d20016a0a009500410110056502100001e1c2500a0a0a011503020350056502100001a000000000000000000000000000000000000000000000000000000af";
+        config = {
+          DP-0 = {
+            enable = true;
+            primary = true;
+            crtc = 0;
+            mode = "2560x1440";
+            rate = "59.95";
+          };
+        };
+      };
+    };
+  };
+
   services.blueman-applet.enable = true;
   services.network-manager-applet.enable = true;
 
@@ -37,11 +55,15 @@
       enable = true;
       config = {
         startup = [
+          {command = "${pkgs.autorandr}/bin/autorandr -l home";}
           {command = "${pkgs.feh}/bin/feh --bg-fill ${background}";}
           {command = "${pkgs.dunst}/bin/dunst &";}
           {command = "${pkgs.picom}/bin/picom --daemon";}
           {command = "${pkgs.i3}/bin/i3-msg workspace 1";}
           {command = "${pkgs.redshift}/bin/redshift -l 55.7:12.6 -t 5700:3600 -g 0.8 -m randr -v";}
+          {command = "${pkgs.networkmanagerapplet}/bin/nm-applet &";}
+          {command = "${pkgs.blueman}/bin/blueman-applet &";}
+          {command = "${pkgs.dropbox}/bin/dropbox &";}
         ];
         modifier = my-modifier;
         terminal = "alacritty";
