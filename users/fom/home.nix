@@ -44,6 +44,11 @@
         port = 22;
         identityFile = "/Users/fom/.ssh/id_fom-mba";
       };
+      "work.github.com" = {
+        hostname = "github.com";
+        port = 22;
+        identityFile = "/Users/fom/.ssh/id_fom-mba-work";
+      };
     };
   };
 
