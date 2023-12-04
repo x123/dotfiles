@@ -28,7 +28,16 @@
   networking.hostName = "xnix";
   networking.networkmanager.enable = true;
 
-  # packages
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
+  };
+
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
   environment.systemPackages = with pkgs; [
     vim
     wget
