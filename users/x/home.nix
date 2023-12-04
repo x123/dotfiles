@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../../modules/user/ai.nix
     ../../modules/user/alacritty
     ../../modules/user/blender.nix
     ../../modules/user/common-packages.nix
