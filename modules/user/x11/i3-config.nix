@@ -6,6 +6,7 @@
     feh
     networkmanagerapplet
     redshift
+    xfce.thunar
   ];
 
   programs.rofi = {
