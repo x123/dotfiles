@@ -9,15 +9,17 @@
     nur.url = "github:nix-community/NUR";
     nix-darwin.url = "github:LnL7/nix-darwin";
     blender-bin.url = "github:edolstra/nix-warez/?dir=blender";
+    nixified-ai.url = "github:nixified-ai/flake";
 
     # minimize duplicate instances of inputs
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     blender-bin.inputs.nixpkgs.follows = "nixpkgs";
+    nixified-ai.inputs.nixpkgs.follows = "nixpkgs";
   };
   
-  outputs = inputs@{ self, nixpkgs, home-manager, nur, nixos-wsl, nix-darwin, blender-bin, nixos-hardware, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, nur, nixos-wsl, nix-darwin, blender-bin, nixos-hardware, nixified-ai, ... }:
   let 
     lib = nixpkgs.lib;
 
