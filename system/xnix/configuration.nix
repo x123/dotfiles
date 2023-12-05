@@ -31,12 +31,21 @@
 
   services.openssh = {
     enable = true;
+    openFirewall = true;
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
     };
   };
 
+  networking.nftables.enable = true;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 22 ];
+    extraInputRules = ''
+      ip saddr { 192.168.1.0/24, 192.168.9.0/24 } tcp dport {22, 9090} accept
+    '';
+  };
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   environment.systemPackages = with pkgs; [
