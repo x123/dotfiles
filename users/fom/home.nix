@@ -7,6 +7,7 @@
     ../../modules/user/darwin/safari.nix
     ../../modules/user/git.nix
     ../../modules/user/shell
+    ../../modules/user/video.nix
     ../../modules/user/vim.nix
     ../../modules/user/keepass.nix
   ];
