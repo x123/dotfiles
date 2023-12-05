@@ -35,6 +35,8 @@
       device = "/dev/disk/by-uuid/3062db9e-0454-4188-b0ba-d751be39e6b9";
       allowDiscards = true;
       bypassWorkqueues = true;
+      keyFileSize = 4096;
+      keyFile = "/dev/disk/by-id/usb-Kingston_DataTraveler_2.0_00173182460CBF80194DAB60-0:0";
     };
 
   fileSystems."/boot" =
