@@ -7,7 +7,7 @@
 {
   imports = [
   ../../modules/system/darwin/fonts.nix
-  ../../modules/system/darwin/karabiner.nix
+  #../../modules/system/darwin/karabiner.nix
   ../../modules/system/nix-settings.nix # do not remove
   #../../modules/system/darwin/yabai.nix
   ../../modules/system/darwin/skhd.nix
