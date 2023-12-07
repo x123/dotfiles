@@ -37,9 +37,17 @@ with lib;
         htop
         killall
         lsof
+        parallel
         pciutils
         ripgrep
         tree
+
+        # hardware info
+        inxi
+        dmidecode
+
+        # media
+        imagemagick
 
         # net
         aria2
