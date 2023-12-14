@@ -6,6 +6,9 @@
     layout = "us";
     xkbVariant = "";
 
+    autoRepeatDelay = 250;
+    autoRepeatInterval = 45;
+
     desktopManager = {
       xterm.enable = false;
     };
