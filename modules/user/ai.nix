@@ -12,7 +12,7 @@
   home = {
     packages = [
       pkgs.realesrgan-ncnn-vulkan
-      inputs.nixified-ai.packages.x86_64-linux.invokeai-nvidia
+      #inputs.nixified-ai.packages.x86_64-linux.invokeai-nvidia
     ];
   };
 }
