@@ -29,4 +29,10 @@ fi
 echo "${USER}-${HOSTNAME}"
 pushd ~/.dotfiles
 nix build -v .#homeManagerConfigurations.${USER}-${HOSTNAME}.activationPackage
-./result/activate
+if [ $? -eq 0 ]
+then
+    ./result/activate;
+else
+    echo "Build above failed, not running ./result/activate";
+    exit 1;
+fi

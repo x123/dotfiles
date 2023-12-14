@@ -1,5 +1,5 @@
 #!/bin/sh
-set -x
+set -xe
 DATESTAMP=`date -u "+%Y-%m-%d-%H%M%S%Z"`
 sudo mv /etc/bashrc /etc/bashrc.orig.${DATESTAMP}
 sudo mv /etc/zshrc /etc/zshrc.orig.${DATESTAMP}
