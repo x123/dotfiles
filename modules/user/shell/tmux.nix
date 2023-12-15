@@ -7,7 +7,7 @@
     mouse = true;
     keyMode = "vi";
     clock24 = true;
-    shortcut = "Space";
+    shortcut = "a";
     baseIndex = 1;
     aggressiveResize = true;
     extraConfig = ''
