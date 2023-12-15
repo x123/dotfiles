@@ -7,6 +7,7 @@
     ../../modules/user/blender.nix
     ../../modules/user/common-packages.nix
     ../../modules/user/common-ssh.nix
+    ../../modules/user/dev.nix
     ../../modules/user/discord.nix
     ../../modules/user/firefox.nix
     ../../modules/user/git.nix

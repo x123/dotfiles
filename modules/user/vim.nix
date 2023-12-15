@@ -10,6 +10,8 @@
       vim-airline-themes
       vim-fugitive
       vim-lastplace
+      vim-lsp
+      vim-lsp-settings
       vim-nix
       vim-tmux-navigator
     ];
