@@ -10,6 +10,10 @@
     shortcut = "Space";
     baseIndex = 1;
     aggressiveResize = true;
+    extraConfig = ''
+      bind '"' split-window -v -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
+    '';
     plugins = with pkgs; [
       tmuxPlugins.nord
     ];
