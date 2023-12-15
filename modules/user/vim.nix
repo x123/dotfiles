@@ -8,6 +8,7 @@
       nerdtree-git-plugin
       vim-airline
       vim-airline-themes
+      vim-elixir
       vim-fugitive
       vim-lastplace
       vim-lsp
