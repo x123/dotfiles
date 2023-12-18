@@ -25,6 +25,9 @@
     username = "x";
     homeDirectory = "/home/x";
     stateVersion = "23.05";
+    sessionPath = [
+      "$HOME/bin"
+    ];
   };
   nixpkgs.config.allowUnfree = true;
 
