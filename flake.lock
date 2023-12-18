@@ -8,11 +8,11 @@
       },
       "locked": {
         "dir": "blender",
-        "lastModified": 1700742564,
-        "narHash": "sha256-fkVV9AwGhyuoUy+nkiOg4fnuD9pb+t7bgdPbA38qDKM=",
+        "lastModified": 1702908620,
+        "narHash": "sha256-M3MiuiM9pWLD1AtPH4ndrB2Yr3L3QO2Qm5uIrRXThZc=",
         "owner": "edolstra",
         "repo": "nix-warez",
-        "rev": "981a6b645f4e7427071c51b6b531a7317fc7a6c6",
+        "rev": "d3530810db0fcd4a1e68764b11ab7514bda0769c",
         "type": "github"
       },
       "original": {
@@ -255,11 +255,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1702887741,
-        "narHash": "sha256-aIu5D1iq4nHqpZkvW6vbqXvL5CMrvzdqVqTpc9X/klc=",
+        "lastModified": 1702910532,
+        "narHash": "sha256-pbuL3mLubyEEJMTuNKHiIuzO6A4UFRSfsq2IZWswVcw=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "a663c76cc6b32cd341f6d0c649015d18384c3cbf",
+        "rev": "5d62db8546cf2cade0992be6d7a3878f3a88a4b2",
         "type": "github"
       },
       "original": {
