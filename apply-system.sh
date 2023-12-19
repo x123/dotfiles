@@ -5,7 +5,7 @@ NIXOS_REBUILD=`which nixos-rebuild`
 if [ ! -z "${DARWIN_REBUILD}" ]; then
 	echo "Found darwin-rebuild at ${DARWIN_REBUILD}"
 	pushd ~/.dotfiles
-	darwin-rebuild switch --flake .#
+	darwin-rebuild -v switch --flake .#
 	popd
 elif [ ! -z "${NIXOS_REBUILD}" ]; then
 	echo "Found nixos-rebuild at ${NIXOS_REBUILD}"
