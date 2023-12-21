@@ -2,7 +2,13 @@
 let
   cfg = config.mypackages.common-packages;
   broken_on_darwin = with pkgs; [
+    # network
+    kubo
+    tor
+    torsocks
+
     # system tools
+    bashmount
     ethtool
     inotify-tools
     lm_sensors

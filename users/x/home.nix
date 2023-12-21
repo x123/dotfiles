@@ -30,6 +30,23 @@
       "$HOME/bin"
     ];
   };
+
+  home.file = {
+    mount-kobo = {
+      enable = true;
+      #executable = true;
+      source = ./files/mount-kobo;
+      target = "bin/mount-kobo";
+    };
+
+    unmount-kobo = {
+      enable = true;
+      #executable = true;
+      source = ./files/unmount-kobo;
+      target = "bin/unmount-kobo";
+    };
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   # Let Home Manager install and manage itself.

@@ -1,0 +1,3 @@
+#!env /bin/sh
+set -xe
+sudo mount -t vfat -o rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro,uid=1000,gid=100 /dev/disk/by-id/usb-Linux_File-Stor_Gadget_N418297042638-0:0 /home/x/kobo
