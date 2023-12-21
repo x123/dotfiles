@@ -5,6 +5,7 @@
     ../../modules/user/ai.nix
     ../../modules/user/alacritty
     ../../modules/user/blender.nix
+    ../../modules/user/calibre.nix
     ../../modules/user/common-packages.nix
     ../../modules/user/common-ssh.nix
     ../../modules/user/dev.nix
