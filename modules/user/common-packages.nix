@@ -4,6 +4,7 @@ let
   broken_on_darwin = with pkgs; [
     # system tools
     ethtool
+    inotify-tools
     lm_sensors
     strace
     sysstat
