@@ -6,6 +6,7 @@
       elixir
       erlang
       nodejs
+      sqlite
     ];
   };
 
