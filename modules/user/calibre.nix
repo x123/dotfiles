@@ -5,6 +5,7 @@
     packages = with pkgs; [
       calibre
       libmtp
+      optipng
     ];
   };
 }
