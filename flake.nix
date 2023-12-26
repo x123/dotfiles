@@ -115,6 +115,14 @@
         ];
       };
 
+      nixium = lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./system/nixium/configuration.nix
+        ];
+        specialArgs = { hostname = "nixium.boxchop.city"; };
+      };
 
     };
   };
