@@ -81,6 +81,12 @@
         port = 22;
         identityFile = "/home/x/.ssh/id_xbox";
       };
+      "nixium" = {
+        hostname = "nixium.boxchop.city";
+        port = 22;
+        user = "root";
+        identityFile = "/home/x/.ssh/id_xnix";
+      };
       "nixium.boxchop.city" = {
         hostname = "nixium.boxchop.city";
         port = 22;
