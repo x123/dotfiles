@@ -119,6 +119,14 @@
         ];
       };
 
+      xnix-vm = lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./system/xnix-vm/configuration.nix
+        ];
+      };
+
       nixos-utm = lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = {inherit inputs;};
