@@ -5,10 +5,8 @@ DARWIN_REBUILD=`which darwin-rebuild`
 NIXOS_REBUILD=`which nixos-rebuild`
 if [ ! -z "${DARWIN_REBUILD}" ]; then
 	echo "Found darwin-rebuild at ${DARWIN_REBUILD}"
-	pushd ~/.dotfiles
-	#darwin-rebuild -v build --flake .#nixium
-    darwin-rebuild -v switch --target-host root@nixium.boxchop.city --flake .#nixium
-	popd
+	echo "darwin-rebuild doesn't support --target-host builds ... Bailing out!"
+	exit 1
 elif [ ! -z "${NIXOS_REBUILD}" ]; then
 	echo "Found nixos-rebuild at ${NIXOS_REBUILD}"
 	pushd ~/.dotfiles
