@@ -5,6 +5,7 @@
     enable = true;
     compression = true;
     forwardAgent = false;
+    addKeysToAgent = "yes";
 
     matchBlocks = {
       "*" = {
