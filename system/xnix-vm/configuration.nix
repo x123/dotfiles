@@ -26,6 +26,8 @@
     xkbVariant = "";
   };
 
+  boot.isContainer = true;
+
   networking.hostName = "xnix-vm"; # Define your hostname.
   #networking.nameservers = [ "1.1.1.1" ];
 
