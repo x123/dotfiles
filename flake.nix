@@ -140,6 +140,11 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./system/nixium/configuration.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.root = import ./users/root-nixium/home.nix;
+          }
         ];
         specialArgs = { hostname = "nixium.boxchop.city"; };
       };
