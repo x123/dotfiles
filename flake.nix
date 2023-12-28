@@ -115,7 +115,17 @@
           nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
           nixos-hardware.nixosModules.common-pc
           nixos-hardware.nixosModules.common-pc-ssd
+
           ./system/xnix/configuration.nix
+
+          nur.nixosModules.nur
+
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.x = import ./users/x-xnix/home.nix;
+            home-manager.extraSpecialArgs = {inherit inputs;};
+          }
         ];
       };
 

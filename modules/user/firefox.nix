@@ -1,4 +1,4 @@
-{pkgs, config, ...}: {
+{pkgs, config, osConfig, ...}: {
   imports = [];
 
   home = {
@@ -10,7 +10,9 @@
   programs.firefox = {
     enable = true;
     profiles."x" = {
-      extensions = with config.nur.repos.rycee.firefox-addons; [
+      # if using apply-users style, need config instead of osConfig
+      #extensions = with config.nur.repos.rycee.firefox-addons; [
+      extensions = with osConfig.nur.repos.rycee.firefox-addons; [
         aria2-integration
         clearurls
         darkreader
