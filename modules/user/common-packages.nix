@@ -19,7 +19,6 @@ let
     dmidecode
 
     # term/shell
-    eza
     fd
     usbutils
     whois
