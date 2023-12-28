@@ -36,7 +36,7 @@
       boxchop = "ssh adamantium";
       nixium = "ssh nixium";
       ls = "ls --color";
-      less = "less -mN";
+      less = "less -mNg";
     };
   };
 
