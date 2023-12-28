@@ -28,6 +28,8 @@
     wget
   ];
 
+  users.motdFile = ./files/nixium.motd;
+
   users.users.x = {
     createHome = true;
     isNormalUser = true;
