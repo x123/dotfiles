@@ -11,7 +11,6 @@
     enable = true;
     profiles."x" = {
       extensions = with config.nur.repos.rycee.firefox-addons; [
-        aria2-integration
         clearurls
         darkreader
         decentraleyes
