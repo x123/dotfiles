@@ -14,6 +14,7 @@
     ../../modules/user/firefox.nix
     ../../modules/user/git.nix
     ../../modules/user/gpg-agent.nix
+    ../../modules/user/home-manager.nix
     ../../modules/user/keepass.nix
     #../../modules/user/pytorch.nix
     ../../modules/user/shell
@@ -47,11 +48,6 @@
       target = "bin/unmount-kobo";
     };
   };
-
-  nixpkgs.config.allowUnfree = true;
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
     # net
