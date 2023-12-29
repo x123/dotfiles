@@ -122,6 +122,8 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./system/nixium/configuration.nix
+          sops-nix.nixosModules.sops
+          #sops-nix.modules.home-manager.sops
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
