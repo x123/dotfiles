@@ -1,0 +1,17 @@
+keys:
+  - &x123 age1vnrrkyd9h8d5u8l07nghetuv2mt5wwu5krhln5sp8ztycquzxc9qu5n877
+  - &system_xnix age1cuhquw0nsjm2nsuggezdkmxsj92p5vc97jtjmskmpwxdh50k5djs3xusfc
+creation_rules:
+  - path_regex: ^secrets.yaml$
+    key_groups:
+      - age:
+        - *x123
+  - path_regex: ^system/xnix/[^/]+\.yaml$
+    key_groups:
+      - age:
+        - *x123
+        - *system_xnix
+  - path_regex: ^users/x-xnix/[^/]+\.yaml$
+    key_groups:
+      - age:
+        - *x123
