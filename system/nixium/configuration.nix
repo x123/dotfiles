@@ -9,6 +9,12 @@
 
   boot.kernelPackages = pkgs.linuxPackages_zen; # lqx or zen or latest
 
+  sops.defaultSopsFile = ./secrets.yaml;
+  sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+  sops.age.generateKey = true;
+  sops.secrets."ssh/nixium/private" = {};
+  sops.secrets."ssh/nixium/public" = {};
+
   networking = {
     hostName = "nixium";
     domain = "boxchop.city";
