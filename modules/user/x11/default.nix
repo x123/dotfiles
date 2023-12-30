@@ -14,8 +14,7 @@
 
   home = {
     packages = with pkgs; [
-      # term/shell
-      #file
+      nerdfonts # very large
     ];
 
   };
