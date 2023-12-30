@@ -89,6 +89,7 @@
           #"${my-modifier}+Shift+l" = "exec ${pkgs.i3lock}/bin/i3lock -n -c 000000";
           "${my-modifier}+Tab" = "exec ${pkgs.rofi}/bin/rofi -show window";
           "${my-modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show combi";
+          "${my-modifier}+Shift+s" = "sticky toggle";
         };
         focus = {
           followMouse = false;
