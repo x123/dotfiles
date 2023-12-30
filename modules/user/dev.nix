@@ -10,9 +10,7 @@
 
   home = {
     packages = with pkgs; [
-      #elixir
-      #erlang
-      #nodejs
+      gitleaks
       sqlite
     ];
   };
