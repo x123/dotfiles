@@ -61,6 +61,7 @@ with lib;
 
         # net
         aria2
+        sshfs
 
         # dev
         difftastic
