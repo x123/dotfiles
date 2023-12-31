@@ -37,6 +37,7 @@
       nixium = "ssh nixium";
       ls = "ls --color";
       less = "less -mNg";
+      nsp = "nix search nixpkgs";
     };
   };
 
