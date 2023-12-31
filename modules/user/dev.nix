@@ -10,7 +10,6 @@
 
   home = {
     packages = with pkgs; [
-      gitleaks
       sqlite
       zig
     ];

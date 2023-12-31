@@ -1,6 +1,13 @@
 {pkgs, ...}: {
   imports = [];
 
+  home = {
+    packages = with pkgs; [
+      github-cli
+      gitleaks
+    ];
+  };
+
   programs.git = {
     enable = true;
     userName = "x123";
