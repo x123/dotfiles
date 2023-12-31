@@ -5,7 +5,7 @@
     ../../modules/user/git.nix
     ../../modules/user/gpg-agent.nix
     ../../modules/user/shell
-    ../../modules/user/vim.nix
+    ../../modules/user/neovim.nix
   ];
 
   home = {
