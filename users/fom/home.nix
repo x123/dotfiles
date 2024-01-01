@@ -40,28 +40,33 @@
         user = "root";
         port = 2222;
         identityFile = "/Users/fom/.ssh/id_fom-mba";
+        identitiesOnly = true;
       };
       "me.github.com" = {
         hostname = "github.com";
         port = 22;
         identityFile = "/Users/fom/.ssh/id_fom-mba";
+        identitiesOnly = true;
       };
       "work.github.com" = {
         hostname = "github.com";
         port = 22;
         identityFile = "/Users/fom/.ssh/id_fom-mba-work";
+        identitiesOnly = true;
       };
       "nixium" = {
         hostname = "nixium.boxchop.city";
         port = 22;
         user = "root";
         identityFile = "/Users/fom/.ssh/id_fom-mba";
+        identitiesOnly = true;
       };
       "nixium.boxchop.city" = {
         hostname = "nixium.boxchop.city";
         port = 22;
         user = "root";
         identityFile = "/Users/fom/.ssh/id_fom-mba";
+        identitiesOnly = true;
       };
     };
   };

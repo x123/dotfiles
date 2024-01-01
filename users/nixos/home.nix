@@ -23,12 +23,14 @@
         user = "root";
         port = 2222;
         identityFile = "/home/nixos/.ssh/id_wslnix";
+        identitiesOnly = true;
       };
       "me.github.com" = {
         hostname = "github.com";
         #user = "git";
         port = 22;
         identityFile = "/home/nixos/.ssh/id_wslnix";
+        identitiesOnly = true;
       };
     };
   };

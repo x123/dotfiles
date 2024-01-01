@@ -72,23 +72,27 @@
         user = "root";
         port = 2222;
         identityFile = "/home/x/.ssh/id_xbox";
+        identitiesOnly = true;
       };
       "github.com" = {
         hostname = "github.com";
         port = 22;
         identityFile = "/home/x/.ssh/id_xbox";
+        identitiesOnly = true;
       };
       "nixium" = {
         hostname = "nixium.boxchop.city";
         port = 22;
         user = "root";
         identityFile = "/home/x/.ssh/id_xnix";
+        identitiesOnly = true;
       };
       "nixium.boxchop.city" = {
         hostname = "nixium.boxchop.city";
         port = 22;
         user = "root";
         identityFile = "/home/x/.ssh/id_xnix";
+        identitiesOnly = true;
       };
     };
   };
