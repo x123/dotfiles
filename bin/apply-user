@@ -27,7 +27,9 @@ nix build -v .#homeManagerConfigurations.${USER}-${HOSTNAME}.activationPackage
 if [ $? -eq 0 ]
 then
     ./result/activate;
+    popd
 else
     echo "Build above failed, not running ./result/activate";
+    popd
     exit 1;
 fi

@@ -1,0 +1,5 @@
+#!env bash
+set -xeuo pipefail
+pushd ~/.dotfiles
+ssh -t -A root@nixium.boxchop.city "cd ~/.dotfiles && git pull && ./bin/apply-system"
+popd
