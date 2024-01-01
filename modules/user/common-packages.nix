@@ -45,6 +45,7 @@ with lib;
       packages = with pkgs; [
         # term/shell
         file
+        fzf
         htop
         killall
         lsof
@@ -62,6 +63,7 @@ with lib;
 
         # net
         aria2
+        drill
         sshfs
 
         # dev
