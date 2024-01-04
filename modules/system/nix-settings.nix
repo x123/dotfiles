@@ -11,7 +11,7 @@
     ];
 
     trusted-public-keys = [
-      "nixium.boxchop.city:VqGEePxRjPwhVfnLAJBi2duwwkIczIy5ODGW/8KCPbc"
+      "nixium.boxchop.city-1:VqGEePxRjPwhVfnLAJBi2duwwkIczIy5ODGW/8KCPbc"
     ];
 
     auto-optimise-store = true;
