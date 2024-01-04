@@ -2,6 +2,7 @@
 
 {
   imports = [
+    #../../modules/user/pytorch.nix
     ../../modules/user/ai.nix
     ../../modules/user/alacritty
     ../../modules/user/blender.nix
@@ -12,16 +13,16 @@
     ../../modules/user/dev.nix
     ../../modules/user/discord.nix
     ../../modules/user/firefox.nix
+    ../../modules/user/ghostty.nix
     ../../modules/user/git.nix
     ../../modules/user/gpg-agent.nix
     ../../modules/user/home-manager.nix
     ../../modules/user/keepass.nix
-    #../../modules/user/pytorch.nix
+    ../../modules/user/neovim.nix
     ../../modules/user/shell
     ../../modules/user/systemd/timer-monitor-nixium.nix
     ../../modules/user/tor-browser.nix
     ../../modules/user/video.nix
-    ../../modules/user/neovim.nix
     ../../modules/user/x11
   ];
 

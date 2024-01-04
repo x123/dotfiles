@@ -1,6 +1,5 @@
 { pkgs, ... }: {
   imports = [
-    ./ghostty.nix
     ./i3-config.nix
   ];
 
