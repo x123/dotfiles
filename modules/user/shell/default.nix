@@ -1,7 +1,6 @@
 { pkgs, config, ... }: {
   imports = [
     ./fonts.nix
-    ./ghostty.nix
     ./htop.nix
     ./starship.nix
     ./tmux.nix
