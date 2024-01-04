@@ -12,14 +12,22 @@
   };
 
   services.nginx = {
-  enable = true;
-  recommendedProxySettings = true;
-  virtualHosts = {
-    # ... existing hosts config etc. ...
-    "nixium.boxchop.city" = {
-      locations."/".proxyPass = "http://${config.services.nix-serve.bindAddress}:${toString config.services.nix-serve.port}";
+    enable = true;
+
+    recommendedProxySettings = true;
+
+    virtualHosts = {
+      # ... existing hosts config etc. ...
+      "nixium.boxchop.city" = {
+        addSSL = true;
+        enableACME = true;
+        locations."/".proxyPass = "https://${config.services.nix-serve.bindAddress}:${toString config.services.nix-serve.port}";
+      };
     };
   };
-};
 
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "root@boxchop.city";
+  };
 }
