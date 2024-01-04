@@ -1,9 +1,10 @@
 { pkgs, config, ... }: {
   imports = [
     ./fonts.nix
+    ./ghostty.nix
     ./htop.nix
-    ./tmux.nix
     ./starship.nix
+    ./tmux.nix
   ];
 
   programs.dircolors = {

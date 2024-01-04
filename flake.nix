@@ -11,6 +11,7 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     blender-bin.url = "github:edolstra/nix-warez/?dir=blender";
     nixified-ai.url = "github:nixified-ai/flake";
+    ghostty.url = "git+ssh://git@github.com/mitchellh/ghostty";
 
     # minimize duplicate instances of inputs
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -21,7 +22,7 @@
     nixified-ai.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, sops-nix, nixos-wsl, nur, nix-darwin, blender-bin, nixified-ai, ... }:
+  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, sops-nix, nixos-wsl, nur, nix-darwin, blender-bin, nixified-ai, ghostty, ... }:
     let
       lib = nixpkgs.lib;
 
