@@ -39,6 +39,7 @@
       less = "less -mNg";
       nsp = "nix search nixpkgs";
       nnn = "nnn -R -e";
+      dns-cache-flush = "sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder";
     };
   };
 
