@@ -21,7 +21,7 @@
       "nixium.boxchop.city" = {
         addSSL = true;
         enableACME = true;
-        locations."/".proxyPass = "https://${config.services.nix-serve.bindAddress}:${toString config.services.nix-serve.port}";
+        locations."/".proxyPass = "http://${config.services.nix-serve.bindAddress}:${toString config.services.nix-serve.port}";
       };
     };
   };
