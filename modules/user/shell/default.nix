@@ -40,6 +40,8 @@
       nsp = "nix search nixpkgs";
       nnn = "nnn -R -e";
       dns-cache-flush = "sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder";
+      # TODO: make this a script (to install terminfo on remotes)
+      # "infocmp -x | ssh SOMEMACHINE -- tic -x -"
     };
   };
 
