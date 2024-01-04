@@ -1,5 +1,5 @@
-{pkgs, config, ...}: {
-  imports = [];
+{ pkgs, config, ... }: {
+  imports = [ ];
 
   # support nix flakes
   nix.package = pkgs.nixFlakes;
@@ -28,14 +28,14 @@
 
   nix.gc = (if pkgs.stdenv.isDarwin then {
     automatic = true;
-    interval = { Weekday = 0; Hour = 0; Minute = 0;};
+    interval = { Weekday = 0; Hour = 0; Minute = 0; };
     options = "--delete-older-than 30d";
   }
   else
-  {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  });
+    {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    });
 
 }

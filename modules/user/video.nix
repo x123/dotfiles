@@ -1,4 +1,4 @@
-{config, pkgs, lib, inputs, ...}:
+{ config, pkgs, lib, inputs, ... }:
 let
   cfg = config.mypackages.common-packages;
   broken_on_darwin = with pkgs; [
@@ -25,9 +25,9 @@ with lib;
   config = mkIf cfg.enable {
     home = {
       packages = with pkgs; [
-      aria2
-      streamlink
-      ] ++ (if pkgs.stdenv.isDarwin then []
+        aria2
+        streamlink
+      ] ++ (if pkgs.stdenv.isDarwin then [ ]
       else broken_on_darwin
       );
     };

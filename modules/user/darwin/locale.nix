@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  imports = [];
+{ pkgs, ... }: {
+  imports = [ ];
 
   # locale / language / units
   targets.darwin.defaults.NSGlobalDomain.AppleLanguages = [ "en" ];

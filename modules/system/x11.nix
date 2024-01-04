@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  imports = [];
+{ pkgs, ... }: {
+  imports = [ ];
 
   services.xserver = {
     enable = true;
@@ -34,7 +34,7 @@
         #i3status-rust
         i3lock-fancy
         rofi
-       ];
+      ];
     };
 
   };

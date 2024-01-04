@@ -1,5 +1,5 @@
-{pkgs, config, ...}: {
-  imports = [];
+{ pkgs, config, ... }: {
+  imports = [ ];
 
   # packages
   #environment.systemPackages = with pkgs; [
@@ -15,7 +15,7 @@
     ];
   };
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
     modesetting.enable = true;

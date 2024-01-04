@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> { } }:
 
 with pkgs;
 
@@ -14,13 +14,13 @@ mkShell {
   buildInputs = [ elixir nodejs git postgresql ]
     ++ optional stdenv.isLinux inotify-tools # For file_system on Linux.
     ++ optionals stdenv.isDarwin (with darwin.apple_sdk.frameworks; [
-      # For file_system on macOS.
-      CoreFoundation
-      CoreServices
-    ]);
+    # For file_system on macOS.
+    CoreFoundation
+    CoreServices
+  ]);
 
-    # Put the PostgreSQL databases in the project diretory.
-    shellHook = ''
-      export PGDATA="$PWD/db"
-    '';
+  # Put the PostgreSQL databases in the project diretory.
+  shellHook = ''
+    export PGDATA="$PWD/db"
+  '';
 }

@@ -1,10 +1,10 @@
-{pkgs, lib, config, ...}:
-  let
-    inherit (pkgs) stdenv;
-    inherit (lib) mkIf;
-  in
-  {
-  imports = [];
+{ pkgs, lib, config, ... }:
+let
+  inherit (pkgs) stdenv;
+  inherit (lib) mkIf;
+in
+{
+  imports = [ ];
 
   services.gpg-agent = mkIf stdenv.isLinux {
     enable = true;

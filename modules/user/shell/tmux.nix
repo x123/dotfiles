@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  imports = [];
+{ pkgs, ... }: {
+  imports = [ ];
 
   programs.tmux = {
     enable = true;

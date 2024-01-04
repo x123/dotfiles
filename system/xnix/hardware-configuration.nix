@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   # bootloader
@@ -20,7 +21,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelParams = [ ];
   boot.kernelPackages = pkgs.linuxPackages_zen; # lqx or zen or latest
-  boot.kernelModules = [ "k10temp" "kvm-amd" "nct6683"];
+  boot.kernelModules = [ "k10temp" "kvm-amd" "nct6683" ];
   boot.blacklistedKernelModules = [ "snd_hda_intel" ];
   boot.extraModulePackages = [ ];
 
@@ -30,24 +31,24 @@
     device = "/dev/disk/by-label/NIXROOT";
     fsType = "ext4";
     options = [ "noatime" "nodiratime" ];
-    };
+  };
 
-    boot.initrd.luks.devices."luks-3062db9e-0454-4188-b0ba-d751be39e6b9" = {
-      device = "/dev/disk/by-uuid/3062db9e-0454-4188-b0ba-d751be39e6b9";
-      allowDiscards = true;
-      bypassWorkqueues = true;
-      keyFileSize = 4096;
-      keyFile = "/dev/disk/by-id/usb-Kingston_DataTraveler_2.0_00173182460CBF80194DAB60-0:0";
-    };
+  boot.initrd.luks.devices."luks-3062db9e-0454-4188-b0ba-d751be39e6b9" = {
+    device = "/dev/disk/by-uuid/3062db9e-0454-4188-b0ba-d751be39e6b9";
+    allowDiscards = true;
+    bypassWorkqueues = true;
+    keyFileSize = 4096;
+    keyFile = "/dev/disk/by-id/usb-Kingston_DataTraveler_2.0_00173182460CBF80194DAB60-0:0";
+  };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-label/NIXBOOT";
+    {
+      device = "/dev/disk/by-label/NIXBOOT";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-label/NIXSWAP"; }
-    ];
+    [{ device = "/dev/disk/by-label/NIXSWAP"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
