@@ -13,7 +13,7 @@
     extraConfig = ''
       # Set true color
       set-option -sa terminal-overrides ",xterm*:Tc"
-      set-option -g default-terminal "xterm-256color"
+      set-option -g default-terminal "tmux-256color"
 
       set-option -g bell-action none
       set-option -g visual-bell off
