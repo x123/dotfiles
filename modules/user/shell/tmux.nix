@@ -12,7 +12,7 @@
     aggressiveResize = true;
     extraConfig = ''
       # Set true color
-      set-option -a terminal-features "*:RGB"
+      set-option -a terminal-features "*:RGB,mouse,sync"
       #set-option -sa terminal-overrides ",xterm*:Tc"
       set-option -g default-terminal "tmux-256color"
 
