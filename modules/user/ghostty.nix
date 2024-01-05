@@ -10,6 +10,7 @@
 
         mouse-hide-while-typing = true
         cursor-click-to-move = false
+        copy-on-select = clipboard
 
         background-opacity = 0.9
         background-blur-radius = 4
