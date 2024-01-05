@@ -1,6 +1,8 @@
 { pkgs, ... }: {
   imports = [ ];
 
+  programs.dconf.enable = true;
+
   services.xserver = {
     enable = true;
     layout = "us";
