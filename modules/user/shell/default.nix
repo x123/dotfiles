@@ -4,6 +4,7 @@
     ./htop.nix
     ./starship.nix
     ./tmux.nix
+    ./yazi.nix
   ];
 
   programs.dircolors = {
