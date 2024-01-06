@@ -1,6 +1,17 @@
 { pkgs, ... }: {
   imports = [ ];
 
+  programs.yazi = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    settings = {
+      manager = {
+        show_hidden = true;
+      };
+    };
+  };
+
   home = {
     packages = with pkgs; [
       yazi
