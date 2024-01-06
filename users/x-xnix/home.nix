@@ -24,6 +24,7 @@
     ../../modules/user/tor-browser.nix
     ../../modules/user/video.nix
     ../../modules/user/x11
+    ../../modules/user/yed.nix
   ];
 
   home = {
