@@ -1,10 +1,10 @@
 { config, pkgs, ... }: {
   imports = [ ];
 
-  #  sops.secrets."postgres/nixium/dbuser" = { };
-  #  sops.secrets."postgres/nixium/dbuser".mode = "0400";
-  #  sops.secrets."postgres/nixium/dbpass" = { };
-  #  sops.secrets."postgres/nixium/dbpass".mode = "0400";
+#  sops.secrets."postgres/nixium/binrich/DBNAME" = { };
+#  sops.secrets."postgres/nixium/binrich/DBUSER" = { };
+#  sops.secrets."postgres/nixium/binrich/DBPASS" = { };
+#  sops.secrets."postgres/nixium/binrich/DBHOST" = { };
 
   services.postgresql = {
     enable = true;
