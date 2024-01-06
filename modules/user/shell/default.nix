@@ -41,6 +41,7 @@
       less = "less -mNg";
       nsp = "nix search nixpkgs";
       dns-cache-flush = "sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder";
+      y = "yazi";
       # TODO: make this a script (to install terminfo on remotes)
       # "infocmp -x | ssh SOMEMACHINE -- tic -x -"
     };
