@@ -2,6 +2,7 @@
 
 {
   imports = [
+    #<sops-nix/modules/home-manager/sops.nix>
     #../../modules/user/ai.nix
     #../../modules/user/alacritty
     #../../modules/user/blender.nix
@@ -47,13 +48,15 @@
         hostname = "adamantium.boxchop.city";
         user = "root";
         port = 2222;
-        identityFile = "~/.ssh/id_nixium";
+        identityFile = "/run/secrets/ssh/nixium/private";
+        #identityFile = "~/.ssh/id_nixium";
         identitiesOnly = true;
       };
       "github.com" = {
         hostname = "github.com";
         port = 22;
-        identityFile = "~/.ssh/id_nixium";
+        identityFile = "/run/secrets/ssh/nixium/private";
+        #identityFile = "~/.ssh/id_nixium";
         identitiesOnly = true;
       };
     };
