@@ -27,7 +27,11 @@
   nixpkgs.config.allowUnfree = true;
 
   # networking
-  networking.hostName = "xnix";
+  networking = {
+    hostName = "xnix";
+    domain = "empire.boxchop.city";
+  };
+
   networking.networkmanager.enable = true;
 
   services.openssh = {
