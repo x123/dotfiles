@@ -24,6 +24,8 @@
     };
     defaultApplications = {
       "text/plain" = [ "vim.desktop" ];
+      "x-scheme-handler/https" = [ "firefox.desktop" ];
+      "x-scheme-handler/http" = [ "firefox.desktop" ];
     };
   };
 
