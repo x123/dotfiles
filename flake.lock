@@ -8,11 +8,11 @@
       },
       "locked": {
         "dir": "blender",
-        "lastModified": 1702908620,
-        "narHash": "sha256-M3MiuiM9pWLD1AtPH4ndrB2Yr3L3QO2Qm5uIrRXThZc=",
+        "lastModified": 1704645342,
+        "narHash": "sha256-Hf1diy/ai4u0VvyifAL2GbIUuKZlPgRfQ5wOIKtK17o=",
         "owner": "edolstra",
         "repo": "nix-warez",
-        "rev": "d3530810db0fcd4a1e68764b11ab7514bda0769c",
+        "rev": "4ec7bfb219eab0c3ecf7c3bfba3aa8582a6cd832",
         "type": "github"
       },
       "original": {
@@ -187,11 +187,11 @@
         "zls": "zls"
       },
       "locked": {
-        "lastModified": 1704598847,
-        "narHash": "sha256-JUMmAhP+nY9yQq/xX00jD8JypTucgfpbVPeQw3uG/XU=",
+        "lastModified": 1704695033,
+        "narHash": "sha256-TZoOggeQnqwlY23wGHjpp55OoufV2rZzBnDrv0XUMII=",
         "ref": "refs/heads/main",
-        "rev": "76f760c7eb1fe339842632fa644bc32575d21273",
-        "revCount": 4496,
+        "rev": "4498bb77f3d863ee5dfd26041742e7eec3ed40d2",
+        "revCount": 4539,
         "type": "git",
         "url": "ssh://git@github.com/mitchellh/ghostty"
       },
@@ -339,11 +339,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1704458188,
-        "narHash": "sha256-f6BYEuIqnbrs6J/9m1/1VdkJ6d63hO9kUC09kTPuOqE=",
+        "lastModified": 1704632650,
+        "narHash": "sha256-83J/nd/NoLqo3vj0S0Ppqe8L+ijIFiGL6HNDfCCUD/Q=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "172385318068519900a7d71c1024242fa6af75f0",
+        "rev": "c478b3d56969006e015e55aaece4931f3600c1b2",
         "type": "github"
       },
       "original": {
@@ -361,11 +361,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1704496463,
-        "narHash": "sha256-/LOWVVLccTJyNoS06bWAoTe+dtFfgM19uqpN0vjsBoc=",
+        "lastModified": 1704677738,
+        "narHash": "sha256-3WYyt1QitK6+PNngv9QOn1GrxI42PXRDhC+FjAQBHP4=",
         "owner": "nix-community",
         "repo": "NixOS-WSL",
-        "rev": "d2fd320bab0aa486383bbf5f13d5d8120700f911",
+        "rev": "d8117453224ee4497573ed1b80f3bc62c68cf5be",
         "type": "github"
       },
       "original": {
@@ -376,11 +376,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1704194953,
-        "narHash": "sha256-RtDKd8Mynhe5CFnVT8s0/0yqtWFMM9LmCzXv/YKxnq4=",
+        "lastModified": 1704538339,
+        "narHash": "sha256-1734d3mQuux9ySvwf6axRWZRBhtcZA9Q8eftD6EZg6U=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "bd645e8668ec6612439a9ee7e71f7eac4099d4f6",
+        "rev": "46ae0210ce163b3cba6c7da08840c1d63de9c701",
         "type": "github"
       },
       "original": {
@@ -439,11 +439,11 @@
     },
     "nixpkgs-zig-0-12": {
       "locked": {
-        "lastModified": 1703276979,
-        "narHash": "sha256-WD3FdpkPRLm0PJC26bZT/cSoPNgKANHq14U5O+CfLqI=",
+        "lastModified": 1704663772,
+        "narHash": "sha256-BIDaFQlRhjhrFk+UE7OsV3Jfo/9cbWAWwdjmdy1Hn34=",
         "owner": "vancluever",
         "repo": "nixpkgs",
-        "rev": "d81c22905455c896e79db93fdace8771db1bd995",
+        "rev": "4f7ae324049ecdf3a84db0bb59d2442bb080304f",
         "type": "github"
       },
       "original": {
@@ -471,11 +471,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1704609320,
-        "narHash": "sha256-JOrDeb31bb7oHaPMj3s/B8nPpnD9IgD8fDWtrgdq5fY=",
+        "lastModified": 1704695916,
+        "narHash": "sha256-lp3h0NBa+VMQ6rRLzWzWl664ayJrHNhwiy3NEGN9CKk=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "7502a8334877f63564a30b9f5be89d7208a006d4",
+        "rev": "e9bf801b54e57f9297040831d819b8db9b2e3c7e",
         "type": "github"
       },
       "original": {
@@ -574,11 +574,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1702850407,
-        "narHash": "sha256-dG9eKPJXgZNcXkNJwBdx/7byx08Z3ppXU1E54EY1/t0=",
+        "lastModified": 1704542888,
+        "narHash": "sha256-Fb8tc4cXUkWw+Fva6JKbjkFFpZwu4c+ictSAQGEYjIM=",
         "owner": "mitchellh",
         "repo": "zig-overlay",
-        "rev": "f5d3c30b3f36ec5d3d5dd81fad850f5523767e5d",
+        "rev": "112cfb72e47cb85d17fc8075a4d70ab56964453d",
         "type": "github"
       },
       "original": {
