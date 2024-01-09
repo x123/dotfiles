@@ -5,8 +5,8 @@
     enable = true;
     compression = true;
     forwardAgent = false;
-    addKeysToAgent = "yes";
-
+    # instead of yes give 52 weeks see Time Formats in man 5 sshd_config
+    addKeysToAgent = "52w";
     matchBlocks = {
       "*" = {
         serverAliveInterval = 60;
