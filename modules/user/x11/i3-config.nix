@@ -136,13 +136,13 @@
         bars = [
           {
             fonts = {
-              names = [ "Unifont" ];
-              size = 11.0;
+              names = [ "CodeNewRoman Nerd Font" ];
+              size = 10.0;
             };
             mode = "dock";
             hiddenState = "show";
             statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-default.toml";
-            position = "top";
+            position = "bottom";
             trayOutput = "primary";
             workspaceButtons = true;
           }
