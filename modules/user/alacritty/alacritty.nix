@@ -21,7 +21,6 @@
           style = "Bold";
         };
         size = 10;
-        draw_bold_text_with_bright_colors = true;
       };
       window.opacity = 0.9;
       scrolling.multiplier = 5;
