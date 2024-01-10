@@ -58,7 +58,11 @@
     enable = true;
     bars = {
       default = {
+        icons = "material-nf";
         blocks = [
+          {
+            block = "sound";
+          }
           {
             alert = 10.0;
             block = "disk_space";
@@ -69,11 +73,13 @@
           }
           {
             block = "memory";
-            format = " $icon mem_used_percents ";
-            format_alt = " $icon $swap_used_percents ";
+            format = " $icon $mem_used_percents ";
+            format_alt = " $icon $mem_used ";
           }
           {
             block = "cpu";
+            format = " $icon $utilization ";
+            format_alt = " $icon $frequency ";
             interval = 1;
           }
           {
@@ -82,11 +88,14 @@
             interval = 1;
           }
           {
-            block = "sound";
+            block = "nvidia_gpu";
+            gpu_id = 0;
+            format = " $icon  RTX4090 $power $temperature $utilization $temperature ";
+            interval = 1;
           }
           {
             block = "time";
-            format = " $timestamp.datetime(f:'%a %d/%m %R') ";	
+            format = " $timestamp.datetime(f:'Week %W | %A | %Y-%m-%d %H:%M:%S') ";
             interval = 1;
           }
         ];
@@ -95,7 +104,7 @@
             theme = "nord-dark";
           };
         };
-      }; 
+      };
     };
   };
 
