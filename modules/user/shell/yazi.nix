@@ -12,12 +12,12 @@
         linemode = "mtime";
       };
     };
-#    keymap = {
-#      manager.keymap = [
-#        { exec = "arrow -100%"; on = [ "<PageUp>" ];}
-#        { exec = "arrow 100%"; on = [ "<PageDown>" ];}
-#      ];
-#    };
+    #    keymap = {
+    #      manager.keymap = [
+    #        { exec = "arrow -100%"; on = [ "<PageUp>" ];}
+    #        { exec = "arrow 100%"; on = [ "<PageDown>" ];}
+    #      ];
+    #    };
   };
 
   home = {
