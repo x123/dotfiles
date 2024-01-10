@@ -21,7 +21,7 @@
     ../../modules/user/neovim.nix
     ../../modules/user/shell
     ../../modules/user/systemd/timer-monitor-nixium.nix
-    ../../modules/user/systemd/timer-monitor-binrich.nix
+    ../../modules/user/systemd/timer-binrich-fetch.nix
     ../../modules/user/tor-browser.nix
     ../../modules/user/video.nix
     ../../modules/user/x11

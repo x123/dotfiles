@@ -8,6 +8,7 @@
       OnUnitActiveSec = "150s";
       Unit = "monitor-nixium.service";
     };
+    Install.WantedBy = [ "default.target" ];
   };
 
   systemd.user.services = {
