@@ -23,8 +23,10 @@
           ''
             set -euo pipefail
 
+
             pushd ~/src/binrich
-            ${pkgs.rsync}/bin/rsync -avz --progress root@nixium.boxchop.city:/root/deploy/binrich/data/output.txt ~/src/binrich/data/results/output-from-nixium-$(${pkgs.coreutils}/bin/date -Iseconds).txt
+            ${pkgs.rsync}/bin/rsync -avz root@nixium.boxchop.city:/root/deploy/binrich/data/output.txt ~/src/binrich/data/results/output-from-nixium.txt
+            ${pkgs.rsync}/bin/rsync -avz root@nixium.boxchop.city:/root/deploy/binrich/data/workstream.txt ~/src/binrich/data/results/workstream.txt
             ${pkgs.rsync}/bin/rsync -avz root@nixium.boxchop.city:/var/backup/postgresql ~/src/binrich/data/results/
             popd
           '';
