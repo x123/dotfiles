@@ -35,13 +35,6 @@
 
   programs.ssh = {
     matchBlocks = {
-      "adamantium" = {
-        hostname = "adamantium.boxchop.city";
-        user = "root";
-        port = 2222;
-        identityFile = "/Users/fom/.ssh/id_fom-mba";
-        identitiesOnly = true;
-      };
       "me.github.com" = {
         hostname = "github.com";
         port = 22;
