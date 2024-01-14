@@ -82,6 +82,10 @@
         user = "root";
         identityFile = "/home/x/.ssh/id_xnix";
         identitiesOnly = true;
+        checkHostIP = false;
+        extraOptions = {
+          StrictHostKeyChecking = "no";
+        };
       };
       "nixium.boxchop.city" = {
         hostname = "nixium.boxchop.city";
@@ -89,6 +93,10 @@
         user = "root";
         identityFile = "/home/x/.ssh/id_xnix";
         identitiesOnly = true;
+        checkHostIP = false;
+        extraOptions = {
+          StrictHostKeyChecking = "no";
+        };
       };
     };
   };
