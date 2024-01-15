@@ -65,10 +65,6 @@
       nnoremap <space>zz <cmd>wq<cr>
       nnoremap <space>wx <C-W>x
 
-      nnoremap <space>ff <cmd>Telescope find_files<cr>
-      nnoremap <space>fg <cmd>Telescope live_grep<cr>
-      nnoremap <space>fb <cmd>Telescope buffers<cr>
-      nnoremap <space>fh <cmd>Telescope help_tags<cr>
     '';
     extraLuaConfig = ''
       vim.opt.termguicolors = true
@@ -78,7 +74,13 @@
         }
       }
 
+      -- Telescope
       require("telescope").setup()
+
+      vim.keymap.set("n", "<space>ff", "<cmd>Telescope find_files<cr>")
+      vim.keymap.set("n", "<space>fg", "<cmd>Telescope live_grep<cr>")
+      vim.keymap.set("n", "<space>fb", "<cmd>Telescope buffers<cr>")
+      vim.keymap.set("n", "<space>fh", "<cmd>Telescope help_tags<cr>")
 
       require("tmux").setup{
         options = {
