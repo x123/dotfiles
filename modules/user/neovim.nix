@@ -54,11 +54,6 @@
       set nohlsearch
       set scrolloff=10
 
-      nnoremap <C-up> <cmd>lua require("tmux").move_top()<cr>
-      nnoremap <C-down> <cmd>lua require("tmux").move_bottom()<cr>
-      nnoremap <C-left> <cmd>lua require("tmux").move_left()<cr>
-      nnoremap <C-right> <cmd>lua require("tmux").move_right()<cr>
-
       nnoremap <space>w\ <cmd>vsplit<cr>
       nnoremap <space>ws <cmd>split<cr>
       nnoremap <space>qq <cmd>quit<cr>
@@ -82,6 +77,7 @@
       vim.keymap.set("n", "<space>fb", "<cmd>Telescope buffers<cr>")
       vim.keymap.set("n", "<space>fh", "<cmd>Telescope help_tags<cr>")
 
+      -- tmux navigation
       require("tmux").setup{
         options = {
           navigation = {
@@ -92,6 +88,11 @@
           }
         }
       }
+
+      vim.keymap.set("n", "<C-up>", "<cmd>lua require('tmux').move_top()<cr>")
+      vim.keymap.set("n", "<C-down>", "<cmd>lua require('tmux').move_bottom()<cr>")
+      vim.keymap.set("n", "<C-left>", "<cmd>lua require('tmux').move_left()<cr>")
+      vim.keymap.set("n", "<C-right>", "<cmd>lua require('tmux').move_right()<cr>")
 
       require("mason").setup()
       require("mason-lspconfig").setup()
