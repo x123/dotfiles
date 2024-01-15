@@ -41,26 +41,22 @@
     viAlias = true;
     vimAlias = true;
     extraConfig = ''
-      syntax off
-      filetype plugin indent on
-      set cursorline
-      set showmatch
-      let g:airline_theme='base16_nord'
-      set number relativenumber
-      set expandtab
-      set tabstop=2
-      set shiftwidth=2
-      set background=dark
-      set nohlsearch
-      set scrolloff=10
     '';
     extraLuaConfig = ''
       vim.opt.termguicolors = true
-      require('lualine').setup{
-        options = {
-          theme = 'nord'
-        }
-      }
+
+      -- common settings
+      vim.opt.mouse = ""
+      vim.opt.cursorline = true
+      vim.opt.showmatch = true
+      vim.opt.number = true
+      vim.opt.relativenumber = true
+      vim.opt.expandtab = true
+      vim.opt.tabstop = 2
+      vim.opt.shiftwidth = 2
+      vim.opt.background = "dark"
+      vim.opt.hlsearch = false
+      vim.opt.scrolloff = 10
 
       -- personal keybinds
       vim.keymap.set("n", "<space>w\\", "<cmd>vsplit<cr>")
@@ -69,6 +65,32 @@
       vim.keymap.set("n", "<space>QQ", "<cmd>quit!<cr>")
       vim.keymap.set("n", "<space>zz", "<cmd>wq<cr>")
       vim.keymap.set("n", "<space>wx", "<C-W>x")
+
+      vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+      vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+      vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+
+      -- move visual selection up and down
+      vim.keymap.set("v", "<S-Up>", ":m '<-2<CR>gv=gv")
+      vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gv=gv")
+
+      -- nord
+      require('lualine').setup({
+        options = {
+          theme = 'nord'
+        }
+      })
+
+      vim.g.airline_theme = "base16_nord"
+
+      vim.g.nord_contrast = true
+      vim.g.nord_borders = false
+      vim.g.nord_disable_background = false
+      vim.g.nord_italic = false
+      vim.g.nord_uniform_diff_background = true
+      vim.g.nord_bold = true
+      vim.cmd[[colorscheme nord]]
 
       -- Telescope
       require("telescope").setup()
@@ -130,17 +152,6 @@
       lspconfig.nixd.setup {}
       lspconfig.terraformls.setup {}
 
-      vim.opt.mouse = ""
-
-      -- move visual selection up and down
-      vim.keymap.set("v", "<S-Up>", ":m '<-2<CR>gv=gv")
-      vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gv=gv")
-
-      vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-      vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-      vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
-
       -- Use LspAttach autocommand to only map the following keys
       -- after the language server attaches to the current buffer
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -172,13 +183,6 @@
         end,
       })
 
-      vim.g.nord_contrast = true
-      vim.g.nord_borders = false
-      vim.g.nord_disable_background = false
-      vim.g.nord_italic = false
-      vim.g.nord_uniform_diff_background = true
-      vim.g.nord_bold = true
-      vim.cmd[[colorscheme nord]]
     '';
   };
 
