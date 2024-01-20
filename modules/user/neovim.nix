@@ -15,6 +15,7 @@
   programs.neovim = {
     enable = true;
     plugins = with pkgs; [
+      vimPlugins.comment-nvim
       vimPlugins.lualine-nvim
       vimPlugins.mason-lspconfig-nvim
       vimPlugins.mason-nvim
@@ -91,6 +92,8 @@
       vim.g.nord_uniform_diff_background = true
       vim.g.nord_bold = true
       vim.cmd[[colorscheme nord]]
+
+      require("Comment").setup()
 
       -- Telescope
       require("telescope").setup()
