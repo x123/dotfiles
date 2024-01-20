@@ -16,12 +16,13 @@
     ../../modules/user/ghostty.nix
     ../../modules/user/git.nix
     ../../modules/user/gpg-agent.nix
+    ../../modules/user/helix.nix
     ../../modules/user/home-manager.nix
     ../../modules/user/keepass.nix
     ../../modules/user/neovim.nix
     ../../modules/user/shell
-    ../../modules/user/systemd/timer-monitor-nixium.nix
     ../../modules/user/systemd/timer-binrich-fetch.nix
+    ../../modules/user/systemd/timer-monitor-nixium.nix
     ../../modules/user/tor-browser.nix
     ../../modules/user/video.nix
     ../../modules/user/x11
