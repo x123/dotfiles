@@ -20,6 +20,7 @@
         noscript
         plasma-integration
         privacy-badger
+        tridactyl
         ublock-origin
       ];
 
