@@ -33,6 +33,10 @@
       fzf # optional, for quick file subtree navigation
       zoxide # optional, for historical directories navigation
     ];
+
+    shellAliases = {
+      y = "yazi";
+    };
   };
 
 }
