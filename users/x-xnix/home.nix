@@ -23,6 +23,7 @@
     ../../modules/user/shell
     ../../modules/user/systemd/timer-binrich-fetch.nix
     ../../modules/user/systemd/timer-monitor-nixium.nix
+    ../../modules/user/telegram.nix
     ../../modules/user/tor-browser.nix
     ../../modules/user/video.nix
     ../../modules/user/x11
