@@ -16,6 +16,7 @@
     enable = true;
     plugins = with pkgs; [
       vimPlugins.comment-nvim
+      vimPlugins.gitsigns-nvim
       vimPlugins.lualine-nvim
       vimPlugins.mason-lspconfig-nvim
       vimPlugins.mason-nvim
@@ -94,6 +95,11 @@
       vim.cmd[[colorscheme nord]]
 
       require("Comment").setup()
+
+      require("gitsigns").setup({
+        signcolumn = true,
+        numhl = true,
+      })
 
       -- Telescope
       require("telescope").setup()
