@@ -20,6 +20,8 @@
   sops.secrets."ssh/nixium/private" = { };
   sops.secrets."ssh/nixium/public" = { };
 
+  sops.secrets."tg/nixiumbot" = { };
+
   networking = {
     hostName = "nixium";
     domain = "boxchop.city";
