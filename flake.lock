@@ -5,11 +5,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1706018979,
-        "narHash": "sha256-pXWDwe9yHnYADrByRLBkkZPcsNJ0yA1HX3WnlQL1K3g=",
+        "lastModified": 1706022813,
+        "narHash": "sha256-OEZKF3P/1JuUPAmPs6Ys6WXe0rnALizNRAXJ8h+1jvQ=",
         "ref": "refs/heads/master",
-        "rev": "977988be1a144d35eaf46d937e9f1120c5706751",
-        "revCount": 86,
+        "rev": "25914f12c4606f8c26e9922238fb6ada8301b9b8",
+        "revCount": 88,
         "type": "git",
         "url": "ssh://git@github.com/x123/binrich"
       },
