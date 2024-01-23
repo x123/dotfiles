@@ -12,11 +12,11 @@ in
     binrich = {
       Unit = {
         Description = "binrich";
+        # systemctl --user can't depend on any system services
+        # WantedBy = [ "multi-user.target" ];
+        # After = ["network.target" "postgresql.service" ];
+        # Requires = ["network-online.target" "postgresql.service" ];
       };
-
-      # Environment = {
-      #   path = [ pkgs.bash ];
-      # };
 
       Service = {
         Type = "exec";
