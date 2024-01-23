@@ -3,7 +3,7 @@
 
   home = {
     packages = [
-      inputs.binrich.packages.${pkgs.stdenv.hostPlatform.system}.binrich
+      #inputs.binrich.packages.${pkgs.stdenv.hostPlatform.system}.binrich
     ];
   };
 
