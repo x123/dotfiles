@@ -1,10 +1,14 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }: {
   imports = [ ];
 
   sops.secrets."postgres/nixium/binrichfile" = {
     mode = "0400";
     owner = config.users.users.binrich.name;
   };
+
+  # environment.systemPackages = [
+  #   inputs.binrich.packages.${pkgs.stdenv.hostPlatform.system}.binrich
+  # ];
 
   users.users.binrich = {
     createHome = true;
