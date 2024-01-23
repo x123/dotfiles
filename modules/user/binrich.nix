@@ -1,9 +1,10 @@
-{ pkgs, osConfig, inputs, config, system, ... }: {
+{ pkgs, flake-inputs, inputs, config, system, ... }: {
   imports = [ ];
 
   home = {
     packages = [
-      #inputs.binrich.packages.${pkgs.stdenv.hostPlatform.system}.binrich
+      flake-inputs.binrich.packages.${pkgs.stdenv.hostPlatform.system}.binrich
+      # inputs.binrich.packages.${pkgs.stdenv.hostPlatform.system}.binrich
     ];
   };
 

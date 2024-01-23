@@ -144,6 +144,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.root = import ./users/root-nixium/home.nix;
               home-manager.users.binrich = import ./users/binrich-nixium/home.nix;
+              home-manager.extraSpecialArgs.flake-inputs = inputs;
             }
           ];
           #specialArgs = { hostname = "nixium.boxchop.city"; };
