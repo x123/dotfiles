@@ -38,6 +38,10 @@ in
             set -euo pipefail
             eval $(${pkgs.coreutils}/bin/cat /run/secrets/postgres/nixium/binrichfile) ${binrich-release}/bin/binrich restart
           '';
+        # Restart = "on-failure";
+        # RestartSec = 10;
+        # StartLimitBurst = 3;
+        # StartLimitInterval = 45;
       };
     };
   };
