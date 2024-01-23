@@ -8,6 +8,7 @@
     #../../modules/user/blender.nix
     #../../modules/user/calibre.nix
     #../../modules/user/chromium.nix
+    ../../modules/user/binrich.nix
     ../../modules/user/common-packages.nix
     ../../modules/user/common-ssh.nix
     ../../modules/user/dev.nix
@@ -40,7 +41,7 @@
 
   home.packages = with pkgs; [
     home-manager
-    inputs.binrich.packages.${pkgs.stdenv.hostPlatform.system}.binrich
+    #inputs.binrich.packages.${pkgs.stdenv.hostPlatform.system}.binrich
   ];
 
   # programs.ssh = {

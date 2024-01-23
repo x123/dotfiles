@@ -23,7 +23,7 @@
     nixified-ai.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, sops-nix, nixos-wsl, nur, nix-darwin, blender-bin, nixified-ai, ghostty, ... }:
+  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, sops-nix, nixos-wsl, nur, nix-darwin, blender-bin, nixified-ai, ghostty, binrich, ... }:
     let
       lib = nixpkgs.lib;
 
@@ -133,7 +133,7 @@
 
         nixium = lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs; hostname = "nixium.boxchop.city"; };
           modules = [
             ./system/nixium/configuration.nix
             sops-nix.nixosModules.sops
@@ -143,9 +143,10 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.root = import ./users/root-nixium/home.nix;
+              home-manager.users.binrich = import ./users/binrich-nixium/home.nix;
             }
           ];
-          specialArgs = { hostname = "nixium.boxchop.city"; };
+          #specialArgs = { hostname = "nixium.boxchop.city"; };
         };
 
       };
