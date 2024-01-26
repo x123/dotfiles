@@ -35,6 +35,12 @@
 
   programs.ssh = {
     matchBlocks = {
+      "github.com" = {
+        hostname = "github.com";
+        port = 22;
+        identityFile = "/Users/fom/.ssh/id_fom-mba-work";
+        identitiesOnly = true;
+      };
       "me.github.com" = {
         hostname = "github.com";
         port = 22;
