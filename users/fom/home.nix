@@ -34,6 +34,9 @@
   programs.home-manager.enable = true;
 
   programs.ssh = {
+    includes = [
+      "config.d/*"
+    ];
     matchBlocks = {
       "github.com" = {
         hostname = "github.com";
