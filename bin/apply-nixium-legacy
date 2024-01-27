@@ -4,16 +4,16 @@ set -xeuo pipefail
 if which darwin-rebuild
 then
   echo "Found darwin-rebuild at $(which darwin-rebuild)"
-	echo "Error: darwin-rebuild doesn't support --target-host builds ... Bailing out!"
-	exit 1
+  echo "Error: darwin-rebuild doesn't support --target-host builds ... Bailing out!"
+  exit 1
 elif which nixos-rebuild
 then
   echo "Found nixos-rebuild at $(which nixos-rebuild)"
-	pushd ~/.dotfiles || exit 1
+  pushd ~/.dotfiles || exit 1
     nixos-rebuild -v switch --target-host root@nixium.boxchop.city --flake .#nixium
-	popd || exit 1
-else
-	echo "Error: Could not find nixos-rebuild or darwin-rebuild ... Bailing out!"
   popd || exit 1
-	exit 1
+else
+  echo "Error: Could not find nixos-rebuild or darwin-rebuild ... Bailing out!"
+  popd || exit 1
+  exit 1
 fi

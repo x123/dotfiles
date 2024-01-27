@@ -10,8 +10,8 @@ fi
 
 if [ ! "$(whoami)" ]
 then
-	echo "Error: Not able to determine USER ... Bailing out!";
-	exit 1;
+  echo "Error: Not able to determine USER ... Bailing out!";
+  exit 1;
 else
   USER=$(whoami)
 fi
