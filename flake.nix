@@ -53,7 +53,6 @@
     }: {
       pre-commit-check = pre-commit-hooks.lib.${system}.run {
         src = ./.;
-        default_stages = ["push" "manual"];
         hooks = {
           alejandra.enable = true;
           shellcheck.enable = true;
@@ -62,7 +61,6 @@
         settings = {
           alejandra = {
             check = true;
-            #verbosity = "quiet";
           };
         };
       };
