@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [];
 
-  targets.darwin.defauls = {
+  targets.darwin.defaults = {
     "com.apple.Safari" = {
       AutoFillCreditCardData = false;
       AutoFillPasswords = false;
