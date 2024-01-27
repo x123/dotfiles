@@ -1,11 +1,15 @@
 {pkgs, ...}: {
   imports = [];
 
-  targets.darwin.defaults."com.apple.Safari".AutoFillCreditCardData = false;
-  targets.darwin.defaults."com.apple.Safari".AutoFillPasswords = false;
-  targets.darwin.defaults."com.apple.Safari".AutoOpenSafeDownloads = false;
-  targets.darwin.defaults."com.apple.Safari".IncludeDevelopMenu = true;
-  targets.darwin.defaults."com.apple.Safari".ShowOverlayStatusBar = true;
-  targets.darwin.defaults."com.apple.desktopservices".DSDontWriteNetworkStores = true;
-  targets.darwin.defaults."com.apple.desktopservices".DSDontWriteUSBStores = true;
+  targets.darwin.defauls = {
+    "com.apple.Safari" = {
+      AutoFillCreditCardData = false;
+      AutoFillPasswords = false;
+      AutoOpenSafeDownloads = false;
+      IncludeDevelopMenu = true;
+      ShowOverlayStatusBar = true;
+    };
+    "com.apple.desktopservices".DSDontWriteNetworkStores = true;
+    "com.apple.desktopservices".DSDontWriteUSBStores = true;
+  };
 }

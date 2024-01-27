@@ -21,19 +21,21 @@
     ../../modules/system/zsh.nix
   ];
 
-  sops.defaultSopsFile = ./secrets.yaml;
-  sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+  sops = {
+    defaultSopsFile = ./secrets.yaml;
+    age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
 
-  sops.secrets."muttrc" = {
-    mode = "0400";
-    owner = config.users.users.x.name;
-    #group = "wheel";
-  };
+    secrets."muttrc" = {
+      mode = "0400";
+      owner = config.users.users.x.name;
+      #group = "wheel";
+    };
 
-  sops.secrets."tg/nixiumbot" = {
-    mode = "0440";
-    owner = config.users.users.root.name;
-    group = "wheel";
+    secrets."tg/nixiumbot" = {
+      mode = "0440";
+      owner = config.users.users.root.name;
+      group = "wheel";
+    };
   };
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;

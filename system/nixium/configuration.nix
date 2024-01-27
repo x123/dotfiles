@@ -14,15 +14,22 @@
 
   boot.kernelPackages = pkgs.linuxPackages_zen; # lqx or zen or latest
 
-  sops.defaultSopsFile = ./secrets.yaml;
-  sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
-  sops.age.keyFile = "/root/.config/sops/age/keys.txt";
-  sops.age.generateKey = true;
+  sops = {
+    defaultSopsFile = ./secrets.yaml;
 
-  sops.secrets."ssh/nixium/private" = {};
-  sops.secrets."ssh/nixium/public" = {};
+    age = {
+      sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+      keyFile = "/root/.config/sops/age/keys.txt";
+      generateKey = true;
+    };
 
-  sops.secrets."tg/nixiumbot" = {};
+    secrets = {
+      "ssh/nixium/private" = {};
+      "ssh/nixium/public" = {};
+
+      "tg/nixiumbot" = {};
+    };
+  };
 
   networking = {
     hostName = "nixium";

@@ -18,15 +18,6 @@
     ../../modules/user/keepass.nix
   ];
 
-  # force override the font size for alacritty
-  programs.alacritty = {
-    settings = {
-      font = {
-        size = lib.mkForce 14;
-      };
-    };
-  };
-
   home = {
     username = "fom";
     homeDirectory = "/Users/fom";
@@ -36,44 +27,55 @@
     };
   };
 
-  programs.home-manager.enable = true;
+  programs = {
+    # force override the font size for alacritty
+    alacritty = {
+      settings = {
+        font = {
+          size = lib.mkForce 14;
+        };
+      };
+    };
 
-  programs.ssh = {
-    includes = [
-      "config.d/*"
-    ];
-    matchBlocks = {
-      "github.com" = {
-        hostname = "github.com";
-        port = 22;
-        identityFile = "/Users/fom/.ssh/id_fom-mba-work";
-        identitiesOnly = true;
-      };
-      "me.github.com" = {
-        hostname = "github.com";
-        port = 22;
-        identityFile = "/Users/fom/.ssh/id_fom-mba";
-        identitiesOnly = true;
-      };
-      "work.github.com" = {
-        hostname = "github.com";
-        port = 22;
-        identityFile = "/Users/fom/.ssh/id_fom-mba-work";
-        identitiesOnly = true;
-      };
-      "nixium" = {
-        hostname = "nixium.boxchop.city";
-        port = 22;
-        user = "root";
-        identityFile = "/Users/fom/.ssh/id_fom-mba";
-        identitiesOnly = true;
-      };
-      "nixium.boxchop.city" = {
-        hostname = "nixium.boxchop.city";
-        port = 22;
-        user = "root";
-        identityFile = "/Users/fom/.ssh/id_fom-mba";
-        identitiesOnly = true;
+    home-manager.enable = true;
+
+    ssh = {
+      includes = [
+        "config.d/*"
+      ];
+      matchBlocks = {
+        "github.com" = {
+          hostname = "github.com";
+          port = 22;
+          identityFile = "/Users/fom/.ssh/id_fom-mba-work";
+          identitiesOnly = true;
+        };
+        "me.github.com" = {
+          hostname = "github.com";
+          port = 22;
+          identityFile = "/Users/fom/.ssh/id_fom-mba";
+          identitiesOnly = true;
+        };
+        "work.github.com" = {
+          hostname = "github.com";
+          port = 22;
+          identityFile = "/Users/fom/.ssh/id_fom-mba-work";
+          identitiesOnly = true;
+        };
+        "nixium" = {
+          hostname = "nixium.boxchop.city";
+          port = 22;
+          user = "root";
+          identityFile = "/Users/fom/.ssh/id_fom-mba";
+          identitiesOnly = true;
+        };
+        "nixium.boxchop.city" = {
+          hostname = "nixium.boxchop.city";
+          port = 22;
+          user = "root";
+          identityFile = "/Users/fom/.ssh/id_fom-mba";
+          identitiesOnly = true;
+        };
       };
     };
   };

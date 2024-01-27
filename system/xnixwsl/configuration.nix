@@ -11,15 +11,17 @@
     ../../modules/system/nix-settings.nix # do not remove
   ];
 
-  wsl.enable = true;
-  wsl.defaultUser = "nixos";
-  wsl.wslConf.network.generateResolvConf = false;
+  wsl = {
+    enable = true;
+    defaultUser = "nixos";
+    wslConf.network.generateResolvConf = false;
+  };
 
-  networking.hostName = "xnixwsl"; # Define your hostname.
-  networking.nameservers = ["1.1.1.1"];
-
-  # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    networkmanager.enable = true;
+    hostName = "xnixwsl"; # Define your hostname.
+    nameservers = ["1.1.1.1"];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Copenhagen";

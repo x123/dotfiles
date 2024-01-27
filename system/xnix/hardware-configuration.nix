@@ -12,24 +12,27 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  # bootloader
-  boot.loader = {
-    systemd-boot.enable = true;
-    systemd-boot.configurationLimit = 100;
-    systemd-boot.memtest86.enable = true;
-    efi.canTouchEfiVariables = true;
-  };
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 100;
+        memtest86.enable = true;
+      };
+      efi.canTouchEfiVariables = true;
+    };
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" "usb_storage"];
-  boot.initrd.kernelModules = [];
-  boot.kernelParams = [];
-  boot.kernelPackages = pkgs.linuxPackages_zen; # lqx or zen or latest
-  boot.kernelModules = ["k10temp" "kvm-amd" "nct6683"];
-  boot.extraModprobeConfig = ''
-    options nct6683 force=1 force_id=0x2e
-  '';
-  boot.blacklistedKernelModules = ["snd_hda_intel"];
-  boot.extraModulePackages = [];
+    initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" "usb_storage"];
+    initrd.kernelModules = [];
+    kernelParams = [];
+    kernelPackages = pkgs.linuxPackages_zen; # lqx or zen or latest
+    kernelModules = ["k10temp" "kvm-amd" "nct6683"];
+    extraModprobeConfig = ''
+      options nct6683 force=1 force_id=0x2e
+    '';
+    blacklistedKernelModules = ["snd_hda_intel"];
+    extraModulePackages = [];
+  };
 
   services.fstrim.enable = true;
 

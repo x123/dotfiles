@@ -4,28 +4,30 @@
     ./i3-config.nix
   ];
 
-  xdg.desktopEntries = {
-    vim = {
-      name = "vim";
-      exec = "nvim %F";
-      #exec = "setsid -f ghostty -e nvim %F";
-      categories = ["Utility" "TextEditor"];
-      mimeType = ["text/plain"];
-      terminal = true;
+  xdg = {
+    desktopEntries = {
+      vim = {
+        name = "vim";
+        exec = "nvim %F";
+        #exec = "setsid -f ghostty -e nvim %F";
+        categories = ["Utility" "TextEditor"];
+        mimeType = ["text/plain"];
+        terminal = true;
+      };
     };
-  };
 
-  xdg.mime.enable = true;
-  xdg.mimeApps = {
-    enable = true;
-    associations.added = {};
-    associations.removed = {
-      "text/plain" = ["calibre-ebook-viewer.desktop"];
-    };
-    defaultApplications = {
-      "text/plain" = ["vim.desktop"];
-      "x-scheme-handler/https" = ["firefox.desktop"];
-      "x-scheme-handler/http" = ["firefox.desktop"];
+    mime.enable = true;
+    mimeApps = {
+      enable = true;
+      associations.added = {};
+      associations.removed = {
+        "text/plain" = ["calibre-ebook-viewer.desktop"];
+      };
+      defaultApplications = {
+        "text/plain" = ["vim.desktop"];
+        "x-scheme-handler/https" = ["firefox.desktop"];
+        "x-scheme-handler/http" = ["firefox.desktop"];
+      };
     };
   };
 

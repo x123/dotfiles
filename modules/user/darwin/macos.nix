@@ -1,56 +1,59 @@
 {pkgs, ...}: {
   imports = [];
 
-  # typing/spelling
-  targets.darwin.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3; # not sure
-  targets.darwin.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = true; # for extended characters
-  targets.darwin.defaults.NSGlobalDomain.InitialKeyRepeat = 15;
-  targets.darwin.defaults.NSGlobalDomain.KeyRepeat = 2;
-  targets.darwin.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
-  targets.darwin.defaults.NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
-  targets.darwin.defaults.NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
-  targets.darwin.defaults.NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
-  targets.darwin.defaults.NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
+  targets.darwin = {
+    # default search engine
+    search = "DuckDuckGo";
 
-  # not sure
-  targets.darwin.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
-  targets.darwin.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode2 = true;
-  targets.darwin.defaults.NSGlobalDomain._HIHideMenuBar = false; # top menubar
+    # show battery percentage
+    currentHostDefaults = {
+      "com.apple.controlcenter" = {
+        BatteryShowPercentage = true;
+      };
+    };
 
-  # dock
-  targets.darwin.defaults.dock = {
-    autohide = true;
-    mru-spaces = false;
-    orientation = "left";
-    showhidden = true;
-  };
+    defaults = {
+      # dock
+      dock = {
+        autohide = true;
+        mru-spaces = false;
+        orientation = "left";
+        showhidden = true;
+      };
 
-  # dock size
-  targets.darwin.defaults."com.apple.dock".tilesize = 64;
+      # dock size
+      "com.apple.dock".tilesize = 64;
 
-  # finder
-  targets.darwin.defaults.finder = {
-    AppleShowAllExtensions = true;
-    _FXShowPosixPathInTitle = true;
-    FXEnableExtensionChangeWarning = false;
-    QuitMenuItem = true;
-  };
+      # finder
+      finder = {
+        AppleShowAllExtensions = true;
+        _FXShowPosixPathInTitle = true;
+        FXEnableExtensionChangeWarning = false;
+        QuitMenuItem = true;
+      };
 
-  # trackpad
-  targets.darwin.defaults.trackpad.Clicking = true;
-  targets.darwin.defaults.trackpad.TrackpadThreeFingerDrag = true;
+      # trackpad
+      trackpad.Clicking = true;
+      trackpad.TrackpadThreeFingerDrag = true;
 
-  targets.darwin.defaults.keyboard.enableKeyMapping = true;
-  #system.keyboard.remapCapsLockToControl = true;
-  #targets.darwin.defaults.keyboard.swapLeftCommandAndLeftAlt = true;
+      keyboard.enableKeyMapping = true;
 
-  # default search engine
-  targets.darwin.search = "DuckDuckGo";
+      NSGlobalDomain = {
+        # typing/spelling
+        AppleKeyboardUIMode = 3; # not sure
+        ApplePressAndHoldEnabled = true; # for extended characters
+        InitialKeyRepeat = 15;
+        KeyRepeat = 2;
+        NSAutomaticCapitalizationEnabled = false;
+        NSAutomaticDashSubstitutionEnabled = false;
+        NSAutomaticPeriodSubstitutionEnabled = false;
+        NSAutomaticQuoteSubstitutionEnabled = false;
+        NSAutomaticSpellingCorrectionEnabled = false;
 
-  # show battery percentage
-  targets.darwin.currentHostDefaults = {
-    "com.apple.controlcenter" = {
-      BatteryShowPercentage = true;
+        NSNavPanelExpandedStateForSaveMode = true;
+        NSNavPanelExpandedStateForSaveMode2 = true;
+        _HIHideMenuBar = false; # top menubar
+      };
     };
   };
 }

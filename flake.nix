@@ -163,10 +163,12 @@
           #sops-nix.modules.home-manager.sops
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.root = import ./users/root-nixium/home.nix;
-            home-manager.extraSpecialArgs.flake-inputs = inputs;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.root = import ./users/root-nixium/home.nix;
+              extraSpecialArgs.flake-inputs = inputs;
+            };
           }
         ];
       };
