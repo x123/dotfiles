@@ -11,7 +11,8 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     blender-bin.url = "github:edolstra/nix-warez/?dir=blender";
     nixified-ai.url = "github:nixified-ai/flake";
-    ghostty.url = "git+ssh://git@github.com/mitchellh/ghostty";
+
+    ghostty.url = "git+ssh://git@me.github.com/mitchellh/ghostty";
 
     # minimize duplicate instances of inputs
     home-manager.inputs.nixpkgs.follows = "nixpkgs";

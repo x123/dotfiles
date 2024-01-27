@@ -74,6 +74,12 @@
 
   programs.ssh = {
     matchBlocks = {
+      "me.github.com" = {
+        hostname = "github.com";
+        port = 22;
+        identityFile = "/home/x/.ssh/id_xbox";
+        identitiesOnly = true;
+      };
       "github.com" = {
         hostname = "github.com";
         port = 22;

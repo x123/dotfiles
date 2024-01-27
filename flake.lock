@@ -187,17 +187,17 @@
         "zls": "zls"
       },
       "locked": {
-        "lastModified": 1706249456,
-        "narHash": "sha256-qiYzi15QkSsvEQT3CcK2En3PQG2CJ3XNYcDFrdA2b9I=",
+        "lastModified": 1706290967,
+        "narHash": "sha256-CGR+IHMDJVMhaee8NbfAEPPezsuMiB4wpJyzjo1W+9g=",
         "ref": "refs/heads/main",
-        "rev": "0972562a96927b508b9ee84bbf3d5815086158e3",
-        "revCount": 4825,
+        "rev": "894554f1a0fbd3c5f717629972ab0356bbae1007",
+        "revCount": 4835,
         "type": "git",
-        "url": "ssh://git@github.com/mitchellh/ghostty"
+        "url": "ssh://git@me.github.com/mitchellh/ghostty"
       },
       "original": {
         "type": "git",
-        "url": "ssh://git@github.com/mitchellh/ghostty"
+        "url": "ssh://git@me.github.com/mitchellh/ghostty"
       }
     },
     "gitignore": {
