@@ -6,8 +6,8 @@
   imports = [];
 
   home = {
-    packages = with pkgs; [
-      tor-browser-bundle-bin
+    packages = [
+      pkgs.tor-browser-bundle-bin
     ];
   };
 }

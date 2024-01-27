@@ -28,37 +28,35 @@
       hide_kernel_threads = 1;
       hide_userland_threads = 0;
       hide_running_in_container = 0;
-      fields = with config.lib.htop.fields; [
-        PID
-        USER
-        PRIORITY
-        NICE
-        M_SIZE
-        M_RESIDENT
-        M_SHARE
-        STATE
-        PERCENT_CPU
-        PERCENT_MEM
-        TIME
-        COMM
+      fields = [
+        config.lib.htop.fields.PID
+        config.lib.htop.fields.USER
+        config.lib.htop.fields.PRIORITY
+        config.lib.htop.fields.NICE
+        config.lib.htop.fields.M_SIZE
+        config.lib.htop.fields.M_RESIDENT
+        config.lib.htop.fields.M_SHARE
+        config.lib.htop.fields.STATE
+        config.lib.htop.fields.PERCENT_CPU
+        config.lib.htop.fields.PERCENT_MEM
+        config.lib.htop.fields.TIME
+        config.lib.htop.fields.COMM
       ];
     }
-    // (with config.lib.htop;
-      rightMeters [
-        (bar "LeftCPUs8")
-        (bar "Memory")
-        (text "Systemd")
-        (text "System")
-        (text "Uptime")
-        (bar "Battery")
-      ])
-    // (with config.lib.htop;
-      leftMeters [
-        (bar "RightCPUs8")
-        (bar "CPU")
-        (text "LoadAverage")
-        (text "Tasks")
-        (text "NetworkIO")
-        (text "DiskIO")
-      ]);
+    // config.lib.htop.rightMeters [
+      (config.lib.htop.bar "LeftCPUs8")
+      (config.lib.htop.bar "Memory")
+      (config.lib.htop.text "Systemd")
+      (config.lib.htop.text "System")
+      (config.lib.htop.text "Uptime")
+      (config.lib.htop.bar "Battery")
+    ]
+    // config.lib.htop.leftMeters [
+      (config.lib.htop.bar "RightCPUs8")
+      (config.lib.htop.bar "CPU")
+      (config.lib.htop.text "LoadAverage")
+      (config.lib.htop.text "Tasks")
+      (config.lib.htop.text "NetworkIO")
+      (config.lib.htop.text "DiskIO")
+    ];
 }

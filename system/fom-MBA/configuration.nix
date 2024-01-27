@@ -16,16 +16,22 @@
   ];
 
   environment = {
-    systemPackages = with pkgs; [
-      git
-      vim
-      wget
-    ];
+    systemPackages = builtins.attrValues {
+      inherit
+        (pkgs)
+        git
+        vim
+        wget
+        ;
+    };
 
-    shells = with pkgs; [
-      bash
-      zsh
-    ];
+    shells = builtins.attrValues {
+      inherit
+        (pkgs)
+        bash
+        zsh
+        ;
+    };
 
     variables = {
       EDITOR = "vim";

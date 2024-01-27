@@ -4,15 +4,18 @@
   ...
 }: {
   imports = [];
-  home.packages = with pkgs; [
-    blueman
-    dunst
-    feh
-    i3status-rust
-    networkmanagerapplet
-    redshift
-    xfce.thunar
-  ];
+  home.packages = builtins.attrValues {
+    inherit
+      (pkgs)
+      blueman
+      dunst
+      feh
+      i3status-rust
+      networkmanagerapplet
+      redshift
+      ;
+    inherit (pkgs.xfce) thunar;
+  };
 
   home.file = {
     i3lock-dpms = {

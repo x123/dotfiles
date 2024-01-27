@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [];
 
-  environment.systemPackages = with pkgs; [
-    cifs-utils
+  environment.systemPackages = [
+    pkgs.cifs-utils
   ];
 }

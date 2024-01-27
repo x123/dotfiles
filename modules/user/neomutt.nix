@@ -14,8 +14,8 @@
       };
     };
 
-    packages = with pkgs; [
-      neomutt
+    packages = [
+      pkgs.neomutt
     ];
   };
 }

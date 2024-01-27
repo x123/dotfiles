@@ -2,9 +2,12 @@
   imports = [];
 
   home = {
-    packages = with pkgs; [
-      python310Packages.torchWithCuda
-      python310Packages.torchvision-bin
-    ];
+    packages = builtins.attrValues {
+      inherit
+        (pkgs.python310Packages)
+        torchWithCuda
+        torchvision-bin
+        ;
+    };
   };
 }

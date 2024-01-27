@@ -67,11 +67,14 @@
   };
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
-  environment.systemPackages = with pkgs; [
-    git
-    vim
-    wget
-  ];
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs)
+      git
+      vim
+      wget
+      ;
+  };
 
   time.timeZone = "Europe/Copenhagen";
 

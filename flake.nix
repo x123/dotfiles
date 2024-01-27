@@ -71,16 +71,19 @@
       system,
     }: {
       default = pkgs.mkShell {
-        packages = with pkgs; [
-          age
-          alejandra
-          nvd
-          shellcheck
-          sops
-          ssh-to-age
-          statix
-          vulnix
-        ];
+        packages = builtins.attrValues {
+          inherit
+            (pkgs)
+            age
+            alejandra
+            nvd
+            shellcheck
+            sops
+            ssh-to-age
+            statix
+            vulnix
+            ;
+        };
 
         shellHook = ''
           export PATH="$PWD/bin:$PATH"

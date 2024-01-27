@@ -9,9 +9,12 @@
   };
 
   home = {
-    packages = with pkgs; [
-      sqlite
-      zig
-    ];
+    packages = builtins.attrValues {
+      inherit
+        (pkgs)
+        sqlite
+        zig
+        ;
+    };
   };
 }
