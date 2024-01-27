@@ -53,16 +53,16 @@
     }: {
       pre-commit-check = pre-commit-hooks.lib.${system}.run {
         src = ./.;
+        default_stages = ["push" "manual"];
         hooks = {
           alejandra.enable = true;
           shellcheck.enable = true;
           statix.enable = true;
-          custom-shellcheck = {
-            enable = false;
-            name = "shellcheck";
-            entry = "${pkgs.shellcheck}/bin/shellcheck";
-            files = "^bin/";
-            #types = ["executable" "text" "bash" "csh" "sh" "zsh" "tcsh"];
+        };
+        settings = {
+          alejandra = {
+            check = true;
+            #verbosity = "quiet";
           };
         };
       };
