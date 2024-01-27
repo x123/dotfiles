@@ -1,23 +1,5 @@
 {
   "nodes": {
-    "binrich": {
-      "inputs": {
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1706022813,
-        "narHash": "sha256-OEZKF3P/1JuUPAmPs6Ys6WXe0rnALizNRAXJ8h+1jvQ=",
-        "ref": "refs/heads/master",
-        "rev": "25914f12c4606f8c26e9922238fb6ada8301b9b8",
-        "revCount": 88,
-        "type": "git",
-        "url": "ssh://git@github.com/x123/binrich"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/x123/binrich"
-      }
-    },
     "blender-bin": {
       "inputs": {
         "nixpkgs": [
@@ -394,15 +376,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1703499205,
-        "narHash": "sha256-lF9rK5mSUfIZJgZxC3ge40tp1gmyyOXZ+lRY3P8bfbg=",
+        "lastModified": 1705856552,
+        "narHash": "sha256-JXfnuEf5Yd6bhMs/uvM67/joxYKoysyE3M2k6T3eWbg=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e1fa12d4f6c6fe19ccb59cac54b5b3f25e160870",
+        "rev": "612f97239e2cc474c13c9dafa0df378058c5ad8d",
         "type": "github"
       },
       "original": {
         "id": "nixpkgs",
+        "ref": "nixos-unstable",
         "type": "indirect"
       }
     },
@@ -472,21 +455,6 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1705856552,
-        "narHash": "sha256-JXfnuEf5Yd6bhMs/uvM67/joxYKoysyE3M2k6T3eWbg=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "612f97239e2cc474c13c9dafa0df378058c5ad8d",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "ref": "nixos-unstable",
-        "type": "indirect"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
         "lastModified": 1705697961,
         "narHash": "sha256-XepT3WS516evSFYkme3GrcI3+7uwXHqtHbip+t24J7E=",
         "owner": "NixOS",
@@ -518,7 +486,6 @@
     },
     "root": {
       "inputs": {
-        "binrich": "binrich",
         "blender-bin": "blender-bin",
         "ghostty": "ghostty",
         "home-manager": "home-manager",
@@ -526,14 +493,14 @@
         "nixified-ai": "nixified-ai",
         "nixos-hardware": "nixos-hardware",
         "nixos-wsl": "nixos-wsl",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "nur": "nur",
         "sops-nix": "sops-nix"
       }
     },
     "sops-nix": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable_2"
       },
       "locked": {

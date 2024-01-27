@@ -5,25 +5,12 @@
 }: {
   imports = [];
 
-  #  sops.secrets."postgres/nixium/binrich/DBNAME" = { };
-  #  sops.secrets."postgres/nixium/binrich/DBUSER" = { };
-  #  sops.secrets."postgres/nixium/binrich/DBPASS" = { };
-  #  sops.secrets."postgres/nixium/binrich/DBHOST" = { };
-
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_16;
     enableTCPIP = true;
-    ensureDatabases = ["binrich"];
-    ensureUsers = [
-      {
-        name = "binrich";
-        ensureDBOwnership = true;
-        ensureClauses = {
-          createdb = true;
-        };
-      }
-    ];
+    ensureDatabases = [];
+    ensureUsers = [];
     authentication = pkgs.lib.mkOverride 10 ''
       #type database  dbuser                  auth-method
       local all       all                     trust
@@ -41,8 +28,8 @@
 
   services.postgresqlBackup = {
     enable = true;
-    databases = ["binrich"];
+    databases = [];
     #backupAll = true;
-    startAt = "minutely";
+    startAt = "hourly";
   };
 }

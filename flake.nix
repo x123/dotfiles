@@ -12,7 +12,6 @@
     blender-bin.url = "github:edolstra/nix-warez/?dir=blender";
     nixified-ai.url = "github:nixified-ai/flake";
     ghostty.url = "git+ssh://git@github.com/mitchellh/ghostty";
-    binrich.url = "git+ssh://git@github.com/x123/binrich";
 
     # minimize duplicate instances of inputs
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -35,7 +34,6 @@
     blender-bin,
     nixified-ai,
     ghostty,
-    binrich,
     ...
   }: let
     supportedSystems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
@@ -109,17 +107,6 @@
           ./users/root-nixium/home.nix
         ];
       };
-
-      binrich-nixium = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config = {allowUnfree = true;};
-        };
-        extraSpecialArgs = {inherit inputs;};
-        modules = [
-          ./users/binrich-nixium/home.nix
-        ];
-      };
     };
 
     darwinConfigurations = {
@@ -179,7 +166,6 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.root = import ./users/root-nixium/home.nix;
-            home-manager.users.binrich = import ./users/binrich-nixium/home.nix;
             home-manager.extraSpecialArgs.flake-inputs = inputs;
           }
         ];
