@@ -25,10 +25,31 @@
 
   outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, sops-nix, nixos-wsl, nur, nix-darwin, blender-bin, nixified-ai, ghostty, binrich, ... }:
     let
-      lib = nixpkgs.lib;
-
+      supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
+        pkgs = import nixpkgs { inherit system; };
+      });
+      #lib = nixpkgs.lib;
     in
     {
+      devShells = forEachSupportedSystem ({ pkgs }: {
+        default = pkgs.mkShell {
+          packages = (with pkgs;
+          [
+            age
+            alejandra
+            sops
+            ssh-to-age
+            statix
+            vulnix
+          ]);
+
+          shellHook = ''
+            export PATH="$PWD/bin:$PATH"
+          '';
+        };
+      });
+
       homeManagerConfigurations = {
         fom-fom-MBA = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
@@ -101,7 +122,7 @@
       };
 
       nixosConfigurations = {
-        xnixwsl = lib.nixosSystem {
+        xnixwsl = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
@@ -110,7 +131,7 @@
           ];
         };
 
-        xnix = lib.nixosSystem {
+        xnix = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
@@ -123,7 +144,7 @@
           ];
         };
 
-        xnix-vm = lib.nixosSystem {
+        xnix-vm = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
@@ -131,7 +152,7 @@
           ];
         };
 
-        nixium = lib.nixosSystem {
+        nixium = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; hostname = "nixium.boxchop.city"; };
           modules = [
