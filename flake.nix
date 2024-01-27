@@ -50,6 +50,8 @@
         packages = with pkgs; [
           age
           alejandra
+          nvd
+          shellcheck
           sops
           ssh-to-age
           statix
