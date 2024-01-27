@@ -1,19 +1,20 @@
-#!/bin/sh
-set -x
+#!env bash
+# shellcheck disable=SC2239
+set -xeuo pipefail
 
-DARWIN_REBUILD=`which darwin-rebuild`
-NIXOS_REBUILD=`which nixos-rebuild`
-if [ ! -z "${DARWIN_REBUILD}" ]; then
-	echo "Found darwin-rebuild at ${DARWIN_REBUILD}"
-	echo "darwin-rebuild doesn't support --target-host builds ... Bailing out!"
+if which darwin-rebuild
+then
+  echo "Found darwin-rebuild at $(which darwin-rebuild)"
+	echo "Error: darwin-rebuild doesn't support --target-host builds ... Bailing out!"
 	exit 1
-elif [ ! -z "${NIXOS_REBUILD}" ]; then
-	echo "Found nixos-rebuild at ${NIXOS_REBUILD}"
+elif which nixos-rebuild
+then
+  echo "Found nixos-rebuild at $(which nixos-rebuild)"
 	pushd ~/.dotfiles || exit 1
     nixos-rebuild -v switch --target-host root@nixium.boxchop.city --flake .#nixium
 	popd || exit 1
 else
-	echo "Could not find nixos-rebuild or darwin-rebuild ... Bailing out!"
+	echo "Error: Could not find nixos-rebuild or darwin-rebuild ... Bailing out!"
   popd || exit 1
 	exit 1
 fi

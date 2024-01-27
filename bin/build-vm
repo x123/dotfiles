@@ -1,5 +1,6 @@
-#!/bin/sh
-set -xe
+#!env bash
+# shellcheck disable=SC2239
+set -xeuo pipefail
 
 pushd ~/.dotfiles || exit 1
 nixos-rebuild build-vm --flake .#xnix-vm
