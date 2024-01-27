@@ -81,6 +81,7 @@
     extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
     useDefaultShell = true;
+    initialHashedPassword = "$2b$05$xfNWBnjifpR7HFG1rPKbde/rUZdwaTRMLDVJIxAMv6fbkjc5NFm8W";
   };
 
   system.stateVersion = "23.05"; # Did you read the comment?
