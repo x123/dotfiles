@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ];
+{pkgs, ...}: {
+  imports = [];
 
   services.gpg-agent = {
     enable = true;
@@ -10,19 +10,22 @@
     maxCacheTtlSsh = 31536000;
     enableSshSupport = true;
     pinentryFlavor = "tty";
-    extraConfig = ''
-      pinentry-program ${pkgs.pinentry-qt}/bin/pinentry
-    '' + ''
-      allow-loopback-pinentry
-    '';
+    extraConfig =
+      ''
+        pinentry-program ${pkgs.pinentry-qt}/bin/pinentry
+      ''
+      + ''
+        allow-loopback-pinentry
+      '';
   };
 
   programs.ssh = {
-    extraConfig = (if pkgs.stdenv.isDarwin then ''''
-    else ''
-      Match host * exec "gpg-connect-agent UPDATESTARTUPTTY /bye"
-    ''
+    extraConfig = (
+      if pkgs.stdenv.isDarwin
+      then ''''
+      else ''
+        Match host * exec "gpg-connect-agent UPDATESTARTUPTTY /bye"
+      ''
     );
   };
-
 }

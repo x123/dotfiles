@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ];
+{pkgs, ...}: {
+  imports = [];
 
   home = {
     packages = with pkgs; [
@@ -29,6 +29,5 @@
       init.defaultBranch = "master";
       push.autoSetupRemote = true;
     };
-
   };
 }

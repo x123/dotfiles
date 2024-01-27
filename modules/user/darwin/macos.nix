@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ];
+{pkgs, ...}: {
+  imports = [];
 
   # typing/spelling
   targets.darwin.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3; # not sure
@@ -53,5 +53,4 @@
       BatteryShowPercentage = true;
     };
   };
-
 }

@@ -1,4 +1,5 @@
 #!env zsh
-set -xeuo pipefail
+set -euo pipefail
 pushd ~/.dotfiles
-nixpkgs-fmt **/*.nix
+alejandra .
+popd

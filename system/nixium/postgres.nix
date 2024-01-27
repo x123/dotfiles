@@ -1,5 +1,9 @@
-{ config, pkgs, ... }: {
-  imports = [ ];
+{
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [];
 
   #  sops.secrets."postgres/nixium/binrich/DBNAME" = { };
   #  sops.secrets."postgres/nixium/binrich/DBUSER" = { };
@@ -10,7 +14,7 @@
     enable = true;
     package = pkgs.postgresql_16;
     enableTCPIP = true;
-    ensureDatabases = [ "binrich" ];
+    ensureDatabases = ["binrich"];
     ensureUsers = [
       {
         name = "binrich";
@@ -27,17 +31,17 @@
       host  all       all    ::1/128          trust
     '';
     identMap = ''
-        # ArbitraryMapName systemUser DBUser
-           superuser_map      root      postgres
-           superuser_map      postgres  postgres
-           # Let other names login as themselves
-           superuser_map      /^(.*)$   \1
-      	'';
+      # ArbitraryMapName systemUser DBUser
+         superuser_map      root      postgres
+         superuser_map      postgres  postgres
+         # Let other names login as themselves
+         superuser_map      /^(.*)$   \1
+    '';
   };
 
   services.postgresqlBackup = {
     enable = true;
-    databases = [ "binrich" ];
+    databases = ["binrich"];
     #backupAll = true;
     startAt = "minutely";
   };

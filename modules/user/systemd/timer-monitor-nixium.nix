@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ];
+{pkgs, ...}: {
+  imports = [];
 
   systemd.user.timers.monitor-nixium = {
     Timer = {
@@ -8,7 +8,7 @@
       OnUnitActiveSec = "150s";
       Unit = "monitor-nixium.service";
     };
-    Install.WantedBy = [ "default.target" ];
+    Install.WantedBy = ["default.target"];
   };
 
   systemd.user.services = {
@@ -19,7 +19,8 @@
 
       Service = {
         Type = "oneshot";
-        ExecStart = pkgs.writeShellScript "monitor-nixium"
+        ExecStart =
+          pkgs.writeShellScript "monitor-nixium"
           ''
             set -euo pipefail
 
@@ -30,5 +31,4 @@
       };
     };
   };
-
 }

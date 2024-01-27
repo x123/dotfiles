@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ];
+{pkgs, ...}: {
+  imports = [];
 
   systemd.user.timers.binrich-fetch = {
     Timer = {
@@ -8,7 +8,7 @@
       OnUnitActiveSec = "150s";
       Unit = "binrich-fetch.service";
     };
-    Install.WantedBy = [ "default.target" ];
+    Install.WantedBy = ["default.target"];
   };
 
   systemd.user.services = {
@@ -19,7 +19,8 @@
 
       Service = {
         Type = "oneshot";
-        ExecStart = pkgs.writeShellScript "binrich-fetch"
+        ExecStart =
+          pkgs.writeShellScript "binrich-fetch"
           ''
             set -euo pipefail
 
@@ -34,5 +35,4 @@
       };
     };
   };
-
 }

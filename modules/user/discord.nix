@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ];
+{pkgs, ...}: {
+  imports = [];
 
   # discord
   nixpkgs.overlays = [
@@ -22,5 +22,4 @@
       discord
     ];
   };
-
 }

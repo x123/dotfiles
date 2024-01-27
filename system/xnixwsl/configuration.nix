@@ -1,10 +1,12 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ../../modules/system/nix-settings.nix # do not remove
   ];
@@ -14,7 +16,7 @@
   wsl.wslConf.network.generateResolvConf = false;
 
   networking.hostName = "xnixwsl"; # Define your hostname.
-  networking.nameservers = [ "1.1.1.1" ];
+  networking.nameservers = ["1.1.1.1"];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -35,12 +37,11 @@
     LC_TELEPHONE = "en_US.UTF-8";
   };
 
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.x = {
     isNormalUser = true;
     description = "x";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     #packages = with pkgs; [
     #  firefox
     #  kate
@@ -60,7 +61,6 @@
   #  enable = true;
   #  enableSSHSupport = true;
   #};
-
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

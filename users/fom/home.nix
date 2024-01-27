@@ -1,4 +1,9 @@
-{ pkgs, inputs, lib, ... }: {
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
   imports = [
     ../../modules/user/alacritty
     ../../modules/user/common-packages.nix
@@ -72,5 +77,4 @@
       };
     };
   };
-
 }

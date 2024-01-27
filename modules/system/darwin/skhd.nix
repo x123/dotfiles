@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ];
+{pkgs, ...}: {
+  imports = [];
 
   services.skhd = {
     enable = true;
@@ -61,5 +61,4 @@
       #    ctrl + cmd - 3  : yabai -m window --display 3; yabai -m display --focus 3
     '';
   };
-
 }

@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ];
+{pkgs, ...}: {
+  imports = [];
 
   programs.yazi = {
     enable = true;
@@ -38,5 +38,4 @@
       y = "yazi";
     };
   };
-
 }

@@ -1,5 +1,11 @@
-{ pkgs, inputs, config, system, ... }: {
-  imports = [ ];
+{
+  pkgs,
+  inputs,
+  config,
+  system,
+  ...
+}: {
+  imports = [];
 
   gtk = {
     enable = true;
@@ -37,5 +43,4 @@
       #gtk-modules="colorreload-gtk-module";
     };
   };
-
 }

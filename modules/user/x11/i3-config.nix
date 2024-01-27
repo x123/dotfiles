@@ -1,5 +1,9 @@
-{ pkgs, lib, ... }: {
-  imports = [ ];
+{
+  pkgs,
+  lib,
+  ...
+}: {
+  imports = [];
   home.packages = with pkgs; [
     blueman
     dunst
@@ -109,65 +113,67 @@
     };
   };
 
-  xsession.windowManager.i3 =
-    let
-      my-modifier = "Mod4"; #Mod1 is alt
-      background = "${pkgs.plasma-workspace-wallpapers}/share/wallpapers/Path/contents/images/2560x1600.jpg";
-      # fetch background from web
-      # background = pkgs.fetchurl {
-      # url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/03c6c20be96c38827037d2238357f2c777ec4aa5/wallpapers/nix-wallpaper-dracula.png";
-      # sha256 = "SykeFJXCzkeaxw06np0QkJCK28e0k30PdY8ZDVcQnh4=";
-      # };
-    in
-    {
-      enable = true;
-      config = {
-        startup = [
-          { command = "${pkgs.autorandr}/bin/autorandr -l home"; }
-          { command = "${pkgs.xorg.setxkbmap}/bin/setxkbmap -option compose:ralt"; }
-          { command = "${pkgs.feh}/bin/feh --bg-fill ${background}"; }
-          { command = "${pkgs.dunst}/bin/dunst &"; }
-          { command = "${pkgs.picom}/bin/picom --daemon"; }
-          { command = "${pkgs.i3}/bin/i3-msg workspace 1"; }
-          { command = "${pkgs.redshift}/bin/redshift -l 55.7:12.6 -t 5700:3600 -g 0.8 -m randr -v"; }
-          { command = "${pkgs.networkmanagerapplet}/bin/nm-applet &"; }
-          { command = "${pkgs.blueman}/bin/blueman-applet &"; }
-        ] ++ (if pkgs.stdenv.isDarwin || pkgs.stdenv.hostPlatform.system == "aarch64-linux" then [ ]
-        else [
-          { command = "${pkgs.dropbox}/bin/dropbox &"; }
+  xsession.windowManager.i3 = let
+    my-modifier = "Mod4"; #Mod1 is alt
+    background = "${pkgs.plasma-workspace-wallpapers}/share/wallpapers/Path/contents/images/2560x1600.jpg";
+    # fetch background from web
+    # background = pkgs.fetchurl {
+    # url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/03c6c20be96c38827037d2238357f2c777ec4aa5/wallpapers/nix-wallpaper-dracula.png";
+    # sha256 = "SykeFJXCzkeaxw06np0QkJCK28e0k30PdY8ZDVcQnh4=";
+    # };
+  in {
+    enable = true;
+    config = {
+      startup =
+        [
+          {command = "${pkgs.autorandr}/bin/autorandr -l home";}
+          {command = "${pkgs.xorg.setxkbmap}/bin/setxkbmap -option compose:ralt";}
+          {command = "${pkgs.feh}/bin/feh --bg-fill ${background}";}
+          {command = "${pkgs.dunst}/bin/dunst &";}
+          {command = "${pkgs.picom}/bin/picom --daemon";}
+          {command = "${pkgs.i3}/bin/i3-msg workspace 1";}
+          {command = "${pkgs.redshift}/bin/redshift -l 55.7:12.6 -t 5700:3600 -g 0.8 -m randr -v";}
+          {command = "${pkgs.networkmanagerapplet}/bin/nm-applet &";}
+          {command = "${pkgs.blueman}/bin/blueman-applet &";}
         ]
+        ++ (
+          if pkgs.stdenv.isDarwin || pkgs.stdenv.hostPlatform.system == "aarch64-linux"
+          then []
+          else [
+            {command = "${pkgs.dropbox}/bin/dropbox &";}
+          ]
         );
-        modifier = my-modifier;
-        terminal = "ghostty";
-        #terminal = "${pkgs.alacritty}/bin/alacritty";
-        window = {
-          hideEdgeBorders = "smart";
-          titlebar = false;
-        };
-        bars = [
-          {
-            fonts = {
-              names = [ "CodeNewRoman Nerd Font" ];
-              size = 12.0;
-            };
-            mode = "dock";
-            hiddenState = "show";
-            statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-default.toml";
-            position = "bottom";
-            trayOutput = "primary";
-            workspaceButtons = true;
-          }
-        ];
-        keybindings = lib.mkOptionDefault {
-          "${my-modifier}+Shift+l" = "exec ~/bin/i3lock-dpms";
-          "${my-modifier}+Tab" = "exec ${pkgs.rofi}/bin/rofi -show window";
-          "${my-modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show combi";
-          "${my-modifier}+Shift+s" = "sticky toggle";
-        };
-        focus = {
-          followMouse = false;
-          mouseWarping = true;
-        };
+      modifier = my-modifier;
+      terminal = "ghostty";
+      #terminal = "${pkgs.alacritty}/bin/alacritty";
+      window = {
+        hideEdgeBorders = "smart";
+        titlebar = false;
+      };
+      bars = [
+        {
+          fonts = {
+            names = ["CodeNewRoman Nerd Font"];
+            size = 12.0;
+          };
+          mode = "dock";
+          hiddenState = "show";
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-default.toml";
+          position = "bottom";
+          trayOutput = "primary";
+          workspaceButtons = true;
+        }
+      ];
+      keybindings = lib.mkOptionDefault {
+        "${my-modifier}+Shift+l" = "exec ~/bin/i3lock-dpms";
+        "${my-modifier}+Tab" = "exec ${pkgs.rofi}/bin/rofi -show window";
+        "${my-modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show combi";
+        "${my-modifier}+Shift+s" = "sticky toggle";
+      };
+      focus = {
+        followMouse = false;
+        mouseWarping = true;
       };
     };
+  };
 }

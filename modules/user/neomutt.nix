@@ -1,5 +1,9 @@
-{ pkgs, inputs, ... }: {
-  imports = [ ];
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [];
 
   home = {
     file = {
@@ -13,7 +17,5 @@
     packages = with pkgs; [
       neomutt
     ];
-
   };
-
 }
