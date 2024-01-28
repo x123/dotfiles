@@ -1,7 +1,7 @@
 keys:
   - &x123 age1vnrrkyd9h8d5u8l07nghetuv2mt5wwu5krhln5sp8ztycquzxc9qu5n877
   - &system_xnix age1cuhquw0nsjm2nsuggezdkmxsj92p5vc97jtjmskmpwxdh50k5djs3xusfc
-  - &system_nixium age1z4fhtw3swe65kc7ug9rupt2vuz30aa7nns3z5x5t3gyypw5fzutsffejrx
+  - &system_nixium age192p08wwdswnxajx80ec7ugsasn6x7aa0gvrj5myzllww09hvsgwqsy5fj2
   - &mba age1qsykrrtcjsmhw9zst5r52vzpkdj7mxp66c0has02vcf7an230p0s07hhpn
 creation_rules:
   - path_regex: ^secrets.yaml$
