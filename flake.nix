@@ -55,12 +55,17 @@
         src = ./.;
         hooks = {
           alejandra.enable = true;
+          deadnix.enable = true;
           shellcheck.enable = true;
           statix.enable = true;
         };
         settings = {
           alejandra = {
             check = true;
+          };
+          deadnix = {
+            noLambdaArg = true;
+            noLambdaPatternNames = true;
           };
         };
       };
@@ -76,6 +81,7 @@
             (pkgs)
             age
             alejandra
+            deadnix
             nvd
             shellcheck
             sops
