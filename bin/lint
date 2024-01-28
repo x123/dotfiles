@@ -2,3 +2,4 @@
 set -xeuo pipefail
 
 statix check .
+shellcheck bin/*
