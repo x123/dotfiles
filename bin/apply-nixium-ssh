@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
-pushd ~/.dotfiles || exit 1
+
 ssh -t -A root@nixium.boxchop.city "if [ ! -d ~/.dotfiles ]; then git clone git@github.com:x123/dotfiles.git ~/.dotfiles; fi"
 ssh -t -A root@nixium.boxchop.city "cd ~/.dotfiles && git pull && ./bin/apply-system"
-popd || exit 1

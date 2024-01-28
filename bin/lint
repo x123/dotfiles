@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
-pushd ~/.dotfiles || exit 1
+
 statix check .
-popd || exit 1

@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-pushd ~/.dotfiles || exit 1
 nixos-rebuild build-vm --flake .#xnix
-popd || exit 1
-
-# without nixos-rebuild
-#nix build .#nixosConfigurations.xnix.config.system.build.vm
