@@ -8,6 +8,7 @@
         elixir-ls
         gopls
         marksman
+        nil
         nixd
         terraform-ls
         vscode-langservers-extracted
@@ -163,7 +164,28 @@
       lspconfig.jsonls.setup({})
       lspconfig.lua_ls.setup({})
       lspconfig.marksman.setup({})
-      lspconfig.nixd.setup({})
+      lspconfig.nixd.setup({
+        autostart = true,
+        cmd = { "${pkgs.nixd}/bin/nixd" },
+        settings = {
+          ['nixd'] = {
+            formatting = {
+              command = { "${pkgs.alejandra}/bin/alejandra" },
+            },
+          },
+        },
+      })
+      lspconfig.nil_ls.setup({
+        autostart = true,
+        cmd = { "${pkgs.nil}/bin/nil" },
+        settings = {
+          ['nil'] = {
+            formatting = {
+              command = { "${pkgs.alejandra}/bin/alejandra" },
+            },
+          },
+        },
+      })
       lspconfig.terraformls.setup({})
 
       -- Use LspAttach autocommand to only map the following keys
@@ -171,6 +193,8 @@
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(ev)
+         local client = vim.lsp.get_client_by_id(ev.data.client_id)
+          client.server_capabilities.semanticTokensProvider = nil
           -- Enable completion triggered by <c-x><c-o>
           vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
