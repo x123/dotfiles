@@ -37,6 +37,8 @@
         telescope-nvim
         tmux-nvim
         undotree
+        vim-vsnip
+        vim-vsnip-integ
         ;
       inherit
         (pkgs.vimPlugins.nvim-treesitter-parsers)
@@ -115,6 +117,11 @@
         signcolumn = true,
         numhl = true,
       })
+
+
+      -- require("vim-vsnip").setup({})
+      -- require("vim-vsnip-integ").setup({})
+      -- require("cmp-vsnip").setup({})
 
       -- nvim-cmp
       local cmp = require("cmp")
