@@ -37,8 +37,12 @@
       group = "wheel";
     };
   };
+
   # allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowAliases = false;
+  };
 
   # networking
   networking = {
