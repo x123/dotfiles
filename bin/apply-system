@@ -1,14 +1,21 @@
 #!/usr/bin/env bash
-set -xeuo pipefail
+set -eo pipefail
+
+if [ -z "$1" ]
+then
+  echo "Error: ${0} requires a system name to apply."
+  echo "Example: ${0} nixium"
+  exit 1
+fi
+
+SHORT_HOSTNAME=$1
 
 if which darwin-rebuild
 then
-  echo "Found darwin-rebuild at $(which darwin-rebuild)"
-  darwin-rebuild -v switch --flake .#
+  darwin-rebuild -v switch --flake .#"${SHORT_HOSTNAME}"
 elif which nixos-rebuild
 then
-  echo "Found nixos-rebuild at $(which nixos-rebuild)"
-  sudo --preserve-env=SSH_AUTH_SOCK nixos-rebuild -v switch --flake .#
+  sudo --preserve-env=SSH_AUTH_SOCK nixos-rebuild -v switch --flake .#"${SHORT_HOSTNAME}"
 else
   echo "Error: Could not find nixos-rebuild or darwin-rebuild ... Bailing out!"
   exit 1
