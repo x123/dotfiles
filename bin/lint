@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
+deadnix -l -L .
 statix check .
 shellcheck bin/*
