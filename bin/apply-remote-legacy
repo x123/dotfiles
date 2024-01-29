@@ -34,4 +34,4 @@ then
   exit 1
 fi
 
-nixos-rebuild -v switch --target-host "${REMOTE_BUILDER}" --flake .#"${SYSTEM_TO_APPLY}"
+nixos-rebuild -v switch --target-host "${REMOTE_BUILDER}" --use-remote-sudo --flake .#"${SYSTEM_TO_APPLY}"
