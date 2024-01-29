@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-nix store gc -v
-nix store optimise
+nix-store --gc -v
+nix-store --optimise
