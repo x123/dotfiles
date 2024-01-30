@@ -13,6 +13,7 @@
   ];
 
   boot = {
+    binfmt.emulatedSystems = ["x86_64-linux"];
     initrd.availableKernelModules = ["xhci_pci" "virtio_scsi" "sr_mod"];
     initrd.kernelModules = [];
     kernelModules = [];
