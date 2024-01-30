@@ -1,12 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [];
 
   nix = {
     # support nix flakes
     package = pkgs.nixVersions.stable;
-
-    # disable nix-channel
-    channel.enable = false;
 
     settings = {
       experimental-features = ["nix-command" "flakes"];
