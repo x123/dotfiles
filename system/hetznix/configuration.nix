@@ -38,6 +38,15 @@
     domain = "boxchop.city";
   };
 
+  networking.nftables.enable = true;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [22];
+    # extraInputRules = ''
+    #   ip saddr { 192.168.1.0/24, 192.168.9.0/24 } tcp dport {22, 9090} accept
+    # '';
+  };
+
   services.openssh = {
     enable = true;
     openFirewall = true;
@@ -59,7 +68,8 @@
     motdFile = ./files/hetznix.motd;
 
     users.root.openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAV4W4TVF5yqOwKFax+b2XtRYbdKy1wy4zFXfFZfv5be"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAV4W4TVF5yqOwKFax+b2XtRYbdKy1wy4zFXfFZfv5be xnix"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID6elYl8CWSR32Zx33D+XgQWM/721sDmnyFJec7vDeMb fom-mba"
     ];
 
     users.x123 = {
@@ -70,7 +80,8 @@
       shell = pkgs.zsh;
       useDefaultShell = true;
       openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAV4W4TVF5yqOwKFax+b2XtRYbdKy1wy4zFXfFZfv5be"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAV4W4TVF5yqOwKFax+b2XtRYbdKy1wy4zFXfFZfv5be xnix"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID6elYl8CWSR32Zx33D+XgQWM/721sDmnyFJec7vDeMb fom-mba"
       ];
     };
   };
