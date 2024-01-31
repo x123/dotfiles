@@ -9,7 +9,6 @@
       vim = {
         name = "vim";
         exec = "nvim %F";
-        #exec = "setsid -f ghostty -e nvim %F";
         categories = ["Utility" "TextEditor"];
         mimeType = ["text/plain"];
         terminal = true;
