@@ -23,7 +23,7 @@
     ../../modules/user/home-manager.nix
     ../../modules/user/desktop/keepass.nix
     ../../modules/user/neomutt.nix
-    ../../modules/user/neovim.nix
+    ../../modules/user/editors/neovim.nix
     ../../modules/user/shell
     ../../modules/user/desktop/telegram.nix
     ../../modules/user/desktop/tor-browser.nix
