@@ -119,7 +119,7 @@
 
   xsession.windowManager.i3 = let
     my-modifier = "Mod4"; #Mod1 is alt
-    background = "${pkgs.plasma-workspace-wallpapers}/share/wallpapers/Path/contents/images/2560x1600.jpg";
+    # background = "${pkgs.plasma-workspace-wallpapers}/share/wallpapers/Path/contents/images/2560x1600.jpg";
     # fetch background from web
     # background = pkgs.fetchurl {
     # url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/03c6c20be96c38827037d2238357f2c777ec4aa5/wallpapers/nix-wallpaper-dracula.png";
@@ -132,7 +132,7 @@
         [
           {command = "${pkgs.autorandr}/bin/autorandr -l home";}
           {command = "${pkgs.xorg.setxkbmap}/bin/setxkbmap -option compose:ralt";}
-          {command = "${pkgs.feh}/bin/feh --bg-fill ${background}";}
+          #{command = "${pkgs.feh}/bin/feh --bg-fill ${background}";}
           {command = "${pkgs.dunst}/bin/dunst &";}
           {command = "${pkgs.picom}/bin/picom --daemon";}
           {command = "${pkgs.i3}/bin/i3-msg workspace 1";}
