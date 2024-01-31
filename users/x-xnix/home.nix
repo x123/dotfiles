@@ -14,7 +14,7 @@
     ../../modules/user/common-packages.nix
     ../../modules/user/common-ssh.nix
     ../../modules/user/dev.nix
-    ../../modules/user/discord.nix
+    ../../modules/user/desktop/discord.nix
     ../../modules/user/desktop/firefox.nix
     ../../modules/user/ghostty.nix
     ../../modules/user/git.nix
