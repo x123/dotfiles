@@ -8,7 +8,7 @@
     #../../modules/user/pytorch.nix
     #../../modules/user/ai.nix
     ../../modules/user/alacritty
-    ../../modules/user/blender.nix
+    ../../modules/user/desktop/blender.nix
     ../../modules/user/calibre.nix
     ../../modules/user/desktop/chromium.nix
     ../../modules/user/common-packages.nix
