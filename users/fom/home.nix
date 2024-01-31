@@ -9,8 +9,7 @@
     ../../modules/user/common
     ../../modules/user/darwin/macos.nix
     ../../modules/user/darwin/safari.nix
-    ../../modules/user/dev.nix
-    ../../modules/user/git.nix
+    ../../modules/user/dev
     ../../modules/user/shell
     ../../modules/user/desktop/video.nix
     ../../modules/user/editors/neovim.nix
