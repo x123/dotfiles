@@ -5,8 +5,8 @@
   ...
 }: {
   imports = [
-    #../../modules/user/pytorch.nix
-    #../../modules/user/ai.nix
+    #../../modules/user/ai/pytorch.nix
+    #../../modules/user/ai/invokeai.nix
     ../../modules/user/alacritty
     ../../modules/user/desktop/blender.nix
     ../../modules/user/desktop/calibre.nix
