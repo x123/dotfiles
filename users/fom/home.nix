@@ -6,8 +6,7 @@
 }: {
   imports = [
     ../../modules/user/alacritty
-    ../../modules/user/common-packages.nix
-    ../../modules/user/common-ssh.nix
+    ../../modules/user/common
     ../../modules/user/darwin/macos.nix
     ../../modules/user/darwin/safari.nix
     ../../modules/user/dev.nix
