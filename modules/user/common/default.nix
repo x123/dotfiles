@@ -1,6 +1,7 @@
 {...}: {
   imports = [
-    ./common-ssh.nix
     ./common-packages.nix
+    ./common-ssh.nix
+    ./gpg-agent.nix
   ];
 }

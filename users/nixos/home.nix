@@ -6,7 +6,6 @@
   imports = [
     ../../modules/user/common
     ../../modules/user/git.nix
-    ../../modules/user/gpg-agent.nix
     ../../modules/user/shell
     ../../modules/user/editors/neovim.nix
   ];
