@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [];
 
   home = {
@@ -10,7 +6,7 @@
       neomuttrc = {
         enable = true;
         target = ".config/neomutt/neomuttrc";
-        source = ./files/neomuttrc;
+        source = ./neomuttrc;
       };
     };
 
