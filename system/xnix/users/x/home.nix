@@ -1,31 +1,27 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
-    #../../modules/user/ai/pytorch.nix
-    #../../modules/user/ai/invokeai.nix
-    ../../modules/user/desktop/alacritty
-    ../../modules/user/desktop/blender.nix
-    ../../modules/user/desktop/calibre.nix
-    ../../modules/user/desktop/chromium.nix
-    ../../modules/user/common
-    ../../modules/user/dev
-    ../../modules/user/desktop/discord.nix
-    ../../modules/user/desktop/firefox.nix
-    ../../modules/user/desktop/ghostty.nix
-    ../../modules/user/editors/helix.nix
-    ../../modules/user/desktop/keepass.nix
-    ../../modules/user/mail/neomutt.nix
-    ../../modules/user/editors/neovim.nix
-    ../../modules/user/shell
-    ../../modules/user/desktop/telegram.nix
-    ../../modules/user/desktop/tor-browser.nix
-    ../../modules/user/desktop/video.nix
-    ../../modules/user/x11
-    ../../modules/user/desktop/yed.nix
+    ../../../../modules/user/common
+    ../../../../modules/user/dev
+    ../../../../modules/user/shell
+    ../../../../modules/user/x11
+
+    ../../../../modules/user/desktop/alacritty
+    ../../../../modules/user/desktop/blender.nix
+    ../../../../modules/user/desktop/calibre.nix
+    ../../../../modules/user/desktop/chromium.nix
+    ../../../../modules/user/desktop/discord.nix
+    ../../../../modules/user/desktop/firefox.nix
+    ../../../../modules/user/desktop/ghostty.nix
+    ../../../../modules/user/desktop/keepass.nix
+    ../../../../modules/user/desktop/telegram.nix
+    ../../../../modules/user/desktop/tor-browser.nix
+    ../../../../modules/user/desktop/video.nix
+    ../../../../modules/user/desktop/yed.nix
+
+    ../../../../modules/user/editors/helix.nix
+    ../../../../modules/user/editors/neovim.nix
+
+    ../../../../modules/user/mail/neomutt.nix
   ];
 
   home = {

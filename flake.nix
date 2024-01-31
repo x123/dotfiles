@@ -133,7 +133,7 @@
         extraSpecialArgs = {inherit inputs;};
         modules = [
           nur.nixosModules.nur
-          ./users/x-xnix/home.nix
+          ./system/xnix/users/x/home.nix
         ];
       };
 
