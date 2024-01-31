@@ -121,7 +121,7 @@
         };
         extraSpecialArgs = {inherit inputs;};
         modules = [
-          ./users/nixos/home.nix
+          ./system/xnixwsl/users/nixos/home.nix
         ];
       };
 
