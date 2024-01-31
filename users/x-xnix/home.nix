@@ -9,7 +9,7 @@
     #../../modules/user/ai.nix
     ../../modules/user/alacritty
     ../../modules/user/desktop/blender.nix
-    ../../modules/user/calibre.nix
+    ../../modules/user/desktop/calibre.nix
     ../../modules/user/desktop/chromium.nix
     ../../modules/user/common-packages.nix
     ../../modules/user/common-ssh.nix
