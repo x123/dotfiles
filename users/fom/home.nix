@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    ../../modules/user/alacritty
+    ../../modules/user/desktop/alacritty
     ../../modules/user/common
     ../../modules/user/darwin/macos.nix
     ../../modules/user/darwin/safari.nix
