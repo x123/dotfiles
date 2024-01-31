@@ -1,19 +1,13 @@
-{
-  pkgs,
-  inputs,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   imports = [
-    ../../modules/user/desktop/alacritty
-    ../../modules/user/common
-    ../../modules/user/darwin/macos.nix
-    ../../modules/user/darwin/safari.nix
-    ../../modules/user/dev
-    ../../modules/user/shell
-    ../../modules/user/desktop/video.nix
-    ../../modules/user/editors/neovim.nix
-    ../../modules/user/desktop/keepass.nix
+    ../../../../modules/user/common
+    ../../../../modules/user/darwin
+    ../../../../modules/user/dev
+    ../../../../modules/user/shell
+    ../../../../modules/user/desktop/alacritty
+    ../../../../modules/user/desktop/video.nix
+    ../../../../modules/user/editors/neovim.nix
+    ../../../../modules/user/desktop/keepass.nix
   ];
 
   home = {
