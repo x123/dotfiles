@@ -17,7 +17,6 @@
     ../../modules/user/desktop/firefox.nix
     ../../modules/user/desktop/ghostty.nix
     ../../modules/user/editors/helix.nix
-    ../../modules/user/home-manager.nix
     ../../modules/user/desktop/keepass.nix
     ../../modules/user/neomutt.nix
     ../../modules/user/editors/neovim.nix
@@ -26,7 +25,7 @@
     ../../modules/user/desktop/tor-browser.nix
     ../../modules/user/desktop/video.nix
     ../../modules/user/x11
-    ../../modules/user/yed.nix
+    ../../modules/user/desktop/yed.nix
   ];
 
   home = {

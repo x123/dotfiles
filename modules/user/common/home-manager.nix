@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   imports = [];
 
   # Let Home Manager install and manage itself.
