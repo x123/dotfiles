@@ -17,6 +17,10 @@
     sessionVariables = {
       TESTINGVAR = "testing";
     };
+
+    shellAliases = {
+      "todo!" = "cd ~/work/src/todo; sops todo.md";
+    };
   };
 
   programs = {
