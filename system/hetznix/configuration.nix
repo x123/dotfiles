@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   modulesPath,
   pkgs,
   ...
@@ -10,6 +8,7 @@
     ./disk-config.nix
     ../../modules/system/nix-settings.nix # do not remove
     ../../modules/system/zsh.nix
+    ./local/invidious.nix
   ];
 
   boot = {
@@ -41,7 +40,7 @@
   networking.nftables.enable = true;
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [22];
+    allowedTCPPorts = [22 80 443];
     # extraInputRules = ''
     #   ip saddr { 192.168.1.0/24, 192.168.9.0/24 } tcp dport {22, 9090} accept
     # '';
