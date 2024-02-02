@@ -9,7 +9,11 @@
     domain = "hetznix.boxchop.city";
     nginx.enable = true;
     settings = {
+      statistics_enabled = false;
       registration_enabled = false;
+      popular_enabled = false;
+      admins = ["x123"];
+      decrypt_polling = true; # may use more bandwidth
     };
   };
 
