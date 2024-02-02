@@ -1,13 +1,16 @@
 {
-  pkgs,
   config,
+  lib,
+  pkgs,
   ...
 }: {
   imports = [];
 
-  home = {
-    packages = [
-      pkgs.tor-browser
-    ];
+  config = lib.mkIf config.custom.desktop.enable {
+    home = {
+      packages = [
+        pkgs.tor-browser
+      ];
+    };
   };
 }

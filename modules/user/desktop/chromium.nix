@@ -1,15 +1,14 @@
-{pkgs, ...}: let
-  broken_on_darwin = [];
-in {
-  home = {
-    packages =
-      [
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  config = lib.mkIf config.custom.desktop.enable {
+    home = {
+      packages = [
         pkgs.ungoogled-chromium
-      ]
-      ++ (
-        if pkgs.stdenv.isDarwin
-        then []
-        else broken_on_darwin
-      );
+      ];
+    };
   };
 }

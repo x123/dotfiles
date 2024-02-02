@@ -1,12 +1,14 @@
 {
+  config,
+  lib,
   pkgs,
-  inputs,
   ...
 }: {
   imports = [];
 
-  # packages
-  home.packages = [
-    pkgs.yed
-  ];
+  config = lib.mkIf config.custom.desktop.enable {
+    home.packages = [
+      pkgs.yed
+    ];
+  };
 }

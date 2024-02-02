@@ -1,9 +1,16 @@
-{pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [];
 
-  home = {
-    packages = [
-      pkgs.telegram-desktop
-    ];
+  config = lib.mkIf config.custom.desktop.enable {
+    home = {
+      packages = [
+        pkgs.telegram-desktop
+      ];
+    };
   };
 }

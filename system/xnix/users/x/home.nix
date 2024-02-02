@@ -1,28 +1,33 @@
 {pkgs, ...}: {
   imports = [
-    ../../../../modules/user/common
-    ../../../../modules/user/dev
-    ../../../../modules/user/shell
-    ../../../../modules/user/x11
-
-    ../../../../modules/user/desktop/alacritty
-    ../../../../modules/user/desktop/blender.nix
-    ../../../../modules/user/desktop/calibre.nix
-    ../../../../modules/user/desktop/chromium.nix
-    ../../../../modules/user/desktop/discord.nix
-    ../../../../modules/user/desktop/firefox.nix
-    ../../../../modules/user/desktop/ghostty.nix
-    ../../../../modules/user/desktop/keepass.nix
-    ../../../../modules/user/desktop/telegram.nix
-    ../../../../modules/user/desktop/tor-browser.nix
-    ../../../../modules/user/desktop/video.nix
-    ../../../../modules/user/desktop/yed.nix
-
-    ../../../../modules/user/editors/helix.nix
-    ../../../../modules/user/editors/neovim.nix
-
-    ../../../../modules/user/mail/neomutt.nix
+    ../../../../modules/user
+    # ../../../../modules/user/ai
+    # ../../../../modules/user/common
+    # ../../../../modules/user/darwin
+    # ../../../../modules/user/desktop
+    # ../../../../modules/user/dev
+    # ../../../../modules/user/editors
+    # ../../../../modules/user/mail
+    # ../../../../modules/user/shell
+    # ../../../../modules/user/x11
   ];
+
+  custom = {
+    desktop = {
+      enable = true;
+
+      blender.enable = true;
+      video.enable = true;
+    };
+
+    editors = {
+      helix.enable = true;
+      neovim.enable = true;
+      vim.enable = false;
+    };
+
+    mail.enable = true;
+  };
 
   home = {
     username = "x";
@@ -31,41 +36,6 @@
     sessionPath = [
       "$HOME/bin"
     ];
-  };
-
-  home.file = {
-    mount-kobo = {
-      enable = true;
-      #executable = true;
-      source = ./files/mount-kobo;
-      target = "bin/mount-kobo";
-    };
-
-    unmount-kobo = {
-      enable = true;
-      #executable = true;
-      source = ./files/unmount-kobo;
-      target = "bin/unmount-kobo";
-    };
-  };
-
-  home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
-      # net
-      
-      persepolis
-      dropbox
-      # office
-      
-      libreoffice
-      # art
-      
-      gimp
-      # misc
-      
-      xygrib
-      ;
   };
 
   programs.ssh = {

@@ -1,9 +1,16 @@
-{pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [];
 
-  home = {
-    packages = [
-      pkgs.keepassxc
-    ];
+  config = lib.mkIf config.custom.desktop.enable {
+    home = {
+      packages = [
+        pkgs.keepassxc
+      ];
+    };
   };
 }
