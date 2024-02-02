@@ -6,9 +6,15 @@
 }: {
   imports = [];
 
-  config = lib.mkIf config.custom.desktop.enable {
-    home.packages = [
-      pkgs.yed
-    ];
-  };
+  config =
+    lib.mkIf
+    (
+      config.custom.desktop.enable
+      && !pkgs.stdenv.isDarwin
+    )
+    {
+      home.packages = [
+        pkgs.yed
+      ];
+    };
 }

@@ -2,6 +2,7 @@
   config,
   inputs,
   lib,
+  pkgs,
   ...
 }: {
   imports = [];
@@ -16,9 +17,16 @@
     };
   };
 
-  config = lib.mkIf (config.custom.desktop.enable && config.custom.desktop.blender.enable) {
-    home.packages = [
-      inputs.blender-bin.packages.x86_64-linux.blender_4_0
-    ];
-  };
+  config =
+    lib.mkIf
+    (
+      config.custom.desktop.enable
+      && config.custom.desktop.blender.enable
+      && !pkgs.stdenv.isDarwin
+    )
+    {
+      home.packages = [
+        inputs.blender-bin.packages.x86_64-linux.blender_4_0
+      ];
+    };
 }

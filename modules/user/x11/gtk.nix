@@ -6,7 +6,7 @@
 }: {
   imports = [];
 
-  config = lib.mkIf config.custom.desktop.enable {
+  config = lib.mkIf (config.custom.desktop.enable && !pkgs.stdenv.isDarwin) {
     gtk = {
       enable = true;
       font.name = "Noto Sans";
