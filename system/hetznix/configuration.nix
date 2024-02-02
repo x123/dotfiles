@@ -9,6 +9,7 @@
     ../../modules/system/nix-settings.nix # do not remove
     ../../modules/system/zsh.nix
     ./local/invidious.nix
+    # ./local/maddy.nix
   ];
 
   boot = {

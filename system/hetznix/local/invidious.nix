@@ -17,11 +17,22 @@
     };
   };
 
+  # this is needed to disable automatic ACME cert grab from invidious and use
+  # our own definition in securite.acme.certs below
+  services.nginx.virtualHosts = {
+    "hetznix.boxchop.city" = {
+      enableACME = false;
+      useACMEHost = "boxchop.city";
+    };
+  };
+  users.users.nginx.extraGroups = ["acme"];
+
   security.acme = {
     defaults.email = "root@boxchop.city";
     acceptTerms = true;
     certs = {
       "boxchop.city" = {
+        group = "acme";
         dnsProvider = "digitalocean";
         email = "root@boxchop.city";
         extraDomainNames = ["hetznix.boxchop.city"];
@@ -32,6 +43,4 @@
       };
     };
   };
-
-  # networking.firewall.allowedTCPPorts = [config.services.invidious.port];
 }
