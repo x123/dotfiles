@@ -217,7 +217,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.root = import ./users/root-nixium/home.nix;
-              extraSpecialArgs.flake-inputs = inputs;
+              extraSpecialArgs = {inherit inputs;};
             };
           }
         ];
@@ -239,7 +239,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               #users.root = import ./users/root-nixium/home.nix;
-              extraSpecialArgs.flake-inputs = inputs;
+              extraSpecialArgs = {inherit inputs;};
             };
           }
         ];
@@ -262,7 +262,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               #users.root = import ./users/root-nixium/home.nix;
-              extraSpecialArgs.flake-inputs = inputs;
+              extraSpecialArgs = {inherit inputs;};
             };
           }
         ];
