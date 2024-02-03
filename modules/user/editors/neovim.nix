@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -10,18 +11,23 @@
 
   config = lib.mkIf config.custom.editors.neovim.enable {
     home = {
-      packages = builtins.attrValues {
-        inherit
-          (pkgs)
-          elixir-ls
-          gopls
-          marksman
-          nil
-          nixd
-          terraform-ls
-          vscode-langservers-extracted
-          ;
-      };
+      packages =
+        builtins.attrValues
+        {
+          inherit
+            (pkgs)
+            elixir-ls
+            gopls
+            marksman
+            nil
+            nixd
+            terraform-ls
+            vscode-langservers-extracted
+            ;
+        }
+        ++ [
+          inputs.lexical.packages.${pkgs.stdenv.hostPlatform.system}.default
+        ];
     };
 
     programs.neovim = {
@@ -222,10 +228,21 @@
         lspconfig.lua_ls.setup({ capabilities = capabilities, })
         lspconfig.marksman.setup({ capabilities = capabilities, })
         lspconfig.terraformls.setup({ capabilities = capabilities, })
+
+        -- elixir
         lspconfig.elixirls.setup({
           capabilities = capabilities,
           cmd = { "${pkgs.elixir-ls}/bin/elixir-ls" },
         })
+        lspconfig.lexical.setup({
+          filetypes = { "elixir", "eelixir", "heex" },
+          cmd = { "${inputs.lexical.packages.${pkgs.stdenv.hostPlatform.system}.default}/binsh/start_lexical.sh" },
+          root_dir = function(fname)
+            return lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir()
+          end,
+        })
+
+        -- nix
         lspconfig.nixd.setup({
           autostart = true,
           capabilities = capabilities,
