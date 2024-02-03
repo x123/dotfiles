@@ -5,8 +5,10 @@
 
   services.xserver = {
     enable = true;
-    layout = "us";
-    xkbVariant = "";
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
 
     autoRepeatDelay = 250;
     autoRepeatInterval = 45;
