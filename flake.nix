@@ -15,6 +15,7 @@
     disko.url = "github:nix-community/disko";
 
     ghostty.url = "git+ssh://git@me.github.com/mitchellh/ghostty";
+    lexical.url = "github:lexical-lsp/lexical";
 
     # minimize duplicate instances of inputs
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -24,6 +25,7 @@
     blender-bin.inputs.nixpkgs.follows = "nixpkgs";
     nixified-ai.inputs.nixpkgs.follows = "nixpkgs";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+    lexical.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {
@@ -40,6 +42,7 @@
     ghostty,
     pre-commit-hooks,
     disko,
+    lexical,
     ...
   }: let
     supportedSystems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
