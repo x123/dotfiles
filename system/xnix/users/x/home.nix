@@ -17,6 +17,7 @@
       enable = true;
 
       blender.enable = true;
+      discord.enable = true;
       video.enable = true;
     };
 
