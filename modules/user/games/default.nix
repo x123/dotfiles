@@ -21,6 +21,7 @@
       home.packages = builtins.attrValues {
         inherit
           (pkgs)
+          airshipper
           freeorion
           openttd
           unciv
