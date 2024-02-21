@@ -24,7 +24,16 @@
       enableACME = false;
       useACMEHost = "boxchop.city";
     };
+    "blockblaster.boxchop.city" = {
+      enableACME = false;
+      useACMEHost = "boxchop.city";
+      forceSSL = true;
+      root = "/var/www/blockblaster.boxchop.city";
+      locations."/blockblaster" = {
+      };
+    };
   };
+
   users.users.nginx.extraGroups = ["acme"];
 
   security.acme = {
@@ -35,7 +44,7 @@
         group = "acme";
         dnsProvider = "digitalocean";
         email = "root@boxchop.city";
-        extraDomainNames = ["hetznix.boxchop.city"];
+        extraDomainNames = ["hetznix.boxchop.city" "blockblaster.boxchop.city"];
         enableDebugLogs = true;
         credentialFiles = {
           "DO_AUTH_TOKEN_FILE" = config.sops.secrets."DO_AUTH_TOKEN_FILE".path;
