@@ -33,10 +33,11 @@
       home.packages = builtins.attrValues {
         inherit
           (pkgs)
-          persepolis
+          anydesk
           dropbox
-          libreoffice
           gimp
+          libreoffice
+          persepolis
           xygrib
           ;
       };
