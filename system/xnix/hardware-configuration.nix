@@ -27,12 +27,17 @@
     initrd.kernelModules = [];
     kernelParams = [];
     kernelPackages = pkgs.linuxPackages_latest; # lqx or zen or latest
-    kernelModules = ["k10temp" "kvm-amd" "nct6683"];
+    kernelModules = [
+      "k10temp"
+      "kvm-amd"
+      "nct6683"
+      "v4l2loopback"
+    ];
     extraModprobeConfig = ''
       options nct6683 force=1 force_id=0x2e
     '';
     blacklistedKernelModules = ["snd_hda_intel" "amdgpu"];
-    extraModulePackages = [];
+    extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
   };
 
   services.fstrim.enable = true;
