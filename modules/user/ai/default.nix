@@ -1,7 +1,8 @@
 {lib, ...}: {
   imports = [
-    ./pytorch.nix
     ./invokeai.nix
+    ./ollama.nix
+    ./pytorch.nix
   ];
 
   options.custom.ai.enable = lib.mkEnableOption "enable AI module";

@@ -13,6 +13,7 @@
     ../../modules/system/cifs.nix
     ../../modules/system/console.nix
     ../../modules/system/locale.nix
+    ../../modules/system/ollama.nix
     ../../modules/system/nix-settings.nix # do not remove
     ../../modules/system/nvidia.nix
     ../../modules/system/sound.nix
