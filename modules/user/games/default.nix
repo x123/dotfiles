@@ -26,6 +26,8 @@
               angband
               narsil
               openttd
+              sil
+              sil-q
               unciv
               ;
           };
