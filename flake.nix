@@ -63,18 +63,16 @@
         src = ./.;
         hooks = {
           alejandra.enable = true;
-          deadnix.enable = true;
-          shellcheck.enable = true;
-          statix.enable = true;
-        };
-        settings = {
-          alejandra = {
+          alejandra.settings = {
             check = true;
           };
-          deadnix = {
+          deadnix.enable = true;
+          deadnix.settings = {
             noLambdaArg = true;
             noLambdaPatternNames = true;
           };
+          shellcheck.enable = true;
+          statix.enable = true;
         };
       };
     });
