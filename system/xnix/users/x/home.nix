@@ -23,7 +23,7 @@
     };
 
     ai = {
-      enable = true;
+      enable = false;
 
       invokeai.enable = false;
       ollama.enable = true;
