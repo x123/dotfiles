@@ -97,7 +97,7 @@
       nsp = "nix search nixpkgs";
       dns-cache-flush = "sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder";
 
-      narsil-term = "narsil -mgcu -- -D -K -n4";
+      narsil-term = "narsil -mgcu -- -n4";
       # subset of oh-my-zsh aliases
       "ga" = "git add";
       "gaa" = "git add --all";
