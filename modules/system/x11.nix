@@ -3,6 +3,11 @@
 
   programs.dconf.enable = true;
 
+  services.displayManager = {
+    autoLogin.enable = false;
+    defaultSession = "none+i3";
+  };
+
   services.xserver = {
     enable = true;
     xkb = {
@@ -18,8 +23,6 @@
     };
 
     displayManager = {
-      defaultSession = "none+i3";
-      autoLogin.enable = false;
       lightdm = {
         enable = true;
         greeter.enable = true;
