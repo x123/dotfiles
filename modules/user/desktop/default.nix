@@ -7,6 +7,7 @@
   imports = [
     ./alacritty
     ./calibre
+    ./anki.nix
     ./blender.nix
     ./chromium.nix
     ./discord.nix
