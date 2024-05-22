@@ -100,6 +100,7 @@
       narsil-term = "narsil -mgcu -- -n4";
       angband-term = "angband -c -mgcu -- -B -K -n4";
       tintin = "tt++";
+      reboot-to-bios = "sudo systemctl reboot --firmware-setup";
       # subset of oh-my-zsh aliases
       "ga" = "git add";
       "gaa" = "git add --all";
