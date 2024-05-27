@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -20,21 +21,26 @@
           && !pkgs.stdenv.isDarwin
         )
         {
-          home.packages = builtins.attrValues {
-            inherit
-              (pkgs)
-              unciv
-              angband
-              blightmud
-              brogue-ce
-              godot_4
-              narsil
-              openttd
-              sil
-              sil-q
-              tintin
-              ;
-          };
+          home.packages =
+            builtins.attrValues {
+              inherit
+                (pkgs)
+                unciv
+                angband
+                blightmud
+                brogue-ce
+                godot_4
+                #narsil
+                
+                openttd
+                sil
+                sil-q
+                tintin
+                ;
+            }
+            ++ [
+              inputs.narsil-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
+            ];
         })
       (lib.mkIf
         (
@@ -42,14 +48,19 @@
           && pkgs.stdenv.isDarwin
         )
         {
-          home.packages = builtins.attrValues {
-            inherit
-              (pkgs)
-              angband
-              narsil
-              unciv
-              ;
-          };
+          home.packages =
+            builtins.attrValues {
+              inherit
+                (pkgs)
+                angband
+                #narsil
+                
+                unciv
+                ;
+            }
+            ++ [
+              inputs.narsil-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
+            ];
         })
     ];
 }
