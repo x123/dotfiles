@@ -15,7 +15,7 @@
     disko.url = "github:nix-community/disko";
 
     narsil-flake.url = "github:x123/narsil-flake";
-    ghostty.url = "git+ssh://git@me.github.com/mitchellh/ghostty";
+    ghostty.url = "git+ssh://git@me.github.com/ghostty-org/ghostty";
     lexical.url = "github:lexical-lsp/lexical";
 
     # minimize duplicate instances of inputs
