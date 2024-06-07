@@ -36,6 +36,17 @@
   networking = {
     hostName = "hetznix";
     domain = "boxchop.city";
+    enableIPv6 = true;
+    interfaces.enp1s0.ipv6.addresses = [
+      {
+        address = "2a01:4f8:1c1b:51d1::";
+        prefixLength = 64;
+      }
+    ];
+    defaultGateway6 = {
+      address = "fe80::1";
+      interface = "enp1s0";
+    };
   };
 
   networking.nftables.enable = true;
