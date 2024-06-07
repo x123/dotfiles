@@ -9,6 +9,7 @@
     domain = "hetznix.boxchop.city";
     nginx.enable = true;
     settings = {
+      force_resolve = "ipv6";
       statistics_enabled = false;
       registration_enabled = false;
       popular_enabled = false;
