@@ -10,6 +10,7 @@
     ../../modules/system/zsh.nix
     ./local/acme.nix
     ./local/invidious.nix
+    ./local/mastodon.nix
     ./local/nginx.nix
     # ./local/maddy.nix
   ];
