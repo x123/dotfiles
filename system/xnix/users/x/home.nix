@@ -16,6 +16,7 @@
     desktop = {
       enable = true;
 
+      audio.enable = true;
       blender.enable = true;
       discord.enable = true;
       obs-studio.enable = true;
