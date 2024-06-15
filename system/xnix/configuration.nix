@@ -86,7 +86,7 @@
   users.users.x = {
     isNormalUser = true;
     description = "x";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "jellyfin"];
     shell = pkgs.zsh;
     useDefaultShell = true;
     initialHashedPassword = "$2b$05$xfNWBnjifpR7HFG1rPKbde/rUZdwaTRMLDVJIxAMv6fbkjc5NFm8W";
