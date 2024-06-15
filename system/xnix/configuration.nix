@@ -12,6 +12,7 @@
     ../../modules/system/bluetooth.nix
     ../../modules/system/cifs.nix
     ../../modules/system/console.nix
+    ../../modules/system/jellyfin.nix
     ../../modules/system/locale.nix
     ../../modules/system/nix-settings.nix # do not remove
     ../../modules/system/nvidia.nix
