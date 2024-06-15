@@ -42,10 +42,18 @@
 
   services.fstrim.enable = true;
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-label/NIXROOT";
-    fsType = "ext4";
-    options = ["noatime" "nodiratime"];
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-label/NIXROOT";
+      fsType = "ext4";
+      options = ["noatime" "nodiratime"];
+    };
+
+    "/mnt/xdata" = {
+      device = "/dev/disk/by-label/XDATA";
+      fsType = "ext4";
+      options = ["noatime" "nodiratime"];
+    };
   };
 
   boot.initrd.luks.devices."luks-3062db9e-0454-4188-b0ba-d751be39e6b9" = {
