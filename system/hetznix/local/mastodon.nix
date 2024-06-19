@@ -5,6 +5,7 @@
       database.createLocally = true;
       localDomain = "social.boxchop.city";
       configureNginx = true;
+      smtp.createLocally = false;
       smtp.fromAddress = "noreply@social.boxchop.city";
       extraConfig.SINGLE_USER_MODE = "true";
       streamingProcesses = 7;
