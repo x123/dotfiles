@@ -2,13 +2,17 @@
   services.postfix = {
     enable = true;
     enableHeaderChecks = true;
+    enableSubmission = true;
+    enableSubmissions = true;
     domain = "boxchop.city";
     config = {
       myhostname = "hetznix.boxchop.city";
       myorigin = "boxchop.city";
       relayhost = "";
-      inet_protocols = "ipv4";
-      inet_interfaces = "loopback-only";
+      inet_protocols = "all";
+      # inet_protocols = "ipv4";
+      inet_interfaces = "all";
+      # inet_interfaces = "loopback-only";
       mydestination = "boxchop.city";
       home_mailbox = "Maildir/";
     };
