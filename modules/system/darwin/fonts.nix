@@ -1,8 +1,7 @@
 {pkgs, ...}: {
   imports = [];
 
-  fonts.fontDir.enable = true;
-  fonts.fonts = [
+  fonts.packages = [
     pkgs.nerdfonts
     pkgs.powerline-fonts
   ];
