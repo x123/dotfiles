@@ -39,8 +39,11 @@
               noscript
               plasma-integration
               privacy-badger
+              redirector
+              sponsorblock
               tridactyl
               ublock-origin
+              youtube-alternative-switch
               ;
           };
 
