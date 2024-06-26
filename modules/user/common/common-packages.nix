@@ -99,8 +99,9 @@ in {
             ipcalc
             mtr
             nmap
-            # misc
+            # passwords
             
+            xkcdpass
             ;
         }
         ++ (
