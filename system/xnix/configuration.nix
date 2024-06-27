@@ -42,7 +42,7 @@
   # allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
-    allowAliases = false;
+    allowAliases = true;
   };
 
   # networking
