@@ -41,12 +41,32 @@
   # users
   users.users.fom.shell = pkgs.bash;
 
-  # nix settings
-  nix.settings.extra-platforms = "x86_64-darwin aarch64-darwin";
-  nix.settings.allowed-users = [
-    "@admin"
-    "fom"
-  ];
+  nix = {
+    linux-builder = {
+      enable = true;
+      ephemeral = true;
+      maxJobs = 4;
+      config = {
+        virtualisation = {
+          darwin-builder = {
+            diskSize = 40 * 1024;
+            memorySize = 6 * 1024;
+          };
+          cores = 4;
+        };
+      };
+    };
+
+    # nix settings
+    settings = {
+      extra-platforms = "x86_64-darwin aarch64-darwin";
+      allowed-users = [
+        "@admin"
+        "fom"
+      ];
+      trusted-users = ["@admin"];
+    };
+  };
 
   networking.hostName = "fom-MBA";
 
