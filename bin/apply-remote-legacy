@@ -25,7 +25,7 @@ fi
 if ! which nixos-rebuild
 then
   echo "Info: Cannot find nixos-rebuild, trying to run in-place with 'nix run nixpkgs#nixos-rebuild'"
-  nix run nixpkgs#nixos-rebuild -- -v switch --fast --target-host "${REMOTE_BUILDER}" --use-remote-sudo --use-substitutes --flake .#"${SYSTEM_TO_APPLY}"
+  nix run nixpkgs#nixos-rebuild -- -v switch --fast --target-host "${REMOTE_BUILDER}" --build-host "${REMOTE_BUILDER}" --use-remote-sudo --use-substitutes --flake .#"${SYSTEM_TO_APPLY}"
 else
-   nixos-rebuild -v switch --fast --target-host "${REMOTE_BUILDER}" --use-remote-sudo --use-substitutes --flake .#"${SYSTEM_TO_APPLY}"
+   nixos-rebuild -v switch --fast --target-host "${REMOTE_BUILDER}" --build-host "${REMOTE_BUILDER}" --use-remote-sudo --use-substitutes --flake .#"${SYSTEM_TO_APPLY}"
 fi
