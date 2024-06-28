@@ -3,17 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-# let
-#   broken_on_darwin = builtins.attrValues {
-#     inherit
-#       (pkgs)
-#       vlc
-#       pavucontrol
-#       ;
-#   };
-# in
-{
+}: {
   options = {
     custom.desktop.flameshot = {
       enable = lib.mkOption {
@@ -29,6 +19,7 @@
     (
       config.custom.desktop.enable
       && config.custom.desktop.flameshot.enable
+      && !pkgs.stdenv.isDarwin
     )
     {
       home = {
@@ -39,13 +30,7 @@
               (pkgs)
               flameshot
               ;
-          }
-          ++ (
-            if pkgs.stdenv.isDarwin
-            then []
-            else []
-            # else broken_on_darwin
-          );
+          };
       };
 
       services.flameshot = {
