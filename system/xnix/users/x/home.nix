@@ -21,6 +21,7 @@
       discord.enable = true;
       flameshot.enable = true;
       obs-studio.enable = true;
+      slack.enable = true;
       video.enable = true;
     };
 
