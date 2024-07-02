@@ -21,7 +21,12 @@
       home = {
         packages = [
           pkgs.firefox
+          pkgs.librewolf
         ];
+      };
+
+      programs.librewolf = {
+        enable = true;
       };
 
       programs.firefox = {
