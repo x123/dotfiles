@@ -175,6 +175,16 @@
             tcp dport 22 ip saddr @ks4 log prefix "nft-input-pn-traffic-accept: " level info
             tcp dport 22 ip saddr @ks4 counter accept
 
+            # syncthing admin
+            tcp dport 8384 ip saddr @ks4 log prefix "nft-input-pn-traffic-accept: " level info
+            tcp dport 8384 ip saddr @ks4 counter accept
+
+            # public syncthing
+            tcp dport { 22000, 22067, 22070 } log prefix "nft-input-traffic-accept-syncthing: " level info
+            tcp dport { 22000, 22067, 22070 } counter accept
+            udp dport { 22000, 21027 } log prefix "nft-input-traffic-accept-syncthing: " level info
+            udp dport { 22000, 21027 } counter accept
+
             # caddy
             tcp dport { 8880, 8883 } log prefix "nft-input-accept-caddy: " level info
             tcp dport { 8880, 8883 } counter accept

@@ -17,6 +17,7 @@
     ./local/nginx.nix
     ./local/postfix.nix
     ./local/postgres.nix
+    ./local/syncthing.nix
     # ./local/maddy.nix
   ];
 
