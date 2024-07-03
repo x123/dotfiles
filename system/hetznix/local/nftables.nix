@@ -187,6 +187,10 @@
             tcp dport 25 counter accept comment "Allow SMTP/25"
             tcp dport 465 counter accept comment "Allow SMTPS/465"
             tcp dport 587 counter accept comment "Allow SMTPS/587"
+
+            # IMAP/IMAPS
+            tcp dport 143 counter accept comment "Allow IMAP/143"
+            tcp dport 993 counter accept comment "Allow IMAPS/993"
           }
 
           chain input-log-drop {

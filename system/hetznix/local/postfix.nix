@@ -11,29 +11,35 @@
       enableHeaderChecks = true;
       enableSubmission = true;
       enableSubmissions = true;
+      rootAlias = "x123";
       domain = "boxchop.city";
       config = {
+        # inet_interfaces = "loopback-only";
+        # inet_protocols = "ipv4";
+        home_mailbox = "Maildir/";
+        inet_interfaces = "all";
+        inet_protocols = "all";
+        milter_default_action = "accept";
+        milter_protocol = "2";
+        mydestination = "hetznix.boxchop.city social.boxchop.city boxchop.city localhost";
         mydomain = "boxchop.city";
         myhostname = "hetznix.boxchop.city";
         myorigin = "boxchop.city";
+        non_smtpd_milters = "unix:/run/opendkim/opendkim.sock";
+        propagate_unmatched_extension = "";
+        recipient_delimiter = "+";
         relay_domains = "";
         relayhost = "";
-        inet_protocols = "all";
-        # inet_protocols = "ipv4";
-        inet_interfaces = "all";
-        # inet_interfaces = "loopback-only";
-        mydestination = "hetznix.boxchop.city social.boxchop.city boxchop.city localhost";
-        home_mailbox = "Maildir/";
-        milter_default_action = "accept";
-        milter_protocol = "2";
         smtpd_milters = "unix:/run/opendkim/opendkim.sock";
-        non_smtpd_milters = "unix:/run/opendkim/opendkim.sock";
+        smtpd_sasl_path = "inet:127.0.0.1:12345";
+        smtpd_sasl_type = "dovecot";
       };
       extraAliases = ''
-        nix: root
+        nix: x123
       '';
       extraConfig = ''
         smtpd_recipient_restrictions =
+          permit_sasl_authenticated
           reject_rbl_client zen.spamhaus.org=127.0.0.[2..11]
           reject_rhsbl_sender dbl.spamhaus.org=127.0.1.[2..99]
           reject_rhsbl_helo dbl.spamhaus.org=127.0.1.[2..99]
@@ -47,7 +53,7 @@
         smtpd_sender_restrictions =
           reject_non_fqdn_sender
           reject_unknown_sender_domain
-          # reject_unauthenticated_sender_login_mismatch
+          reject_unauthenticated_sender_login_mismatch
       '';
       sslCert = config.security.acme.certs."boxchop.city".directory + "/full.pem";
       sslKey = config.security.acme.certs."boxchop.city".directory + "/key.pem";
