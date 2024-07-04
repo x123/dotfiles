@@ -82,6 +82,10 @@
             };
             states = ["start" "finish" "fail"];
           };
+          # uptime_kuma = {
+          #   push_url = "https://kuma.boxchop.city:8883/api/push/UvJTTCFLgp";
+          #   states = ["start" "finish" "fail"];
+          # };
         };
         retention = {
           keepDaily = 7;
