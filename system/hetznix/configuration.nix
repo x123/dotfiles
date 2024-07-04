@@ -18,6 +18,7 @@
     ./local/ntfy.nix
     ./local/postfix.nix
     ./local/postgres.nix
+    ./local/uptime-kuma.nix
     # ./local/maddy.nix
   ];
 
