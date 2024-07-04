@@ -20,7 +20,6 @@
     ../../modules/system/steam.nix
     ../../modules/system/x11.nix
     ../../modules/system/zsh.nix
-    ./local/borgbackups.nix
   ];
 
   sops = {
