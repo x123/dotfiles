@@ -18,6 +18,7 @@
           "blockblaster.boxchop.city"
           "hetznix.boxchop.city"
           "jandf.boxchop.city"
+          "ntfy.boxchop.city"
           "social.boxchop.city"
         ];
         enableDebugLogs = true;
