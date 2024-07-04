@@ -23,7 +23,12 @@
           useACMEHost = "boxchop.city";
           extraConfig = ''
             reverse_proxy 127.0.0.1:4000
-            basic_auth {
+
+            @auth {
+              not path /api/push/*
+            }
+
+            basic_auth @auth {
               import ${config.sops.secrets."caddy/auth/x".path}
             }
 
