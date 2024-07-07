@@ -5,6 +5,10 @@
 }: {
   imports = [];
 
+  environment.systemPackages = [
+    pkgs.nh
+  ];
+
   # show nvd diffs after (nixos|darwin)-rebuild switch
   system.activationScripts.postUserActivation =
     {
