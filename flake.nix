@@ -7,7 +7,6 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager.url = "github:nix-community/home-manager";
     sops-nix.url = "github:Mic92/sops-nix";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nur.url = "github:nix-community/NUR";
     nix-darwin.url = "github:LnL7/nix-darwin";
     blender-bin.url = "github:edolstra/nix-warez/?dir=blender";
@@ -22,7 +21,6 @@
     # minimize duplicate instances of inputs
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     #sops-nix.inputs.nixpkgs.follows = "nixpkgs"; # optional, not necessary
-    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     blender-bin.inputs.nixpkgs.follows = "nixpkgs";
     nixified-ai.inputs.nixpkgs.follows = "nixpkgs";
@@ -37,7 +35,6 @@
     nixos-hardware,
     home-manager,
     sops-nix,
-    nixos-wsl,
     nur,
     nix-darwin,
     blender-bin,
@@ -124,20 +121,6 @@
         ];
       };
 
-      "nixos@xnixwsl" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config = {
-            allowUnfree = true;
-            allowAliases = false;
-          };
-        };
-        extraSpecialArgs = {inherit inputs;};
-        modules = [
-          ./system/xnixwsl/users/nixos/home.nix
-        ];
-      };
-
       "x@xnix" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = "x86_64-linux";
@@ -181,15 +164,6 @@
     };
 
     nixosConfigurations = {
-      xnixwsl = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
-        modules = [
-          nixos-wsl.nixosModules.wsl
-          ./system/xnixwsl/configuration.nix
-        ];
-      };
-
       xnix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
