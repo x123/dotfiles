@@ -1,7 +1,22 @@
-{_, ...}: {
+{
+  inputs,
+  pkgs,
+  system,
+  ...
+}: {
+  nixpkgs.overlays = [
+    (
+      final: prev: {
+        unstable-small = import inputs.nixpkgs-unstable-small {
+          inherit system;
+        };
+      }
+    )
+  ];
   services = {
     mastodon = {
       enable = true;
+      package = pkgs.unstable-small.mastodon;
       database.createLocally = true;
       localDomain = "social.boxchop.city";
       configureNginx = true;

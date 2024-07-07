@@ -2,9 +2,10 @@
   description = "x123 system config";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable"; # nixos-23.05
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-unstable-small.url = "nixpkgs/nixos-unstable-small";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-    home-manager.url = "github:nix-community/home-manager"; # /release-23.05
+    home-manager.url = "github:nix-community/home-manager";
     sops-nix.url = "github:Mic92/sops-nix";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nur.url = "github:nix-community/NUR";
@@ -32,6 +33,7 @@
   outputs = inputs @ {
     self,
     nixpkgs,
+    nixpkgs-unstable-small,
     nixos-hardware,
     home-manager,
     sops-nix,
@@ -250,6 +252,7 @@
         system = "aarch64-linux";
         specialArgs = {
           inherit inputs;
+          system = "aarch64-linux";
           hostname = "hetznix.boxchop.city";
         };
         modules = [
