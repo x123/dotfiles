@@ -102,7 +102,6 @@ in {
             # passwords
             
             phraze
-            xkcdpass
             ;
         }
         ++ (
