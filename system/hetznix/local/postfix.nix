@@ -34,6 +34,21 @@
         smtpd_sasl_path = "inet:127.0.0.1:12345";
         smtpd_sasl_type = "dovecot";
       };
+      submissionOptions = {
+        milter_macro_daemon_name = "ORIGINATING";
+        smtpd_client_restrictions = "permit_sasl_authenticated,reject";
+        smtpd_sasl_path = "inet:127.0.0.1:12345";
+        smtpd_sasl_auth_enable = "yes";
+        smtpd_sasl_type = "dovecot";
+        smtpd_tls_security_level = "encrypt";
+      };
+      submissionsOptions = {
+        milter_macro_daemon_name = "ORIGINATING";
+        smtpd_client_restrictions = "permit_sasl_authenticated,reject";
+        smtpd_sasl_path = "inet:127.0.0.1:12345";
+        smtpd_sasl_auth_enable = "yes";
+        smtpd_sasl_type = "dovecot";
+      };
       extraAliases = ''
         nix: x123
         apt-hunt: x123
