@@ -1,19 +1,15 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [];
 
-  nixpkgs.overlays = [
-    (
-      final: prev: {
-        unstable-small = import inputs.nixpkgs-unstable-small {
-          system = "x86_64-linux";
-        };
-      }
-    )
-  ];
+  # nixpkgs.overlays = [
+  #   (
+  #     final: prev: {
+  #       unstable-small = import inputs.nixpkgs-unstable-small {
+  #         system = "x86_64-linux";
+  #       };
+  #     }
+  #   )
+  # ];
 
   systemd.user.timers.borgmatic-xnix = {
     Timer = {
@@ -91,7 +87,7 @@
           pkgs.writeShellScript "borgmatic-xnix"
           ''
             set -euo pipefail
-            ${pkgs.systemd}/bin/systemd-inhibit --who="x" --what="sleep:shutdown" --why="Prevent interrupting scheduled backup" ${pkgs.unstable-small.borgmatic}/bin/borgmatic --verbosity -2 --syslog-verbosity 2
+            ${pkgs.systemd}/bin/systemd-inhibit --who="x" --what="sleep:shutdown" --why="Prevent interrupting scheduled backup" ${pkgs.borgmatic}/bin/borgmatic --verbosity -2 --syslog-verbosity 2
           '';
       };
     };
