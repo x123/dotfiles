@@ -56,6 +56,7 @@
           "- home/*/.cache"
           "- home/*/**/.cache"
           "- home/*/.config/*/Cache"
+          "- var/lib/mastodon/public-system/cache"
         ];
         retries = 5;
         retry_wait = 5;
