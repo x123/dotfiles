@@ -22,12 +22,35 @@
     "ntfy/user" = {};
     "ntfy/pass" = {};
     "ssh/u413840-sub1" = {};
+    "ssh/u413840-sub2" = {};
   };
 
-  home.packages = [
-    pkgs.borgmatic
-    pkgs.xxHash
-  ];
+  home.packages =
+    [
+      pkgs.borgmatic
+      pkgs.borgbackup
+      pkgs.xxHash
+    ]
+    ++ [
+      (
+        pkgs.writeShellScriptBin
+        "borgmount-hetznix"
+        ''
+          set -euo pipefail
+
+          ${pkgs.borgbackup}/bin/borg mount -o ignore_permissions --rsh "${pkgs.openssh}/bin/ssh -p 23 -i ${config.sops.secrets."ssh/u413840-sub2".path}" "ssh://u413840-sub2@u413840.your-storagebox.de/./hetznix" ${config.home.homeDirectory}/mnt/borgmount
+        ''
+      )
+      (
+        pkgs.writeShellScriptBin
+        "borgumount"
+        ''
+          set -euo pipefail
+
+          ${pkgs.borgbackup}/bin/borg umount ${config.home.homeDirectory}/mnt/borgmount
+        ''
+      )
+    ];
 
   programs.borgmatic = {
     enable = true;
