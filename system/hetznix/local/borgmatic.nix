@@ -58,6 +58,13 @@
           "- home/*/.config/*/Cache"
           "- var/lib/mastodon/public-system/cache"
         ];
+        postgresql_databases = [
+          {
+            name = "all";
+            username = "postgres";
+            format = "custom";
+          }
+        ];
         retries = 5;
         retry_wait = 5;
         ssh_command = "${pkgs.openssh}/bin/ssh -p 23 -i ${config.sops.secrets."ssh/u413840-sub2".path}";
