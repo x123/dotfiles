@@ -24,6 +24,7 @@
       flameshot.enable = true;
       ghostty.enable = true;
       i3status-rust = {
+        battery.enable = true;
         temperature = {
           enable = true;
           chip = "thinkpad-isa-0000";
