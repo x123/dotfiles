@@ -23,6 +23,13 @@
       discord.enable = true;
       flameshot.enable = true;
       ghostty.enable = true;
+      i3status-rust = {
+        temperature = {
+          enable = true;
+          chip = "thinkpad-isa-0000";
+          inputs = ["CPU"];
+        };
+      };
       obs-studio.enable = false;
       slack.enable = true;
       video.enable = true;

@@ -21,8 +21,16 @@
       audio.enable = true;
       blender.enable = true;
       discord.enable = true;
-      ghostty.enable = true;
       flameshot.enable = true;
+      ghostty.enable = true;
+      i3status-rust = {
+        temperature = {
+          enable = true;
+          chip = "nct6686-isa-0a20";
+          inputs = ["AMD TSI Addr 98h"];
+        };
+        nvidia.enable = true;
+      };
       obs-studio.enable = true;
       slack.enable = true;
       video.enable = true;

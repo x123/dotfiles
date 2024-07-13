@@ -3,8 +3,38 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  cfg = config.custom;
+in {
   imports = [];
+
+  options = {
+    custom.desktop.i3status-rust = {
+      nvidia.enable = lib.mkOption {
+        default = false;
+        type = lib.types.bool;
+        description = "Whether to enable nvidia in i3status-rust";
+      };
+
+      temperature = {
+        enable = lib.mkOption {
+          default = false;
+          type = lib.types.bool;
+          description = "Whether to enable temperature monitoring in i3status-rust";
+        };
+        chip = lib.mkOption {
+          default = "";
+          type = lib.types.str;
+          description = "What chip type to enable for the generic temperature monitor.";
+        };
+        inputs = lib.mkOption {
+          default = [];
+          type = lib.types.listOf lib.types.str;
+          description = "What inputs to use (e.g., [ \"AMD TSI Addr 98h\" ]";
+        };
+      };
+    };
+  };
 
   config = lib.mkIf (config.custom.desktop.enable && !pkgs.stdenv.isDarwin) {
     home.packages = builtins.attrValues {
@@ -63,47 +93,62 @@
         bars = {
           default = {
             icons = "material-nf";
-            blocks = [
-              {
-                block = "sound";
-              }
-              {
-                alert = 10.0;
-                block = "disk_space";
-                info_type = "available";
-                interval = 60;
-                path = "/";
-                warning = 20.0;
-              }
-              {
-                block = "memory";
-                format = " $icon $mem_used_percents ";
-                format_alt = " $icon $mem_used ";
-              }
-              {
-                block = "load";
-                format = " $icon $1m ";
-                interval = 1;
-              }
-              {
-                block = "temperature";
-                chip = "nct6686-isa-0a20";
-                interval = 1;
-                idle = 55;
-                inputs = ["AMD TSI Addr 98h"];
-              }
-              {
-                block = "nvidia_gpu";
-                gpu_id = 0;
-                format = " $icon  RTX4090 $power $temperature $utilization $temperature ";
-                interval = 1;
-              }
-              {
-                block = "time";
-                format = " $timestamp.datetime(f:'Week %W | %A | %Y-%m-%d %H:%M:%S') ";
-                interval = 1;
-              }
-            ];
+            blocks =
+              [
+                {
+                  block = "sound";
+                }
+                {
+                  alert = 10.0;
+                  block = "disk_space";
+                  info_type = "available";
+                  interval = 60;
+                  path = "/";
+                  warning = 20.0;
+                }
+                {
+                  block = "memory";
+                  format = " $icon $mem_used_percents ";
+                  format_alt = " $icon $mem_used ";
+                }
+                {
+                  block = "load";
+                  format = " $icon $1m ";
+                  interval = 1;
+                }
+              ]
+              ++ (
+                if cfg.desktop.i3status-rust.temperature.enable
+                then [
+                  {
+                    block = "temperature";
+                    chip = cfg.desktop.i3status-rust.temperature.chip;
+                    inputs = cfg.desktop.i3status-rust.temperature.inputs;
+                    interval = 1;
+                    idle = 55;
+                  }
+                ]
+                else []
+              )
+              ++ (
+                if cfg.desktop.i3status-rust.nvidia.enable
+                then [
+                  {
+                    block = "nvidia_gpu";
+                    gpu_id = 0;
+                    format = " $icon  RTX4090 $power $temperature $utilization $temperature ";
+                    interval = 1;
+                  }
+                ]
+                else []
+              )
+              ++ [
+                {
+                  block = "time";
+                  format = " $timestamp.datetime(f:'Week %W | %A | %Y-%m-%d %H:%M:%S') ";
+                  interval = 1;
+                }
+              ];
             settings = {
               theme = {
                 theme = "nord-dark";
