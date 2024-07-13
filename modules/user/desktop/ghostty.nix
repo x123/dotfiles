@@ -7,10 +7,21 @@
 }: {
   imports = [];
 
+  options = {
+    custom.desktop.ghostty = {
+      enable = lib.mkOption {
+        default = false;
+        type = lib.types.bool;
+        description = "Whether to enable ghostty.";
+      };
+    };
+  };
+
   config =
     lib.mkIf
     (
       config.custom.desktop.enable
+      && config.custom.desktop.ghostty.enable
       && !pkgs.stdenv.isDarwin
     )
     {
