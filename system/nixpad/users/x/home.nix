@@ -51,6 +51,7 @@
     };
 
     games.enable = false;
+    laptop.enable = true;
     mail.enable = true;
   };
 
