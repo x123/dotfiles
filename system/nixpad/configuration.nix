@@ -6,7 +6,7 @@
     ../../modules/system/console.nix
     ../../modules/system/locale.nix
     ../../modules/system/nix-settings.nix # do not remove
-    # ../../modules/system/sound.nix
+    ../../modules/system/sound.nix
     ../../modules/system/x11.nix
     ../../modules/system/zsh.nix
   ];
