@@ -10,7 +10,6 @@
     ./hardware-configuration.nix
     ../../modules/nix-settings # do not remove
     ../../modules/system-nixos
-    ./local
   ];
 
   custom.system-nixos = {
@@ -31,6 +30,7 @@
 
     services = {
       jellyfin.enable = true;
+      nix-ssh-serve.enable = false;
     };
 
     x11.enable = true;
