@@ -4,23 +4,35 @@
 {
   config,
   pkgs,
-  inputs,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/system/bluetooth.nix
-    ../../modules/system/cifs.nix
-    ../../modules/system/console.nix
-    ../../modules/system/jellyfin.nix
-    ../../modules/system/locale.nix
-    ../../modules/system/nix-settings.nix # do not remove
-    ../../modules/system/nvidia.nix
-    ../../modules/system/sound.nix
-    ../../modules/system/steam.nix
-    ../../modules/system/x11.nix
-    ../../modules/system/zsh.nix
+    ../../modules/system-v2
   ];
+
+  custom.system-v2 = {
+    enable = true;
+
+    common = {
+      console-theme.enable = false;
+    };
+
+    dev.elixir.enable = false;
+    games.enable = true;
+
+    hardware = {
+      bluetooth.enable = true;
+      nvidia.enable = true;
+      sound.enable = true;
+    };
+
+    services = {
+      jellyfin.enable = true;
+    };
+
+    x11.enable = true;
+  };
 
   sops = {
     defaultSopsFile = ./secrets.yaml;
