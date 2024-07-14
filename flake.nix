@@ -25,11 +25,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    blender-bin = {
-      url = "github:edolstra/nix-warez/?dir=blender";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixified-ai = {
       url = "github:nixified-ai/flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -55,7 +50,6 @@
     sops-nix,
     nur,
     nix-darwin,
-    blender-bin,
     nixified-ai,
     ghostty,
     pre-commit-hooks,

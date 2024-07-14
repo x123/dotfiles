@@ -1,10 +1,11 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
-}: {
+}: let
+  blender = pkgs.blender.override {cudaSupport = true;};
+in {
   imports = [];
 
   options = {
@@ -26,7 +27,7 @@
     )
     {
       home.packages = [
-        inputs.blender-bin.packages.x86_64-linux.blender_4_0
+        blender
       ];
     };
 }
