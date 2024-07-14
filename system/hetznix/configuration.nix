@@ -7,7 +7,7 @@
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
     ../../modules/nix-settings # do not remove
-    ../../modules/system-v2
+    ../../modules/system-nixos
     ./local/acme.nix
     ./local/borgmatic.nix
     ./local/caddy.nix
@@ -22,7 +22,7 @@
     ./local/uptime-kuma.nix
   ];
 
-  custom.system-v2 = {
+  custom.system-nixos = {
     enable = true;
   };
 

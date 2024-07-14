@@ -8,7 +8,7 @@
 in {
   imports = [];
 
-  config = lib.mkIf (cfg.system-v2.enable && cfg.system-v2.common.console-theme.enable) {
+  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.common.console-theme.enable) {
     console = {
       earlySetup = true;
       font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v14n.psf.gz";

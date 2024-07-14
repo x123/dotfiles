@@ -7,7 +7,7 @@
 in {
   imports = [];
 
-  config = lib.mkIf (cfg.system-v2.enable && cfg.system-v2.games.enable) {
+  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.games.enable) {
     programs.steam = {
       enable = true;
       remotePlay.openFirewall = true;

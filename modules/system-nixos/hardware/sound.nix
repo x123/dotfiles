@@ -7,7 +7,7 @@
 in {
   imports = [];
 
-  config = lib.mkIf (cfg.system-v2.enable && cfg.system-v2.hardware.sound.enable) {
+  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.hardware.sound.enable) {
     # Enable sound with pipewire.
     hardware.pulseaudio.enable = false;
     security.rtkit.enable = true;

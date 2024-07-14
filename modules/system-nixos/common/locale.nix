@@ -7,7 +7,7 @@
 in {
   imports = [];
 
-  config = lib.mkIf (cfg.system-v2.enable && cfg.system-v2.common.locale.enable) {
+  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.common.locale.enable) {
     # Select internationalisation properties.
     i18n.defaultLocale = "en_US.UTF-8";
 

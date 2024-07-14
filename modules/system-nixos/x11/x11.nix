@@ -8,7 +8,7 @@
 in {
   imports = [];
 
-  config = lib.mkIf (cfg.system-v2.enable && cfg.system-v2.x11.enable) {
+  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.x11.enable) {
     programs.dconf.enable = true;
 
     services.displayManager = {

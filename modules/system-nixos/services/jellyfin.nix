@@ -8,7 +8,7 @@ in {
   imports = [];
 
   options = {
-    custom.system-v2.services.jellyfin = {
+    custom.system-nixos.services.jellyfin = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -17,7 +17,7 @@ in {
     };
   };
 
-  config = lib.mkIf (cfg.system-v2.enable && cfg.system-v2.services.jellyfin.enable) {
+  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.services.jellyfin.enable) {
     services.jellyfin = {
       enable = true;
       openFirewall = true;
