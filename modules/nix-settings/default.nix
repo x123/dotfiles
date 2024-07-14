@@ -29,8 +29,12 @@
     settings = {
       experimental-features = ["nix-command" "flakes"];
 
+      substituters = [
+        "ssh://x@xnix.lan"
+      ];
+
       trusted-substituters = [
-        "https://nixium.boxchop.city"
+        "ssh://x@xnix.lan"
       ];
 
       trusted-public-keys = [
