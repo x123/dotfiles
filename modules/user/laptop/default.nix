@@ -4,6 +4,7 @@
   pkgs,
   ...
 }: let
+  grep = "${pkgs.gnugrep}/bin/grep";
   i3lock = "${pkgs.i3lock}/bin/i3lock";
   systemctl = "${pkgs.systemd}/bin/systemctl";
   xset = "${pkgs.xorg.xset}/bin/xset";
@@ -32,6 +33,7 @@ in {
         {
           delay = 300;
           command = "${pkgs.writeShellScript "i3lock-dpms" ''
+            set -euo pipefail
             revert() {
               ${xset} dpms 0 0 0
             }
@@ -42,8 +44,11 @@ in {
           ''}";
         }
         {
-          delay = 300;
+          delay = 900;
           command = "${pkgs.writeShellScript "hybrid-sleep" ''
+            set -euo pipefail
+            # exit if we are on AC power
+            ${grep} 1 /sys/class/power_supply/AC/online > /dev/null && exit 0
             ${systemctl} hybrid-sleep
           ''}";
         }
