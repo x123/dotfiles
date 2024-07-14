@@ -8,7 +8,7 @@
 in {
   imports = [];
 
-  config = lib.mkIf (cfg.system-darwin.enable) {
+  config = lib.mkIf (cfg.system-darwin.enable && cfg.system-darwin.yabai.enable) {
     services.yabai = {
       enable = true;
       package = pkgs.yabai;

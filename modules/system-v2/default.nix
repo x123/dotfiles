@@ -1,7 +1,6 @@
 {lib, ...}: {
   imports = [
     ./common
-    # ./darwin
     ./dev
     ./games
     ./hardware
