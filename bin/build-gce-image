@@ -4,7 +4,7 @@ set -xeo pipefail
 if [ -z "$1" ]
 then
   echo "Error: ${0} requires a system name to build image for"
-  echo "Example: ${0} nixium"
+  echo "Example: ${0} hetznix"
   exit 1
 fi
 
