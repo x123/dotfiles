@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     ../../modules/nix-settings # do not remove
     ../../modules/system-nixos
+    ./local
   ];
 
   custom.system-nixos = {
