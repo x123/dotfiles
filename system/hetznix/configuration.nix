@@ -6,8 +6,7 @@
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
-    ../../modules/system/nix-settings.nix # do not remove
-    ../../modules/system/zsh.nix
+    ../../modules/system-v2
     ./local/acme.nix
     ./local/borgmatic.nix
     ./local/caddy.nix
@@ -20,8 +19,11 @@
     ./local/postfix.nix
     ./local/postgres.nix
     ./local/uptime-kuma.nix
-    # ./local/maddy.nix
   ];
+
+  custom.system-v2 = {
+    enable = true;
+  };
 
   boot = {
     binfmt.emulatedSystems = ["x86_64-linux"];
