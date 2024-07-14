@@ -77,27 +77,19 @@
         identityFile = "/home/x/.ssh/id_xbox";
         identitiesOnly = true;
       };
-      "nixium" = {
-        hostname = "nixium.boxchop.city";
+      "hetznix" = {
+        hostname = "hetznix.boxchop.city";
         port = 22;
         user = "root";
         identityFile = "/home/x/.ssh/id_xnix";
         identitiesOnly = true;
-        checkHostIP = false;
-        extraOptions = {
-          StrictHostKeyChecking = "no";
-        };
       };
-      "nixium.boxchop.city" = {
-        hostname = "nixium.boxchop.city";
+      "hetznix.boxchop.city" = {
+        hostname = "hetznix.boxchop.city";
         port = 22;
         user = "root";
         identityFile = "/home/x/.ssh/id_xnix";
         identitiesOnly = true;
-        checkHostIP = false;
-        extraOptions = {
-          StrictHostKeyChecking = "no";
-        };
       };
     };
   };

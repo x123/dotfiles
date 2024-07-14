@@ -69,15 +69,15 @@
           identityFile = "/Users/fom/.ssh/id_fom-mba-work";
           identitiesOnly = true;
         };
-        "nixium" = {
-          hostname = "nixium.boxchop.city";
+        "hetznix" = {
+          hostname = "hetznix.boxchop.city";
           port = 22;
           user = "root";
           identityFile = "/Users/fom/.ssh/id_fom-mba";
           identitiesOnly = true;
         };
-        "nixium.boxchop.city" = {
-          hostname = "nixium.boxchop.city";
+        "hetznix.boxchop.city" = {
+          hostname = "hetznix.boxchop.city";
           port = 22;
           user = "root";
           identityFile = "/Users/fom/.ssh/id_fom-mba";
