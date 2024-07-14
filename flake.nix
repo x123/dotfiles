@@ -152,20 +152,6 @@
           ./system/nixpad/users/x/home.nix
         ];
       };
-
-      "root@nixium" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config = {
-            allowUnfree = true;
-            allowAliases = false;
-          };
-        };
-        extraSpecialArgs = {inherit inputs;};
-        modules = [
-          ./system/nixium/users/root/home.nix
-        ];
-      };
     };
 
     darwinConfigurations = {
@@ -201,28 +187,6 @@
           nixos-hardware.nixosModules.lenovo-thinkpad-t480s
           sops-nix.nixosModules.sops
           ./system/nixpad/configuration.nix
-        ];
-      };
-
-      nixium = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs;
-          hostname = "nixium.boxchop.city";
-        };
-        modules = [
-          ./system/nixium/configuration.nix
-          sops-nix.nixosModules.sops
-          #sops-nix.modules.home-manager.sops
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              #users.root = import ./system/nixium/users/root/home.nix;
-              extraSpecialArgs = {inherit inputs;};
-            };
-          }
         ];
       };
 
