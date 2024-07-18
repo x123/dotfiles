@@ -29,6 +29,11 @@
     };
 
     services = {
+      invidious = {
+        enable = true;
+        domain = "invidious.xnix.lan";
+      };
+
       jellyfin.enable = true;
       nix-ssh-serve.enable = false;
     };
@@ -36,20 +41,35 @@
     x11.enable = true;
   };
 
+  users.groups.ssl = {};
+
   sops = {
     defaultSopsFile = ./secrets.yaml;
     age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
 
-    secrets."muttrc" = {
-      mode = "0400";
-      owner = config.users.users.x.name;
-      #group = "wheel";
-    };
+    secrets = {
+      "ssl/invidious.xnix.lan/cert" = {
+        mode = "0644";
+        owner = config.users.users.root.name;
+        group = config.users.groups.ssl.name;
+      };
+      "ssl/invidious.xnix.lan/key" = {
+        mode = "0640";
+        owner = config.users.users.root.name;
+        group = config.users.groups.ssl.name;
+      };
 
-    secrets."tg/nixiumbot" = {
-      mode = "0440";
-      owner = config.users.users.root.name;
-      group = "wheel";
+      "muttrc" = {
+        mode = "0400";
+        owner = config.users.users.x.name;
+        #group = "wheel";
+      };
+
+      "tg/nixiumbot" = {
+        mode = "0440";
+        owner = config.users.users.root.name;
+        group = "wheel";
+      };
     };
   };
 
