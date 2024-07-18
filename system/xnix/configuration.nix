@@ -101,7 +101,7 @@
     enable = true;
     allowedTCPPorts = [22];
     extraInputRules = ''
-      ip saddr { 192.168.1.0/24, 192.168.9.0/24 } tcp dport {22, 9090} accept
+      ip saddr { 192.168.1.0/24, 192.168.9.0/24 } tcp dport {22, 80, 443, 9090} accept
     '';
   };
   # networking.firewall.allowedTCPPorts = [ ... ];
