@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nix-settings # do not remove
@@ -39,6 +43,10 @@
     allowUnfree = true;
     allowAliases = false;
   };
+
+  nix.settings.builders = lib.mkForce ''
+    x@xnix.lan  x86_64-linux /home/x/.ssh/id_nixpad
+  '';
 
   # networking
   networking = {
