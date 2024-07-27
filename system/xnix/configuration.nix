@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ./local/nftables.nix
     ../../modules/nix-settings # do not remove
     ../../modules/system-nixos
   ];
@@ -98,14 +99,14 @@
     };
   };
 
-  networking.nftables.enable = true;
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [22];
-    extraInputRules = ''
-      ip saddr { 192.168.1.0/24, 192.168.9.0/24 } tcp dport {22, 80, 443, 9090} accept
-    '';
-  };
+  # networking.nftables.enable = true;
+  # networking.firewall = {
+  #   enable = true;
+  #   allowedTCPPorts = [22];
+  #   extraInputRules = ''
+  #     ip saddr { 192.168.1.0/24, 192.168.9.0/24 } tcp dport {22, 80, 443, 9090} accept
+  #   '';
+  # };
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   environment.systemPackages = builtins.attrValues {
