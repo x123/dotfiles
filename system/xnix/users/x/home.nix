@@ -7,6 +7,7 @@
     inputs.sops-nix.homeManagerModules.sops
     ../../../../modules/user
     ./local/borgmatic.nix
+    ./local/poe.nix
   ];
 
   sops = {
