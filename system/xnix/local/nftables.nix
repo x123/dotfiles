@@ -146,6 +146,10 @@
             tcp dport 25 ct state new counter accept comment "Allow SMTP/25"
             tcp dport 465 ct state new counter accept comment "Allow SMTPS/465"
             tcp dport 587 ct state new counter accept comment "Allow SMTPS/587"
+
+            # block dropbox outbound
+            udp dport 17500 udp sport 17500 ct state new counter
+            udp dport 17500 udp sport 17500 ct state new counter limit rate 1/minute burst 5 packets log prefix "nft-output dropbox logged: " level info
           }
 
           chain output-log-drop {
