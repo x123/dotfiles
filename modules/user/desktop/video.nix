@@ -47,7 +47,10 @@ in {
       };
 
       programs.yt-dlp = {
-        enable = true;
+        enable =
+          if pkgs.stdenv.isDarwin
+          then false
+          else true;
         settings = {
           embed-thumbnail = true;
           embed-subs = true;
