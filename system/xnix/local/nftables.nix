@@ -106,6 +106,14 @@
             # ssh ipv4
             ip saddr { 192.168.1.0/24, 192.168.9.0/24 } tcp dport {22, 80, 443} log prefix "nft-accept-local: " level info
             ip saddr { 192.168.1.0/24, 192.168.9.0/24 } tcp dport {22, 80, 443} counter accept
+
+            # rustdesk TCP
+            ip saddr { 192.168.1.0/24, 192.168.9.0/24 } tcp dport {21115-21119} log prefix "nft-accept-local-rustdesk-tcp: " level info
+            ip saddr { 192.168.1.0/24, 192.168.9.0/24 } tcp dport {21115-21119} counter accept
+
+            # rustdesk UDP
+            ip saddr { 192.168.1.0/24, 192.168.9.0/24 } udp dport 21116 log prefix "nft-accept-local-rustdesk-udp: " level info
+            ip saddr { 192.168.1.0/24, 192.168.9.0/24 } udp dport 21116 counter accept
           }
 
           chain input-log-drop {

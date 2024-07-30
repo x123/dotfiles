@@ -38,6 +38,7 @@
 
       jellyfin.enable = true;
       nix-ssh-serve.enable = false;
+      rustdesk-server.enable = true;
     };
 
     x11.enable = true;
