@@ -2,7 +2,8 @@
   imports = [
     ./invidious.nix
     ./jellyfin.nix
-    ./openssh.nix
+    ./nftables.nix
     ./nix-ssh-serve.nix
+    ./openssh.nix
   ];
 }
