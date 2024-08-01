@@ -116,12 +116,12 @@
               invalid : jump output-log-drop,
               established : accept,
               related : accept,
-              new : jump output-allow,
-              untracked : jump output-allow
+              new : jump output-new,
+              untracked : jump output-new
             }
           }
 
-          chain output-allow {
+          chain output-new {
             # icmp
             icmp type {echo-request,echo-reply} counter accept comment "Accept ICMP ping requests"
 
