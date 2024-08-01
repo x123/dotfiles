@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722217815,
-        "narHash": "sha256-8r5AJ3n8WEDw3rsZLALSuFQ5kJyWOcssNZvPxYLr2yc=",
+        "lastModified": 1722476845,
+        "narHash": "sha256-7gZ8uf3qOox8Vrwd+p9EhUHHLhhK8lis/5KcXGmIaow=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "1e6f8a7b4634fc051cc9361959bf414fcf17e094",
+        "rev": "7e1b215a0a96efb306ad6440bf706d2b307dc267",
         "type": "github"
       },
       "original": {
@@ -190,11 +190,11 @@
         "zls": "zls"
       },
       "locked": {
-        "lastModified": 1722201645,
-        "narHash": "sha256-vHpDK1dCYmX4ArFgYNpMJrLjFjgB+JFbPT0a2BuFssg=",
+        "lastModified": 1722486902,
+        "narHash": "sha256-6XKi+I+MSc/Ao73krNvCEdWxXhkIFVyrgtk5+y/8ZAU=",
         "ref": "refs/heads/main",
-        "rev": "874c4e13d26f12a1b5fb43ca6cbbbcb46778da75",
-        "revCount": 6697,
+        "rev": "4cf620296fefd36dcbb1b761fa67c9e858948d77",
+        "revCount": 6748,
         "type": "git",
         "url": "ssh://git@me.github.com/ghostty-org/ghostty"
       },
@@ -297,11 +297,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722321190,
-        "narHash": "sha256-WeVWVRqkgrbLzmk6FfJoloJ7Xe7HWD27Pv950IUG2kI=",
+        "lastModified": 1722462338,
+        "narHash": "sha256-ss0G8t8RJVDewA3MyqgAlV951cWRK6EtVhVKEZ7J5LU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "4fcd54df7cbb1d79cbe81209909ee8514d6b17a4",
+        "rev": "6e090576c4824b16e8759ebca3958c5b09659ee8",
         "type": "github"
       },
       "original": {
@@ -348,11 +348,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1722285865,
-        "narHash": "sha256-BJ5a8xOpDru/f3DaoEyuWL1XpN77wH9Wy/42Z6e282M=",
+        "lastModified": 1722468228,
+        "narHash": "sha256-LTQq/nyFlT353EZ3Ptw+M47LG+S+o8fqEv7F7OJiNKA=",
         "owner": "lexical-lsp",
         "repo": "lexical",
-        "rev": "7bb7d2897836ebe88b69434d2cb971c86794d0c2",
+        "rev": "6e189c807cc1ff0f5c1ceec2990b541364bccb4a",
         "type": "github"
       },
       "original": {
@@ -387,11 +387,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722082646,
-        "narHash": "sha256-od8dBWVP/ngg0cuoyEl/w9D+TCNDj6Kh4tr151Aax7w=",
+        "lastModified": 1722445220,
+        "narHash": "sha256-PW5FRqLhqg0xGpPjY2Poa464tyBQiyKd0tQGZ0HnMiU=",
         "owner": "LnL7",
         "repo": "nix-darwin",
-        "rev": "0413754b3cdb879ba14f6e96915e5fdf06c6aab6",
+        "rev": "7e08a9dd34314fb8051c28b231a68726c54daa7b",
         "type": "github"
       },
       "original": {
@@ -426,11 +426,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1722278305,
-        "narHash": "sha256-xLBAegsn9wbj+pQfbX07kykd5VBV3Ywk3IbObVAAlWA=",
+        "lastModified": 1722332872,
+        "narHash": "sha256-2xLM4sc5QBfi0U/AANJAW21Bj4ZX479MHPMPkB+eKBU=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "eab049fe178c11395d65a858ba1b56461ba9652d",
+        "rev": "14c333162ba53c02853add87a0000cbd7aa230c2",
         "type": "github"
       },
       "original": {
@@ -561,11 +561,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1722062969,
-        "narHash": "sha256-QOS0ykELUmPbrrUGmegAUlpmUFznDQeR4q7rFhl8eQg=",
+        "lastModified": 1722185531,
+        "narHash": "sha256-veKR07psFoJjINLC8RK4DiLniGGMgF3QMlS4tb74S6k=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b73c2221a46c13557b1b3be9c2070cc42cf01eb3",
+        "rev": "52ec9ac3b12395ad677e8b62106f0b98c1f8569d",
         "type": "github"
       },
       "original": {
@@ -592,11 +592,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1722321523,
-        "narHash": "sha256-OvgYjUSL0n1Cg4h0a//21HOu2lls4aW8EU4W0UTtcys=",
+        "lastModified": 1722485061,
+        "narHash": "sha256-opkrX6noshjk2V3PKBiksA8+M6K7cu3EuiuAWL04pNs=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "2729b2c9ffcdcd24bc1a5ab0614d9f8633f40b59",
+        "rev": "3bf06551d5922d420607091f5a3321e712ece307",
         "type": "github"
       },
       "original": {
