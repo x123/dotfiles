@@ -24,4 +24,22 @@
       '';
     };
   };
+
+  networking = {
+    nftables = {
+      enable = true; # enable nftables
+      tables = {
+        filter = {
+          family = "inet";
+          content = ''
+            chain input-new {
+              # IMAP/IMAPS
+              tcp dport 143 counter accept comment "Allow IMAP/143"
+              tcp dport 993 counter accept comment "Allow IMAPS/993"
+            }
+          '';
+        };
+      };
+    };
+  };
 }

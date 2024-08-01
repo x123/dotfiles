@@ -87,4 +87,23 @@
       '';
     };
   };
+
+  networking = {
+    nftables = {
+      enable = true; # enable nftables
+      tables = {
+        filter = {
+          family = "inet";
+          content = ''
+            chain input-new {
+              # SMTP/SMTPS
+              tcp dport 25 counter accept comment "Allow SMTP/25"
+              tcp dport 465 counter accept comment "Allow SMTPS/465"
+              tcp dport 587 counter accept comment "Allow SMTPS/587"
+            }
+          '';
+        };
+      };
+    };
+  };
 }
