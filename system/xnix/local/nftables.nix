@@ -98,14 +98,6 @@
 
             # ntp
             udp dport 123 counter accept comment "Allow NTP"
-
-            # ssh ipv6
-            ip6 saddr { fd65:4e21:dde4::1/60 } tcp dport 22 log prefix "nft-accept-lan-ssh: " level info
-            ip6 saddr { fd65:4e21:dde4::1/60 } tcp dport 22 counter accept
-
-            # ssh ipv4
-            ip saddr { 192.168.1.0/24, 192.168.9.0/24 } tcp dport 22 log prefix "nft-accept-lan-ssh: " level info
-            ip saddr { 192.168.1.0/24, 192.168.9.0/24 } tcp dport 22 counter accept
           }
 
           chain input-log-drop {
