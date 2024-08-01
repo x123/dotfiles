@@ -81,8 +81,8 @@
               invalid : jump input-log-drop,
               established : accept,
               related : accept,
-              new : jump input-allow,
-              untracked : jump input-allow
+              new : jump input-new,
+              untracked : jump input-new
             }
 
             udp dport 33434-33523 counter reject comment "Properly reject traceroute UDP requests"
@@ -90,7 +90,7 @@
             counter name cnt_input_drop drop
           }
 
-          chain input-allow {
+          chain input-new {
             # jump to ipv6 chain and return
             jump ipv6
 
