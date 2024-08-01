@@ -14,6 +14,7 @@
     ./local/dovecot.nix
     ./local/invidious.nix
     ./local/mastodon.nix
+    ./local/nftables-http.nix
     ./local/nftables-knock.nix
     ./local/nginx.nix
     ./local/ntfy.nix

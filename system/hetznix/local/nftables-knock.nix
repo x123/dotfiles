@@ -83,10 +83,6 @@
               # ssh
               tcp dport 22 ip saddr @ks4 log prefix "nft-input-pn-traffic-accept: " level info
               tcp dport 22 ip saddr @ks4 counter accept
-
-              # http/https
-              tcp dport { 80, 443 } log prefix "nft-input-accept-http: " level info
-              tcp dport { 80, 443 } counter accept
             }
           '';
         };
