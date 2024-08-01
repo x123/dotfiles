@@ -1,6 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
   pkgs,
@@ -94,9 +91,8 @@
   networking = {
     hostName = "xnix";
     domain = "empire.boxchop.city";
+    networkmanager.enable = true;
   };
-
-  networking.networkmanager.enable = true;
 
   services.openssh = {
     enable = true;
@@ -107,16 +103,6 @@
     };
   };
 
-  # networking.nftables.enable = true;
-  # networking.firewall = {
-  #   enable = true;
-  #   allowedTCPPorts = [22];
-  #   extraInputRules = ''
-  #     ip saddr { 192.168.1.0/24, 192.168.9.0/24 } tcp dport {22, 80, 443, 9090} accept
-  #   '';
-  # };
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
   environment.systemPackages = builtins.attrValues {
     inherit
       (pkgs)
