@@ -5,7 +5,6 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    #./local/nftables.nix
     ../../modules/nix-settings # do not remove
     ../../modules/system-nixos
   ];
