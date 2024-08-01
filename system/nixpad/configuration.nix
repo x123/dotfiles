@@ -40,6 +40,7 @@
       };
 
       jellyfin.enable = false;
+      nftables.enable = true;
     };
 
     x11.enable = true;
@@ -64,17 +65,7 @@
   networking = {
     hostName = "nixpad";
     domain = "empire.boxchop.city";
-  };
-
-  networking.networkmanager.enable = true;
-
-  networking.nftables.enable = true;
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [22];
-    extraInputRules = ''
-      ip saddr { 192.168.1.0/24, 192.168.9.0/24 } tcp dport {22} accept
-    '';
+    networkmanager.enable = true;
   };
 
   environment.systemPackages = builtins.attrValues {
