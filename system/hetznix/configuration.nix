@@ -14,7 +14,7 @@
     ./local/dovecot.nix
     ./local/invidious.nix
     ./local/mastodon.nix
-    ./local/nftables.nix
+    ./local/nftables-knock.nix
     ./local/nginx.nix
     ./local/ntfy.nix
     ./local/postfix.nix
@@ -29,7 +29,15 @@
       openssh = {
         enable = true;
         openFirewallNftables = false;
+        trustedIpv4Networks = [
+          "0.0.0.0/0"
+        ];
+        trustedIpv6Networks = [
+          "::/0"
+        ];
       };
+
+      nftables.enable = true;
     };
   };
 
