@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     # nixpkgs-unstable-small.url = "nixpkgs/nixos-unstable-small";
-    ghostty.url = "git+ssh://git@me.github.com/ghostty-org/ghostty?ref=main&rev=dcc492f19b0540939ba923d6ef4041c534d08684";
+    ghostty.url = "git+ssh://git@me.github.com/ghostty-org/ghostty";
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     narsil-flake.url = "github:x123/narsil-flake";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
