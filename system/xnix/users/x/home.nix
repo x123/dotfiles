@@ -19,7 +19,7 @@
     desktop = {
       enable = true;
 
-      audio.enable = true;
+      audio.enable = false; # this is just youtube-music right now
       blender.enable = true;
       discord.enable = true;
       flameshot.enable = true;
