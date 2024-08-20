@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-unstable-small.url = "nixpkgs/nixos-unstable-small";
+    # nixpkgs-unstable-small.url = "nixpkgs/nixos-unstable-small";
     ghostty.url = "git+ssh://git@me.github.com/ghostty-org/ghostty";
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     narsil-flake.url = "github:x123/narsil-flake";
@@ -44,7 +44,7 @@
   outputs = inputs @ {
     self,
     nixpkgs,
-    nixpkgs-unstable-small,
+    # nixpkgs-unstable-small,
     nixos-hardware,
     home-manager,
     sops-nix,
