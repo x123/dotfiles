@@ -32,7 +32,7 @@
         };
         nvidia.enable = true;
       };
-      obs-studio.enable = true;
+      obs-studio.enable = false;
       slack.enable = true;
       video.enable = true;
     };
