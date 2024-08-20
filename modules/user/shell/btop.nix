@@ -8,6 +8,7 @@
       color_theme = "nord";
       theme_background = true;
       update_ms = 200;
+      vim_keys = true;
     };
   };
 }
