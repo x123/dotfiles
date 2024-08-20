@@ -32,7 +32,7 @@
         };
       };
       obs-studio.enable = false;
-      slack.enable = true;
+      slack.enable = false;
       video.enable = true;
     };
 
