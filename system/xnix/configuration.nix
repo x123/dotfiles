@@ -40,6 +40,20 @@
         ];
       };
 
+      open-webui = {
+        enable = false;
+        host = "127.0.0.1";
+        port = 8080;
+        openFirewallNftables = true;
+        trustedIpv4Networks = [
+          "192.168.1.0/24"
+          "192.168.9.0/24"
+        ];
+        trustedIpv6Networks = [
+          "fd65:4e21:dde4::1/60"
+        ];
+      };
+
       openssh = {
         enable = true;
         openFirewallNftables = true;
