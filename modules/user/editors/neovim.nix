@@ -201,7 +201,7 @@
           }
         })
 
-        vim.keymap.set("n", "<space>g-", "<cmd>Oil<cr>")
+        vim.keymap.set("n", "-", "<cmd>Oil<cr>", {desc = "Open parent directory"})
 
         -- Telescope
         require("telescope").setup()
