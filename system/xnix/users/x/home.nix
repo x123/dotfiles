@@ -21,10 +21,13 @@
       enable = true;
 
       audio.enable = false; # this is just youtube-music right now
-      blender.enable = false;
       discord.enable = true;
       flameshot.enable = true;
       ghostty.enable = true;
+      blender = {
+        enable = false;
+        cudaSupport = true;
+      };
       i3status-rust = {
         temperature = {
           enable = true;
