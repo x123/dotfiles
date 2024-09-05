@@ -23,7 +23,8 @@
             nil
             nixd
             terraform-ls
-            # vscode-langservers-extracted # broken 2024-08-20, retry at a later date
+            vscode-langservers-extracted
+            # rust
             
             rust-analyzer
             rustc
