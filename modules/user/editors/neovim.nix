@@ -51,6 +51,7 @@
           nvim-lspconfig
           nvim-surround
           nvim-treesitter
+          oil-nvim
           telescope-nvim
           tmux-nvim
           undotree
@@ -173,6 +174,20 @@
                 vsnip = "[snip]",
               },
             },
+          },
+        })
+
+        -- oil-nvim
+        require("oil").setup({
+          default_file_explorer = true,
+          columns = {
+            "icon",
+            -- "permissions",
+            -- "size",
+            -- "mtime"
+          };
+          float = {
+            preview_split = "right",
           },
         })
 
