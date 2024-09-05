@@ -181,16 +181,27 @@
         -- oil-nvim
         require("oil").setup({
           default_file_explorer = true,
+          delete_to_trash = false,
+          skip_confirm_for_simple_edits = true,
           columns = {
             "icon",
             -- "permissions",
             -- "size",
             -- "mtime"
-          };
-          float = {
-            preview_split = "right",
           },
+          view_options = {
+            show_hidden = true,
+            natural_order = true,
+            is_always_hidden = function(name, _)
+              return name == '..' or name == '.git'
+            end,
+          },
+          win_options = {
+            wrap = true,
+          }
         })
+
+        vim.keymap.set("n", "<space>g-", "<cmd>Oil<cr>")
 
         -- Telescope
         require("telescope").setup()
