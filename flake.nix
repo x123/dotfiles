@@ -6,7 +6,6 @@
     # nixpkgs-unstable-small.url = "nixpkgs/nixos-unstable-small";
     ghostty.url = "git+ssh://git@me.github.com/ghostty-org/ghostty";
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
-    narsil-flake.url = "github:x123/narsil-flake";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nur.url = "github:nix-community/NUR";
 
@@ -55,7 +54,6 @@
     pre-commit-hooks,
     disko,
     lexical,
-    narsil-flake,
     ...
   }: let
     supportedSystems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
