@@ -30,18 +30,6 @@
     settings = {
       experimental-features = ["nix-command" "flakes"];
 
-      # substituters = [
-      #   "ssh://xnix.lan"
-      # ];
-      #
-      # trusted-substituters = [
-      #   "ssh://xnix.lan"
-      # ];
-
-      # trusted-public-keys = [
-      #   "nixium.boxchop.city-1:I/9SEHdelbS1b8ZX5QeeQKtsugsCcIqCVCec4TZPXIw="
-      # ];
-
       auto-optimise-store = true;
       allowed-users = [
         "*"
