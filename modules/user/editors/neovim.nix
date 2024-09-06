@@ -38,6 +38,7 @@
             # extensions
             
             pyls-isort
+            pylsp-mypy
             python-lsp-black
             python-lsp-jsonrpc
             python-lsp-ruff
@@ -119,8 +120,8 @@
         vim.keymap.set("n", "<leader>wx", "<C-W>x")
 
         vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
-        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-        vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+        vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_prev)
+        vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_next)
         vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 
         -- move visual selection up and down
@@ -293,8 +294,36 @@
         lspconfig.jsonls.setup({ capabilities = capabilities, })
         lspconfig.lua_ls.setup({ capabilities = capabilities, })
         lspconfig.marksman.setup({ capabilities = capabilities, })
-        lspconfig.pylsp.setup({ capabilities = capabilities, })
         lspconfig.terraformls.setup({ capabilities = capabilities, })
+
+        -- pylsp
+        lspconfig.pylsp.setup({
+          capabilities = capabilities,
+          on_attach = custom_attach,
+          flags =  {
+            debounce_text_changes = 200,
+          },
+          settings = {
+            pylsp = {
+              plugins = {
+                -- formatter options
+                black = { enabled = true},
+                autopep8 = { enabled = false },
+                yapf = { enabled = false },
+                -- linter options
+                pylint = { enabled = true, executable = "${pkgs.pylint}/bin/pylint" },
+                pyflakes = { enabled = false },
+                pycodestyle = { enabled = false },
+                -- type checker
+                pylsp_mypy = { enabled = true },
+                -- auto-completion options
+                jedi_completion = { fuzzy = true },
+                -- import sorting
+                pyls_isort = { enabled = true },
+              }
+            }
+          }
+        })
 
         -- rust
         lspconfig.rust_analyzer.setup({
