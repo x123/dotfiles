@@ -30,6 +30,18 @@
             rustc
             rustfmt
             ;
+          inherit
+            (pkgs.python312Packages)
+            # main lsp
+            
+            python-lsp-server
+            # extensions
+            
+            pyls-isort
+            python-lsp-black
+            python-lsp-jsonrpc
+            python-lsp-ruff
+            ;
         };
     };
 
@@ -281,6 +293,7 @@
         lspconfig.jsonls.setup({ capabilities = capabilities, })
         lspconfig.lua_ls.setup({ capabilities = capabilities, })
         lspconfig.marksman.setup({ capabilities = capabilities, })
+        lspconfig.pylsp.setup({ capabilities = capabilities, })
         lspconfig.terraformls.setup({ capabilities = capabilities, })
 
         -- rust
