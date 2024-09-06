@@ -84,6 +84,7 @@
           lua
           markdown
           nix
+          python
           terraform
           vimdoc
           zig
