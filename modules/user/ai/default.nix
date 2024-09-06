@@ -1,6 +1,5 @@
 {lib, ...}: {
   imports = [
-    ./invokeai.nix
     ./ollama.nix
     ./pytorch.nix
   ];

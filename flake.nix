@@ -24,11 +24,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixified-ai = {
-      url = "github:nixified-ai/flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,7 +44,6 @@
     sops-nix,
     nur,
     nix-darwin,
-    nixified-ai,
     ghostty,
     pre-commit-hooks,
     disko,

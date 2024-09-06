@@ -46,7 +46,6 @@
     ai = {
       enable = true;
 
-      invokeai.enable = false;
       ollama.enable = true;
       pytorch.enable = false;
     };
