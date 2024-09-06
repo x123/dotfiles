@@ -56,6 +56,7 @@
           cmp-path
           cmp-vsnip
           comment-nvim
+          conform-nvim
           gitsigns-nvim
           lspkind-nvim
           lualine-nvim
@@ -196,6 +197,25 @@
           },
         })
 
+        -- conform-nvim
+        require("conform").setup({
+          formatters_by_ft = {
+            nix = { "alejandra" },
+            python = { "isort", "black" },
+          },
+          formatters = {
+            alejandra = {
+              command = "${pkgs.alejandra}/bin/alejandra",
+            },
+            black = {
+              command = "${pkgs.black}/bin/black",
+            },
+            isort = {
+              command = "${pkgs.isort}/bin/isort",
+            }
+          },
+        })
+
         -- oil-nvim
         require("oil").setup({
           default_file_explorer = true,
@@ -306,6 +326,9 @@
           },
           settings = {
             pylsp = {
+              formatting = {
+                command = { "${pkgs.black}/bin/black" },
+              },
               plugins = {
                 -- formatter options
                 black = { enabled = true},
@@ -410,9 +433,20 @@
             vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
             vim.keymap.set({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action, opts)
             vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-            vim.keymap.set("n", "<leader>F", function()
-              vim.lsp.buf.format { async = true }
+
+            -- conform-nvim format
+            vim.keymap.set({"n", "v"}, "<leader>F", function()
+              require("conform").format({
+                async = false,
+                lsp_fallback = true,
+                timeout_ms = 1000,
+              })
             end, opts)
+
+            -- traditional vsp style buffering disabled, we use conform-nvim
+            -- vim.keymap.set("n", "<leader>F", function()
+            --   vim.lsp.buf.format { async = true }
+            -- end, opts)
           end,
         })
 
