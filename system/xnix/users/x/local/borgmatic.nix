@@ -71,18 +71,18 @@
               name = "repository";
               frequency = "1 weeks";
             }
-            {
-              name = "archives";
-              frequency = "2 weeks";
-            }
-            {
-              name = "extract";
-              frequency = "3 weeks";
-            }
-            {
-              name = "data";
-              frequency = "4 weeks";
-            }
+            # {
+            #   name = "archives";
+            #   frequency = "2 weeks";
+            # }
+            # {
+            #   name = "extract";
+            #   frequency = "3 weeks";
+            # }
+            # {
+            #   name = "data";
+            #   frequency = "4 weeks";
+            # }
           ];
           # doesn't currently work due do dependency on xxh64sum. pkgs.xxHash
           # provides  xxhsum -H64
