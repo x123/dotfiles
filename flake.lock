@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1727156717,
-        "narHash": "sha256-Ef7UgoTdOB4PGQKSkHGu6SOxnTiArPHGcRf8qGFC39o=",
+        "lastModified": 1727196810,
+        "narHash": "sha256-xQzgXRlczZoFfrUdA4nD5qojCQVqpiIk82aYINQZd+U=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "c61e50b63ad50dda5797b1593ad7771be496efbb",
+        "rev": "6d42596a35d34918a905e8539a44d3fc91f42b5b",
         "type": "github"
       },
       "original": {
@@ -79,11 +79,11 @@
         "zig": "zig"
       },
       "locked": {
-        "lastModified": 1727151092,
-        "narHash": "sha256-DINIrMJzaQI3NVNk976DY4UUICqp6UaulGfixrUl5uM=",
+        "lastModified": 1727236892,
+        "narHash": "sha256-NwnpXHSCo5XD8ANYdTAvU0VnI2MhbtUNGO9o9yLSyrA=",
         "ref": "refs/heads/main",
-        "rev": "38db305d2965b3d5e135677a3844acb95edbefc9",
-        "revCount": 7429,
+        "rev": "d6e9db4ec5de66248849a74417c35c30facd6363",
+        "revCount": 7445,
         "type": "git",
         "url": "ssh://git@me.github.com/ghostty-org/ghostty"
       },
@@ -299,11 +299,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1727178948,
-        "narHash": "sha256-dLD5MRdpfVUU/DVRbT9Fvp3+tvszhSvp4TQL9bryWR8=",
+        "lastModified": 1727238513,
+        "narHash": "sha256-QBcnU1dBHp0r7d9rDlywWIzedJm74Au0RfGKGagKiHE=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "304ab73b87aceefaf8285578c060014d6df91ab6",
+        "rev": "6f380b1d5fe290eea7ed285fc7f255e3f372dccf",
         "type": "github"
       },
       "original": {
