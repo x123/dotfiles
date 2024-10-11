@@ -71,7 +71,7 @@
 
   programs.bash = {
     enable = true;
-    enableCompletion = true;
+    completion.enable = true;
   };
 
   system.stateVersion = 4;
