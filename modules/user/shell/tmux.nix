@@ -10,6 +10,7 @@
     shortcut = "b";
     baseIndex = 1;
     aggressiveResize = true;
+    sensibleOnTop = false;
     extraConfig = ''
       # Set true color
       set-option -a terminal-features "*:RGB,mouse,sync"
