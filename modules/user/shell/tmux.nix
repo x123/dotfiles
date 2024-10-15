@@ -10,8 +10,11 @@
     shortcut = "b";
     baseIndex = 1;
     aggressiveResize = true;
-    sensibleOnTop = false;
     extraConfig = ''
+      # required to fix tmux 3.5a bug with tmux-sensible
+      set -gu default-command
+      set -g default-shell "$SHELL"
+
       # Set true color
       set-option -a terminal-features "*:RGB,mouse,sync"
       #set-option -sa terminal-overrides ",xterm*:Tc"
