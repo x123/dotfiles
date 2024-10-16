@@ -58,7 +58,6 @@ in {
             hyperfine
             killall
             lsof
-            mosh
             parallel
             pciutils
             ripgrep
