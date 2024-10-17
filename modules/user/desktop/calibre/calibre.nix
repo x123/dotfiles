@@ -4,12 +4,21 @@
   pkgs,
   ...
 }: {
-  imports = [];
+  options = {
+    custom.desktop.calibre = {
+      enable = lib.mkOption {
+        default = false;
+        type = lib.types.bool;
+        description = "Whether to enable the calibre package.";
+      };
+    };
+  };
 
   config =
     lib.mkIf
     (
       config.custom.desktop.enable
+      && config.custom.desktop.calibre.enable
       && !pkgs.stdenv.isDarwin
     )
     {
