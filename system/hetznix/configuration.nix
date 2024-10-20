@@ -49,7 +49,10 @@
     kernelModules = [];
     extraModulePackages = [];
     kernelPackages = pkgs.linuxPackages_latest;
-    loader.systemd-boot.enable = true;
+    loader.systemd-boot = {
+      enable = true;
+      configurationLimit = 4;
+    };
     loader.efi.canTouchEfiVariables = true;
   };
 
