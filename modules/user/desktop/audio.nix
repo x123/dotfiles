@@ -32,11 +32,10 @@ in {
         packages =
           builtins.attrValues
           {
-            # inherit
-            #   (pkgs)
-            #   kdePackages.audiotube
-            #   monophony
-            #   ;
+            inherit
+              (pkgs)
+              bitwig-studio
+              ;
           }
           ++ (
             if pkgs.stdenv.isDarwin
