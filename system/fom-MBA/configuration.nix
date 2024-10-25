@@ -29,9 +29,6 @@
     };
   };
 
-  # users
-  users.users.fom.shell = pkgs.bash;
-
   nix = {
     linux-builder = {
       enable = false;
