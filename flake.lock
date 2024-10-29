@@ -283,11 +283,11 @@
     },
     "nixpkgs-x123": {
       "locked": {
-        "lastModified": 1730208928,
-        "narHash": "sha256-vfWgszm/lhGrzwyeRU29fEA+NQD8GTXBbzdaHDvOLHI=",
+        "lastModified": 1730216798,
+        "narHash": "sha256-Vfgzgu2Pes2rbNbuuqYho5ib+zjN+BCpxa4tGMA5Qc8=",
         "owner": "x123",
         "repo": "nixpkgs",
-        "rev": "5b2b691e5841393961953a5d7c6483b8ad2438c2",
+        "rev": "bb7ddabee3091cee3f53954eb378ac8be106b99d",
         "type": "github"
       },
       "original": {
