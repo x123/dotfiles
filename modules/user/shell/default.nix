@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  system,
+  ...
+}: {
   imports = [
     ./btop.nix
     ./fonts.nix
@@ -8,6 +13,17 @@
     ./tmux.nix
     ./yazi.nix
     ./zoxide.nix
+  ];
+
+  nixpkgs.overlays = [
+    (
+      final: prev: {
+        x123 = import inputs.nixpkgs-x123 {
+          inherit system;
+          #system = "x86_64-linux";
+        };
+      }
+    )
   ];
 
   programs = {
@@ -89,6 +105,10 @@
         htop
         pciutils
         ripgrep
+        ;
+      inherit
+        (pkgs.x123)
+        dnsdbq
         ;
     };
 
