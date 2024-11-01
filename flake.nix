@@ -229,6 +229,31 @@
           }
         ];
       };
+
+      nixveeem = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = {
+          inherit inputs;
+          system = "aarch64-linux";
+          hostname = "nixveeem.31337";
+        };
+        modules = [
+          disko.nixosModules.disko
+          ./system/nixveeem/configuration.nix
+          sops-nix.nixosModules.sops
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {
+                inherit inputs;
+                # system = "aarch64-linux";
+              };
+            };
+          }
+        ];
+      };
     };
   };
 }
