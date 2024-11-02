@@ -1,9 +1,26 @@
 {pkgs, ...}: {
   imports = [
+    ./custom-vmware-guest.nix
     ./disk-config.nix
     ../../modules/nix-settings # do not remove
     ../../modules/system-nixos
   ];
+
+  disabledModules = ["virtualisation/vmware-guest.nix"];
+
+  # Share our host filesystem
+  fileSystems."/host" = {
+    fsType = "fuse./run/current-system/sw/bin/vmhgfs-fuse";
+    device = ".host:/Users/fom/vm/sharing";
+    options = [
+      "umask=22"
+      "uid=1000"
+      "gid=1000"
+      "allow_other"
+      "auto_unmount"
+      "defaults"
+    ];
+  };
 
   custom.system-nixos = {
     enable = true;
