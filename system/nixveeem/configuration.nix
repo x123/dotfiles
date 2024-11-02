@@ -115,6 +115,7 @@
       extraGroups = ["networkmanager" "wheel"];
       shell = pkgs.zsh;
       useDefaultShell = true;
+      initialHashedPassword = "$y$j9T$44zWKQ/pvpxKAfYLxYQzB.$NhVjb.bYbhXbtL0Sf15LTZ0Asy/leKAlc6OtMbROY/.";
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAV4W4TVF5yqOwKFax+b2XtRYbdKy1wy4zFXfFZfv5be xnix"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID6elYl8CWSR32Zx33D+XgQWM/721sDmnyFJec7vDeMb fom-mba"
