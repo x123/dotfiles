@@ -61,6 +61,7 @@
   };
 
   boot = {
+    binfmt.emulatedSystems = ["x86_64-linux"];
     initrd.availableKernelModules = ["xhci_pci" "nvme" "virtio_scsi" "sr_mod"];
     initrd.kernelModules = [];
     kernelModules = [];
@@ -68,7 +69,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
     loader.systemd-boot = {
       enable = true;
-      configurationLimit = 4;
+      configurationLimit = 20;
     };
     loader.efi.canTouchEfiVariables = true;
   };
