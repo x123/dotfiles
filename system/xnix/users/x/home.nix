@@ -29,6 +29,7 @@
       obs-studio.enable = false;
       slack.enable = true;
       telegram.enable = true;
+      tor-browser.enable = true;
       video.enable = true;
 
       blender = {
