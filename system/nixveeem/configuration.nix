@@ -1,10 +1,5 @@
-{
-  modulesPath,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
-    (modulesPath + "/profiles/vmware-guest.nix")
     ./disk-config.nix
     ../../modules/nix-settings # do not remove
     ../../modules/system-nixos
