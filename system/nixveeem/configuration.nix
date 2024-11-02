@@ -8,20 +8,47 @@
   custom.system-nixos = {
     enable = true;
 
+    common = {
+      console-theme.enable = false;
+      filesystems.enable = true;
+    };
+
+    dev.elixir.enable = false;
+    games.enable = false;
+
+    hardware = {
+      bluetooth.enable = false;
+      nvidia.enable = false;
+      sound.enable = true;
+    };
+
     services = {
+      invidious = {
+        enable = false;
+      };
+
+      open-webui = {
+        enable = false;
+      };
+
       openssh = {
         enable = true;
-        openFirewallNftables = false;
+        openFirewallNftables = true;
         trustedIpv4Networks = [
-          "0.0.0.0/0"
+          "192.168.1.0/24"
+          "192.168.9.0/24"
         ];
         trustedIpv6Networks = [
-          "::/0"
+          "fd65:4e21:dde4::1/60"
         ];
       };
 
+      jellyfin.enable = false;
       nftables.enable = true;
+      nix-ssh-serve.enable = false;
     };
+
+    x11.enable = true;
   };
 
   boot = {
