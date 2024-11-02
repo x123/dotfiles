@@ -108,10 +108,10 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAGXOucJH+GXgiD/ro01zTxFOquY5g3oE6FULjV59Sgz nixpad"
     ];
 
-    users.x123 = {
+    users.x = {
       createHome = true;
       isNormalUser = true;
-      description = "x123";
+      description = "x";
       extraGroups = ["networkmanager" "wheel"];
       shell = pkgs.zsh;
       useDefaultShell = true;
