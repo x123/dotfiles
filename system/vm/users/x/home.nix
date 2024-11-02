@@ -73,27 +73,27 @@
       "me.github.com" = {
         hostname = "github.com";
         port = 22;
-        identityFile = "/home/x/.ssh/id_nixveeem";
+        identityFile = "/home/x/.ssh/id_vm";
         identitiesOnly = true;
       };
       "github.com" = {
         hostname = "github.com";
         port = 22;
-        identityFile = "/home/x/.ssh/id_nixveeem";
+        identityFile = "/home/x/.ssh/id_vm";
         identitiesOnly = true;
       };
       "hetznix" = {
         hostname = "hetznix.boxchop.city";
         port = 22;
         user = "root";
-        identityFile = "/home/x/.ssh/id_nixveeem";
+        identityFile = "/home/x/.ssh/id_vm";
         identitiesOnly = true;
       };
       "hetznix.boxchop.city" = {
         hostname = "hetznix.boxchop.city";
         port = 22;
         user = "root";
-        identityFile = "/home/x/.ssh/id_nixveeem";
+        identityFile = "/home/x/.ssh/id_vm";
         identitiesOnly = true;
       };
     };

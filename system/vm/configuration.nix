@@ -77,8 +77,8 @@
   # };
 
   networking = {
-    hostName = "nixveeem";
-    domain = "31337";
+    hostName = "vm";
+    domain = "local";
     enableIPv6 = true;
   };
 
@@ -100,8 +100,6 @@
   };
 
   users = {
-    motdFile = ./files/nixveeem.motd;
-
     users.root.openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAV4W4TVF5yqOwKFax+b2XtRYbdKy1wy4zFXfFZfv5be xnix"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID6elYl8CWSR32Zx33D+XgQWM/721sDmnyFJec7vDeMb fom-mba"
