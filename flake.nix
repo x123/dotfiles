@@ -167,6 +167,25 @@
           ./system/nixpad/users/x/home.nix
         ];
       };
+
+      "x@nixveeem" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "aarch64-linux";
+          config = {
+            allowUnfree = true;
+            cudaSupport = false;
+            allowAliases = false;
+          };
+        };
+        extraSpecialArgs = {
+          inherit inputs;
+          system = "aarch64-linux";
+        };
+        modules = [
+          nur.nixosModules.nur
+          ./system/nixveeem/users/x/home.nix
+        ];
+      };
     };
 
     darwinConfigurations = {
