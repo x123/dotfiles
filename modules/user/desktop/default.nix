@@ -7,6 +7,7 @@
   imports = [
     ./alacritty
     ./anki.nix
+    ./anydesk.nix
     ./audio.nix
     ./blender.nix
     ./calibre
@@ -44,8 +45,6 @@
           home.packages = builtins.attrValues {
             inherit
               (pkgs)
-              anydesk # broken 6.3.1 doesn't have source download - 2024-04-28
-              
               gimp
               libreoffice
               persepolis
