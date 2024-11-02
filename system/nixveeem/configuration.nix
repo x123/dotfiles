@@ -52,7 +52,7 @@
   };
 
   boot = {
-    initrd.availableKernelModules = ["xhci_pci" "virtio_scsi" "sr_mod"];
+    initrd.availableKernelModules = ["xhci_pci" "nvme" "virtio_scsi" "sr_mod"];
     initrd.kernelModules = [];
     kernelModules = [];
     extraModulePackages = [];
