@@ -53,6 +53,13 @@
 
   virtualisation.vmware.guest.enable = true;
 
+  services.xserver.dpi = 180;
+  environment.variables = {
+    GDK_SCALE = "2";
+    GDK_DPI_SCALE = "0.5";
+    _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
+  };
+
   boot = {
     initrd.availableKernelModules = ["xhci_pci" "nvme" "virtio_scsi" "sr_mod"];
     initrd.kernelModules = [];
