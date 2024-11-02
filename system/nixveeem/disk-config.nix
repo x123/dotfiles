@@ -1,7 +1,7 @@
 {lib, ...}: {
   disko.devices = {
     disk = {
-      nvme0n1 = {
+      main = {
         device = lib.mkDefault "/dev/nvme0n1";
         type = "disk";
         content = {
@@ -14,7 +14,7 @@
             };
             ESP = {
               name = "ESP";
-              size = "1000M";
+              size = "1G";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -22,13 +22,13 @@
                 mountpoint = "/boot";
               };
             };
-            # plainSwap = {
-            #   size = "1000M";
-            #   content = {
-            #     type = "swap";
-            #     resumeDevice = true;
-            #   };
-            # };
+            plainSwap = {
+              size = "8G";
+              content = {
+                type = "swap";
+                resumeDevice = true;
+              };
+            };
             root = {
               size = "100%";
               content = {
