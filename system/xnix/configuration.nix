@@ -66,7 +66,7 @@
         ];
       };
 
-      jellyfin.enable = true;
+      jellyfin.enable = false;
       nftables.enable = true;
       nix-ssh-serve.enable = false;
     };
@@ -146,7 +146,7 @@
   users.users.x = {
     isNormalUser = true;
     description = "x";
-    extraGroups = ["networkmanager" "wheel" "jellyfin"];
+    extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
     useDefaultShell = true;
     initialHashedPassword = "$2b$05$xfNWBnjifpR7HFG1rPKbde/rUZdwaTRMLDVJIxAMv6fbkjc5NFm8W";
