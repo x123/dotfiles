@@ -85,6 +85,7 @@
     loader.systemd-boot = {
       enable = true;
       configurationLimit = 20;
+      consoleMode = "max";
     };
     loader.efi.canTouchEfiVariables = true;
   };
