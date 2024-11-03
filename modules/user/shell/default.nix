@@ -11,7 +11,6 @@
     ./social.nix
     ./starship.nix
     ./tmux.nix
-    ./yazi.nix
     ./zoxide.nix
   ];
 
