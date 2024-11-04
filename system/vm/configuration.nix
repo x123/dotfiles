@@ -130,7 +130,8 @@
       wget
       git
       gtkmm3
-      xclip
+      # xclip
+      
       ;
   };
 
