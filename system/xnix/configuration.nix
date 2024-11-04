@@ -26,6 +26,8 @@
       sound.enable = true;
     };
 
+    networking.tornet.enable = true;
+
     services = {
       invidious = {
         enable = true;
