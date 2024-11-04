@@ -37,6 +37,17 @@ in {
           };
         };
       };
+
+      nat = {
+        internalInterfaces = ["tornet "];
+        forwardPorts = [
+          {
+            destination = "127.0.0.1:5353";
+            proto = "udp";
+            sourcePort = 53;
+          }
+        ];
+      };
     };
   };
 }
