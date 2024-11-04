@@ -4,6 +4,7 @@
     ./dev
     ./games
     ./hardware
+    ./networking
     ./services
     ./x11
   ];
