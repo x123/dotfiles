@@ -4,7 +4,10 @@
     ../../modules/system-darwin
   ];
 
-  custom.system-darwin.enable = true;
+  custom.system-darwin = {
+    enable = true;
+    fonts.enable = false;
+  };
 
   environment = {
     systemPackages = builtins.attrValues {
