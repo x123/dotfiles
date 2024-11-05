@@ -1,11 +1,17 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [];
 
-  fonts.fontconfig.enable = true;
+  config = (lib.mkIf (! pkgs.stdenv.isDarwin)) {
+    fonts.fontconfig.enable = true;
 
-  home = {
-    packages = [
-      pkgs.powerline-fonts
-    ];
+    home = {
+      packages = [
+        pkgs.powerline-fonts
+      ];
+    };
   };
 }
