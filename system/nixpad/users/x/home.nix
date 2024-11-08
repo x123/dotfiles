@@ -31,6 +31,7 @@
           inputs = ["CPU"];
         };
       };
+      keepassxc.enable = true;
       obs-studio.enable = false;
       slack.enable = false;
       video.enable = true;
