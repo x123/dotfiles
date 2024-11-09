@@ -32,9 +32,16 @@
         # finder
         finder = {
           AppleShowAllExtensions = true;
-          _FXShowPosixPathInTitle = true;
+          AppleShowAllFiles = true;
+          CreateDesktop = false;
           FXEnableExtensionChangeWarning = false;
+          FXPreferredViewStyle = "Nlsv";
+          NewWindowTarget = "Home";
           QuitMenuItem = true;
+          ShowPathbar = true;
+          ShowStatusBar = true;
+          _FXShowPosixPathInTitle = true;
+          _FXSortFoldersFirst = true;
         };
 
         # trackpad
