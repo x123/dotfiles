@@ -21,6 +21,7 @@
     ./gimp.nix
     ./inkscape.nix
     ./keepass.nix
+    ./keybase.nix
     ./obs-studio.nix
     ./slack.nix
     ./telegram.nix
