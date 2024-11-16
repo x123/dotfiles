@@ -27,6 +27,7 @@
       ghostty.enable = true;
       inkscape.enable = true;
       keepassxc.enable = true;
+      keybase.enable = true;
       obs-studio.enable = false;
       slack.enable = true;
       telegram.enable = true;
