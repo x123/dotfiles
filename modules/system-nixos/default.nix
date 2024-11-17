@@ -5,6 +5,7 @@
     ./games
     ./hardware
     ./networking
+    ./security
     ./services
     ./x11
   ];
