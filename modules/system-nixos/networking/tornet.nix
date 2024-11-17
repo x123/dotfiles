@@ -8,24 +8,37 @@
 in {
   imports = [];
 
+  options = {
+    custom.system-nixos.networking.tornet = {
+      enable = lib.mkOption {
+        default = false;
+        type = lib.types.bool;
+        description = "Whether to enable tornet and firejail tornet wrapping binaries";
+      };
+    };
+  };
+
   config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.networking.tornet.enable) {
     programs.firejail = {
       enable = true;
-      # wrappedBinaries = {
-      #   librewolf = {
-      #     executable = "${pkgs.librewolf}/bin/librewolf";
-      #     profile = "${pkgs.firejail}/etc/firejail/librewolf.profile";
-      #     extraArgs = [
-      #       # Required for U2F USB stick
-      #       # "--ignore=private-dev"
-      #       # Enforce dark mode
-      #       "--env=GTK_THEME=Adwaita:dark"
-      #       # Enable system notifications
-      #       "--dbus-user.talk=org.freedesktop.Notifications"
-      #     ];
-      #   };
-      # };
+      wrappedBinaries = {
+        tornet-zsh = {
+          executable = "${pkgs.zsh}/bin/zsh";
+        };
+        tornet-firefox = {
+          executable = "${pkgs.firefox}/bin/firefox --no-remote --private-window --new-instance";
+          profile = "${pkgs.firejail}/etc/firejail/firefox.profile";
+          extraArgs = [
+            "--net=tornet"
+            "--dns=5.9.164.112"
+          ];
+        };
+      };
     };
+
+    environment.systemPackages = [
+      pkgs.iptables
+    ];
 
     services.tor = {
       enable = true;
