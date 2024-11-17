@@ -25,6 +25,7 @@
 
       programs.firefox = {
         enable = true;
+        package = null;
         profiles."x" = {
           extensions = builtins.attrValues {
             inherit
