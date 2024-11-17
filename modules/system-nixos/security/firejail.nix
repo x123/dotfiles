@@ -25,6 +25,9 @@ in {
         firefox = {
           executable = "${pkgs.firefox}/bin/firefox --no-remote --new-instance";
           profile = "${pkgs.firejail}/etc/firejail/firefox.profile";
+          extraArgs = [
+            "--name=browser"
+          ];
         };
       };
     };
