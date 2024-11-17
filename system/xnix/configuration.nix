@@ -68,14 +68,6 @@
   sops = {
     defaultSopsFile = ./secrets.yaml;
     age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
-
-    secrets = {
-      "tg/nixiumbot" = {
-        mode = "0440";
-        owner = config.users.users.root.name;
-        group = "wheel";
-      };
-    };
   };
 
   # allow unfree packages
