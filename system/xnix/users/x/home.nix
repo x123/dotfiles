@@ -23,7 +23,7 @@
       audio.enable = true; # this is just youtube-music right now
       discord.enable = true;
       dropbox.enable = true;
-      flameshot.enable = true;
+      flameshot.enable = false;
       ghostty.enable = true;
       inkscape.enable = true;
       keepassxc.enable = true;
