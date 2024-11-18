@@ -26,6 +26,13 @@
       sound.enable = true;
     };
 
+    networking.tornet.enable = true;
+    security = {
+      apparmor.enable = true;
+      auditd.enable = true;
+      firejail.enable = true;
+    };
+
     services = {
       openssh = {
         enable = true;
