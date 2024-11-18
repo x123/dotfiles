@@ -52,6 +52,84 @@
         ;
       inherit (pkgs.xfce) thunar;
     };
+    services = {
+      # blueman-applet.enable = true;
+      # network-manager-applet.enable = true;
+      wlsunset = {
+        enable = true;
+        gamma = 1.0;
+        latitude = 55.7;
+        longitude = 12.6;
+        temperature = {
+          day = 5700;
+          night = 3600;
+        };
+        # {command = "${pkgs.redshift}/bin/redshift -l 55.7:12.6 -t 5700:3600 -P -g 1.0 -m randr -v";}
+      };
+      hypridle = {
+        enable = true;
+        settings = {
+          general = {
+            after_sleep_cmd = "hyprctl dispatch dpms on";
+            ignore_dbus_inhibit = false;
+            lock_cmd = "hyprlock";
+          };
+
+          listener = [
+            {
+              timeout = 60;
+              # timeout = 900;
+              on-timeout = "hyprlock";
+            }
+            {
+              timeout = 90;
+              # timeout = 1200;
+              on-timeout = "hyprctl dispatch dpms off";
+              on-resume = "hyprctl dispatch dpms on";
+            }
+          ];
+        };
+      };
+    };
+
+    programs = {
+      hyprlock = {
+        enable = true;
+        settings = {
+          general = {
+            disable_loading_bar = false;
+            # disable_loading_bar = true;
+            # grace = 300;
+            hide_cursor = true;
+            no_fade_in = true;
+          };
+
+          background = [
+            {
+              path = "screenshot";
+              blur_passes = 10;
+              blur_size = 16;
+            }
+          ];
+
+          input-field = [
+            {
+              size = "200, 50";
+              position = "0, -80";
+              monitor = "";
+              dots_center = true;
+              fade_on_empty = false;
+              font_color = "rgb(202, 211, 245)";
+              inner_color = "rgb(91, 96, 120)";
+              outer_color = "rgb(24, 25, 38)";
+              outline_thickness = 5;
+              placeholder_text = "Password";
+              shadow_passes = 2;
+            }
+          ];
+        };
+      };
+    };
 
     home.file = {
       hyprland-conf = {
@@ -97,7 +175,6 @@
 
           env = XCURSOR_SIZE,24
           env = HYPRCURSOR_SIZE,24
-
 
           #####################
           ### LOOK AND FEEL ###
@@ -223,7 +300,7 @@
               kb_options = compose:ralt
               kb_rules =
 
-              follow_mouse = 0
+              follow_mouse = 1
 
               sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
 
@@ -257,7 +334,7 @@
           bind = $mainMod_SHIFT, Q, killactive,
           bind = $mainMod_SHIFT, R, exec, hyprctl reload
           bind = $mainMod, M, exit,
-          bind = $mainMod, F, exec, $fileManager
+          bind = $mainMod, F, fullscreen
           bind = $mainMod, V, togglefloating,
           bind = $mainMod, D, exec, $menu
           bind = $mainMod, P, pseudo, # dwindle
@@ -372,12 +449,6 @@
           };
         };
       };
-    };
-
-    services = {
-      blueman-applet.enable = true;
-      network-manager-applet.enable = true;
-      picom.enable = true;
     };
 
     xsession.enable = true;

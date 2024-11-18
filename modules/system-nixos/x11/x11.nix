@@ -13,6 +13,7 @@ in {
 
     programs.hyprland.enable = true;
     programs.hyprlock.enable = true;
+    security.pam.services.hyprlock = {}; # needed for hyprlock to work
 
     services = {
       displayManager = {
