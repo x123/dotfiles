@@ -101,6 +101,11 @@ in {
       };
     };
 
+    # we must disable this as tor enables it by default
+    services.resolved = {
+      enable = false;
+    };
+
     systemd.network = {
       enable = true;
       wait-online.enable = false;
