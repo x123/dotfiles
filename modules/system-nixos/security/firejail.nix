@@ -22,9 +22,11 @@ in {
     programs.firejail = {
       enable = true;
       wrappedBinaries = {
-        firefox = {
+        firefox-fj-wrapped = {
           executable = "${pkgs.firefox}/bin/firefox --no-remote --new-instance";
-          profile = "${pkgs.firejail}/etc/firejail/firefox.profile";
+          # will use user generated instead at
+          # ~/.config/firejail/firefox.profile and fallback by default on this
+          # profile = "${pkgs.firejail}/etc/firejail/firefox.profile";
           extraArgs = [
             "--name=browser"
           ];
