@@ -143,7 +143,7 @@
       enable = true;
       settings = {
         monitor = [
-          "DP-1, highrr, 0x0, 1"
+          ", highrr, auto, 1"
         ];
         exec-once = [
           "systemctl --user restart wlsunset.service"
