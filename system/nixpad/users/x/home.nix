@@ -20,8 +20,8 @@
 
       audio.enable = false; # this is just youtube-music right now
       blender.enable = false;
-      discord.enable = true;
-      flameshot.enable = true;
+      discord.enable = false;
+      flameshot.enable = false;
       ghostty.enable = true;
       i3status-rust = {
         battery.enable = true;
