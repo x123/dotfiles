@@ -14,6 +14,9 @@ in {
     programs.hyprland.enable = true;
     programs.hyprlock.enable = true;
     security.pam.services.hyprlock = {}; # needed for hyprlock to work
+    security.pam.services.swaylock = {}; # needed for hyprlock to work
+
+    programs.sway.enable = true;
 
     services = {
       displayManager = {
