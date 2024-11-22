@@ -131,6 +131,7 @@
             "systemctl --user restart wlsunset.service"
             "systemctl --user restart xdg-desktop-portal-gtk.service"
             "systemctl --user restart hyperpaper.service"
+            "systemctl --user restart hypridle.service"
             "waybar"
             "${pkgs.networkmanagerapplet}/bin/nm-applet &"
             "${pkgs.blueman}/bin/blueman-applet &"
