@@ -36,10 +36,15 @@
       slack.enable = false;
       video.enable = true;
 
-      x11 = {
-        i3.enable = false;
+      wayland = {
+        enable = false;
         hyprland.enable = true;
         sway.enable = false;
+      };
+
+      x11 = {
+        enable = true;
+        i3.enable = false;
       };
     };
 
