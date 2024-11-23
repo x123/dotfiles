@@ -6,6 +6,8 @@
 }: {
   imports = [
     ./alacritty
+    ./wayland
+    ./x11
     ./anki.nix
     ./anydesk.nix
     ./audio.nix
@@ -19,6 +21,7 @@
     ./flameshot.nix
     ./ghostty.nix
     ./gimp.nix
+    ./gtk.nix
     ./inkscape.nix
     ./keepass.nix
     ./keybase.nix
@@ -32,6 +35,8 @@
 
   options.custom = {
     desktop.enable = lib.mkEnableOption "enable desktop environment";
+    desktop.wayland.enable = lib.mkEnableOption "enable wayland environment";
+    desktop.x11.enable = lib.mkEnableOption "enable x11 environment";
   };
 
   config =

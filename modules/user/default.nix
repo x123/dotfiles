@@ -10,6 +10,5 @@
     ./laptop
     ./mail
     ./shell
-    ./x11
   ];
 }

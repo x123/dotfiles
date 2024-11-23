@@ -7,6 +7,7 @@
     ./networking
     ./security
     ./services
+    ./wayland
     ./x11
   ];
 
