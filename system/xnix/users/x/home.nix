@@ -34,10 +34,15 @@
       tor-browser.enable = true;
       video.enable = true;
 
-      x11 = {
-        i3.enable = false;
-        hyprland.enable = true;
+      wayland = {
+        enable = false;
+        hyprland.enable = false;
         sway.enable = false;
+      };
+
+      x11 = {
+        enable = true;
+        i3.enable = true;
       };
 
       blender = {
