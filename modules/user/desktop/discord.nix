@@ -15,6 +15,16 @@
       && config.custom.desktop.discord.enable
     )
     {
+      xdg = {
+        desktopEntries = {
+          fj-discord = {
+            name = "fj-discord";
+            exec = "firejail --name=discord Discord";
+            categories = ["Application" "Network"];
+            terminal = false;
+          };
+        };
+      };
       # nixpkgs.overlays = [
       #   (
       #     final: prev: {
