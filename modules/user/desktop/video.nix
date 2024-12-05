@@ -41,7 +41,7 @@ in {
           }
           ++ (
             if pkgs.stdenv.isDarwin
-            then []
+            then [pkgs.vlc-bin]
             else broken_on_darwin
           );
       };
