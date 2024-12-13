@@ -112,7 +112,7 @@ in {
           enable = true;
           bars = {
             default = {
-              icons = "material-nf";
+              icons = "none";
               blocks =
                 [
                   {
