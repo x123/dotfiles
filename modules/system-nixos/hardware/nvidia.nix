@@ -23,9 +23,9 @@ in {
         open = false;
         nvidiaSettings = true;
         # package = config.boot.kernelPackages.nvidiaPackages.stable; # failing on 6.12.1
-        # package = config.boot.kernelPackages.nvidiaPackages.production; # failing on 6.12.1
+        package = config.boot.kernelPackages.nvidiaPackages.production; # failing on 6.12.1
         # package = config.boot.kernelPackages.nvidiaPackages.latest; # failing on 6.12.1
-        package = config.boot.kernelPackages.nvidiaPackages.beta; # working on 6.12.1
+        # package = config.boot.kernelPackages.nvidiaPackages.beta; # working on 6.12.1
         # package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
         #   version = "520.56.06";
         #   sha256_64bit = "sha256-UWdLAL7Wdm7EPUHKhNGNaTkGI0+FUZBptqNB92wRPEY=";
