@@ -184,6 +184,7 @@ in {
                   }
                 ];
               settings = {
+                # font = "pango:DejaVuSansM Nerd Font, Font Awesome 6 Free";
                 theme = {
                   theme = "nord-dark";
                 };
