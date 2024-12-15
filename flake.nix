@@ -162,7 +162,7 @@
           system = "x86_64-linux";
         };
         modules = [
-          nur.nixosModules.nur
+          nur.modules.homeManager.default
           ./system/xnix/users/x/home.nix
         ];
       };
@@ -181,7 +181,7 @@
           system = "x86_64-linux";
         };
         modules = [
-          nur.nixosModules.nur
+          nur.modules.homeManager.default
           ./system/nixpad/users/x/home.nix
         ];
       };
@@ -201,7 +201,7 @@
           system = "aarch64-linux";
         };
         modules = [
-          nur.nixosModules.nur
+          nur.modules.homeManager.default
           ./system/vm/users/x/home.nix
         ];
       };

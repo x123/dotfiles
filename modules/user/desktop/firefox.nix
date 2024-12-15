@@ -63,7 +63,7 @@
         profiles."x" = {
           extensions = builtins.attrValues {
             inherit
-              (config.nur.repos.rycee.firefox-addons)
+              (pkgs.nur.repos.rycee.firefox-addons)
               clearurls
               darkreader
               decentraleyes
