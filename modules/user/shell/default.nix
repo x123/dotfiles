@@ -99,6 +99,7 @@
     packages = builtins.attrValues {
       inherit
         (pkgs)
+        cpulimit
         file
         htop
         pciutils
