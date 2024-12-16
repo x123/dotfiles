@@ -16,7 +16,7 @@ in {
     desktopEntries = {
       steam-coreparked = {
         name = "steam-coreparked";
-        exec = "${pkgs.util-linux}/bin/taskset -c 0-7,16-23 steam";
+        exec = "${pkgs.util-linux}/bin/taskset -a -c 0-7,16-23 steam";
         categories = ["Application"];
         terminal = false;
       };
