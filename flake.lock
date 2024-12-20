@@ -286,22 +286,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-x123": {
-      "locked": {
-        "lastModified": 1730217477,
-        "narHash": "sha256-/TH+ns5YJogc1d0trBtyzm40N7u0KVXyzeOIMJ5mumM=",
-        "owner": "x123",
-        "repo": "nixpkgs",
-        "rev": "12ae156c7280c27e77fce03fd5d9ebf1f832052a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "x123",
-        "ref": "x123-add-dnsdbq",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1734424634,
@@ -384,7 +368,6 @@
         "nix-darwin": "nix-darwin",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-x123": "nixpkgs-x123",
         "nur": "nur",
         "pre-commit-hooks": "pre-commit-hooks",
         "sops-nix": "sops-nix"

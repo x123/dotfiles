@@ -105,10 +105,6 @@
         pciutils
         ripgrep
         ;
-      inherit
-        (pkgs.x123)
-        dnsdbq
-        ;
     };
 
     shellAliases = {
