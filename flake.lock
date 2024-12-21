@@ -100,11 +100,11 @@
         "zig": "zig"
       },
       "locked": {
-        "lastModified": 1734758903,
-        "narHash": "sha256-XLczbwrqk7+96C2/tj+vtwN3fdxGyqes2u3Yx34w4lI=",
+        "lastModified": 1734794311,
+        "narHash": "sha256-QcZJWuCD228bNHmy2Hy7Evp+UynPBEoE0F5t4TFnlZk=",
         "ref": "refs/heads/main",
-        "rev": "05fd5e0cfdbe9354a0e93ed1ad5dc55dee91ee2a",
-        "revCount": 8351,
+        "rev": "fc297da8347efa3c22998692fe0910faa4402d5c",
+        "revCount": 8357,
         "type": "git",
         "url": "ssh://git@me.github.com/ghostty-org/ghostty"
       },
@@ -325,11 +325,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1734777935,
-        "narHash": "sha256-ZHvzXW+POM8C2dhCQUKSk0sxo8N6kiDieReWwFYfBBg=",
+        "lastModified": 1734799684,
+        "narHash": "sha256-+CWIHQC/pjWtC/eJyjjM9HJnPmCceTehOH300saEjs4=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "3f165648d0d2461e3de2cc567a98de3b75cf61c5",
+        "rev": "2ba94aaf241bd4c92d885d18d38847ce25374928",
         "type": "github"
       },
       "original": {
@@ -346,11 +346,11 @@
         "nixpkgs-stable": "nixpkgs-stable_2"
       },
       "locked": {
-        "lastModified": 1734425854,
-        "narHash": "sha256-nzE5UbJ41aPEKf8R2ZFYtLkqPmF7EIUbNEdHMBLg0Ig=",
+        "lastModified": 1734797603,
+        "narHash": "sha256-ulZN7ps8nBV31SE+dwkDvKIzvN6hroRY8sYOT0w+E28=",
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "0ddd26d0925f618c3a5d85a4fa5eb1e23a09491d",
+        "rev": "f0f0dc4920a903c3e08f5bdb9246bb572fcae498",
         "type": "github"
       },
       "original": {
