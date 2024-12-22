@@ -36,8 +36,8 @@
 
       wayland = {
         enable = false;
-        hyprland.enable = false;
-        sway.enable = false;
+        hyprland.enable = true;
+        sway.enable = true;
       };
 
       x11 = {

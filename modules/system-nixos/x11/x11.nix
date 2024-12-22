@@ -15,6 +15,7 @@ in {
       displayManager = {
         autoLogin.enable = false;
         defaultSession = "none+i3";
+        execCmd = lib.mkDefault "${pkgs.lightdm}/bin/lightdm";
       };
 
       xserver = {

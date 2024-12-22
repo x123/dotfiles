@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   cfg = config.custom;
@@ -20,6 +21,7 @@ in {
     services = {
       displayManager = {
         autoLogin.enable = false;
+        execCmd = lib.mkForce "${pkgs.ly}/bin/ly";
         ly = {
           enable = true;
           settings = {
