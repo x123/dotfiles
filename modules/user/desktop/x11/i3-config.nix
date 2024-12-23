@@ -147,7 +147,9 @@ in {
                       chip = cfg.desktop.i3status-rust.temperature.chip;
                       inputs = cfg.desktop.i3status-rust.temperature.inputs;
                       interval = 1;
-                      idle = 55;
+                      idle = 60;
+                      info = 75;
+                      warning = 85;
                     }
                   ]
                   else []
