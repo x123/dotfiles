@@ -270,7 +270,17 @@ in {
             }
           ];
           keybindings = lib.mkOptionDefault {
-            "${my-modifier}+Shift+l" = "exec ${i3lock-dpms}";
+            "${my-modifier}+Shift+h" = "move left";
+            "${my-modifier}+Shift+j" = "move down";
+            "${my-modifier}+Shift+k" = "move up";
+            "${my-modifier}+Shift+l" = "move right";
+            "${my-modifier}+h" = "focus left";
+            "${my-modifier}+j" = "focus down";
+            "${my-modifier}+k" = "focus up";
+            "${my-modifier}+l" = "focus right";
+            "${my-modifier}+Shift+apostrophe" = "splitv";
+            "${my-modifier}+Shift+5" = "splith";
+            "${my-modifier}+Shift+x" = "exec ${i3lock-dpms}";
             "${my-modifier}+Tab" = "exec ${pkgs.rofi}/bin/rofi -show window";
             "${my-modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show combi";
             "${my-modifier}+Shift+s" = "sticky toggle";
