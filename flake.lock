@@ -100,15 +100,17 @@
         "zig": "zig"
       },
       "locked": {
-        "lastModified": 1734928712,
-        "narHash": "sha256-dEkIE2YB2Ixs1HNcgeHmaUXdF8O1NS/vRhP5ROk071g=",
-        "ref": "refs/heads/main",
-        "rev": "2e14017b874fb54b3085f22d778ae94a227d6ad7",
-        "revCount": 8405,
+        "lastModified": 1734893212,
+        "narHash": "sha256-wLDWfQLih0VRc7fh5ZYlZ53qRn8WLXn0U/Vxv6A2YaE=",
+        "ref": "main",
+        "rev": "28c40f9bae1386893ba4dd46d969b76d61682f78",
+        "revCount": 8393,
         "type": "git",
         "url": "ssh://git@me.github.com/ghostty-org/ghostty"
       },
       "original": {
+        "ref": "main",
+        "rev": "28c40f9bae1386893ba4dd46d969b76d61682f78",
         "type": "git",
         "url": "ssh://git@me.github.com/ghostty-org/ghostty"
       }
