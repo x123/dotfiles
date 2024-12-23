@@ -117,6 +117,8 @@ in {
                 [
                   {
                     block = "sound";
+                    # format = " $icon $output_description {$volume.eng(w:2) |}"; # show output description
+                    headphones_indicator = true;
                   }
                   {
                     alert = 10.0;
