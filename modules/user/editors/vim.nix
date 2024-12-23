@@ -60,7 +60,15 @@
         nnoremap <C-n> :NERDTree<CR>
         nnoremap <C-t> :NERDTreeToggle<CR>
         nnoremap <C-f> :NERDTreeFind<CR>
+
         let g:tmux_navigator_no_mappings = 1
+        nnoremap <C-tab> :TmuxNavigatePrevious<CR>
+
+        nnoremap <C-k> :TmuxNavigateUp<CR>
+        nnoremap <C-j> :TmuxNavigateDown<CR>
+        nnoremap <C-h> :TmuxNavigateLeft<CR>
+        nnoremap <C-l> :TmuxNavigateRight<CR>
+
         nnoremap <C-up> :TmuxNavigateUp<CR>
         nnoremap <C-down> :TmuxNavigateDown<CR>
         nnoremap <C-left> :TmuxNavigateLeft<CR>
