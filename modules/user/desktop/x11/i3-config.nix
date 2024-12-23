@@ -69,7 +69,6 @@ in {
         inherit
           (pkgs)
           blueman
-          dunst
           feh
           i3status-rust
           networkmanagerapplet
@@ -199,6 +198,7 @@ in {
 
       services = {
         blueman-applet.enable = true;
+        dunst.enable = true;
         network-manager-applet.enable = true;
         picom.enable = true;
       };
@@ -220,7 +220,6 @@ in {
               {command = "${pkgs.autorandr}/bin/autorandr -l home";}
               {command = "${pkgs.xorg.setxkbmap}/bin/setxkbmap -option compose:ralt";}
               #{command = "${pkgs.feh}/bin/feh --bg-fill ${background}";}
-              {command = "${pkgs.dunst}/bin/dunst &";}
               {command = "${pkgs.picom}/bin/picom --daemon";}
               {command = "${pkgs.i3}/bin/i3-msg workspace 1";}
               {command = "${pkgs.redshift}/bin/redshift -l 55.7:12.6 -t 5700:3600 -P -g 1.0 -m randr -v";}
