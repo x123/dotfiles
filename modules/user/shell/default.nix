@@ -45,6 +45,13 @@
       enable = true;
       enableBashIntegration = true;
       enableZshIntegration = true;
+      flags = [
+        "--disable-up-arrow"
+      ];
+      settings = {
+        enter_accept = false;
+        keymap_mode = "vim-normal";
+      };
     };
 
     bat = {
