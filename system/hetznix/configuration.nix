@@ -72,7 +72,7 @@
     enableIPv6 = true;
     interfaces.enp1s0.ipv6.addresses = [
       {
-        address = "2a01:4f8:1c1b:51d1::";
+        address = "2a01:4f8:1c1b:51d1::1";
         prefixLength = 64;
       }
     ];
