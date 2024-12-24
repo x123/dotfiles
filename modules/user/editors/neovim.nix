@@ -313,6 +313,11 @@ in {
           }
         }
 
+        vim.keymap.set("n", "<C-k>", "<cmd>lua require('tmux').move_top()<cr>")
+        vim.keymap.set("n", "<C-j>", "<cmd>lua require('tmux').move_bottom()<cr>")
+        vim.keymap.set("n", "<C-h>", "<cmd>lua require('tmux').move_left()<cr>")
+        vim.keymap.set("n", "<C-l>", "<cmd>lua require('tmux').move_right()<cr>")
+
         vim.keymap.set("n", "<C-up>", "<cmd>lua require('tmux').move_top()<cr>")
         vim.keymap.set("n", "<C-down>", "<cmd>lua require('tmux').move_bottom()<cr>")
         vim.keymap.set("n", "<C-left>", "<cmd>lua require('tmux').move_left()<cr>")
@@ -454,7 +459,7 @@ in {
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
             vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
             vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-            vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+            -- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
             vim.keymap.set("n", "<leader>Wa", vim.lsp.buf.add_workspace_folder, opts)
             vim.keymap.set("n", "<leader>Wr", vim.lsp.buf.remove_workspace_folder, opts)
             vim.keymap.set("n", "<leader>Wl", function()
