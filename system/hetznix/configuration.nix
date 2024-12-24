@@ -12,6 +12,7 @@
     ./local/borgmatic.nix
     ./local/caddy.nix
     ./local/dovecot.nix
+    ./local/fail2ban.nix
     ./local/mastodon.nix
     ./local/nftables-blackhole.nix
     ./local/nftables-http.nix
