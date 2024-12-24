@@ -17,7 +17,7 @@
         extraDomainNames = [
           "blockblaster.boxchop.city"
           "hetznix.boxchop.city"
-          "jandf.boxchop.city"
+          "ip.boxchop.city"
           "kuma.boxchop.city"
           "ntfy.boxchop.city"
           "social.boxchop.city"

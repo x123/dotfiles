@@ -21,6 +21,16 @@
       http_port 8880
       https_port 8883
     '';
-    virtualHosts = {};
+    virtualHosts = {
+      "ip.boxchop.city" = {
+        useACMEHost = "boxchop.city";
+        extraConfig = ''
+          templates
+          header Content-Type text/plain
+          respond "{{.RemoteIP}}"
+          encode zstd gzip
+        '';
+      };
+    };
   };
 }
