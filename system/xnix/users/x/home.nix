@@ -91,13 +91,13 @@
       "me.github.com" = {
         hostname = "github.com";
         port = 22;
-        identityFile = "/home/x/.ssh/id_xbox";
+        identityFile = "/home/x/.ssh/id_xnix";
         identitiesOnly = true;
       };
       "github.com" = {
         hostname = "github.com";
         port = 22;
-        identityFile = "/home/x/.ssh/id_xbox";
+        identityFile = "/home/x/.ssh/id_xnix";
         identitiesOnly = true;
       };
       "hetznix" = {
