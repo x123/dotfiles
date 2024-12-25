@@ -1,9 +1,10 @@
 {
-  inputs,
+  config,
   pkgs,
-  system,
   ...
-}: {
+}: let
+  cfg = config.services.mastodon;
+in {
   # nixpkgs.overlays = [
   #   (
   #     final: prev: {
@@ -31,15 +32,92 @@
 
     # this is needed to disable automatic ACME cert grab from invidious our own
     # definition in security.acme.certs (in acme.nix)
-    nginx.virtualHosts = {
-      "social.boxchop.city" = {
-        enableACME = false;
-        useACMEHost = "boxchop.city";
-      };
-    };
+    # nginx.virtualHosts = {
+    #   "social.boxchop.city" = {
+    #     enableACME = false;
+    #     useACMEHost = "boxchop.city";
+    #   };
+    # };
 
     postgresqlBackup = {
       databases = ["mastodon"];
+    };
+  };
+
+  users.users.caddy.extraGroups = ["mastodon"];
+
+  # probably unneccessary
+  # systemd.services.caddy.serviceConfig.ReadWriteDirectories = pkgs.lib.mkForce ["/var/lib/caddy" "/run/mastodon-web" "/run/mastodon-streaming"];
+
+  services.caddy = {
+    enable = true;
+    globalConfig = ''
+      debug
+      http_port 80
+      https_port 443
+    '';
+    virtualHosts = {
+      "${cfg.localDomain}" = {
+        useACMEHost = "boxchop.city";
+        extraConfig = ''
+          handle_path /system/* {
+            file_server * {
+                root /var/lib/mastodon/public-system
+            }
+          }
+
+          handle /api/v1/streaming/* {
+            reverse_proxy {
+              to ${pkgs.lib.strings.concatStringsSep " " (map (i: "unix//run/mastodon-streaming/streaming-${toString i}.socket") (pkgs.lib.range 1 cfg.streamingProcesses))}
+              lb_policy least_conn
+
+              transport http {
+                keepalive 5s
+                keepalive_idle_conns 10
+              }
+            }
+          }
+
+          route * {
+            file_server * {
+              root ${cfg.package}/public
+              pass_thru
+            }
+            reverse_proxy  {
+              to ${
+            if cfg.enableUnixSocket
+            then "unix//run/mastodon-web/web.socket"
+            else "http://127.0.0.1:${toString cfg.webPort}"
+          }
+
+              header_up X-Forwarded-Port 443
+              header_up X-Forwarded-Proto https
+
+              transport http {
+                keepalive 5s
+                keepalive_idle_conns 10
+              }
+            }
+          }
+
+          handle_errors {
+            root * ${cfg.package}/public
+            rewrite 500.html
+            file_server
+          }
+
+          encode gzip
+
+          header /* {
+            Strict-Transport-Security "max-age=31536000;"
+          }
+
+          header /emoji/* Cache-Control "public, max-age=31536000, immutable"
+          header /packs/* Cache-Control "public, max-age=31536000, immutable"
+          header /system/accounts/avatars/* Cache-Control "public, max-age=31536000, immutable"
+          header /system/media_attachments/files/* Cache-Control "public, max-age=31536000, immutable"
+        '';
+      };
     };
   };
 }
