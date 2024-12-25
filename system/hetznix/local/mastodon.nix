@@ -19,7 +19,7 @@
       # package = pkgs.unstable-small.mastodon;
       database.createLocally = true;
       localDomain = "social.boxchop.city";
-      configureNginx = true;
+      configureNginx = false; # we use caddy below
       smtp = {
         createLocally = false;
         host = "hetznix.boxchop.city";
