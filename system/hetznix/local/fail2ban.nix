@@ -11,6 +11,18 @@
     enable = true;
     banaction = ''nftables-allports[blocktype=drop]'';
     banaction-allports = ''nftables-allports[blocktype=drop]'';
+    ignoreIP = [
+      "127.0.0.1/8"
+      "boxchop.city"
+      "empire.boxchop.city"
+    ];
+    bantime = "10m";
+    bantime-increment = {
+      enable = true;
+      formula = "ban.Time * math.exp(float(ban.Count+1)*banFactor)/math.exp(1*banFactor)";
+      maxtime = "7d";
+      overalljails = true;
+    };
     jails = {
       dovecot = {
         settings = {
@@ -19,12 +31,6 @@
           backend = "systemd";
         };
       };
-      # nginx = {
-      #   settings = {
-      #     filter = "nginx-botsearch";
-      #     maxretry = 15;
-      #   };
-      # };
     };
   };
 }
