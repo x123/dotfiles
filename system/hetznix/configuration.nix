@@ -70,7 +70,7 @@
 
   networking = {
     hostName = "hetznix";
-    domain = "boxchop.city";
+    domain = "nixlink.net";
     enableIPv6 = true;
     interfaces.enp1s0.ipv6.addresses = [
       {

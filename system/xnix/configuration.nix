@@ -89,7 +89,7 @@
   # networking
   networking = {
     hostName = "xnix";
-    domain = "empire.boxchop.city";
+    domain = "empire.nixlink.net";
     networkmanager.enable = true;
   };
 

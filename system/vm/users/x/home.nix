@@ -83,14 +83,14 @@
         identitiesOnly = true;
       };
       "hetznix" = {
-        hostname = "hetznix.boxchop.city";
+        hostname = "hetznix.nixlink.net";
         port = 22;
         user = "root";
         identityFile = "/home/x/.ssh/id_vm";
         identitiesOnly = true;
       };
-      "hetznix.boxchop.city" = {
-        hostname = "hetznix.boxchop.city";
+      "hetznix.nixlink.net" = {
+        hostname = "hetznix.nixlink.net";
         port = 22;
         user = "root";
         identityFile = "/home/x/.ssh/id_vm";

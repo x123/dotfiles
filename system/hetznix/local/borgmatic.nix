@@ -104,7 +104,7 @@
         #   ];
         # };
         uptime_kuma = {
-          push_url = "https://kuma.boxchop.city/api/push/HrvRMPBdfr";
+          push_url = "https://kuma.nixlink.net/api/push/HrvRMPBdfr";
           states = ["start" "finish" "fail"];
         };
         keep_daily = 7;

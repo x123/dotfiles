@@ -72,14 +72,14 @@
           identitiesOnly = true;
         };
         "hetznix" = {
-          hostname = "hetznix.boxchop.city";
+          hostname = "hetznix.nixlink.net";
           port = 22;
           user = "root";
           identityFile = "/Users/fom/.ssh/id_fom-mbp-priv";
           identitiesOnly = true;
         };
-        "hetznix.boxchop.city" = {
-          hostname = "hetznix.boxchop.city";
+        "hetznix.nixlink.net" = {
+          hostname = "hetznix.nixlink.net";
           port = 22;
           user = "root";
           identityFile = "/Users/fom/.ssh/id_fom-mbp-priv";

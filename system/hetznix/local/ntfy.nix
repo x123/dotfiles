@@ -4,7 +4,7 @@
       enable = true;
       settings = {
         listen-http = "127.0.0.1:2586";
-        base-url = "https://ntfy.boxchop.city";
+        base-url = "https://ntfy.nixlink.net";
         upstream-base-url = "https://ntfy.sh";
         auth-default-access = "deny-all";
         behind-proxy = true;
@@ -14,8 +14,8 @@
     caddy = {
       enable = true;
       virtualHosts = {
-        "ntfy.boxchop.city" = {
-          useACMEHost = "boxchop.city";
+        "ntfy.nixlink.net" = {
+          useACMEHost = "nixlink.net";
           extraConfig = ''
             reverse_proxy 127.0.0.1:2586
 
