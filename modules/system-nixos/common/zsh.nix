@@ -13,7 +13,19 @@ in {
       pkgs.zsh
     ];
 
-    programs.zsh.enable = true;
+    programs.zsh = {
+      enable = true;
+      setOptions = [
+        "HIST_IGNORE_DUPS"
+        "SHARE_HISTORY"
+        "HIST_FCNTL_LOCK"
+        "EXTENDED_HISTORY"
+        "VI"
+      ];
+      interactiveShellInit = ''
+        bindkey '^R' history-incremental-search-backward
+      '';
+    };
     users.defaultUserShell = pkgs.zsh;
   };
 }
