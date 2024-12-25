@@ -38,7 +38,7 @@ in {
   users.users.caddy.extraGroups = ["mastodon"];
 
   # probably unneccessary
-  # systemd.services.caddy.serviceConfig.ReadWriteDirectories = pkgs.lib.mkForce ["/var/lib/caddy" "/run/mastodon-web" "/run/mastodon-streaming"];
+  systemd.services.caddy.serviceConfig.ReadWriteDirectories = pkgs.lib.mkForce ["/var/lib/caddy" "/run/mastodon-web" "/run/mastodon-streaming"];
 
   services.caddy = {
     enable = true;
