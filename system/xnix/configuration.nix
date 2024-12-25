@@ -58,8 +58,8 @@
           "192.168.9.0/24"
         ];
         trustedIpv6Networks = [
-          "fdab:817c:904c::1/60" # gk-2
-          "fd65:4e21:dde4::1/60" # gk
+          "fdab:817c:904c::/60" # gk-2
+          "fd65:4e21:dde4::/60" # gk
         ];
       };
 
