@@ -6,8 +6,8 @@
         content = ''
           chain input-new {
             # caddy
-            tcp dport { 8880, 8883 } log prefix "nft-input-accept-caddy: " level info
-            tcp dport { 8880, 8883 } counter accept
+            tcp dport { 80, 443 } log prefix "nft-input-accept-http-caddy: " level info
+            tcp dport { 80, 443 } counter accept
           }
         '';
       };

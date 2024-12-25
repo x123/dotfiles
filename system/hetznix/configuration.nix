@@ -15,7 +15,7 @@
     ./local/fail2ban.nix
     ./local/mastodon.nix
     ./local/nftables-blackhole.nix
-    ./local/nftables-http.nix
+    # ./local/nftables-http.nix
     ./local/nftables-knock.nix
     # ./local/nftables-netperf.nix
     ./local/nginx.nix
