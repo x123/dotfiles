@@ -51,7 +51,6 @@
           home.packages = builtins.attrValues {
             inherit
               (pkgs)
-              gimp
               libreoffice
               persepolis
               xygrib
