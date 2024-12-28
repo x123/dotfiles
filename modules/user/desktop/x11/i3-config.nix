@@ -269,6 +269,20 @@ in {
               workspaceButtons = true;
             }
           ];
+          modes = {
+            resize = {
+              k = "resize grow height 10 px or 10 ppt";
+              j = "resize shrink height 10 px or 10 ppt";
+              h = "resize shrink width 10 px or 10 ppt";
+              l = "resize grow width 10 px or 10 ppt";
+              Up = "resize grow height 10 px or 10 ppt";
+              Down = "resize shrink height 10 px or 10 ppt";
+              Left = "resize shrink width 10 px or 10 ppt";
+              Right = "resize grow width 10 px or 10 ppt";
+              Escape = "mode default";
+              Return = "mode default";
+            };
+          };
           keybindings = lib.mkOptionDefault {
             "${my-modifier}+Shift+h" = "move left";
             "${my-modifier}+Shift+j" = "move down";
