@@ -104,6 +104,7 @@
       inherit
         (pkgs)
         cpulimit
+        dnsdbq
         file
         htop
         pciutils
