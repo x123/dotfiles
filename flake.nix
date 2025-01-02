@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    # nixpkgs-unstable-small.url = "nixpkgs/nixos-unstable-small";
+    nixpkgs-unstable-small.url = "nixpkgs/nixos-unstable-small";
     ghostty.url = "github:ghostty-org/ghostty";
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
@@ -38,7 +38,7 @@
   outputs = inputs @ {
     self,
     nixpkgs,
-    # nixpkgs-unstable-small,
+    nixpkgs-unstable-small,
     nixos-hardware,
     home-manager,
     sops-nix,
