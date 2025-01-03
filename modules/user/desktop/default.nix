@@ -21,6 +21,7 @@
     ./flameshot.nix
     ./ghostty.nix
     ./gimp.nix
+    ./gnucash.nix
     ./gtk.nix
     ./inkscape.nix
     ./keepass.nix
