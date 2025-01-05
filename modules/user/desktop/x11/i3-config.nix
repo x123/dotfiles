@@ -197,7 +197,7 @@ in {
                 ++ [
                   {
                     block = "time";
-                    format = " $timestamp.datetime(f:'Week %W | %A | %Y-%m-%d %H:%M:%S') ";
+                    format = " $timestamp.datetime(f:'Week %V | %A | %Y-%m-%d %H:%M:%S') ";
                     interval = 1;
                   }
                 ];
