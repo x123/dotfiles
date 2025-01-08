@@ -30,7 +30,6 @@
               blightmud
               brogue-ce
               godot_4
-              narsil
               openttd
               sil
               sil-q
@@ -38,6 +37,7 @@
               ;
             inherit
               (inputs.nixpkgs-unstable-small.legacyPackages.${system})
+              narsil
               wine
               winetricks
               ;
