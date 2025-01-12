@@ -215,7 +215,14 @@ in {
         blueman-applet.enable = true;
         dunst.enable = true;
         network-manager-applet.enable = true;
-        picom.enable = true;
+        picom = {
+          enable = true;
+          activeOpacity = 1.0;
+          inactiveOpacity = 1.0;
+          opacityRules = [
+            "100:class_g = 'ghostty'"
+          ];
+        };
       };
 
       xsession.enable = true;
