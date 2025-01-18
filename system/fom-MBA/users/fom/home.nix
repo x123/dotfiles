@@ -84,16 +84,16 @@
           identityFile = "/Users/fom/.ssh/id_fom-mba";
           identitiesOnly = true;
         };
-        "xnix.lan" = {
-          hostname = "xnix.lan";
+        "xnix.empire.internal" = {
+          hostname = "xnix.empire.internal";
           port = 22;
           addressFamily = "inet";
           user = "x";
           identityFile = "/Users/fom/.ssh/id_fom-mba";
           identitiesOnly = true;
         };
-        "nixpad.lan" = {
-          hostname = "nixpad.lan";
+        "nixpad.empire.internal" = {
+          hostname = "nixpad.empire.internal";
           port = 22;
           addressFamily = "inet";
           user = "x";

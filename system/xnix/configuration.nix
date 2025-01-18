@@ -89,7 +89,7 @@
   # networking
   networking = {
     hostName = "xnix";
-    domain = "empire.nixlink.net";
+    domain = "empire.internal";
     networkmanager.enable = true;
   };
 

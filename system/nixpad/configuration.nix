@@ -67,13 +67,13 @@
   };
 
   nix.settings.builders = lib.mkForce ''
-    x@xnix.lan  x86_64-linux /home/x/.ssh/id_builder
+    x@xnix.empire.internal  x86_64-linux /home/x/.ssh/id_builder
   '';
 
   # networking
   networking = {
     hostName = "nixpad";
-    domain = "empire.nixlink.net";
+    domain = "empire.internal";
     networkmanager.enable = true;
   };
 
