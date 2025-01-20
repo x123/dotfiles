@@ -29,6 +29,7 @@
               angband
               blightmud
               brogue-ce
+              crawl
               godot_4
               openttd
               sil
