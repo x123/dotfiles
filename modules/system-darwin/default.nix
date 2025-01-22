@@ -1,6 +1,7 @@
 {lib, ...}: {
   imports = [
     ./aerospace.nix
+    ./ai.nix
     ./fonts.nix
     ./karabiner.nix
     ./skhd.nix
