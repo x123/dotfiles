@@ -28,13 +28,14 @@
     kernelModules = [
       "kvm-amd"
       "nct6683"
-      "v4l2loopback"
+      # "v4l2loopback"
     ];
     extraModprobeConfig = ''
       options nct6683 force=1 force_id=0x2e
     '';
     blacklistedKernelModules = ["amdgpu"];
-    extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
+    # FIXME 2025-01-23 v4l2loopback is currently broken, see https://github.com/NixOS/nixpkgs/pull/375833
+    # extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
   };
 
   services.fstrim.enable = true;
