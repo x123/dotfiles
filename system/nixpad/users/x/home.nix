@@ -93,6 +93,7 @@
         hostname = "xnix.empire.internal";
         port = 22;
         user = "x";
+        addressFamily = "inet";
         identityFile = "/home/x/.ssh/id_nixpad";
         identitiesOnly = true;
       };
@@ -100,6 +101,7 @@
         hostname = "xnix.empire.internal";
         port = 22;
         user = "x";
+        addressFamily = "inet";
         identityFile = "/home/x/.ssh/id_nixpad";
         identitiesOnly = true;
       };
