@@ -64,7 +64,6 @@
           extensions = builtins.attrValues {
             inherit
               (pkgs.nur.repos.rycee.firefox-addons)
-              clearurls
               darkreader
               decentraleyes
               keepassxc-browser
