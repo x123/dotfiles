@@ -32,7 +32,6 @@
     ./telegram.nix
     ./tor-browser.nix
     ./video.nix
-    ./yed.nix
   ];
 
   options.custom = {
