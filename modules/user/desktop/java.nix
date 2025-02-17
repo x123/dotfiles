@@ -22,14 +22,11 @@
     )
     {
       home = {
-        packages =
-          builtins.attrValues
-          {
-            inherit
-              (pkgs)
-              zulu17
-              ;
-          };
+        packages = (
+          if pkgs.stdenv.isLinux
+          then [pkgs.zulu17]
+          else []
+        );
       };
     };
 }
