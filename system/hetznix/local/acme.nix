@@ -10,24 +10,6 @@
     defaults.email = "root@nixlink.net";
     acceptTerms = true;
     certs = {
-      "boxchop.city" = {
-        group = "acme";
-        dnsProvider = "digitalocean";
-        email = "root@boxchop.city";
-        extraDomainNames = [
-          "blockblaster.boxchop.city"
-          "hetznix.boxchop.city"
-          "ip.boxchop.city"
-          "ip6.boxchop.city"
-          "kuma.boxchop.city"
-          "ntfy.boxchop.city"
-          "social.boxchop.city"
-        ];
-        enableDebugLogs = true;
-        credentialFiles = {
-          "DO_AUTH_TOKEN_FILE" = config.sops.secrets."DO_AUTH_TOKEN_FILE".path;
-        };
-      };
       "nixlink.net" = {
         group = "acme";
         dnsProvider = "cloudflare";
