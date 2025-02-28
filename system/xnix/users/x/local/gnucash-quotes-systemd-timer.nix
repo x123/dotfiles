@@ -39,11 +39,12 @@
             ${pkgs.coreutils}/bin/sleep 10s
           '';
 
+        # TODO change pkgs.unstable-small to just pkgs below
         ExecStart =
           pkgs.writeShellScript "gnucash-quotes"
           ''
             set -euo pipefail
-            ${pkgs.systemd}/bin/systemd-inhibit --who="x" --what="sleep:shutdown" --why="Prevent interrupting scheduled gnucash quote fetch" ${pkgs.gnucash}/bin/gnucash-cli --quotes get /home/x/Dropbox/gnucash/gnucashdb/fm_gnucash.gnucash
+            ${pkgs.systemd}/bin/systemd-inhibit --who="x" --what="sleep:shutdown" --why="Prevent interrupting scheduled gnucash quote fetch" ${pkgs.unstable-small.gnucash}/bin/gnucash-cli --quotes get /home/x/Dropbox/gnucash/gnucashdb/fm_gnucash.gnucash
           '';
       };
     };
