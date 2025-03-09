@@ -58,6 +58,8 @@
           "- home/*/.config/*/Cache"
           "- var/lib/mastodon/public-system/cache"
         ];
+        user_runtime_directory = "/root/borgmatic/runtime";
+        user_state_directory = "/root/borgmatic/state";
         postgresql_databases = [
           {
             name = "all";
