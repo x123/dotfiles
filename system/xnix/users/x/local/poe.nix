@@ -27,6 +27,7 @@ in {
     inherit
       (pkgs)
       gamemode
+      mangohud
       ;
   };
 
