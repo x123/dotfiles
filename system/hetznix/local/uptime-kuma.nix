@@ -28,10 +28,6 @@
               not path /api/push/* /api/status-page/* /status/* /assets/* /apple-touch-icon.png /icon.svg
             }
 
-            basic_auth @auth {
-              import ${config.sops.secrets."caddy/auth/x".path}
-            }
-
             @httpget {
               protocol http
               method GET
