@@ -98,6 +98,9 @@
             # never ask to remember passwords
             "signon.rememberSignons" = false;
 
+            # disable AI features
+            "browser.ml.chat.enabled" = false;
+
             # Actual settings
             "app.shield.optoutstudies.enabled" = false;
             "app.update.auto" = false;
