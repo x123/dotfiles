@@ -103,7 +103,6 @@
           monofur
           monoid
           mononoki
-          mplus
           noto
           open-dyslexic
           overpass
