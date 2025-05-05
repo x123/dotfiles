@@ -12,7 +12,7 @@
     maxCacheTtl = 31536000;
     maxCacheTtlSsh = 31536000;
     enableSshSupport = true;
-    pinentryPackage = pkgs.pinentry-tty;
+    pinentry.package = pkgs.pinentry-tty;
     extraConfig =
       ''
         pinentry-program ${pkgs.pinentry-qt}/bin/pinentry
