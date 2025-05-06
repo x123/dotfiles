@@ -76,6 +76,23 @@
             noLambdaArg = true;
             noLambdaPatternNames = true;
           };
+          markdownlint.enable = true;
+          markdownlint.settings = {
+            configuration = {
+              "MD007" = {
+                "indent" = 4;
+                "start_indent" = 4;
+              };
+              "MD013" = {
+                "tables" = false;
+              };
+              "MD025" = false;
+              "MD029" = {
+                "style" = "one_or_ordered";
+              };
+              "MD041" = false;
+            };
+          };
           shellcheck.enable = true;
           statix.enable = false;
         };
