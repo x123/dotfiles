@@ -4,5 +4,6 @@
     ./git.nix
     ./llm.nix
     ./sqlite.nix
+    ./vscode.nix
   ];
 }
