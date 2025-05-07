@@ -16,6 +16,10 @@
         copilot
         copilot-chat
         ;
+      inherit
+        (pkgs.vscode-extensions.davidanson)
+        vscode-markdownlint
+        ;
     };
   };
 }
