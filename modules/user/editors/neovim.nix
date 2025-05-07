@@ -139,6 +139,9 @@ in {
         vim.opt.scrolloff = 10
         vim.g.mapleader = ' '
 
+        -- completion settings
+        -- vim.opt.completeopt = "menuone,noinsert,popup"  -- Improve completion behavior
+
         -- personal keybinds
         vim.keymap.set("n", "<leader>w\\", "<cmd>vsplit<cr>")
         vim.keymap.set("n", "<leader>ws", "<cmd>split<cr>")
