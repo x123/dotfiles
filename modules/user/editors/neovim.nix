@@ -131,7 +131,11 @@ in {
         vim.opt.tabstop = 2
         vim.opt.shiftwidth = 2
         vim.opt.background = "dark"
+
+        -- disable persistent search highlighting after a search is complete
         vim.opt.hlsearch = false
+
+        -- keep 10 lines visible above/below cursor when scrolling
         vim.opt.scrolloff = 10
         vim.g.mapleader = ' '
 
