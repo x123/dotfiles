@@ -12,7 +12,7 @@
   ];
 
   # show nvd diffs after (nixos|darwin)-rebuild switch
-  system.activationScripts.postUserActivation =
+  system.activationScripts.nvd =
     {
       text = ''
         ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff \
