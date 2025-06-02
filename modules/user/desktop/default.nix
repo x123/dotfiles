@@ -19,6 +19,7 @@
     ./element.nix
     ./firefox.nix
     ./flameshot.nix
+    ./freecad.nix
     ./ghostty.nix
     ./gimp.nix
     ./gnucash.nix
