@@ -38,6 +38,7 @@
       discord.enable = true;
       dropbox.enable = true;
       flameshot.enable = true;
+      freecad.enable = true;
       ghostty.enable = true;
       inkscape.enable = true;
       keepassxc.enable = true;
