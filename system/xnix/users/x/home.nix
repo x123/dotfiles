@@ -44,7 +44,7 @@
       keepassxc.enable = true;
       keybase.enable = true;
       mullvad.enable = true;
-      obs-studio.enable = false;
+      obs-studio.enable = true;
       slack.enable = true;
       telegram.enable = true;
       tor-browser.enable = true;
