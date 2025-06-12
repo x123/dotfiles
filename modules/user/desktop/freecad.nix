@@ -59,6 +59,7 @@ in {
     {
       home.packages = [
         freecad-weekly
+        pkgs.openscad-unstable
       ];
     };
 }
