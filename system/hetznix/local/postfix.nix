@@ -33,6 +33,14 @@
         smtpd_milters = "unix:/run/opendkim/opendkim.sock";
         smtpd_sasl_path = "inet:127.0.0.1:12345";
         smtpd_sasl_type = "dovecot";
+        smtpd_tls_chain_files = [
+          (config.security.acme.certs."nixlink.net".directory + "/key.pem")
+          (config.security.acme.certs."nixlink.net".directory + "/fullchain.pem")
+        ];
+        smtp_tls_chain_files = [
+          (config.security.acme.certs."nixlink.net".directory + "/key.pem")
+          (config.security.acme.certs."nixlink.net".directory + "/fullchain.pem")
+        ];
       };
       submissionOptions = {
         milter_macro_daemon_name = "ORIGINATING";
@@ -74,8 +82,6 @@
           reject_unknown_sender_domain
           reject_unauthenticated_sender_login_mismatch
       '';
-      sslCert = config.security.acme.certs."nixlink.net".directory + "/full.pem";
-      sslKey = config.security.acme.certs."nixlink.net".directory + "/key.pem";
     };
 
     opendkim = {
