@@ -34,7 +34,7 @@
       anki.enable = true;
       anydesk.enable = true;
       audio.enable = true; # this is just youtube-music right now
-      calibre.enable = true;
+      calibre.enable = false;
       discord.enable = true;
       dropbox.enable = true;
       flameshot.enable = true;
