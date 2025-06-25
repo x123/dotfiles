@@ -11,12 +11,12 @@
     #   sha256 = lib.fakeHash;
     # };
 
-    version = "weekly-2025.06.02";
+    version = "weekly-2025.06.23";
     src = pkgs.fetchFromGitHub {
       owner = "FreeCAD";
       repo = "FreeCAD";
-      rev = "weekly-2025.06.02";
-      hash = "sha256-LBKGnB3WrPHA9Ghpkt6CHWBjIiLIrMhvL8Pg6wdDe3A=";
+      rev = "weekly-2025.06.23";
+      hash = "sha256-1JItuwhZgYCAPKZQ43FKa5BPAXMImPsox+q8snngdxU=";
       fetchSubmodules = true;
     };
 
