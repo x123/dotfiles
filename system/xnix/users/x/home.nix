@@ -77,7 +77,7 @@
     };
 
     ai = {
-      enable = true;
+      enable = false;
 
       ollama.enable = true;
       pytorch.enable = false;
