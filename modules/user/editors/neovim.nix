@@ -72,7 +72,6 @@ in {
           codecompanion-nvim
           comment-nvim
           conform-nvim
-          copilot-vim
           gitsigns-nvim
           lspkind-nvim
           lualine-nvim
