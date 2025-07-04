@@ -1,14 +1,43 @@
-{pkgs, ...}: {
+{
+  inputs,
+  lib,
+  pkgs,
+  system,
+  ...
+}: {
   imports = [];
 
-  home = {
-    packages =
-      builtins.attrValues {
-        inherit
-          (pkgs)
-          claude-code
-          ;
-      }
-      ++ [pkgs.unstable-small.aider-chat-full];
-  };
+  config =
+    lib.mkMerge
+    [
+      (lib.mkIf
+        (!pkgs.stdenv.isDarwin)
+        {
+          home.packages = builtins.attrValues {
+            inherit
+              (inputs.nixpkgs-unstable-small.legacyPackages.${system})
+              aider-chat-full
+              ;
+          };
+        })
+      (lib.mkIf
+        (pkgs.stdenv.isDarwin)
+        {
+          home.packages = builtins.attrValues {
+            inherit
+              (inputs.nixpkgs-unstable-small.legacyPackages.${system})
+              aider-chat
+              ;
+          };
+        })
+    ];
+
+  # home = {
+  #   packages = builtins.attrValues {
+  #     inherit
+  #       (inputs.nixpkgs-unstable-small.legacyPackages.${system})
+  #       aider-chat-full
+  #       ;
+  #   };
+  # };
 }
