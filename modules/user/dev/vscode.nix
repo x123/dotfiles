@@ -6,6 +6,7 @@
 }: {
   programs.vscode = {
     enable = true;
+    package = pkgs.vscodium;
     profiles.default.extensions = builtins.attrValues {
       inherit
         (pkgs.vscode-extensions.vscodevim)
