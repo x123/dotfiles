@@ -11,7 +11,7 @@ in {
   options = {
     custom.system-darwin.stats = {
       enable = lib.mkOption {
-        default = true;
+        default = false;
         type = lib.types.bool;
         description = "Whether to enable stats";
       };
