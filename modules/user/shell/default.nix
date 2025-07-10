@@ -138,7 +138,7 @@
       "gc" = "git commit -v";
       "gc!" = "git commit -v --amend";
       "gcn!" = "git commit -v --no-edit --amend";
-      "gcan!" = "git commit -v -a --no-edit --amend";
+      "gcan" = "git commit -v -a --no-edit --amend";
       "gcb" = "git checkout -b";
       "gcm" = "git checkout master";
       "gcmsg" = "git commit -m";
