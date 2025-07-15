@@ -34,16 +34,16 @@
                 ;
             };
           };
-          # home.packages = builtins.attrValues {
-          #   inherit
-          #     (inputs.nixpkgs-unstable-small.legacyPackages.${system})
-          #     aider-chat-full
-          #     ;
-          #   inherit
-          #     (pkgs)
-          #     claude-code
-          #     ;
-          # };
+          home.packages = builtins.attrValues {
+            # inherit
+            #   (inputs.nixpkgs-unstable-small.legacyPackages.${system})
+            #   aider-chat-full
+            #   ;
+            inherit
+              (pkgs)
+              nodejs_24
+              ;
+          };
         })
       (lib.mkIf
         (pkgs.stdenv.isDarwin)
@@ -71,12 +71,12 @@
                 ;
             };
           };
-          # home.packages = builtins.attrValues {
-          #   inherit
-          #     (inputs.nixpkgs-unstable-small.legacyPackages.${system})
-          #     aider-chat
-          #     ;
-          # };
+          home.packages = builtins.attrValues {
+            inherit
+              (pkgs)
+              nodejs_24
+              ;
+          };
         })
     ];
 
