@@ -15,6 +15,7 @@
             inherit
               (pkgs)
               lima
+              lima-additional-guestagents
               ;
           };
         })
@@ -25,6 +26,7 @@
             inherit
               (pkgs)
               lima
+              lima-additional-guestagents
               ;
           };
         })
