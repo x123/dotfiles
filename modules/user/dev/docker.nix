@@ -16,6 +16,7 @@
               (pkgs)
               lima
               lima-additional-guestagents
+              podman
               ;
           };
         })
@@ -27,6 +28,7 @@
               (pkgs)
               lima
               lima-additional-guestagents
+              podman
               ;
           };
         })
