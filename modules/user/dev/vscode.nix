@@ -74,7 +74,7 @@
           home.packages = builtins.attrValues {
             inherit
               (pkgs)
-              nodejs_24
+              nodejs_20
               ;
           };
         })
