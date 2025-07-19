@@ -40,6 +40,7 @@
     };
 
     services = {
+      docker.enable = true;
       open-webui = {
         enable = false;
         host = "127.0.0.1";
