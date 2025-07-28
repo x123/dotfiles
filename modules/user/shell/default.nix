@@ -144,6 +144,7 @@
       "gco" = "git checkout";
       "gd" = "git diff";
       "gds" = "git diff --staged";
+      "gdss" = "git diff --staged --shortstat";
       "gl" = "git pull";
       "glol" = "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'";
       "gm" = "git merge";
