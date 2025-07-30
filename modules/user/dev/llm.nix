@@ -20,7 +20,7 @@
               ;
             inherit
               (pkgs)
-              claude-code
+              fabric-ai
               ;
           };
         })
@@ -30,7 +30,7 @@
           home.packages = builtins.attrValues {
             inherit
               (inputs.nixpkgs-unstable-small.legacyPackages.${system})
-              aider-chat
+              fabric-ai
               ;
           };
         })
