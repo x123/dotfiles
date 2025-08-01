@@ -6,6 +6,7 @@
         (pkgs)
         netcat-gnu
         ffuf
+        urlencode
         ;
       inherit
         (pkgs.python312Packages)
