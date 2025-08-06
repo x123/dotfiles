@@ -76,6 +76,7 @@ in {
           gitsigns-nvim
           lspkind-nvim
           lualine-nvim
+          neogit
           nord-nvim
           nui-nvim
           nvim-cmp
@@ -157,6 +158,9 @@ in {
         vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gvgv")
 
         vim.keymap.set('n', "<leader>U", vim.cmd.UndotreeToggle)
+
+        -- neogit
+        require("neogit").setup({})
 
         -- bigfile
         require("bigfile").setup({
