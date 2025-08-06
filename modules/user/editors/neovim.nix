@@ -159,6 +159,7 @@ in {
         vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gvgv")
 
         vim.keymap.set('n', "<leader>U", vim.cmd.UndotreeToggle)
+        vim.keymap.set('n', "<leader>n", vim.cmd.Neogit)
 
         -- neogit
         require("neogit").setup({
