@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }: let
   cfg = config.custom;
@@ -16,6 +17,15 @@ in {
     };
   };
   config = lib.mkIf (cfg.system-darwin.enable && cfg.system-darwin.ai.enable) {
-    environment.systemPackages = [pkgs.ollama];
+    nixpkgs.overlays = [
+      (
+        final: prev: {
+          unstable-small = import inputs.nixpkgs-unstable-small {
+            system = "aarch64-darwin";
+          };
+        }
+      )
+    ];
+    environment.systemPackages = [pkgs.unstable-small.ollama];
   };
 }
