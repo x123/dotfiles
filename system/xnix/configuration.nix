@@ -41,6 +41,21 @@
 
     services = {
       docker.enable = true;
+      ollama = {
+        enable = true;
+        host = "192.168.1.131";
+        port = 11434;
+        openFirewallNftables = true;
+        trustedIpv4Networks = [
+          "192.168.1.0/24"
+          "192.168.9.0/24"
+        ];
+        trustedIpv6Networks = [
+          "fdab:817c:904c::1/60" # gk-2
+          "fd65:4e21:dde4::1/60" # gk
+        ];
+      };
+
       open-webui = {
         enable = false;
         host = "127.0.0.1";
