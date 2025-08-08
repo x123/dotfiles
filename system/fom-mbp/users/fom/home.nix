@@ -11,11 +11,21 @@
     (
       final: prev: {
         unstable-small = import inputs.nixpkgs-unstable-small {
-          system = "x86_64-linux";
+          system = "aarch64-darwin";
+          config = {
+            allowUnfree = true;
+            allowAliases = false;
+          };
         };
       }
     )
   ];
+
+  # allow unfree packages
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowAliases = false;
+  };
 
   custom = {
     desktop = {
