@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}: let
-  cfg = config.custom;
-in {
+}: {
   imports = [];
 
   options = {
@@ -16,7 +14,7 @@ in {
     };
   };
 
-  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.fonts.enable) {
+  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.fonts.enable) {
     fonts.packages = [
       pkgs.nerd-fonts.code-new-roman
       pkgs.powerline-fonts
