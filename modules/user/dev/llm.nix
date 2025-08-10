@@ -1,51 +1,23 @@
 {
-  inputs,
+  config,
   lib,
   pkgs,
-  system,
   ...
 }: {
-  imports = [];
+  options = {
+    custom.user.dev.llm.enable = lib.mkEnableOption "LLM and AI tools" // {default = true;};
+  };
 
-  config =
-    lib.mkMerge
-    [
-      (lib.mkIf
-        (!pkgs.stdenv.isDarwin)
-        {
-          home.packages = builtins.attrValues {
-            inherit
-              (pkgs.unstable-small)
-              aider-chat-full
-              claude-code
-              fabric-ai
-              opencode
-              whisper-cpp
-              ;
-          };
-        })
-      (lib.mkIf
-        (pkgs.stdenv.isDarwin)
-        {
-          home.packages = builtins.attrValues {
-            inherit
-              (pkgs.unstable-small)
-              aider-chat-full
-              claude-code
-              fabric-ai
-              opencode
-              whisper-cpp
-              ;
-          };
-        })
-    ];
-
-  # home = {
-  #   packages = builtins.attrValues {
-  #     inherit
-  #       (inputs.nixpkgs-unstable-small.legacyPackages.${system})
-  #       aider-chat-full
-  #       ;
-  #   };
-  # };
+  config = lib.mkIf (config.custom.user.dev.enable && config.custom.user.dev.llm.enable) {
+    home.packages = builtins.attrValues {
+      inherit
+        (pkgs.unstable-small)
+        aider-chat-full
+        claude-code
+        fabric-ai
+        opencode
+        whisper-cpp
+        ;
+    };
+  };
 }
