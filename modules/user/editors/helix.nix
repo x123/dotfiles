@@ -8,7 +8,7 @@
 
   options.custom.editors.helix.enable = lib.mkEnableOption "helix";
 
-  config = lib.mkIf config.custom.editors.helix.enable {
+  config = lib.mkIf (config.custom.user.editors.enable && config.custom.editors.helix.enable) {
     home = {
       packages = [
         pkgs.helix

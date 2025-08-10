@@ -8,7 +8,7 @@
 
   options.custom.editors.emacs.enable = lib.mkEnableOption "emacs";
 
-  config = lib.mkIf config.custom.editors.emacs.enable {
+  config = lib.mkIf (config.custom.user.editors.enable && config.custom.editors.emacs.enable) {
     # home.file.".emacs.d" = {
     #   recursive = true;
     #   source = pkgs.fetchFromGitHub {
