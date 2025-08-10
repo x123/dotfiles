@@ -12,6 +12,7 @@
     ./common-packages.nix
     ./fonts.nix
     ./htop.nix
+    ./presenterm.nix
     ./scripts.nix
     ./sec.nix
     ./starship.nix
