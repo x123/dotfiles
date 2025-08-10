@@ -21,6 +21,41 @@ operating within this repository.
   practices.
 * **Markdown**: all markdown files *must* pass the markdownlint checks.
 
+## System Module Conventions
+
+* **Module Structure**: System modules follow platform-specific namespace
+  patterns:
+    * **NixOS modules** in `modules/system-nixos/` use the
+      `custom.system-nixos` pattern:
+        * Organize into logical categories (common, dev, hardware,
+          networking, security, services, wayland, x11)
+        * Define options under `options.custom.system-nixos.CATEGORY.MODULE`
+        * Use conditional configuration:
+          `config = lib.mkIf (cfg.system-nixos.enable &&
+          cfg.system-nixos.CATEGORY.MODULE.enable) { ... }`
+    * **Darwin modules** in `modules/system-darwin/` use the
+      `custom.system-darwin` pattern:
+        * Define options under `options.custom.system-darwin.MODULE`
+        * Use conditional configuration:
+          `config = lib.mkIf (cfg.system-darwin.enable &&
+          cfg.system-darwin.MODULE.enable) { ... }`
+
+* **Usage Pattern**: These modules are consumed in
+  `system/SYSTEMNAME/configuration.nix` files using the corresponding
+  namespace format.
+
+* **Examples**:
+    * NixOS: `modules/system-nixos/hardware/nvidia.nix` defines
+      `options.custom.system-nixos.hardware.nvidia.enable`
+    * Darwin: `modules/system-darwin/fonts.nix` defines
+      `options.custom.system-darwin.fonts.enable`
+    * Used as: `custom.system-nixos.hardware.nvidia.enable = true;` in
+      configuration.nix files
+
+* **Platform Logic**: System modules often include platform-specific
+  conditional logic and may have complex configuration options beyond
+  simple enable flags (e.g., network ranges, hostnames, ports).
+
 ## Custom User Module Conventions
 
 * **Module Structure**: All modules in `modules/user/` must
