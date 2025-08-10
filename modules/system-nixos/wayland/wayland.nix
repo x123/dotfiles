@@ -2,12 +2,10 @@
   config,
   lib,
   ...
-}: let
-  cfg = config.custom;
-in {
+}: {
   imports = [];
 
-  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.wayland.enable) {
+  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.wayland.enable) {
     programs.dconf.enable = true;
 
     programs.hyprland.enable = true;
