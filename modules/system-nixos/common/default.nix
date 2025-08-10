@@ -8,25 +8,10 @@
 
   options = {
     custom.system-nixos.common = {
-      console-theme.enable = lib.mkOption {
-        default = false;
-        type = lib.types.bool;
-        description = "Whether to enable console-theme";
-      };
-      filesystems.enable = lib.mkOption {
+      enable = lib.mkOption {
         default = true;
         type = lib.types.bool;
-        description = "Whether to enable additional filesystem support";
-      };
-      locale.enable = lib.mkOption {
-        default = true;
-        type = lib.types.bool;
-        description = "Whether to enable common locale settings";
-      };
-      zsh.enable = lib.mkOption {
-        default = true;
-        type = lib.types.bool;
-        description = "Whether to enable common zsh settings";
+        description = "Whether to enable the system-nixos.common modules";
       };
     };
   };

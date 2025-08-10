@@ -3,12 +3,17 @@
   lib,
   pkgs,
   ...
-}: let
-  cfg = config.custom;
-in {
+}: {
   imports = [];
+  options = {
+    custom.system-nixos.common.console-theme.enable = lib.mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Whether to enable console-theme";
+    };
+  };
 
-  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.common.console-theme.enable) {
+  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.common.console-theme.enable) {
     console = {
       earlySetup = true;
       font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v14n.psf.gz";
