@@ -58,6 +58,12 @@
         bind-key -n 'C-Up' if-shell "$is_vim" { send-keys C-Up }  { select-pane -U }
         bind-key -n 'C-Right' if-shell "$is_vim" { send-keys C-Right }  { select-pane -R }
 
+        # resize with prefix followed by vim keys
+        bind-key -r 'h' resize-pane -L 5
+        bind-key -r 'j' resize-pane -D 5
+        bind-key -r 'k' resize-pane -U 5
+        bind-key -r 'l' resize-pane -R 5
+
         bind-key -T copy-mode-vi 'C-Left' select-pane -L
         bind-key -T copy-mode-vi 'C-Down' select-pane -D
         bind-key -T copy-mode-vi 'C-Up' select-pane -U
