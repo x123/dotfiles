@@ -14,9 +14,11 @@
         inherit
           (pkgs)
           argocd
+          jq
           k9s
           kubectl
           kubernetes-helm
+          vim
           ;
       };
     };
@@ -49,13 +51,18 @@
           args = [
             "-c"
             ''
-              tempfile=$(mktemp);
-              secret=$(kubectl get secrets --context $CONTEXT --namespace $NAMESPACE $NAME -o json);
-              printf '%s\n' $secret | jq '.data | map_values(@base64d)' > $tempfile;
-              vim $tempfile;
-              secret_data=$(cat $tempfile | jq -c '. | map_values(@base64)');
-              rm $tempfile;
-              printf '%s\n' $secret | jq -r --argjson secret_data "$secret_data" '.data = $secret_data' | kubectl apply  --context $CONTEXT --namespace $NAMESPACE -f -;
+              tempfile=$(${pkgs.coreutils}/bin/mktemp);
+              secret=$(${pkgs.kubectl}/bin/kubectl get secrets --context $CONTEXT --namespace $NAMESPACE $NAME -o json);
+              # Handle null/empty secret data gracefully
+              if [ "$(${pkgs.coreutils}/bin/printf '%s\n' "$secret" | ${pkgs.jq}/bin/jq -r '.data // empty')" = "null" ] || [ "$(${pkgs.coreutils}/bin/printf '%s\n' "$secret" | ${pkgs.jq}/bin/jq -r '.data // {}')" = "{}" ]; then
+                ${pkgs.coreutils}/bin/printf '{}' > $tempfile;
+              else
+                ${pkgs.coreutils}/bin/printf '%s\n' $secret | ${pkgs.jq}/bin/jq '.data | map_values(@base64d)' > $tempfile;
+              fi
+              ${pkgs.vim}/bin/vim $tempfile;
+              secret_data=$(${pkgs.coreutils}/bin/cat $tempfile | ${pkgs.jq}/bin/jq -c '. | map_values(@base64)');
+              ${pkgs.coreutils}/bin/rm $tempfile;
+              ${pkgs.coreutils}/bin/printf '%s\n' $secret | ${pkgs.jq}/bin/jq -r --argjson secret_data "$secret_data" '.data = $secret_data' | ${pkgs.kubectl}/bin/kubectl apply  --context $CONTEXT --namespace $NAMESPACE -f -;
             ''
           ];
         };
