@@ -2,11 +2,11 @@
   imports = [
     ./common
     ./dev
-    ./games
     ./hardware
     ./networking
     ./security
     ./services
+    ./steam
     ./wayland
     ./x11
   ];

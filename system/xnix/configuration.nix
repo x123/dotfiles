@@ -18,7 +18,6 @@
     };
 
     dev.elixir.enable = false;
-    games.enable = true;
 
     hardware = {
       bluetooth.enable = true;
@@ -90,6 +89,7 @@
       qdrant.enable = true;
     };
 
+    steam.enable = true;
     wayland.enable = false;
     x11.enable = true;
   };

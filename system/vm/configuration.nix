@@ -18,8 +18,6 @@
       elixir.enable = false;
     };
 
-    games.enable = false;
-
     hardware = {
       bluetooth.enable = false;
       nvidia.enable = false;
@@ -55,6 +53,7 @@
       nix-ssh-serve.enable = false;
     };
 
+    steam.enable = false;
     x11.enable = true;
   };
 
