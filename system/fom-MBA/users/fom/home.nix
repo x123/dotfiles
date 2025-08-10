@@ -12,14 +12,19 @@
       video.enable = true;
     };
 
-    editors = {
-      helix.enable = false;
-      neovim.enable = true;
-      vim.enable = false;
-    };
-
     games.enable = true;
-    mail.enable = false;
+
+    user = {
+      editors = {
+        emacs.enable = false;
+        helix.enable = false;
+        neovim.enable = true;
+        vim.enable = false;
+        vscode.enable = true;
+      };
+
+      mail.enable = false;
+    };
   };
 
   home = {

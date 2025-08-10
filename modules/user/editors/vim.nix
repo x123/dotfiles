@@ -6,9 +6,9 @@
 }: {
   imports = [];
 
-  options.custom.editors.vim.enable = lib.mkEnableOption "classic vim";
+  options.custom.user.editors.vim.enable = lib.mkEnableOption "classic vim";
 
-  config = lib.mkIf (config.custom.user.editors.enable && config.custom.editors.vim.enable) {
+  config = lib.mkIf (config.custom.user.editors.enable && config.custom.user.editors.vim.enable) {
     home = {
       packages = builtins.attrValues {
         inherit

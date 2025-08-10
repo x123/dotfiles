@@ -37,16 +37,20 @@
       keepassxc.enable = true;
     };
 
-    editors = {
-      emacs.enable = false;
-      helix.enable = false;
-      neovim.enable = true;
-      vim.enable = false;
-      vscode.enable = true;
-    };
-
     games.enable = true;
-    mail.enable = false;
+
+    user = {
+      editors = {
+        emacs.enable = false;
+        helix.enable = false;
+        neovim.enable = true;
+        vim.enable = false;
+        vscode.enable = true;
+      };
+
+      mail.enable = false;
+      shell.enable = true;
+    };
   };
 
   home = {
