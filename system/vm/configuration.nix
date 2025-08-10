@@ -132,7 +132,6 @@
       git
       gtkmm3
       # xclip
-      
       ;
   };
 
