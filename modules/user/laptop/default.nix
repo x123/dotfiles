@@ -22,14 +22,14 @@ in {
   ];
 
   options = {
-    custom.laptop.enable = lib.mkOption {
+    custom.user.laptop.enable = lib.mkOption {
       default = false;
       type = lib.types.bool;
       description = "Whether to enable laptop specific settings.";
     };
   };
 
-  config = lib.mkIf (config.custom.laptop.enable && !pkgs.stdenv.isDarwin) {
+  config = lib.mkIf (config.custom.user.laptop.enable && !pkgs.stdenv.isDarwin) {
     services.screen-locker = {
       enable = true;
       inactiveInterval = 5;
