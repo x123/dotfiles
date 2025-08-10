@@ -42,8 +42,6 @@
       };
     };
 
-    games.enable = false;
-
     user = {
       ai = {
         enable = false;
@@ -60,6 +58,7 @@
         vscode.enable = false;
       };
 
+      games.enable = false;
       mail.enable = false;
     };
   };
