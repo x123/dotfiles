@@ -6,7 +6,7 @@
 }: {
   imports = [];
 
-  config = lib.mkIf config.custom.mail.enable {
+  config = lib.mkIf (config.custom.user.mail.enable && config.custom.mail.neomutt.enable) {
     home = {
       file = {
         neomuttrc = {
