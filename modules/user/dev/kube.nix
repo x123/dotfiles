@@ -31,6 +31,25 @@
         background = true;
         confirm = true;
       };
+      edit-secret = {
+        shortCut = "Ctrl-X";
+        confirm = false;
+        description = "Edit Decoded Secret";
+        scopes = ["secrets"];
+        command = "sh";
+        background = false;
+        args = [
+          "-c"
+          ''            tempfile=$(mktemp);
+                        secret=$(kubectl get secrets --context $CONTEXT --namespace $NAMESPACE $NAME -o json);
+                        printf '%s\n' $secret | jq '.data | map_values(@base64d)' > $tempfile;
+                        vim $tempfile;
+                        secret_data=$(cat $tempfile | jq -c '. | map_values(@base64)');
+                        rm $tempfile;
+                        printf '%s\n' $secret | jq -r --argjson secret_data "$secret_data" '.data = $secret_data' | kubectl apply  --context $CONTEXT --namespace $NAMESPACE -f -;
+          ''
+        ];
+      };
       # refresh-apps:
       #   shortCut: Shift-R
       #   confirm: false
