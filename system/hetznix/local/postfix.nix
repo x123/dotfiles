@@ -13,35 +13,6 @@
       enableSubmissions = true;
       rootAlias = "x123";
       domain = "nixlink.net";
-      config = {
-        # inet_interfaces = "loopback-only";
-        # inet_protocols = "ipv4";
-        home_mailbox = "Maildir/";
-        inet_interfaces = "all";
-        inet_protocols = "all";
-        milter_default_action = "accept";
-        milter_protocol = "2";
-        mydestination = "hetznix.nixlink.net social.nixlink.net nixlink.net localhost";
-        mydomain = "nixlink.net";
-        myhostname = "hetznix.nixlink.net";
-        myorigin = "nixlink.net";
-        non_smtpd_milters = "unix:/run/opendkim/opendkim.sock";
-        propagate_unmatched_extension = "";
-        recipient_delimiter = "+";
-        relay_domains = "";
-        relayhost = "";
-        smtpd_milters = "unix:/run/opendkim/opendkim.sock";
-        smtpd_sasl_path = "inet:127.0.0.1:12345";
-        smtpd_sasl_type = "dovecot";
-        smtpd_tls_chain_files = [
-          (config.security.acme.certs."nixlink.net".directory + "/key.pem")
-          (config.security.acme.certs."nixlink.net".directory + "/fullchain.pem")
-        ];
-        smtp_tls_chain_files = [
-          (config.security.acme.certs."nixlink.net".directory + "/key.pem")
-          (config.security.acme.certs."nixlink.net".directory + "/fullchain.pem")
-        ];
-      };
       submissionOptions = {
         milter_macro_daemon_name = "ORIGINATING";
         smtpd_client_restrictions = "permit_sasl_authenticated,reject";
@@ -62,6 +33,33 @@
         apt-hunt: x123
       '';
       settings.main = {
+        # Basic Configuration
+        home_mailbox = "Maildir/";
+        inet_interfaces = "all";
+        inet_protocols = "all";
+        milter_default_action = "accept";
+        milter_protocol = "2";
+        mydestination = "hetznix.nixlink.net social.nixlink.net nixlink.net localhost";
+        mydomain = "nixlink.net";
+        myhostname = "hetznix.nixlink.net";
+        myorigin = "nixlink.net";
+        non_smtpd_milters = "unix:/run/opendkim/opendkim.sock";
+        propagate_unmatched_extension = "";
+        recipient_delimiter = "+";
+        relay_domains = null; # Was empty string, now null for new format
+        relayhost = null; # Was empty string, now null for new format
+        smtpd_milters = "unix:/run/opendkim/opendkim.sock";
+        smtpd_sasl_path = "inet:127.0.0.1:12345";
+        smtpd_sasl_type = "dovecot";
+        smtpd_tls_chain_files = [
+          (config.security.acme.certs."nixlink.net".directory + "/key.pem")
+          (config.security.acme.certs."nixlink.net".directory + "/fullchain.pem")
+        ];
+        smtp_tls_chain_files = [
+          (config.security.acme.certs."nixlink.net".directory + "/key.pem")
+          (config.security.acme.certs."nixlink.net".directory + "/fullchain.pem")
+        ];
+
         # SMTP Recipient Restrictions
         smtpd_recipient_restrictions = [
           "permit_sasl_authenticated"
