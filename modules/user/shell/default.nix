@@ -21,6 +21,7 @@
     ./starship.nix
     ./tmux.nix
     ./zoxide.nix
+    ./zsh.nix
   ];
 
   options = {
@@ -87,23 +88,6 @@
           "--time-style=long-iso"
           "--color=never"
         ];
-      };
-
-      zsh = {
-        enable = true;
-        enableCompletion = true;
-
-        oh-my-zsh = {
-          enable = false;
-          plugins = [
-            "git"
-            "sudo"
-            "rsync"
-          ];
-        };
-        envExtra = ''
-          export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
-        '';
       };
 
       bash = {
