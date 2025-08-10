@@ -3,9 +3,8 @@
   lib,
   ...
 }: let
-  cfg = config.custom;
-  trustedIpv4s = builtins.concatStringsSep "," cfg.system-nixos.services.invidious.trustedIpv4Networks;
-  trustedIpv6s = builtins.concatStringsSep "," cfg.system-nixos.services.invidious.trustedIpv6Networks;
+  trustedIpv4s = builtins.concatStringsSep "," config.custom.system-nixos.services.invidious.trustedIpv4Networks;
+  trustedIpv6s = builtins.concatStringsSep "," config.custom.system-nixos.services.invidious.trustedIpv6Networks;
 in {
   options = {
     custom.system-nixos.services.invidious = {
@@ -37,11 +36,11 @@ in {
     };
   };
 
-  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.services.invidious.enable) {
+  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.services.invidious.enable) {
     users.users.nginx.extraGroups = [config.users.groups.ssl.name];
     # users.users.caddy.extraGroups = [config.users.groups.ssl.name];
 
-    networking.nftables = lib.mkIf (cfg.system-nixos.services.invidious.openFirewallNftables) {
+    networking.nftables = lib.mkIf (config.custom.system-nixos.services.invidious.openFirewallNftables) {
       tables = {
         filter = {
           family = "inet";
@@ -61,7 +60,7 @@ in {
       invidious = {
         enable = true;
         database.createLocally = true;
-        domain = cfg.system-nixos.services.invidious.domain;
+        domain = config.custom.system-nixos.services.invidious.domain;
         nginx.enable = true;
         settings = {
           db.user = "invidious";
@@ -80,7 +79,7 @@ in {
       caddy = {
         enable = false;
         virtualHosts = {
-          "${cfg.system-nixos.services.invidious.domain}" = {
+          "${config.custom.system-nixos.services.invidious.domain}" = {
             extraConfig = ''
               tls ${config.sops.secrets."ssl/invidious.xnix.lan/cert".path} ${config.sops.secrets."ssl/invidious.xnix.lan/key".path}
               reverse_proxy localhost:3000
@@ -95,7 +94,7 @@ in {
       # this is needed to disable automatic ACME cert grab from invidious our own
       # definition in security.acme.certs (in acme.nix)
       nginx.virtualHosts = {
-        "${cfg.system-nixos.services.invidious.domain}" = {
+        "${config.custom.system-nixos.services.invidious.domain}" = {
           enableACME = false;
           sslCertificate = config.sops.secrets."ssl/invidious.xnix.lan/cert".path;
           sslCertificateKey = config.sops.secrets."ssl/invidious.xnix.lan/key".path;

@@ -2,9 +2,7 @@
   config,
   lib,
   ...
-}: let
-  cfg = config.custom;
-in {
+}: {
   options = {
     custom.system-nixos.services.qdrant = {
       enable = lib.mkOption {
@@ -15,7 +13,7 @@ in {
     };
   };
 
-  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.services.qdrant.enable) {
+  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.services.qdrant.enable) {
     services = {
       qdrant = {
         enable = true;
