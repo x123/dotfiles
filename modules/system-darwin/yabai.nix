@@ -3,12 +3,17 @@
   lib,
   pkgs,
   ...
-}: let
-  cfg = config.custom;
-in {
+}: {
   imports = [];
+  options = {
+    custom.system-darwin.yabai.enable = lib.mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Whether to enable yabai on darwin";
+    };
+  };
 
-  config = lib.mkIf (cfg.system-darwin.enable && cfg.system-darwin.yabai.enable) {
+  config = lib.mkIf (config.custom.system-darwin.enable && config.custom.system-darwin.yabai.enable) {
     services.yabai = {
       enable = true;
       package = pkgs.yabai;

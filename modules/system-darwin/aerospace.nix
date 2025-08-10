@@ -2,14 +2,20 @@
   config,
   lib,
   ...
-}: let
-  cfg = config.custom;
-in {
+}: {
   imports = [];
 
-  config = lib.mkIf (cfg.system-darwin.enable && cfg.system-darwin.aerospace.enable) {
+  options = {
+    custom.system-darwin.aerospace.enable = lib.mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Whether to enable aerospace on darwin";
+    };
+  };
+
+  config = lib.mkIf (config.custom.system-darwin.enable && config.custom.system-darwin.aerospace.enable) {
     services.aerospace = {
-      enable = false;
+      enable = true;
       settings = {
         # get more from https://github.com/fredrikaverpil/dotfiles/blob/72f92cc92a98d19227c161e64a2843966ce99254/aerospace.toml
         enable-normalization-flatten-containers = false;
