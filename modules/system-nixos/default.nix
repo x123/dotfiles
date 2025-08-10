@@ -1,5 +1,6 @@
 {lib, ...}: {
   imports = [
+    ../common/ssh-keys.nix
     ./common
     ./dev
     ./hardware
