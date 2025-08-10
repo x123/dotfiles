@@ -5,19 +5,9 @@
 }: let
   cfg = config.services.mastodon;
 in {
-  # nixpkgs.overlays = [
-  #   (
-  #     final: prev: {
-  #       unstable-small = import inputs.nixpkgs-unstable-small {
-  #         inherit system;
-  #       };
-  #     }
-  #   )
-  # ];
   services = {
     mastodon = {
       enable = false;
-      # package = pkgs.unstable-small.mastodon;
       database.createLocally = true;
       localDomain = "social.boxchop.city";
       configureNginx = false; # we use caddy below

@@ -7,16 +7,6 @@
     ./borgmatic-xnix-systemd-timer.nix
   ];
 
-  # nixpkgs.overlays = [
-  #   (
-  #     final: prev: {
-  #       unstable-small = import inputs.nixpkgs-unstable-small {
-  #         system = "x86_64-linux";
-  #       };
-  #     }
-  #   )
-  # ];
-
   sops.secrets = {
     "borg/xnix" = {};
     "ntfy/user" = {};

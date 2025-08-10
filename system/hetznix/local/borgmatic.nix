@@ -8,16 +8,6 @@
     ./borgmatic-hetznix-systemd-timer.nix
   ];
 
-  # nixpkgs.overlays = [
-  #   (
-  #     final: prev: {
-  #       unstable-small = import inputs.nixpkgs-unstable-small {
-  #         system = "x86_64-linux";
-  #       };
-  #     }
-  #   )
-  # ];
-
   sops.secrets = {
     "borg/hetznix" = {};
     "ssh/u413840-sub2" = {};
@@ -30,7 +20,6 @@
 
   services.borgmatic = {
     enable = true;
-    # package = pkgs.borgmatic;
     configurations = {
       hetznix = {
         source_directories = [];
