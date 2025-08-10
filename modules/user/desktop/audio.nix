@@ -3,14 +3,7 @@
   lib,
   pkgs,
   ...
-}: let
-  broken_on_darwin = builtins.attrValues {
-    # inherit
-    #   (pkgs)
-    #   youtube-music
-    #   ;
-  };
-in {
+}: {
   options = {
     custom.desktop.audio = {
       enable = lib.mkOption {
@@ -36,12 +29,7 @@ in {
               (pkgs)
               bitwig-studio
               ;
-          }
-          ++ (
-            if pkgs.stdenv.isDarwin
-            then []
-            else broken_on_darwin
-          );
+          };
       };
     };
 }
