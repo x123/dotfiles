@@ -3,12 +3,10 @@
   lib,
   pkgs,
   ...
-}: let
-  cfg = config.custom;
-in {
+}: {
   imports = [];
 
-  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.x11.enable) {
+  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.x11.enable) {
     programs.dconf.enable = true;
     programs.i3lock.enable = true;
 
