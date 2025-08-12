@@ -25,6 +25,21 @@
 
     programs.k9s = {
       enable = true;
+      # settings = {
+      #   k9s = {
+      #     refreshRate = 2;
+      #     ui = {
+      #       skin = "nord";
+      #       enableMouse = false;
+      #       headless = false;
+      #       logoless = false;
+      #       crumbsless = false;
+      #       noIcons = false;
+      #       # Toggles reactive UI. This option provide for watching on disk artifacts changes and update the UI live  Defaults to false.;
+      #       reactive = false;
+      #     };
+      #   };
+      # };
       plugins = {
         argocd = {
           shortCut = "s";
