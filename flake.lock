@@ -254,6 +254,22 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/5daf0514482af3f97abaefc78a6606365c9108e2.tar.gz"
       }
     },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1755030297,
+        "narHash": "sha256-6kpDMW+N0q/u2yBaEk2zfXqQutqeOEr0WrvqRl1YAAw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "4a7c898ba3992684208d5d64d6077e70c5687314",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-unstable-small": {
       "locked": {
         "lastModified": 1754975461,
@@ -364,6 +380,7 @@
         "nix-darwin": "nix-darwin",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
+        "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-unstable-small": "nixpkgs-unstable-small",
         "nur": "nur",
         "pre-commit-hooks": "pre-commit-hooks",

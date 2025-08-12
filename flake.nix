@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-unstable-small.url = "nixpkgs/nixos-unstable-small";
+    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     ghostty.url = "github:ghostty-org/ghostty";
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
@@ -39,6 +40,7 @@
     self,
     nixpkgs,
     nixpkgs-unstable-small,
+    nixpkgs-master,
     nixos-hardware,
     home-manager,
     sops-nix,
