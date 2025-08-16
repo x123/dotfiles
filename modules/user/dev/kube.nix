@@ -34,16 +34,16 @@
               error = 90;
             };
           };
-          # ui = {
-          #   skin = "nord";
-          #   enableMouse = false;
-          #   headless = false;
-          #   logoless = false;
-          #   crumbsless = false;
-          #   noIcons = false;
-          #   # Toggles reactive UI. This option provide for watching on disk artifacts changes and update the UI live  Defaults to false.;
-          #   reactive = false;
-          # };
+          ui = {
+            # skin = "nord";
+            enableMouse = false;
+            headless = false;
+            logoless = true;
+            crumbsless = true;
+            # noIcons = false;
+            # Toggles reactive UI. This option provide for watching on disk artifacts changes and update the UI live  Defaults to false.;
+            # reactive = false;
+          };
         };
       };
       plugins = {
