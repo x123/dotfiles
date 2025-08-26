@@ -9,7 +9,8 @@
     ./local/borgmatic.nix
     ./local/btop.nix
     ./local/gnucash-quotes-systemd-timer.nix
-    ./local/poe.nix
+    ./local/eq.nix
+    # ./local/poe.nix
   ];
 
   nixpkgs.overlays = [
