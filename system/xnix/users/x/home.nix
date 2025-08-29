@@ -43,7 +43,7 @@
     desktop = {
       enable = true;
 
-      anki.enable = true;
+      anki.enable = false; # todo this is broken as of 2025-08-29
       anydesk.enable = true;
       audio.enable = true; # this is just youtube-music right now
       calibre.enable = false;
