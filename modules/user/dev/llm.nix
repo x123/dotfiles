@@ -12,7 +12,7 @@
   config = lib.mkIf (config.custom.user.dev.enable && config.custom.user.dev.llm.enable) {
     home.packages = builtins.attrValues {
       inherit
-        (pkgs.master)
+        (pkgs.unstable-small)
         claude-code
         ;
       inherit
