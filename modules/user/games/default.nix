@@ -42,19 +42,19 @@
               sil
               sil-q
               tintin
-              ;
-            inherit
-              (pkgs.unstable-small)
               bottles
               gamescope
-              # lutris
               narsil
               protonup-rs
               vulkan-tools
               wine
-              # wine64
               winetricks
               ;
+            # inherit
+            #   (pkgs.unstable-small)
+            #   # lutris
+            #   # wine64
+            #   ;
             # inherit
             #   (pkgs.unstable-small.wineWow64Packages)
             #   unstableFull
