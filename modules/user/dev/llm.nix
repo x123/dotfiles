@@ -14,9 +14,6 @@
       inherit
         (pkgs.unstable-small)
         claude-code
-        ;
-      inherit
-        (pkgs.unstable-small)
         fabric-ai
         opencode
         whisper-cpp
