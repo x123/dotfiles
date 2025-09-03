@@ -65,7 +65,6 @@ in {
       plugins = builtins.attrValues {
         inherit
           (pkgs.vimPlugins)
-          CopilotChat-nvim
           avante-nvim
           bigfile-nvim
           cmp-nvim-lsp
@@ -181,16 +180,6 @@ in {
             "vimopts",
             "filetype",
           },
-        })
-
-        -- CopilotChat
-        require("CopilotChat").setup({
-          mappings = {
-            reset = {
-              normal = '<C-S-r>',
-              insert = '<C-S-r>'
-            }
-          }
         })
 
         -- avante
