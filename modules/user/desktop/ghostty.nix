@@ -31,7 +31,8 @@
           source = ./ghostty.conf;
         };
         packages = [
-          inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
+          pkgs.ghostty
+          # inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
         ];
       };
     };
