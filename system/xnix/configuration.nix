@@ -97,7 +97,7 @@
       };
 
       sonarr = {
-        enable = true;
+        enable = false;
         openFirewallNftables = true;
         group = config.users.users.xdata.group;
         trustedIpv4Networks = [
