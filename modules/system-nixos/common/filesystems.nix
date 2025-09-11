@@ -17,6 +17,7 @@
     environment.systemPackages = [
       pkgs.apfs-fuse
       pkgs.apfsprogs
+      pkgs.nfs-utils
     ];
   };
 }
