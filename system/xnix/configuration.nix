@@ -96,6 +96,20 @@
         ];
       };
 
+      sonarr = {
+        enable = true;
+        openFirewallNftables = true;
+        group = config.users.users.xdata.group;
+        trustedIpv4Networks = [
+          "192.168.1.0/24"
+          "192.168.9.0/24"
+        ];
+        # trustedIpv6Networks = [
+        #   "fdab:817c:904c::1/60" # gk-2
+        #   "fd65:4e21:dde4::/60" # gk
+        # ];
+      };
+
       nftables.enable = true;
       nix-ssh-serve.enable = false;
       qdrant.enable = true;
@@ -149,6 +163,13 @@
   #     ];
   #   }
   # ];
+
+  users.groups.xdata = {};
+  users.users.xdata = {
+    isSystemUser = true;
+    description = "xdata";
+    group = "xdata";
+  };
 
   users.users.x = {
     isNormalUser = true;
