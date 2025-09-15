@@ -25,7 +25,7 @@
     )
     {
       services.keybase.enable = true;
-      services.kbfs.enable = true;
+      services.kbfs.enable = false;
       home = {
         packages = [
           pkgs.kbfs
