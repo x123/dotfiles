@@ -19,6 +19,7 @@
       # term/shell
       fd
       usbutils
+      smartmontools
       whois
       ;
   };
