@@ -57,7 +57,6 @@
               (pkgs)
               libreoffice
               persepolis
-              xygrib
               ;
           };
         })
