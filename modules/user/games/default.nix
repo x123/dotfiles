@@ -23,7 +23,7 @@
         )
         {
           programs.lutris = {
-            enable = true;
+            enable = false;
             # extraPackages = [ pkgs.vulkan-tools pkgs.gamescope pkgs.gamemode ];
             protonPackages = [pkgs.proton-ge-bin];
             # winePackages = [ pkgs.wineWow64Packages.full ];
