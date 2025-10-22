@@ -29,8 +29,12 @@
 
     programs.git = {
       enable = true;
-      userName = "x123";
-      userEmail = "x123@users.noreply.github.com";
+      settings = {
+        user.email = "x123";
+        user.name = "x123@users.noreply.github.com";
+        init.defaultBranch = "master";
+        push.autoSetupRemote = true;
+      };
 
       delta = {
         enable = true;
@@ -42,11 +46,6 @@
           syntax-theme = "zenburn";
           side-by-side = false;
         };
-      };
-
-      extraConfig = {
-        init.defaultBranch = "master";
-        push.autoSetupRemote = true;
       };
     };
   };
