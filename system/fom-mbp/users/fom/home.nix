@@ -39,7 +39,7 @@
       enable = true;
 
       blender.enable = false;
-      gimp.enable = true;
+      gimp.enable = false;
       video.enable = true;
       keepassxc.enable = true;
     };
