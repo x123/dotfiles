@@ -3,3 +3,4 @@ set -xeuo pipefail
 
 nix-store --gc -v
 nix-store --optimise
+echo "Consider running: home-manager expire-generations \"-30 days\""
