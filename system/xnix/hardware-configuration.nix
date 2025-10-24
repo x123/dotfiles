@@ -62,6 +62,12 @@
       fsType = "nfs";
       options = ["x-systemd.automount" "noauto"];
     };
+
+    "/mnt/nfs/xmisc" = {
+      device = "192.168.1.187:/volume1/xmisc";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto"];
+    };
   };
 
   boot.initrd.luks.devices."luks-3062db9e-0454-4188-b0ba-d751be39e6b9" = {
