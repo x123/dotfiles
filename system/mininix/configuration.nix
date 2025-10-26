@@ -9,6 +9,8 @@
     ./disk-config.nix
     ../../modules/nix-settings # do not remove
     ../../modules/system-nixos
+
+    ./local/thelounge.nix
   ];
 
   custom.system-nixos = {
