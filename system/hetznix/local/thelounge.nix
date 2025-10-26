@@ -17,7 +17,6 @@
           useACMEHost = "nixlink.net";
           extraConfig = ''
             reverse_proxy 127.0.0.1:9000
-            redir @httpget https://{host}{uri}
           '';
         };
       };
