@@ -7,7 +7,7 @@
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
-    # ../../modules/nix-settings # do not remove
+    ../../modules/nix-settings # do not remove
     ../../modules/system-nixos
   ];
 
