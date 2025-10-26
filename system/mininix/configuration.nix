@@ -63,7 +63,7 @@
   };
 
   networking = {
-    hostName = "mini";
+    hostName = "mininix";
     domain = "empire.internal";
     enableIPv6 = false;
     # interfaces.enp1s0.ipv6.addresses = [
