@@ -116,3 +116,11 @@ This gives you access to:
 - sops (secrets management)
 - shellcheck (shell script linter)
 - and more
+
+## Other Notes
+
+Remote install via nixos-anywhere:
+
+```bash
+nix run github:nix-community/nixos-anywhere -- --flake .#mininix --target-host root@10.10.10.2
+```
