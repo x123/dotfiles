@@ -68,6 +68,7 @@
     hostName = "privnix";
     domain = "empire.internal";
     enableIPv6 = false;
+    useDHCP = false;
     defaultGateway = {
       address = "10.10.10.1";
     };
