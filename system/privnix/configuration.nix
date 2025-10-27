@@ -10,6 +10,7 @@
     ../../modules/nix-settings # do not remove
     ../../modules/system-nixos
 
+    ./local/i2p.nix
     ./local/irc.nix
   ];
 
