@@ -115,6 +115,7 @@
     inherit
       (pkgs)
       git
+      tmux
       vim
       weechat
       wget
