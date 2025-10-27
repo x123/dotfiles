@@ -75,6 +75,7 @@
     nameservers = [
       "192.168.1.127"
     ];
+    search = [];
     interfaces.ens18 = {
       ipv4 = {
         addresses = [
