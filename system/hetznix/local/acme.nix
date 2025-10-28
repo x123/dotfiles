@@ -23,6 +23,7 @@
           "ntfy.nixlink.net"
           "social.nixlink.net"
           "tl.nixlink.net"
+          "x.nixlink.net"
         ];
         enableDebugLogs = true;
         credentialFiles = {
