@@ -14,7 +14,9 @@
     ./local/caddy-blockblaster.nix
     ./local/caddy-ip.nix
     ./local/dovecot.nix
-    ./local/iodine.nix
+
+    # iodine tunnel
+    # ./local/iodine.nix
     ./local/murmur.nix
 
     # ./local/mastodon.nix
