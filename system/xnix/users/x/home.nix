@@ -99,6 +99,10 @@
         pytorch.enable = false;
       };
 
+      dev = {
+        enable = true;
+        llm.enable = false;
+      };
       editors = {
         emacs.enable = false;
         helix.enable = false;
