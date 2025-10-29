@@ -92,6 +92,8 @@
         DNS = [
           "192.168.1.127"
         ];
+        MulticastDNS = false;
+        LLMNR = false;
         # DHCP = "ipv4";
         IPv6AcceptRA = false;
         # LinkLocalAddressing=false; # disable all LinkLocalAddressing
