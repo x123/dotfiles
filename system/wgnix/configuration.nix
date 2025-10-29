@@ -97,6 +97,21 @@
       ];
       linkConfig.RequiredForOnline = "routable";
     };
+    networks."100-ethernet-ten-dot" = {
+      matchConfig.Name = "eth1";
+      networkConfig = {
+        MulticastDNS = false;
+        LLMNR = false;
+        IPv6AcceptRA = false;
+        IPv6LinkLocalAddressGenerationMode = "none"; # disable just IPv6 Link Local Address Generation
+      };
+      address = [
+        "10.10.10.254/24"
+      ];
+      routes = [
+      ];
+      linkConfig.RequiredForOnline = "routable";
+    };
   };
 
   # systemd-resolved disalbed for now (favoring old-school resolvconf)
