@@ -5,3 +5,4 @@ result
 .direnv/
 /.pre-commit-config.yaml
 .DS_Store
+/bin/apply-all-remotes
