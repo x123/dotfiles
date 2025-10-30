@@ -172,7 +172,7 @@
               }
 
               chain output-log-drop {
-                ct state invalid limit rate 1/second burst 5 packets log prefix "nft-output-drop bad-state-out: " level warn
+                ct state invalid limit rate 1/second burst 5 packets log prefix "nft-output-drop bad-state-out: " level info
                 ct state invalid counter drop comment "Drop invalid connections"
               }
             '';
