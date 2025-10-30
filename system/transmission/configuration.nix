@@ -65,7 +65,11 @@
     };
   };
 
-  boot.kernel.sysctl."net.ipv6.conf.all.disable_ipv6" = true;
+  boot.kernel.sysctl = {
+    "net.ipv6.conf.all.disable_ipv6" = true;
+    # "net.netfilter.nf_conntrack_tcp_timeout_time_wait" = 120;
+    # "net.netfilter.nf_conntrack_tcp_timeout_established" = 7200;
+  };
 
   fileSystems = {
     "/mnt/nfs/xdata" = {

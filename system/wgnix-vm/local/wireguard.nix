@@ -66,6 +66,9 @@
               type nat hook prerouting priority -100;
               iifname "wg0" tcp dport 39272 counter dnat ip to 10.10.10.6
               iifname "wg0" udp dport 39272 counter dnat ip to 10.10.10.6
+
+              iifname "wg0" tcp dport 27582 counter dnat ip to 10.10.10.9
+              iifname "wg0" udp dport 27582 counter dnat ip to 10.10.10.9
             }
 
             chain postrouting {
