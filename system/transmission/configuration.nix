@@ -72,7 +72,7 @@
   };
 
   fileSystems = {
-    "/mnt/nfs/xdata" = {
+    "/xdata" = {
       device = "192.168.1.187:/volume1/xdata";
       fsType = "nfs";
       options = ["x-systemd.automount" "noauto"];

@@ -20,8 +20,8 @@
       webHome = pkgs.flood-for-transmission; # for alternate webUI
       credentialsFile = config.sops.secrets."transmission-creds".path;
       settings = {
-        download-dir = "/mnt/nfs/xdata/transmission/completed";
-        incomplete-dir = "/mnt/nfs/xdata/transmission/downloads";
+        download-dir = "/xdata/completed";
+        incomplete-dir = "/xdata/downloads";
         incomplete-dir-enabled = true;
         rpc-bind-address = "192.168.1.188";
         # peer-port = XXXX;
@@ -63,10 +63,8 @@
           content = ''
             chain input-new {
               # transmission
-              # tcp dport { 27582 } log prefix "nft-input-accept-transmission: " level info
               udp dport { 27582 } counter accept
               tcp dport { 27582 } counter accept
-              ip saddr 192.168.1.0/24 tcp dport { 9091 } log prefix "nft-input-accept-transmission-rpc: " level info
               ip saddr 192.168.1.0/24 tcp dport { 9091 } counter accept
             }
           '';
