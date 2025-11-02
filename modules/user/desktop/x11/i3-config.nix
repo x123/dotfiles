@@ -253,7 +253,8 @@ in {
               if pkgs.stdenv.isDarwin || pkgs.stdenv.hostPlatform.system == "aarch64-linux"
               then []
               else [
-                {command = "${pkgs.dropbox}/bin/dropbox &";}
+                {command = "${pkgs.maestral}/bin/maestral start &";}
+                # {command = "${pkgs.dropbox}/bin/dropbox &";}
               ]
             );
           modifier = my-modifier;
