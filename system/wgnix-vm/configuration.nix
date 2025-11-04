@@ -230,9 +230,11 @@
   environment.systemPackages = builtins.attrValues {
     inherit
       (pkgs)
+      dnsutils
       git
       vim
       wget
+      wireguard-tools
       ;
   };
 
