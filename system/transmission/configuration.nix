@@ -83,7 +83,7 @@
     hostName = "transmission";
     domain = "empire.internal";
     enableIPv6 = false;
-    useNetworkd = true; # not needed when using systemd.network.enable = true
+    # useNetworkd = true; # not needed when using systemd.network.enable = true
     dhcpcd.enable = false;
     useDHCP = false;
     resolvconf = {
