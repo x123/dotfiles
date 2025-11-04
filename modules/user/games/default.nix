@@ -47,7 +47,7 @@
               narsil
               protonup-rs
               vulkan-tools
-              wine
+              wine64
               winetricks
               ;
             # inherit
