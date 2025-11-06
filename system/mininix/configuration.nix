@@ -11,6 +11,7 @@
     ../../modules/system-nixos
 
     # ./local/thelounge.nix
+    ./local/tftpd.nix
   ];
 
   custom.system-nixos = {
