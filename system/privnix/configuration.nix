@@ -24,9 +24,7 @@
         trustedIpv4Networks = [
           "0.0.0.0/0"
         ];
-        trustedIpv6Networks = [
-          "::/0"
-        ];
+        trustedIpv6Networks = [];
       };
 
       nftables.enable = true;
