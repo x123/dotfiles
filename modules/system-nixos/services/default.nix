@@ -12,5 +12,6 @@
     ./qdrant.nix
     ./rustdesk-server.nix
     ./sonarr.nix
+    ./tftp.nix
   ];
 }
