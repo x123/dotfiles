@@ -45,24 +45,26 @@
   services.fstrim.enable = true;
 
   fileSystems = {
+    # OLDROOT
+    # "/" = {
+    #   device = "/dev/disk/by-label/NIXROOT";
+    #   fsType = "ext4";
+    #   options = ["noatime" "nodiratime"];
+    # };
+
+    # OLDBOOT
+    # "/boot" = {
+    #   device = "/dev/disk/by-label/NIXBOOT";
+    #   fsType = "vfat";
+    # };
+
     "/" = {
-      device = "/dev/disk/by-label/NIXROOT";
-      fsType = "ext4";
-      options = ["noatime" "nodiratime"];
-    };
-
-    "/boot" = {
-      device = "/dev/disk/by-label/NIXBOOT";
-      fsType = "vfat";
-    };
-
-    "/mnt/NEWROOT" = {
       device = "/dev/disk/by-label/NEWROOT";
       fsType = "ext4";
       options = ["noatime" "nodiratime"];
     };
 
-    "/mnt/NEWROOT/boot" = {
+    "/boot" = {
       device = "/dev/disk/by-label/NEWBOOT";
       fsType = "vfat";
     };
@@ -87,15 +89,15 @@
   };
 
   boot.initrd.luks.devices = {
-    # root
-    "luks-3062db9e-0454-4188-b0ba-d751be39e6b9" = {
-      device = "/dev/disk/by-uuid/3062db9e-0454-4188-b0ba-d751be39e6b9";
-      allowDiscards = true;
-      bypassWorkqueues = true;
-      keyFileSize = 4096;
-      keyFile = "/dev/disk/by-id/usb-Kingston_DataTraveler_2.0_00173182460CBF80194DAB60-0:0";
-      fallbackToPassword = true;
-    };
+    # old root (NIXBOOT/NIXROOT)
+    # "luks-3062db9e-0454-4188-b0ba-d751be39e6b9" = {
+    #   device = "/dev/disk/by-uuid/3062db9e-0454-4188-b0ba-d751be39e6b9";
+    #   allowDiscards = true;
+    #   bypassWorkqueues = true;
+    #   keyFileSize = 4096;
+    #   keyFile = "/dev/disk/by-id/usb-Kingston_DataTraveler_2.0_00173182460CBF80194DAB60-0:0";
+    #   fallbackToPassword = true;
+    # };
 
     # samsung-970-evo
     "luks-5a397788-b568-428e-8093-4c73891ee9d5" = {
@@ -107,7 +109,7 @@
       fallbackToPassword = true;
     };
 
-    # samsung-990-pro
+    # samsung-990-pro (NEWBOOT/NEWROOT)
     "luks-samsung-990-pro" = {
       device = "/dev/disk/by-uuid/092a6c39-88d0-4714-83cd-b58bc177ffad";
       allowDiscards = true;
