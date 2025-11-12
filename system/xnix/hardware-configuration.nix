@@ -9,6 +9,12 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  powerManagement = {
+    enable = true;
+    # can be ondemand, powersave, performance
+    cpuFreqGovernor = "powersave";
+  };
+
   boot = {
     binfmt = {
       emulatedSystems = ["aarch64-linux"];
