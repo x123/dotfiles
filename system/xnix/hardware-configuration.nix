@@ -120,7 +120,7 @@
     };
   };
 
-  swapDevices = [{device = "/dev/disk/by-label/NIXSWAP";}];
+  swapDevices = [{device = "/dev/disk/by-label/NEWSWAP";}];
 
   networking.useDHCP = lib.mkDefault true;
 
