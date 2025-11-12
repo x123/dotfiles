@@ -40,6 +40,7 @@
     kernelPackages = pkgs.linuxPackages_latest; # lqx or zen or latest
     kernel.sysctl = {
       "kernel.nmi_watchdog" = false;
+      "kernel.task_delayacct" = 1; # for iotop to work
       # "net.netfilter.nf_conntrack_tcp_timeout_time_wait" = 120;
       # "net.netfilter.nf_conntrack_tcp_timeout_established" = 7200;
     };
