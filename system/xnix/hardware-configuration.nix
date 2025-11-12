@@ -62,6 +62,11 @@
       options = ["noatime" "nodiratime"];
     };
 
+    "/mnt/NEWROOT/boot" = {
+      device = "/dev/disk/by-label/NEWBOOT";
+      fsType = "vfat";
+    };
+
     "/mnt/samsung-970-evo" = {
       device = "/dev/disk/by-label/samsung-970-evo";
       fsType = "ext4";
