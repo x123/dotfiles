@@ -56,6 +56,12 @@
       fsType = "vfat";
     };
 
+    "/mnt/NEWROOT" = {
+      device = "/dev/disk/by-label/NEWROOT";
+      fsType = "ext4";
+      options = ["noatime" "nodiratime"];
+    };
+
     "/mnt/samsung-970-evo" = {
       device = "/dev/disk/by-label/samsung-970-evo";
       fsType = "ext4";
@@ -89,6 +95,16 @@
     # samsung-970-evo
     "luks-5a397788-b568-428e-8093-4c73891ee9d5" = {
       device = "/dev/disk/by-uuid/5a397788-b568-428e-8093-4c73891ee9d5";
+      allowDiscards = true;
+      bypassWorkqueues = true;
+      keyFileSize = 4096;
+      keyFile = "/dev/disk/by-id/usb-Kingston_DataTraveler_2.0_00173182460CBF80194DAB60-0:0";
+      fallbackToPassword = true;
+    };
+
+    # samsung-990-pro
+    "luks-samsung-990-pro" = {
+      device = "/dev/disk/by-uuid/092a6c39-88d0-4714-83cd-b58bc177ffad";
       allowDiscards = true;
       bypassWorkqueues = true;
       keyFileSize = 4096;
