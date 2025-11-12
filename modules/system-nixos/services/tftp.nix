@@ -63,9 +63,6 @@ in {
               ip saddr { ${trustedIpv4s} } udp dport 69 log prefix "nft-accept-tftp: " level info
               ip saddr { ${trustedIpv4s} } udp dport 69 counter accept
             ''}
-
-            udp dport { 67, 68} log prefix "nft-accept-tftp-misc: " level info
-            udp dport { 67, 68} counter accept
             }
           '';
         };
