@@ -42,7 +42,7 @@
               sil
               sil-q
               tintin
-              bottles
+              # bottles
               gamescope
               narsil
               protonup-rs
