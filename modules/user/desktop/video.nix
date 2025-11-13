@@ -42,7 +42,7 @@ in {
           }
           ++ (
             if pkgs.stdenv.isLinux
-            then [pkgs.freetube]
+            then []
             else []
           )
           ++ (
