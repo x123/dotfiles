@@ -10,7 +10,7 @@
     ../../modules/nix-settings # do not remove
     ../../modules/system-nixos
 
-    ./local/syncthing.nix
+    # ./local/syncthing.nix
   ];
 
   custom.system-nixos = {
