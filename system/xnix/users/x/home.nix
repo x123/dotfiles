@@ -12,6 +12,7 @@
     ./local/eq.nix
     # ./local/poe.nix
     ./local/steam-coreparked.nix
+    ./local/syncthing.nix
   ];
 
   nixpkgs.overlays = [
