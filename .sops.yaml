@@ -5,6 +5,7 @@ keys:
   - &system_transmission age102uwyuradgezdjvzyh0fgn6mhc5g6mwkdavywzuvh3nflsltzujqu5fcqa
   - &system_wgnix age13re5npdkf29lch3mp5hm48yed3d0fkc0s3yu0wzu0x9jxl9nn4yseeq78a
   - &system_wgnix-vm age1aj73mlk837xqmt2ahtjv09k78fyudv7t9h623fmtq5vn93029qmq2y3ua8
+  - &system_mininix age17ms098qw5y7dcclpc3eqlhqym2ljklpp59ue4w60lk7a7xnj3fgq6a6epl
   - &mba age1qsykrrtcjsmhw9zst5r52vzpkdj7mxp66c0has02vcf7an230p0s07hhpn
 creation_rules:
   - path_regex: ^secrets.yaml$
@@ -46,6 +47,12 @@ creation_rules:
         - *x123
         - *mba
         - *system_transmission
+  - path_regex: ^system/mininix/[^/]+\.yaml$
+    key_groups:
+      - age:
+        - *x123
+        - *mba
+        - *system_mininix
   - path_regex: ^system/wgnix-vm/[^/]+\.yaml$
     key_groups:
       - age:
