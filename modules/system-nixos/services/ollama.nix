@@ -68,6 +68,7 @@ in {
       ollama = {
         enable = true;
         environmentVariables = config.custom.system-nixos.services.ollama.environment;
+        acceleration = "cuda";
         host = config.custom.system-nixos.services.ollama.host;
         port = config.custom.system-nixos.services.ollama.port;
       };
