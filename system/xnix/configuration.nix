@@ -193,7 +193,11 @@
     group = "xdata";
   };
 
-  nix.settings.trusted-users = ["builder"];
+  nix = {
+    settings.trusted-users = ["builder"];
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
+  };
 
   users.users = {
     builder = {
