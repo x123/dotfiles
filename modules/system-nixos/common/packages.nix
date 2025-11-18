@@ -14,11 +14,15 @@
   };
 
   config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.common.packages.enable) {
-    environment.systemPackages = [
-      pkgs.dnsutils
-      pkgs.iftop
-      pkgs.sysstat
-      pkgs.tcpdump
-    ];
+    environment.systemPackages = builtins.attrValues {
+      inherit
+        (pkgs)
+        dnsutils
+        iftop
+        mtr
+        sysstat
+        tcpdump
+        ;
+    };
   };
 }
