@@ -17,6 +17,7 @@
   custom.system-nixos = {
     enable = true;
 
+    xnix-builder.enable = true;
     hardware.qemu-guest.enable = true;
 
     services = {
