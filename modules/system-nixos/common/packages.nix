@@ -20,8 +20,10 @@
         dnsutils
         iftop
         mtr
+        openssl
         sysstat
         tcpdump
+        wireguard-tools
         ;
     };
   };
