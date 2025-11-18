@@ -8,6 +8,8 @@
     (modulesPath + "/virtualisation/proxmox-lxc.nix")
     ../../modules/nix-settings
     ../../modules/system-nixos
+
+    ./local/unbound.nix
   ];
 
   nix.settings = {sandbox = false;};
