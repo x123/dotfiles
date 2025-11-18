@@ -83,7 +83,7 @@
         replace=domain/${config.networking.domain}/
       '';
     };
-    nameservers = ["192.168.1.127"];
+    nameservers = ["192.168.1.165"];
     search = [];
   };
 
@@ -93,7 +93,7 @@
       matchConfig.Name = "enp6s18";
       networkConfig = {
         DNS = [
-          "192.168.1.127"
+          "192.168.1.165"
         ];
         MulticastDNS = false;
         LLMNR = false;
@@ -225,7 +225,7 @@
   # systemd-resolved disalbed for now (favoring old-school resolvconf)
   services.resolved = {
     enable = false; # commenting this out will cause resolvconf to fail
-    fallbackDns = ["192.168.1.127"];
+    fallbackDns = ["192.168.1.165"];
     llmnr = "false";
   };
 
