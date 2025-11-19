@@ -14,6 +14,7 @@
       inherit
         (pkgs)
         claude-code
+        codex
         fabric-ai
         opencode
         whisper-cpp
