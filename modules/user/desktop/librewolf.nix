@@ -3,17 +3,16 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  isDarwin = pkgs.stdenv.isDarwin;
+in {
   imports = [];
 
   config =
     lib.mkIf
-    (
-      config.custom.user.desktop.enable
-      && !pkgs.stdenv.isDarwin
-    )
+    config.custom.user.desktop.enable
     {
-      xdg = {
+      xdg = lib.mkIf (!isDarwin) {
         desktopEntries = {
           fj-librewolf = {
             name = "fj-librewolf";
@@ -23,14 +22,14 @@
             terminal = false;
           };
         };
+
+        mimeApps.defaultApplications = {
+          "x-scheme-handler/https" = ["fj-librewolf.desktop"];
+          "x-scheme-handler/http" = ["fj-librewolf.desktop"];
+        };
       };
 
-      xdg.mimeApps.defaultApplications = {
-        "x-scheme-handler/https" = ["fj-librewolf.desktop"];
-        "x-scheme-handler/http" = ["fj-librewolf.desktop"];
-      };
-
-      home = {
+      home = lib.mkIf (!isDarwin) {
         file = {
           firejail-librewolf-profile = {
             enable = true;
@@ -60,7 +59,10 @@
 
       programs.librewolf = {
         enable = true;
-        package = pkgs.librewolf-bin;
+        package =
+          if isDarwin
+          then pkgs.librewolf
+          else pkgs.librewolf-bin;
         profiles."x" = {
           extensions.packages = builtins.attrValues {
             inherit

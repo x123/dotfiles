@@ -146,6 +146,7 @@
           system = "aarch64-darwin";
         };
         modules = [
+          nur.modules.homeManager.default
           ./system/fom-mbp/users/fom/home.nix
         ];
       };
