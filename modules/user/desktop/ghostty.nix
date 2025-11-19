@@ -8,7 +8,7 @@
   imports = [];
 
   options = {
-    custom.desktop.ghostty = {
+    custom.user.desktop.ghostty = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -20,8 +20,8 @@
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
-      && config.custom.desktop.ghostty.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.ghostty.enable
       && !pkgs.stdenv.isDarwin
     )
     {

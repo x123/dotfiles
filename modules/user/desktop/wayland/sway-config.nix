@@ -7,7 +7,7 @@
   imports = [];
 
   options = {
-    custom.desktop.wayland.sway = {
+    custom.user.desktop.wayland.sway = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -18,8 +18,8 @@
 
   config =
     lib.mkIf (
-      config.custom.desktop.enable
-      && config.custom.desktop.wayland.sway.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.wayland.sway.enable
       && !pkgs.stdenv.isDarwin
     ) {
       home.packages = builtins.attrValues {

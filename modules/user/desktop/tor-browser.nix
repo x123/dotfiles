@@ -7,7 +7,7 @@
   imports = [];
 
   options = {
-    custom.desktop.tor-browser = {
+    custom.user.desktop.tor-browser = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -19,8 +19,8 @@
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
-      && config.custom.desktop.tor-browser.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.tor-browser.enable
       && !pkgs.stdenv.isDarwin
     )
     {

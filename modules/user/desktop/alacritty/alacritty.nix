@@ -8,7 +8,7 @@
     ./themes/nord.nix
   ];
 
-  config = lib.mkIf config.custom.desktop.enable {
+  config = lib.mkIf config.custom.user.desktop.enable {
     home.packages = [
       pkgs.alacritty
     ];

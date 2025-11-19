@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  config = lib.mkIf config.custom.desktop.enable {
+  config = lib.mkIf config.custom.user.desktop.enable {
     programs.alacritty = {
       settings = {
         # begin nord theme

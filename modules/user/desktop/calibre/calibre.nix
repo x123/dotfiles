@@ -5,7 +5,7 @@
   ...
 }: {
   options = {
-    custom.desktop.calibre = {
+    custom.user.desktop.calibre = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -17,8 +17,8 @@
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
-      && config.custom.desktop.calibre.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.calibre.enable
       && !pkgs.stdenv.isDarwin
     )
     {

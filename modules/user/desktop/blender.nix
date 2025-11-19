@@ -4,12 +4,12 @@
   pkgs,
   ...
 }: let
-  blender = pkgs.blender.override {cudaSupport = config.custom.desktop.blender.cudaSupport;};
+  blender = pkgs.blender.override {cudaSupport = config.custom.user.desktop.blender.cudaSupport;};
 in {
   imports = [];
 
   options = {
-    custom.desktop.blender = {
+    custom.user.desktop.blender = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -26,8 +26,8 @@ in {
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
-      && config.custom.desktop.blender.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.blender.enable
       && !pkgs.stdenv.isDarwin
     )
     {

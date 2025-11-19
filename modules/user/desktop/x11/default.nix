@@ -8,8 +8,8 @@
     ./i3-config.nix
   ];
 
-  config = lib.mkIf (config.custom.desktop.enable
-    && config.custom.desktop.x11.enable
+  config = lib.mkIf (config.custom.user.desktop.enable
+    && config.custom.user.desktop.x11.enable
     && !pkgs.stdenv.isDarwin) {
     xdg = {
       desktopEntries = {

@@ -35,57 +35,57 @@
   };
 
   custom = {
-    desktop = {
-      enable = true;
-
-      anki.enable = false; # todo this is broken as of 2025-08-29
-      anydesk.enable = true;
-      audio.enable = true; # this is just youtube-music right now
-      calibre.enable = false;
-      discord.enable = true;
-      dropbox.enable = true;
-      flameshot.enable = true;
-      freecad.enable = false;
-      ghostty.enable = true;
-      inkscape.enable = true;
-      irc.enable = true;
-      keepassxc.enable = true;
-      keybase.enable = true;
-      mullvad.enable = true;
-      mumble.enable = true;
-      obs-studio.enable = false;
-      slack.enable = true;
-      telegram.enable = false;
-      tor-browser.enable = true;
-      video.enable = true;
-
-      wayland = {
-        enable = false;
-        hyprland.enable = false;
-        sway.enable = false;
-      };
-
-      x11 = {
-        enable = true;
-        i3.enable = true;
-      };
-
-      blender = {
-        enable = false;
-        cudaSupport = true;
-      };
-
-      i3status-rust = {
-        temperature = {
-          enable = true;
-          chip = "nct6686-isa-0a20";
-          inputs = ["AMD TSI Addr 98h"];
-        };
-        nvidia.enable = true;
-      };
-    };
-
     user = {
+      desktop = {
+        enable = true;
+
+        anki.enable = false; # todo this is broken as of 2025-08-29
+        anydesk.enable = true;
+        audio.enable = true; # this is just youtube-music right now
+        calibre.enable = false;
+        discord.enable = true;
+        dropbox.enable = true;
+        flameshot.enable = true;
+        freecad.enable = false;
+        ghostty.enable = true;
+        inkscape.enable = true;
+        irc.enable = true;
+        keepassxc.enable = true;
+        keybase.enable = true;
+        mullvad.enable = true;
+        mumble.enable = true;
+        obs-studio.enable = false;
+        slack.enable = true;
+        telegram.enable = false;
+        tor-browser.enable = true;
+        video.enable = true;
+
+        wayland = {
+          enable = false;
+          hyprland.enable = false;
+          sway.enable = false;
+        };
+
+        x11 = {
+          enable = true;
+          i3.enable = true;
+        };
+
+        blender = {
+          enable = false;
+          cudaSupport = true;
+        };
+
+        i3status-rust = {
+          temperature = {
+            enable = true;
+            chip = "nct6686-isa-0a20";
+            inputs = ["AMD TSI Addr 98h"];
+          };
+          nvidia.enable = true;
+        };
+      };
+
       ai = {
         enable = true;
 

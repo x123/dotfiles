@@ -6,13 +6,13 @@
 }: {
   imports = [];
 
-  options.custom.desktop.discord.enable = lib.mkEnableOption "discord";
+  options.custom.user.desktop.discord.enable = lib.mkEnableOption "discord";
 
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
-      && config.custom.desktop.discord.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.discord.enable
     )
     {
       xdg = {

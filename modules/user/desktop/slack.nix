@@ -6,13 +6,13 @@
 }: {
   imports = [];
 
-  options.custom.desktop.slack.enable = lib.mkEnableOption "slack";
+  options.custom.user.desktop.slack.enable = lib.mkEnableOption "slack";
 
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
-      && config.custom.desktop.slack.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.slack.enable
     )
     {
       home = {

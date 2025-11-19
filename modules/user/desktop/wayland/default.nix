@@ -9,8 +9,8 @@
     ./sway-config.nix
   ];
 
-  config = lib.mkIf (config.custom.desktop.enable
-    && config.custom.desktop.wayland.enable
+  config = lib.mkIf (config.custom.user.desktop.enable
+    && config.custom.user.desktop.wayland.enable
     && !pkgs.stdenv.isDarwin) {
     xdg = {
       desktopEntries = {

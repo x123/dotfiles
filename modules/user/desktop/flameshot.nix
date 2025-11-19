@@ -5,7 +5,7 @@
   ...
 }: {
   options = {
-    custom.desktop.flameshot = {
+    custom.user.desktop.flameshot = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -17,8 +17,8 @@
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
-      && config.custom.desktop.flameshot.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.flameshot.enable
       && !pkgs.stdenv.isDarwin
     )
     {

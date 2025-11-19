@@ -14,35 +14,35 @@
   # };
 
   custom = {
-    desktop = {
-      enable = true;
-
-      discord.enable = false;
-      flameshot.enable = true;
-      ghostty.enable = true;
-      inkscape.enable = false;
-      obs-studio.enable = false;
-      slack.enable = false;
-      telegram.enable = true;
-      tor-browser.enable = false;
-      video.enable = true;
-
-      blender = {
-        enable = false;
-        cudaSupport = false;
-      };
-
-      i3status-rust = {
-        # temperature = {
-        #   enable = true;
-        #   chip = "nct6686-isa-0a20";
-        #   inputs = ["AMD TSI Addr 98h"];
-        # };
-        nvidia.enable = false;
-      };
-    };
-
     user = {
+      desktop = {
+        enable = true;
+
+        discord.enable = false;
+        flameshot.enable = true;
+        ghostty.enable = true;
+        inkscape.enable = false;
+        obs-studio.enable = false;
+        slack.enable = false;
+        telegram.enable = true;
+        tor-browser.enable = false;
+        video.enable = true;
+
+        blender = {
+          enable = false;
+          cudaSupport = false;
+        };
+
+        i3status-rust = {
+          # temperature = {
+          #   enable = true;
+          #   chip = "nct6686-isa-0a20";
+          #   inputs = ["AMD TSI Addr 98h"];
+          # };
+          nvidia.enable = false;
+        };
+      };
+
       ai = {
         enable = false;
 
