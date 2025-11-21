@@ -30,7 +30,7 @@
         blocklist-enabled = true;
         trash-original-torrent-files = true;
         watch-dir-force-generic = true;
-        cache-size-mb = 4; # defaults to 4MB
+        cache-size-mb = 512; # defaults to 4MB
         dht-enabled = true;
         encryption = 1; # 0 disable, 1 prefer, 2 require
         lpd-enabled = false; # local peer discovery
@@ -39,7 +39,7 @@
         preferred_transport = "utp"; # default "utp", can use "tcp" instead
         bind-address-ipv4 = "10.10.10.9";
         peer-limit-global = 600;
-        peer-limit-per-torrent = 150;
+        peer-limit-per-torrent = 300;
         port-forwarding-enabled = false; # disable UPnP / NAT-PMP
         download-queue-enabled = false;
         # download-queue-size = 25; # only used if download-queue-enabled
