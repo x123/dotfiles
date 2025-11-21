@@ -15,5 +15,6 @@
     ./tang.nix
     ./tftp.nix
     ./xmrig.nix
+    ./xmrig-proxy.nix
   ];
 }
