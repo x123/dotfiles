@@ -52,6 +52,7 @@
         enable = true;
         openFirewallNftables = true;
         environmentFile = config.sops.secrets."p2pool-env".path;
+        mini = true;
       };
 
       xmrig-proxy = {
