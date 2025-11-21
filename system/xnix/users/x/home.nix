@@ -43,6 +43,7 @@
         anydesk.enable = true;
         audio.enable = true; # this is just youtube-music right now
         calibre.enable = false;
+        crypto.enable = true;
         discord.enable = true;
         dropbox.enable = true;
         flameshot.enable = true;
@@ -59,7 +60,6 @@
         telegram.enable = false;
         tor-browser.enable = true;
         video.enable = true;
-        xmr.enable = true;
 
         wayland = {
           enable = false;

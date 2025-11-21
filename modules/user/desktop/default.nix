@@ -15,6 +15,7 @@
     ./blender.nix
     ./calibre
     ./chromium.nix
+    ./crypto.nix
     ./discord.nix
     ./dropbox.nix
     ./element.nix
@@ -40,7 +41,6 @@
     ./telegram.nix
     ./tor-browser.nix
     ./video.nix
-    ./xmr.nix
   ];
 
   options.custom.user.desktop = {
