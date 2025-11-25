@@ -28,6 +28,11 @@
     kernelParams = [];
     # kernelPackages = pkgs.linuxKernel.packages.linux_6_11;
     kernelPackages = pkgs.linuxPackages_latest; # lqx or zen or latest
+    kernel.sysctl = {
+      "kernel.nmi_watchdog" = false;
+      # "net.netfilter.nf_conntrack_tcp_timeout_time_wait" = 120;
+      # "net.netfilter.nf_conntrack_tcp_timeout_established" = 7200;
+    };
     kernelModules = [
       "kvm-amd"
       "nct6683"
