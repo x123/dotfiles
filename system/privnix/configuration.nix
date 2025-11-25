@@ -116,6 +116,7 @@
       (pkgs)
       git
       vim
+      weechat
       wget
       ;
   };
