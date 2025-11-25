@@ -24,6 +24,13 @@
 
   custom.system-nixos = {
     enable = true;
+
+    services = {
+      openssh = {
+        enable = true;
+        openFirewallNftables = false;
+      };
+    };
   };
 
   boot = {
@@ -63,14 +70,14 @@
     };
   };
 
-  services.openssh = {
-    enable = true;
-    openFirewall = true;
-    settings = {
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
-    };
-  };
+  # services.openssh = {
+  #   enable = true;
+  #   openFirewall = true;
+  #   settings = {
+  #     PasswordAuthentication = false;
+  #     KbdInteractiveAuthentication = false;
+  #   };
+  # };
 
   environment.systemPackages = builtins.attrValues {
     inherit
