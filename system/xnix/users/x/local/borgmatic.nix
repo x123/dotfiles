@@ -132,7 +132,7 @@
               "label" = "xnix-storagebox";
             }
             {
-              "path" = "/mnt/xdata/borg";
+              "path" = "/mnt/samsung-970-evo/borg";
               "label" = "local";
             }
           ];
