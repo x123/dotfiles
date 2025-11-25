@@ -10,8 +10,15 @@
     ../../modules/nix-settings # do not remove
     ../../modules/system-nixos
 
+    ./local/n8n.nix
     # ./local/syncthing.nix
   ];
+
+  # allow unfree packages
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowAliases = false;
+  };
 
   custom.system-nixos = {
     enable = true;
