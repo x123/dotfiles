@@ -30,15 +30,6 @@ in {
       streamingProcesses = 7;
     };
 
-    # this is needed to disable automatic ACME cert grab from invidious our own
-    # definition in security.acme.certs (in acme.nix)
-    # nginx.virtualHosts = {
-    #   "social.boxchop.city" = {
-    #     enableACME = false;
-    #     useACMEHost = "boxchop.city";
-    #   };
-    # };
-
     postgresqlBackup = {
       databases = ["mastodon"];
     };
