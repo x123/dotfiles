@@ -83,6 +83,22 @@
           identityFile = "/Users/fom/.ssh/id_fom-mba";
           identitiesOnly = true;
         };
+        "xnix.lan" = {
+          hostname = "xnix.lan";
+          port = 22;
+          addressFamily = "inet";
+          user = "x";
+          identityFile = "/Users/fom/.ssh/id_fom-mba";
+          identitiesOnly = true;
+        };
+        "nixpad.lan" = {
+          hostname = "nixpad.lan";
+          port = 22;
+          addressFamily = "inet";
+          user = "x";
+          identityFile = "/Users/fom/.ssh/id_fom-mba";
+          identitiesOnly = true;
+        };
       };
     };
   };
