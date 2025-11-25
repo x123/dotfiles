@@ -2,12 +2,17 @@
   config,
   lib,
   ...
-}: let
-  cfg = config.custom;
-in {
+}: {
   imports = [];
+  options = {
+    custom.system-darwin.skhd.enable = lib.mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Whether to enable skhd on darwin";
+    };
+  };
 
-  config = lib.mkIf (cfg.system-darwin.enable && cfg.system-darwin.skhd.enable) {
+  config = lib.mkIf (config.custom.system-darwin.enable && config.custom.system-darwin.skhd.enable) {
     services.skhd = {
       enable = true;
       skhdConfig = ''

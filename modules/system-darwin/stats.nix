@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}: let
-  cfg = config.custom;
-in {
+}: {
   imports = [];
 
   options = {
@@ -18,7 +16,7 @@ in {
     };
   };
 
-  config = lib.mkIf (cfg.system-darwin.enable && cfg.system-darwin.stats.enable) {
+  config = lib.mkIf (config.custom.system-darwin.enable && config.custom.system-darwin.stats.enable) {
     environment.systemPackages = [
       pkgs.stats
     ];
