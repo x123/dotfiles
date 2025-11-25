@@ -4,7 +4,25 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  markdown_config = pkgs.writeText "config.json" (
+    builtins.toJSON {
+      "default" = true;
+      "MD007" = {
+        "indent" = 4;
+        "start_indent" = 4;
+      };
+      "MD013" = {
+        "tables" = false;
+      };
+      "MD025" = false;
+      "MD029" = {
+        "style" = "one_or_ordered";
+      };
+      "MD041" = false;
+    }
+  );
+in {
   imports = [];
 
   options.custom.editors.neovim.enable = lib.mkEnableOption "neovim";
@@ -201,6 +219,7 @@
         -- conform-nvim
         require("conform").setup({
           formatters_by_ft = {
+            markdown = { "markdownlint" },
             nix = { "alejandra" },
             python = { "isort", "black" },
           },
@@ -213,7 +232,18 @@
             },
             isort = {
               command = "${pkgs.isort}/bin/isort",
-            }
+            },
+            markdownlint = {
+              command = "${pkgs.markdownlint-cli}/bin/markdownlint",
+              args = {
+                "--config",
+                "${markdown_config}",
+                "--fix",
+                "$FILENAME",
+              },
+              exit_codes = { 0, 1}, -- code 1 is given when trying a file that includes non-autofixable errors
+              stdin = false,
+            },
           },
         })
 
