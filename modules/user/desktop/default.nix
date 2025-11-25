@@ -51,20 +51,5 @@
               ;
           };
         })
-      (
-        lib.mkIf
-        (
-          config.custom.desktop.enable
-          && pkgs.stdenv.isDarwin
-        )
-        {
-          home.packages = builtins.attrValues {
-            inherit
-              (pkgs)
-              gimp
-              ;
-          };
-        }
-      )
     ];
 }
