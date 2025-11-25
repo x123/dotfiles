@@ -300,8 +300,8 @@ in {
             "${my-modifier}+j" = "focus down";
             "${my-modifier}+k" = "focus up";
             "${my-modifier}+l" = "focus right";
-            "${my-modifier}+Shift+apostrophe" = "splitv";
-            "${my-modifier}+Shift+5" = "splith";
+            "${my-modifier}+Shift+v" = "splitv";
+            "${my-modifier}+Shift+b" = "splith";
             "${my-modifier}+Shift+x" = "exec ${i3lock-dpms}";
             "${my-modifier}+Tab" = "exec ${pkgs.rofi}/bin/rofi -show window";
             "${my-modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show combi";
