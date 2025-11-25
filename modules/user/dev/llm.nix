@@ -16,6 +16,7 @@
           home.packages = builtins.attrValues {
             inherit
               (inputs.nixpkgs-unstable-small.legacyPackages.${system})
+              aider-chat-full
               fabric-ai
               opencode
               whisper-cpp
@@ -28,6 +29,7 @@
           home.packages = builtins.attrValues {
             inherit
               (inputs.nixpkgs-unstable-small.legacyPackages.${system})
+              aider-chat-full
               fabric-ai
               opencode
               whisper-cpp
