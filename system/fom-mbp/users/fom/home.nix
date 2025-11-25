@@ -17,6 +17,13 @@
             allowAliases = false;
           };
         };
+        master = import inputs.nixpkgs-master {
+          system = "aarch64-darwin";
+          config = {
+            allowUnfree = true;
+            allowAliases = false;
+          };
+        };
       }
     )
   ];

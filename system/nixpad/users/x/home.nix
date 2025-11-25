@@ -19,6 +19,13 @@
             allowAliases = false;
           };
         };
+        master = import inputs.nixpkgs-master {
+          system = "x86_64-linux";
+          config = {
+            allowUnfree = true;
+            allowAliases = false;
+          };
+        };
       }
     )
   ];
