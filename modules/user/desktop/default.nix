@@ -24,6 +24,7 @@
     ./gnucash.nix
     ./gtk.nix
     ./inkscape.nix
+    ./java.nix
     ./keepass.nix
     ./keybase.nix
     ./obs-studio.nix
