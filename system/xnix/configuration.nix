@@ -8,6 +8,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/system/bluetooth.nix
+    ../../modules/system/cifs.nix
     ../../modules/system/console.nix
     ../../modules/system/locale.nix
     ../../modules/system/nix-settings.nix # do not remove
