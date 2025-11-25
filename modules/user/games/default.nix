@@ -38,7 +38,8 @@
               ;
             inherit
               (inputs.nixpkgs-unstable-small.legacyPackages.${system})
-              bottles
+              wine
+              winetricks
               ;
           };
         })
