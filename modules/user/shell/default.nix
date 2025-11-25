@@ -58,7 +58,7 @@
       enableCompletion = true;
 
       oh-my-zsh = {
-        enable = true;
+        enable = false;
         plugins = [
           "git"
           "sudo"
@@ -100,6 +100,34 @@
       less = "less -mNg";
       nsp = "nix search nixpkgs";
       dns-cache-flush = "sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder";
+
+      # subset of oh-my-zsh aliases
+      "ga" = "git add";
+      "gaa" = "git add --all";
+      "gapa" = "git add --patch";
+      "gb" = "git branch";
+      "gbd" = "git branch -d";
+      "gbD" = "git branch -D";
+      "gc" = "git commit -v";
+      "gc!" = "git commit -v --amend";
+      "gcn!" = "git commit -v --no-edit --amend";
+      "gcan!" = "git commit -v -a --no-edit --amend";
+      "gcb" = "git checkout -b";
+      "gcm" = "git checkout $(git_main_branch)";
+      "gcmsg" = "git commit -m";
+      "gco" = "git checkout";
+      "gd" = "git diff";
+      "gds" = "git diff --staged";
+      "gl" = "git pull";
+      "glol" = "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'";
+      "gm" = "git merge";
+      "gp" = "git push";
+      "gpf" = "git push --force-with-lease";
+      "gpf!" = "git push --force";
+      "grs" = "git restore";
+      "grst" = "git restore --staged";
+      "gsh" = "git show";
+      "gst" = "git status";
       # TODO: make this a script (to install terminfo on remotes)
       # "infocmp -x | ssh SOMEMACHINE -- tic -x -"
     };
