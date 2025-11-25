@@ -7,11 +7,11 @@
   imports = [];
 
   options = {
-    custom.user.desktop.xmr = {
+    custom.user.desktop.crypto = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
-        description = "Whether to enable the xmr packages.";
+        description = "Whether to enable the crypto packages.";
       };
     };
   };
@@ -20,7 +20,7 @@
     lib.mkIf
     (
       config.custom.user.desktop.enable
-      && config.custom.user.desktop.xmr.enable
+      && config.custom.user.desktop.crypto.enable
     )
     {
       home = {
@@ -28,6 +28,7 @@
           pkgs.monero-cli
           pkgs.monero-gui
           pkgs.xmrig
+          pkgs.trezor-suite
         ];
       };
     };
