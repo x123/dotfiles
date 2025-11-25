@@ -8,6 +8,8 @@
     settings = {
       manager = {
         show_hidden = false;
+        sort_by = "modified";
+        linemode = "mtime";
       };
     };
   };
