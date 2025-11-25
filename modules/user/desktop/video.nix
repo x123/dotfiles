@@ -36,11 +36,15 @@ in {
             inherit
               (pkgs)
               aria2
-              freetube
               mpv
               streamlink
               ;
           }
+          ++ (
+            if pkgs.stdenv.isLinux
+            then [pkgs.freetube]
+            else []
+          )
           ++ (
             if pkgs.stdenv.isDarwin
             then [pkgs.vlc-bin]
