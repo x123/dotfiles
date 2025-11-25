@@ -4,6 +4,7 @@
     blueman
     dunst
     feh
+    i3status-rust
     networkmanagerapplet
     redshift
     xfce.thunar
@@ -53,6 +54,51 @@
   # compositing
   services.picom.enable = true;
 
+  programs.i3status-rust = {
+    enable = true;
+    bars = {
+      default = {
+        blocks = [
+          {
+            alert = 10.0;
+            block = "disk_space";
+            info_type = "available";
+            interval = 60;
+            path = "/";
+            warning = 20.0;
+          }
+          {
+            block = "memory";
+            format = " $icon mem_used_percents ";
+            format_alt = " $icon $swap_used_percents ";
+          }
+          {
+            block = "cpu";
+            interval = 1;
+          }
+          {
+            block = "load";
+            format = " $icon $1m ";
+            interval = 1;
+          }
+          {
+            block = "sound";
+          }
+          {
+            block = "time";
+            format = " $timestamp.datetime(f:'%a %d/%m %R') ";	
+            interval = 1;
+          }
+        ];
+        settings = {
+          theme = {
+            theme = "nord-dark";
+          };
+        };
+      }; 
+    };
+  };
+
   xsession.windowManager.i3 =
     let
       my-modifier = "Mod1";
@@ -87,6 +133,20 @@
           hideEdgeBorders = "smart";
           titlebar = false;
         };
+        bars = [
+          {
+            fonts = {
+              names = [ "Unifont" ];
+              size = 11.0;
+            };
+            mode = "dock";
+            hiddenState = "show";
+            statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-default.toml";
+            position = "top";
+            trayOutput = "primary";
+            workspaceButtons = true;
+          }
+        ];
         keybindings = lib.mkOptionDefault {
           "${my-modifier}+Shift+l" = "exec ~/bin/i3lock-dpms";
           #"${my-modifier}+Shift+l" = "exec ${pkgs.i3lock}/bin/i3lock -n -c 000000";
