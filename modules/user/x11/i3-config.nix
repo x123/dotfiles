@@ -206,7 +206,7 @@ in {
             {command = "${pkgs.dunst}/bin/dunst &";}
             {command = "${pkgs.picom}/bin/picom --daemon";}
             {command = "${pkgs.i3}/bin/i3-msg workspace 1";}
-            {command = "${pkgs.redshift}/bin/redshift -l 55.7:12.6 -t 5700:3600 -g 0.8 -m randr -v";}
+            {command = "${pkgs.redshift}/bin/redshift -l 55.7:12.6 -t 5700:3600 -g 1.0 -m randr -v";}
             {command = "${pkgs.networkmanagerapplet}/bin/nm-applet &";}
             {command = "${pkgs.blueman}/bin/blueman-applet &";}
           ]
