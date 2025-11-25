@@ -6,6 +6,7 @@
       ../../modules/system/nix-settings.nix # do not remove
       ../../modules/system/zsh.nix
       ./binary-cache.nix
+      ./binrich.nix
       ./postgres.nix
     ];
 
