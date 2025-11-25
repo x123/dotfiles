@@ -27,6 +27,7 @@
     ./keepass.nix
     ./keybase.nix
     ./obs-studio.nix
+    ./p2p.nix
     ./slack.nix
     ./telegram.nix
     ./tor-browser.nix
