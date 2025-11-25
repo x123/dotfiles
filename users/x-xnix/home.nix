@@ -19,7 +19,7 @@
     ../../modules/user/desktop/ghostty.nix
     ../../modules/user/git.nix
     ../../modules/user/gpg-agent.nix
-    ../../modules/user/helix.nix
+    ../../modules/user/editors/helix.nix
     ../../modules/user/home-manager.nix
     ../../modules/user/desktop/keepass.nix
     ../../modules/user/neomutt.nix
