@@ -8,6 +8,10 @@
         (pkgs)
         presenterm
         ;
+      inherit
+        (pkgs.unixtools)
+        watch
+        ;
     };
   };
 }
