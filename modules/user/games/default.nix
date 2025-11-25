@@ -38,6 +38,8 @@
               ;
             inherit
               (pkgs.unstable-small)
+              gamescope
+              lutris
               narsil
               wine
               winetricks
