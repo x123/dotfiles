@@ -6,6 +6,8 @@
       ../../modules/system/zsh.nix
     ];
 
+  boot.kernelPackages = pkgs.linuxPackages_zen; # lqx or zen or latest
+
   networking = {
     hostName = "nixium";
     domain = "boxchop.city";
