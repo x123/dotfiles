@@ -12,6 +12,16 @@
     ./local/poe.nix
   ];
 
+  nixpkgs.overlays = [
+    (
+      final: prev: {
+        unstable-small = import inputs.nixpkgs-unstable-small {
+          system = "x86_64-linux";
+        };
+      }
+    )
+  ];
+
   sops = {
     age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
     defaultSopsFile = ./secrets.yaml;
