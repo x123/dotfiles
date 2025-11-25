@@ -1,6 +1,7 @@
 {lib, ...}: {
   imports = [
     ./auditd.nix
+    ./firejail.nix
   ];
 
   options = {
