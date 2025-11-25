@@ -1,0 +1,5 @@
+#!env zsh
+set -euo pipefail
+pushd ~/.dotfiles
+statix check .
+popd
