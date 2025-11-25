@@ -11,10 +11,10 @@
   
   outputs = { nixpkgs, home-manager, nur, nixos-wsl, ... }:
   let 
-    system = "x86_64-linux";
+    #system = "x86_64-linux";
     
     pkgs = import nixpkgs {
-      inherit system;
+      #inherit system;
       config = { allowUnfree = true; };  
     };
 
@@ -47,7 +47,7 @@
     
     nixosConfigurations = {
       xnixwsl = lib.nixosSystem {
-        inherit system;
+        system = "x86_64-linux";
 
         modules = [
           nixos-wsl.nixosModules.wsl
@@ -56,7 +56,7 @@
       };
 
       xnix = lib.nixosSystem {
-        inherit system;
+        system = "x86_64-linux";
 
         modules = [
           ./system/xnix/configuration.nix
