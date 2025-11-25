@@ -2,6 +2,7 @@
   imports = [
     ./fonts.nix
     ./htop.nix
+    ./social.nix
     ./starship.nix
     ./tmux.nix
     ./yazi.nix
