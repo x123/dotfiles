@@ -175,6 +175,7 @@
             allowUnfree = true;
             cudaSupport = false;
             allowAliases = false;
+            allowUnsupported = true;
           };
         };
         extraSpecialArgs = {
