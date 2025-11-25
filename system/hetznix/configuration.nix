@@ -22,6 +22,7 @@
     ./local/ntfy.nix
     ./local/postfix.nix
     ./local/postgres.nix
+    ./local/rustdesk-server.nix
     ./local/uptime-kuma.nix
   ];
 
