@@ -79,6 +79,7 @@ with lib;
         gnupg
         rage
         sops
+        ssh-to-age
 
         # archives
         unzip
