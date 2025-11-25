@@ -34,6 +34,14 @@
       invidious = {
         enable = true;
         domain = "invidious.xnix.lan";
+        openFirewallNftables = true;
+        trustedIpv4Networks = [
+          "192.168.1.0/24"
+          "192.168.9.0/24"
+        ];
+        trustedIpv6Networks = [
+          "fd65:4e21:dde4::1/60"
+        ];
       };
 
       jellyfin.enable = true;

@@ -4,6 +4,8 @@
   ...
 }: let
   cfg = config.custom;
+  trustedIpv4s = builtins.replaceStrings [" "] [", "] (toString cfg.system-nixos.services.invidious.trustedIpv4Networks);
+  trustedIpv6s = builtins.replaceStrings [" "] [", "] (toString cfg.system-nixos.services.invidious.trustedIpv6Networks);
 in {
   options = {
     custom.system-nixos.services.invidious = {
@@ -17,12 +19,44 @@ in {
         type = lib.types.str;
         description = "Domain to host invidious on";
       };
+      openFirewallNftables = lib.mkOption {
+        default = false;
+        type = lib.types.bool;
+        description = "Whether to add nftables rules.";
+      };
+      trustedIpv4Networks = lib.mkOption {
+        default = ["127.0.0.1/32"];
+        type = lib.types.listOf lib.types.str;
+        description = "Trusted IPv4 ranges to open nftables firewall for.";
+      };
+      trustedIpv6Networks = lib.mkOption {
+        default = ["::1/128"];
+        type = lib.types.listOf lib.types.str;
+        description = "Trusted IPv6 ranges to open nftables firewall for.";
+      };
     };
   };
 
   config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.services.invidious.enable) {
     users.users.nginx.extraGroups = [config.users.groups.ssl.name];
     # users.users.caddy.extraGroups = [config.users.groups.ssl.name];
+
+    networking.nftables = lib.mkIf (cfg.system-nixos.services.invidious.openFirewallNftables) {
+      enable = true;
+      tables = {
+        filter = {
+          family = "inet";
+          content = ''
+            chain input-allow {
+              ip6 saddr { ${trustedIpv6s} } tcp dport {80, 443} log prefix "nft-accept-lan-invidious: " level info
+              ip6 saddr { ${trustedIpv6s} } tcp dport {80, 443} counter accept
+
+              ip saddr { ${trustedIpv4s} } tcp dport {80, 443} log prefix "nft-accept-lan-invidious: " level info
+              ip saddr { ${trustedIpv4s} } tcp dport {80, 443} counter accept
+            }'';
+        };
+      };
+    };
 
     services = {
       invidious = {
