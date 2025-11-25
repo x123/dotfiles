@@ -65,6 +65,7 @@ in {
           (pkgs.vimPlugins)
           CopilotChat-nvim
           avante-nvim
+          bigfile-nvim
           cmp-nvim-lsp
           cmp-nvim-lua
           cmp-path
@@ -156,6 +157,22 @@ in {
         vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gvgv")
 
         vim.keymap.set('n', "<leader>U", vim.cmd.UndotreeToggle)
+
+        -- bigfile
+        require("bigfile").setup({
+          filesize = 2, -- size of the file in MiB, the plugin round file sizes to the closest MiB
+          pattern = { "*" }, -- autocmd pattern or function see <### Overriding the detection of big files>
+          features = { -- features to disable
+            "indent_blankline",
+            "illuminate",
+            "lsp",
+            "treesitter",
+            "syntax",
+            "matchparen",
+            "vimopts",
+            "filetype",
+          },
+        })
 
         -- codecompanion
         require("codecompanion").setup({
