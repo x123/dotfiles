@@ -114,6 +114,13 @@
         identityFile = "/home/x/.ssh/id_xnix";
         identitiesOnly = true;
       };
+      "gk-2.lan" = {
+        hostname = "gk-2.lan";
+        port = 22;
+        user = "root";
+        identityFile = "/home/x/.ssh/id_xnix";
+        identitiesOnly = true;
+      };
     };
   };
 }
