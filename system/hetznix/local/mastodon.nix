@@ -16,7 +16,7 @@ in {
   # ];
   services = {
     mastodon = {
-      enable = true;
+      enable = false;
       # package = pkgs.unstable-small.mastodon;
       database.createLocally = true;
       localDomain = "social.boxchop.city";
