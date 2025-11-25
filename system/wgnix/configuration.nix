@@ -10,7 +10,7 @@
     ../../modules/nix-settings # do not remove
     ../../modules/system-nixos
 
-    # ./local/thelounge.nix
+    ./local/wireguard.nix
   ];
 
   nix.settings = {sandbox = false;};
@@ -90,7 +90,10 @@
         "192.168.1.241/24"
       ];
       routes = [
-        {Gateway = "192.168.1.1";}
+        {
+          Destination = "86.106.84.164/32";
+          Gateway = "192.168.1.1";
+        }
       ];
       linkConfig.RequiredForOnline = "routable";
     };
