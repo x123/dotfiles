@@ -9,6 +9,7 @@
     ../../modules/system-nixos
 
     ./local/nftables-syncthing.nix
+    ./local/xmrig.nix
   ];
 
   custom.system-nixos = {
