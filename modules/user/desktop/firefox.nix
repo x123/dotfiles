@@ -5,6 +5,11 @@
 }: {
   imports = [];
 
+  xdg.mimeApps.defaultApplications = {
+    "x-scheme-handler/https" = ["firefox.desktop"];
+    "x-scheme-handler/http" = ["firefox.desktop"];
+  };
+
   home = {
     packages = [
       pkgs.firefox
