@@ -17,6 +17,10 @@
             comment "count all packets that hit the final drop in the input chain"
           }
 
+          counter cnt_rpfilter_drop {
+            comment "count all packets that hit the final drop in the rpfilter chain"
+          }
+
           set ks1 {
             type ipv4_addr
             flags timeout
@@ -130,6 +134,7 @@
             meta nfproto ipv4 udp sport . udp dport { 68 . 67, 67 . 68 } accept comment "DHCPv4 client/server"
             fib saddr . mark . iif oif exists accept
             jump rpfilter-allow
+            counter name cnt_rpfilter_drop
           }
 
           chain rpfilter-allow {
