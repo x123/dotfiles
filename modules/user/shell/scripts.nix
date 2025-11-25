@@ -131,5 +131,41 @@
         ${pkgs.dnsdbq}/bin/dnsdbq -j -T datefix -A "''${START_DATE}" -s -r "''${RR_QUERY}" | ${pkgs.jq}/bin/jq -r '.rdata[]'
       fi
     '')
+
+    (pkgs.writeShellScriptBin "knock" ''
+      #!/usr/bin/env bash
+      set -euo pipefail
+
+      # --- Usage Function ---
+      usage() {
+        echo "Usage: $0 <host> <port1> [port2] [port3] ..." >&2
+        echo "  <host>    The target host (IP address or hostname)" >&2
+        echo "  <port>    One or more ports to check" >&2
+        echo "" >&2
+        echo "Example: $0 10.10.10.10 4444 5555 6666" >&2
+        exit 1
+      }
+
+      # --- Argument Validation ---
+      if [ $# -lt 2 ]; then
+        echo "Error: At least a host and one port are required." >&2
+        usage
+      fi
+
+      if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+        usage
+      fi
+
+      HOST=$1
+      shift
+
+      # --- Port Knocking ---
+      for PORT in "$@"
+      do
+        echo "Checking port $PORT on $HOST..."
+        ${pkgs.nmap}/bin/nmap -4 -Pn --host-timeout 20ms --max-retries 0 -p "''${PORT}" "''${HOST}"
+        ${pkgs.nmap}/bin/nmap -6 -Pn --host-timeout 20ms --max-retries 0 -p "''${PORT}" "''${HOST}"
+      done
+    '')
   ];
 }
