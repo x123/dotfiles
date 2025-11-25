@@ -7,7 +7,7 @@
     mouse = true;
     keyMode = "vi";
     clock24 = true;
-    shortcut = "a";
+    shortcut = "b";
     baseIndex = 1;
     aggressiveResize = true;
     extraConfig = ''
