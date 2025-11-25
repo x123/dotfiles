@@ -25,6 +25,7 @@
       sort_direction = -1;
       tree_sort_direction = 1;
       all_branches_collapsed = 0;
+      show_merged_threads = 1;
       hide_kernel_threads = 1;
       hide_userland_threads = 0;
       hide_running_in_container = 0;
