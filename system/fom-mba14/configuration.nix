@@ -30,6 +30,10 @@
   nix.settings.extra-platforms = "x86_64-darwin";
 
   services.nix-daemon.enable = true;
+  nix.settings.allowed-users = [
+    "@admin"
+    "fom"
+  ];
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh = {
