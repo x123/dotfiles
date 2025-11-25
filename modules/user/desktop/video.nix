@@ -37,6 +37,7 @@ in {
               (pkgs)
               aria2
               freetube
+              mpv
               streamlink
               ;
           }
