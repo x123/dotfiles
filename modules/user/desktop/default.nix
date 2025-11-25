@@ -11,6 +11,7 @@
     ./blender.nix
     ./chromium.nix
     ./discord.nix
+    ./element.nix
     ./firefox.nix
     ./ghostty.nix
     ./obs-studio.nix
