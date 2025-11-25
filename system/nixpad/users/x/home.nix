@@ -19,7 +19,7 @@
       enable = true;
 
       audio.enable = true;
-      blender.enable = true;
+      blender.enable = false;
       discord.enable = true;
       flameshot.enable = true;
       ghostty.enable = true;
