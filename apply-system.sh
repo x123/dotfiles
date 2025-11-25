@@ -10,7 +10,7 @@ if [ ! -z "${DARWIN_REBUILD}" ]; then
 elif [ ! -z "${NIXOS_REBUILD}" ]; then
 	echo "Found nixos-rebuild at ${NIXOS_REBUILD}"
 	pushd ~/.dotfiles
-	sudo nixos-rebuild switch --flake .#
+	sudo nixos-rebuild -v switch --flake .#
 	popd;
 else
 	echo "Could not find nixos-rebuild or darwin-rebuild ... Bailing out!"
