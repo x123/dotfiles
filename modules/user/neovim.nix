@@ -128,6 +128,10 @@
 
       vim.opt.mouse = ""
 
+      -- move visual selection up and down
+      vim.keymap.set("v", "<S-Up>", ":m '<-2<CR>gv=gv")
+      vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gv=gv")
+
       vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
       vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
       vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
