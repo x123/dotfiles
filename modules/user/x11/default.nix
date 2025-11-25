@@ -6,8 +6,9 @@
 }: {
   imports = [
     ./gtk.nix
-    # ./i3-config.nix
+    ./i3-config.nix
     ./hypr-config.nix
+    ./sway-config.nix
   ];
 
   config = lib.mkIf (config.custom.desktop.enable && !pkgs.stdenv.isDarwin) {

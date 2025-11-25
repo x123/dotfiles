@@ -35,6 +35,12 @@
       obs-studio.enable = false;
       slack.enable = false;
       video.enable = true;
+
+      x11 = {
+        i3.enable = false;
+        hyprland.enable = true;
+        sway.enable = false;
+      };
     };
 
     ai = {

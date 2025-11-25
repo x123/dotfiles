@@ -34,6 +34,12 @@
       tor-browser.enable = true;
       video.enable = true;
 
+      x11 = {
+        i3.enable = false;
+        hyprland.enable = true;
+        sway.enable = false;
+      };
+
       blender = {
         enable = false;
         cudaSupport = true;
