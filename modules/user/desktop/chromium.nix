@@ -4,11 +4,17 @@
   pkgs,
   ...
 }: {
-  config = lib.mkIf config.custom.desktop.enable {
-    home = {
-      packages = [
-        pkgs.ungoogled-chromium
-      ];
+  config =
+    lib.mkIf
+    (
+      config.custom.desktop.enable
+      && !pkgs.stdenv.isDarwin
+    )
+    {
+      home = {
+        packages = [
+          pkgs.ungoogled-chromium
+        ];
+      };
     };
-  };
 }

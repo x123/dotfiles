@@ -1,14 +1,24 @@
 {lib, ...}: {
   imports = [
-    ../../../../modules/user/common
-    ../../../../modules/user/darwin
-    ../../../../modules/user/dev
-    ../../../../modules/user/shell
-    ../../../../modules/user/desktop/alacritty
-    ../../../../modules/user/desktop/video.nix
-    ../../../../modules/user/editors/neovim.nix
-    ../../../../modules/user/desktop/keepass.nix
+    ../../../../modules/user
   ];
+
+  custom = {
+    desktop = {
+      enable = true;
+
+      blender.enable = false;
+      video.enable = true;
+    };
+
+    editors = {
+      helix.enable = false;
+      neovim.enable = true;
+      vim.enable = false;
+    };
+
+    mail.enable = false;
+  };
 
   home = {
     username = "fom";

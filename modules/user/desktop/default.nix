@@ -19,16 +19,26 @@
     ./yed.nix
   ];
 
-  config = lib.mkIf config.custom.desktop.enable {
-    home.packages = builtins.attrValues {
-      inherit
-        (pkgs)
-        persepolis
-        dropbox
-        libreoffice
-        gimp
-        xygrib
-        ;
-    };
+  options.custom = {
+    desktop.enable = lib.mkEnableOption "enable desktop environment";
   };
+
+  config =
+    lib.mkIf
+    (
+      config.custom.desktop.enable
+      && !pkgs.stdenv.isDarwin
+    )
+    {
+      home.packages = builtins.attrValues {
+        inherit
+          (pkgs)
+          persepolis
+          dropbox
+          libreoffice
+          gimp
+          xygrib
+          ;
+      };
+    };
 }

@@ -9,7 +9,7 @@
     ./i3-config.nix
   ];
 
-  config = lib.mkIf config.custom.desktop.enable {
+  config = lib.mkIf (config.custom.desktop.enable && !pkgs.stdenv.isDarwin) {
     xdg = {
       desktopEntries = {
         vim = {
