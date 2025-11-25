@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    # ./llm.nix
+    ./common.nix
     ./direnv.nix
     ./docker.nix
     ./git.nix
