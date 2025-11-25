@@ -24,7 +24,9 @@
 in {
   imports = [];
 
-  options.custom.editors.neovim.enable = lib.mkEnableOption "neovim";
+  options = {
+    custom.editors.neovim.enable = lib.mkEnableOption "neovim" // {default = true;};
+  };
 
   config = lib.mkIf (config.custom.user.editors.enable && config.custom.editors.neovim.enable) {
     home = {
