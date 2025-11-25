@@ -17,6 +17,7 @@
       vim.enable = false;
     };
 
+    games.enable = true;
     mail.enable = false;
   };
 

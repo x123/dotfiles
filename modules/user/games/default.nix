@@ -12,21 +12,38 @@
   };
 
   config =
-    lib.mkIf
-    (
-      config.custom.games.enable
-      && !pkgs.stdenv.isDarwin
-    )
-    {
-      home.packages = builtins.attrValues {
-        inherit
-          (pkgs)
-          airshipper
-          angband
-          freeorion
-          openttd
-          unciv
-          ;
-      };
-    };
+    lib.mkMerge
+    [
+      (lib.mkIf
+        (
+          config.custom.games.enable
+          && !pkgs.stdenv.isDarwin
+        )
+        {
+          home.packages = builtins.attrValues {
+            inherit
+              (pkgs)
+              angband
+              narsil
+              openttd
+              unciv
+              ;
+          };
+        })
+      (lib.mkIf
+        (
+          config.custom.games.enable
+          && pkgs.stdenv.isDarwin
+        )
+        {
+          home.packages = builtins.attrValues {
+            inherit
+              (pkgs)
+              angband
+              narsil
+              unciv
+              ;
+          };
+        })
+    ];
 }
