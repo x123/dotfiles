@@ -25,6 +25,7 @@
 
     hardware = {
       bluetooth.enable = true;
+      laptop.enable = true;
       nvidia.enable = false;
       sound.enable = true;
     };
