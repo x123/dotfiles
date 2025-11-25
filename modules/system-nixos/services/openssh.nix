@@ -3,6 +3,8 @@
   lib,
   ...
 }: let
+  trustedIpv4sList = config.custom.system-nixos.services.openssh.trustedIpv4Networks;
+  trustedIpv6sList = config.custom.system-nixos.services.openssh.trustedIpv6Networks;
   trustedIpv4s = builtins.concatStringsSep "," config.custom.system-nixos.services.openssh.trustedIpv4Networks;
   trustedIpv6s = builtins.concatStringsSep "," config.custom.system-nixos.services.openssh.trustedIpv6Networks;
 in {
@@ -47,11 +49,15 @@ in {
           family = "inet";
           content = ''
             chain input-new {
+            ${lib.optionalString (trustedIpv6sList != []) ''
               ip6 saddr { ${trustedIpv6s} } tcp dport 22 log prefix "nft-accept-openssh: " level info
               ip6 saddr { ${trustedIpv6s} } tcp dport 22 counter accept
+            ''}
 
+            ${lib.optionalString (trustedIpv4sList != []) ''
               ip saddr { ${trustedIpv4s} } tcp dport 22 log prefix "nft-accept-openssh: " level info
               ip saddr { ${trustedIpv4s} } tcp dport 22 counter accept
+            ''}
             }'';
         };
       };
