@@ -71,6 +71,9 @@
     defaultGateway = {
       address = "10.10.10.1";
     };
+    nameservers = [
+      "192.168.1.127"
+    ];
     interfaces.ens18 = {
       ipv4 = {
         addresses = [
