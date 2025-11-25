@@ -75,10 +75,10 @@
 
     darwinConfigurations = {
       fom-MBA = nix-darwin.lib.darwinSystem {
-	    system = "aarch64-darwin";
+        system = "aarch64-darwin";
         specialArgs = {inherit inputs;};
-	    modules = [
-	      home-manager.darwinModules.home-manager
+        modules = [
+          home-manager.darwinModules.home-manager
           ./system/fom-MBA/configuration.nix
         ];
       };
