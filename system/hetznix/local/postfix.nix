@@ -29,6 +29,9 @@
         smtpd_milters = "unix:/run/opendkim/opendkim.sock";
         non_smtpd_milters = "unix:/run/opendkim/opendkim.sock";
       };
+      extraAliases = ''
+        nix: root
+      '';
       extraConfig = ''
         smtpd_recipient_restrictions =
           reject_rbl_client zen.spamhaus.org=127.0.0.[2..11]
@@ -44,7 +47,7 @@
         smtpd_sender_restrictions =
           reject_non_fqdn_sender
           reject_unknown_sender_domain
-          reject_unauthenticated_sender_login_mismatch
+          # reject_unauthenticated_sender_login_mismatch
       '';
       sslCert = config.security.acme.certs."boxchop.city".directory + "/full.pem";
       sslKey = config.security.acme.certs."boxchop.city".directory + "/key.pem";
