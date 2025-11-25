@@ -18,7 +18,9 @@
       # dev
       git
       git-crypt
+      jq
       rocgdb # for strings
+      yq
 
       # crypto
       age
