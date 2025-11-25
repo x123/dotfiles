@@ -6,7 +6,7 @@
       target = "${config.xdg.configHome}/ghostty/config";
       text = ''
         # The syntax is "key = value". The whitespace around the equals doesn't matter.
-        #theme = nord
+        theme = nord
 
         mouse-hide-while-typing = true
         cursor-click-to-move = false
@@ -15,7 +15,7 @@
         background-opacity = 0.9
         background-blur-radius = 4
 
-        #window-theme = "dark"
+        window-theme = "dark"
         gtk-adwaita = true
         window-decoration = false
         gtk-titlebar = false
