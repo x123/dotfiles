@@ -10,7 +10,7 @@
     ../../modules/nix-settings # do not remove
     ../../modules/system-nixos
 
-    # ./local/thelounge.nix
+    ./local/irc.nix
   ];
 
   custom.system-nixos = {
@@ -75,6 +75,7 @@
     nameservers = [
       "192.168.1.127"
     ];
+    resolvconf.enable = false;
     search = [];
     interfaces.ens18 = {
       ipv4 = {
