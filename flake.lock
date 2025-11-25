@@ -380,7 +380,8 @@
         "nixpkgs-unstable-small": "nixpkgs-unstable-small",
         "nur": "nur",
         "pre-commit-hooks": "pre-commit-hooks",
-        "sops-nix": "sops-nix"
+        "sops-nix": "sops-nix",
+        "stevenblack": "stevenblack"
       }
     },
     "sops-nix": {
@@ -400,6 +401,22 @@
       "original": {
         "owner": "Mic92",
         "repo": "sops-nix",
+        "type": "github"
+      }
+    },
+    "stevenblack": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1761441003,
+        "narHash": "sha256-LQ9yVGniACRrhx+a1M3BtDKiiw0rI6kBvIlTUFqTaOE=",
+        "owner": "StevenBlack",
+        "repo": "hosts",
+        "rev": "2b274d002ccbb49407f1b43091417b041b947d28",
+        "type": "github"
+      },
+      "original": {
+        "owner": "StevenBlack",
+        "repo": "hosts",
         "type": "github"
       }
     },

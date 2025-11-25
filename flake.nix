@@ -33,6 +33,11 @@
       url = "github:lexical-lsp/lexical";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stevenblack = {
+      url = "github:StevenBlack/hosts";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
@@ -48,6 +53,7 @@
     pre-commit-hooks,
     disko,
     lexical,
+    stevenblack,
     ...
   }: let
     supportedSystems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
