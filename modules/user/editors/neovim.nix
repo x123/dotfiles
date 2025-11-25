@@ -373,18 +373,16 @@ in {
 
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-        local lspconfig = require("lspconfig")
-        lspconfig.cssls.setup({ capabilities = capabilities, })
-        lspconfig.eslint.setup({ capabilities = capabilities, })
-        lspconfig.gopls.setup({ capabilities = capabilities, })
-        lspconfig.html.setup({ capabilities = capabilities, })
-        lspconfig.jsonls.setup({ capabilities = capabilities, })
-        lspconfig.lua_ls.setup({ capabilities = capabilities, })
-        lspconfig.marksman.setup({ capabilities = capabilities, })
-        lspconfig.terraformls.setup({ capabilities = capabilities, })
+        vim.lsp.config('cssls', { capabilities = capabilities })
+        vim.lsp.config('eslint', { capabilities = capabilities })
+        vim.lsp.config('gopls', { capabilities = capabilities })
+        vim.lsp.config('html', { capabilities = capabilities })
+        vim.lsp.config('jsonls', { capabilities = capabilities })
+        vim.lsp.config('lua_ls', { capabilities = capabilities })
+        vim.lsp.config('marksman', { capabilities = capabilities })
+        vim.lsp.config('terraformls', { capabilities = capabilities })
 
-        -- pylsp
-        lspconfig.pylsp.setup({
+        vim.lsp.config('pylsp', {
           capabilities = capabilities,
           on_attach = custom_attach,
           flags =  {
@@ -396,27 +394,21 @@ in {
                 command = { "${pkgs.black}/bin/black" },
               },
               plugins = {
-                -- formatter options
                 black = { enabled = true},
                 autopep8 = { enabled = false },
                 yapf = { enabled = false },
-                -- linter options
                 pylint = { enabled = true, executable = "${pkgs.pylint}/bin/pylint" },
                 pyflakes = { enabled = false },
                 pycodestyle = { enabled = false },
-                -- type checker
                 pylsp_mypy = { enabled = true },
-                -- auto-completion options
                 jedi_completion = { fuzzy = true },
-                -- import sorting
                 pyls_isort = { enabled = true },
               }
             }
           }
         })
 
-        -- rust
-        lspconfig.rust_analyzer.setup({
+        vim.lsp.config('rust_analyzer', {
           capabilities = capabilities,
           cmd = { "${pkgs.rust-analyzer}/bin/rust-analyzer" },
           settings = {
@@ -437,18 +429,15 @@ in {
                   },
               }
           },
-          single_file_support = true,
+          filetypes = { 'rust' },
         })
 
-        -- elixir
-        lspconfig.elixirls.setup({
+        vim.lsp.config('elixirls', {
           capabilities = capabilities,
           cmd = { "${pkgs.elixir-ls}/bin/elixir-ls" },
         })
 
-        -- nix
-        lspconfig.nixd.setup({
-          autostart = true,
+        vim.lsp.config('nixd', {
           capabilities = capabilities,
           cmd = { "${pkgs.nixd}/bin/nixd" },
           settings = {
@@ -459,8 +448,7 @@ in {
             },
           },
         })
-        lspconfig.nil_ls.setup({
-          autostart = true,
+        vim.lsp.config('nil_ls', {
           capabilities = capabilities,
           cmd = { "${pkgs.nil}/bin/nil" },
           settings = {
@@ -471,6 +459,8 @@ in {
             },
           },
         })
+
+        vim.lsp.enable({ 'cssls', 'eslint', 'gopls', 'html', 'jsonls', 'lua_ls', 'marksman', 'terraformls', 'pylsp', 'rust_analyzer', 'elixirls', 'nixd', 'nil_ls' })
 
         -- Use LspAttach autocommand to only map the following keys
         -- after the language server attaches to the current buffer
