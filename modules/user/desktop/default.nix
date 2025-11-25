@@ -59,6 +59,7 @@
               (pkgs)
               libreoffice
               persepolis
+              transmission-remote-gtk
               ;
           };
         })
