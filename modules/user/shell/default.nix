@@ -54,6 +54,15 @@
     };
   };
 
+  programs.eza = {
+    enable = true;
+    extraOptions = [
+      "-lag@Zb"
+      "--time-style=long-iso"
+      "--color=never"
+    ];
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
