@@ -13,7 +13,8 @@
     {
       home = {
         packages = [
-          pkgs.ungoogled-chromium
+          pkgs.chromium
+          #pkgs.ungoogled-chromium
         ];
       };
     };
