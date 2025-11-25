@@ -52,6 +52,16 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  hardware.bluetooth = {
+    enable = true;
+    hsphfpd.enable = false;
+    settings = {
+      General = {
+        Enable = "Source,Sink,Media,Socket";
+      };
+    };
+  };
+
   hardware.opengl = {
     enable = true;
     driSupport = true;
