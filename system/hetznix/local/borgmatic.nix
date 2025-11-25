@@ -5,7 +5,7 @@
 }: {
   imports = [
     # uncomment once borgmatic working correctly
-    # ./borgmatic-hetznix-systemd-timer.nix
+    ./borgmatic-hetznix-systemd-timer.nix
   ];
 
   # nixpkgs.overlays = [
