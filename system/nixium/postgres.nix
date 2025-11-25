@@ -37,7 +37,8 @@
 
   services.postgresqlBackup = {
     enable = true;
-    backupAll = true;
-    startAt = "2 minutes";
+    databases = [ "binrich" ];
+    #backupAll = true;
+    startAt = "minutely";
   };
 }
