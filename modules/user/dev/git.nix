@@ -1,18 +1,4 @@
-{
-  inputs,
-  pkgs,
-  system,
-  ...
-}: {
-  nixpkgs.overlays = [
-    (
-      final: prev: {
-        unstable-small = import inputs.nixpkgs-unstable-small {
-          inherit system;
-        };
-      }
-    )
-  ];
+{pkgs, ...}: {
   imports = [];
 
   home = {
@@ -32,7 +18,6 @@
 
     delta = {
       enable = true;
-      package = pkgs.unstable-small.delta;
       options = {
         navigate = true;
         light = false;
