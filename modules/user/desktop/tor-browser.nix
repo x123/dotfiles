@@ -7,7 +7,7 @@
 
   home = {
     packages = [
-      pkgs.tor-browser-bundle-bin
+      pkgs.tor-browser
     ];
   };
 }
