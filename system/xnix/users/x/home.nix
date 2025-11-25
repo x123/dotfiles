@@ -54,6 +54,7 @@
       freecad.enable = false;
       ghostty.enable = true;
       inkscape.enable = true;
+      irc.enable = true;
       keepassxc.enable = true;
       keybase.enable = true;
       mullvad.enable = true;
