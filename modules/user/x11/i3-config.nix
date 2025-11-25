@@ -77,12 +77,6 @@
             format_alt = " $icon $mem_used ";
           }
           {
-            block = "cpu";
-            format = " $icon $utilization ";
-            format_alt = " $icon $frequency ";
-            interval = 1;
-          }
-          {
             block = "load";
             format = " $icon $1m ";
             interval = 1;
@@ -146,7 +140,7 @@
           {
             fonts = {
               names = [ "CodeNewRoman Nerd Font" ];
-              size = 10.0;
+              size = 12.0;
             };
             mode = "dock";
             hiddenState = "show";
