@@ -12,7 +12,7 @@ SHORT_HOSTNAME=$1
 
 if which nh
 then
-  nh os switch -v . -H "${SHORT_HOSTNAME}"
+  nh os switch . -H "${SHORT_HOSTNAME}"
 elif which darwin-rebuild
 then
   darwin-rebuild -v switch --flake .#"${SHORT_HOSTNAME}"

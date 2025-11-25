@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if nh home switch -v .
+if nh home switch .
 then
   echo "Success: Build and switched to new HM generation.";
   exit 0;
