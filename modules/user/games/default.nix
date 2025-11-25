@@ -29,6 +29,7 @@
               openttd
               sil
               sil-q
+              tintin
               unciv
               ;
           };
