@@ -50,6 +50,7 @@
       nftables.enable = true;
     };
 
+    wayland.enable = false;
     x11.enable = true;
   };
 
