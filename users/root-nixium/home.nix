@@ -13,7 +13,7 @@
     #../../modules/user/discord.nix
     #../../modules/user/firefox.nix
     ../../modules/user/git.nix
-    ../../modules/user/gpg-agent.nix
+    #../../modules/user/gpg-agent.nix
     #../../modules/user/keepass.nix
     #../../modules/user/pytorch.nix
     ../../modules/user/shell
