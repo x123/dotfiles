@@ -26,7 +26,7 @@ in {
 
   options.custom.editors.neovim.enable = lib.mkEnableOption "neovim";
 
-  config = lib.mkIf config.custom.editors.neovim.enable {
+  config = lib.mkIf (config.custom.user.editors.enable && config.custom.editors.neovim.enable) {
     home = {
       packages =
         builtins.attrValues
