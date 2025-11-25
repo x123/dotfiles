@@ -19,7 +19,6 @@ let
     dmidecode
 
     # term/shell
-    atuin
     eza
     fd
     usbutils
