@@ -193,14 +193,27 @@
     group = "xdata";
   };
 
-  users.users.x = {
-    isNormalUser = true;
-    description = "x";
-    extraGroups = ["networkmanager" "wheel"];
-    shell = pkgs.zsh;
-    useDefaultShell = true;
-    initialHashedPassword = "$2b$05$xfNWBnjifpR7HFG1rPKbde/rUZdwaTRMLDVJIxAMv6fbkjc5NFm8W";
-    openssh.authorizedKeys.keys = config.custom.common.sshKeys.adminKeys;
+  nix.settings.trusted-users = ["builder"];
+
+  users.users = {
+    builder = {
+      isNormalUser = true;
+      description = "builder";
+      shell = pkgs.zsh;
+      useDefaultShell = true;
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEn0u0tbuy5pbF5oGkcLQIe+fGYE7vllDaiix/qfvnEw root@mini"
+      ];
+    };
+    x = {
+      isNormalUser = true;
+      description = "x";
+      extraGroups = ["networkmanager" "wheel"];
+      shell = pkgs.zsh;
+      useDefaultShell = true;
+      initialHashedPassword = "$2b$05$xfNWBnjifpR7HFG1rPKbde/rUZdwaTRMLDVJIxAMv6fbkjc5NFm8W";
+      openssh.authorizedKeys.keys = config.custom.common.sshKeys.adminKeys;
+    };
   };
 
   system.stateVersion = "23.05"; # Did you read the comment?
