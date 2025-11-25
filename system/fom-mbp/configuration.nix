@@ -32,6 +32,12 @@
     };
   };
 
+  # allow unfree packages
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowAliases = false;
+  };
+
   nix = {
     linux-builder = {
       enable = false;
