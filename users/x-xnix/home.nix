@@ -7,7 +7,7 @@
   imports = [
     #../../modules/user/ai/pytorch.nix
     #../../modules/user/ai/invokeai.nix
-    ../../modules/user/alacritty
+    ../../modules/user/desktop/alacritty
     ../../modules/user/desktop/blender.nix
     ../../modules/user/desktop/calibre.nix
     ../../modules/user/desktop/chromium.nix
