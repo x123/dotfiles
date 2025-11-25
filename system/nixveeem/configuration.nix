@@ -51,6 +51,8 @@
     x11.enable = true;
   };
 
+  virtualisation.vmware.guest.enable = true;
+
   boot = {
     initrd.availableKernelModules = ["xhci_pci" "nvme" "virtio_scsi" "sr_mod"];
     initrd.kernelModules = [];
