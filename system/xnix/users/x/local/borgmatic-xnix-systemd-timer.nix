@@ -22,37 +22,37 @@
 
       Service = {
         Type = "oneshot";
-        LockPersonality = true;
-        MemoryDenyWriteExecute = "no";
-        NoNewPrivileges = "yes";
-        PrivateDevices = "yes";
-        PrivateTmp = "yes";
-        ProtectClock = "yes";
-        ProtectControlGroups = "yes";
-        ProtectHostname = "yes";
-        ProtectKernelLogs = "yes";
-        ProtectKernelModules = "yes";
-        ProtectKernelTunables = "yes";
-        RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6 AF_NETLINK";
-        RestrictNamespaces = "yes";
-        RestrictRealtime = "yes";
-        RestrictSUIDSGID = "yes";
-        SystemCallArchitectures = "native";
-        SystemCallFilter = "@system-service";
-        SystemCallErrorNumber = "EPERM";
-        # To restrict write access further, change "ProtectSystem" to "strict" and
-        # uncomment "ReadWritePaths", "TemporaryFileSystem", "BindPaths" and
-        # "BindReadOnlyPaths". Then add any local repository paths to the list of
-        # "ReadWritePaths". This leaves most of the filesystem read-only to borgmatic.
-        ProtectSystem = "full";
-        # ReadWritePaths=-/mnt/my_backup_drive
-        # This will mount a tmpfs on top of /root and pass through needed paths
-        # TemporaryFileSystem=/root:ro
-        # BindPaths=-/root/.cache/borg -/root/.config/borg -/root/.borgmatic
-        # BindReadOnlyPaths=-/root/.ssh
-
-        # May interfere with running external programs within borgmatic hooks.
-        CapabilityBoundingSet = "CAP_DAC_READ_SEARCH CAP_NET_RAW";
+        # LockPersonality = true;
+        # MemoryDenyWriteExecute = "no";
+        # NoNewPrivileges = "yes";
+        # PrivateDevices = "yes";
+        # PrivateTmp = "yes";
+        # ProtectClock = "yes";
+        # ProtectControlGroups = "yes";
+        # ProtectHostname = "yes";
+        # ProtectKernelLogs = "yes";
+        # ProtectKernelModules = "yes";
+        # ProtectKernelTunables = "yes";
+        # RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6 AF_NETLINK";
+        # RestrictNamespaces = "yes";
+        # RestrictRealtime = "yes";
+        # RestrictSUIDSGID = "yes";
+        # SystemCallArchitectures = "native";
+        # SystemCallFilter = "@system-service";
+        # SystemCallErrorNumber = "EPERM";
+        # # To restrict write access further, change "ProtectSystem" to "strict" and
+        # # uncomment "ReadWritePaths", "TemporaryFileSystem", "BindPaths" and
+        # # "BindReadOnlyPaths". Then add any local repository paths to the list of
+        # # "ReadWritePaths". This leaves most of the filesystem read-only to borgmatic.
+        # ProtectSystem = "full";
+        # # ReadWritePaths=-/mnt/my_backup_drive
+        # # This will mount a tmpfs on top of /root and pass through needed paths
+        # # TemporaryFileSystem=/root:ro
+        # # BindPaths=-/root/.cache/borg -/root/.config/borg -/root/.borgmatic
+        # # BindReadOnlyPaths=-/root/.ssh
+        #
+        # # May interfere with running external programs within borgmatic hooks.
+        # CapabilityBoundingSet = "CAP_DAC_READ_SEARCH CAP_NET_RAW";
 
         # Lower CPU and I/O priority.
         Nice = 19;
