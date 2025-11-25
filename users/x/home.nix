@@ -9,6 +9,7 @@
     ../../modules/user/firefox.nix
     ../../modules/user/git.nix
     ../../modules/user/gpg-agent.nix
+    ../../modules/user/keepass.nix
     ../../modules/user/shell.nix
     ../../modules/user/video.nix
     ../../modules/user/vim.nix
@@ -36,9 +37,6 @@
 
     # art
     gimp
-
-    # crypto
-    keepassxc
 
     # misc
     xygrib
