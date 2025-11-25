@@ -32,7 +32,7 @@
     extraModprobeConfig = ''
       options nct6683 force=1 force_id=0x2e
     '';
-    blacklistedKernelModules = ["snd_hda_intel" "amdgpu"];
+    blacklistedKernelModules = ["amdgpu"];
     extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
   };
 
