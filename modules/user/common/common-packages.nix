@@ -101,7 +101,6 @@ in {
             nmap
             # misc
             
-            pinentry
             ;
         }
         ++ (
