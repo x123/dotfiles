@@ -26,7 +26,7 @@
     initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" "usb_storage"];
     initrd.kernelModules = [];
     kernelParams = [];
-    kernelPackages = pkgs.linuxPackages_zen; # lqx or zen or latest
+    kernelPackages = pkgs.linuxPackages_latest; # lqx or zen or latest
     kernelModules = ["k10temp" "kvm-amd" "nct6683"];
     extraModprobeConfig = ''
       options nct6683 force=1 force_id=0x2e
