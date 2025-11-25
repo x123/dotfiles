@@ -9,6 +9,7 @@
     ../../modules/system/nix-settings.nix # do not remove
     ../../modules/system/zsh.nix
     ./local/acme.nix
+    ./local/caddy.nix
     ./local/invidious.nix
     ./local/mastodon.nix
     ./local/nftables.nix
