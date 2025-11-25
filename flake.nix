@@ -6,13 +6,15 @@
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nur.url = "github:nix-community/NUR";
+    nix-darwin.url = "github:LnL7/nix-darwin";
 
     # minimize duplicate instances of inputs
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
   
-  outputs = { nixpkgs, home-manager, nur, nixos-wsl, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, nur, nixos-wsl, nix-darwin, ... }:
   let 
     lib = nixpkgs.lib;
 
@@ -46,7 +48,16 @@
         ];
       };
     };
-    
+
+    darwinConfigurations = {
+      FOM-MBA1415 = nix-darwin.lib.darwinSystem {
+	system = "aarch64-darwin";
+	modules = [
+          ./system/FOM-MBA1415/configuration.nix
+        ];
+      };
+    };
+
     nixosConfigurations = {
       xnixwsl = lib.nixosSystem {
         system = "x86_64-linux";
