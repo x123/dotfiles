@@ -16,6 +16,12 @@ creation_rules:
         - *x123
         - *mba
         - *system_xnix
+  - path_regex: ^system/xnix/users/.+/[^/]+\.yaml$
+    key_groups:
+      - age:
+        - *x123
+        - *mba
+        - *system_xnix
   - path_regex: ^system/nixium/[^/]+\.yaml$
     key_groups:
       - age:
