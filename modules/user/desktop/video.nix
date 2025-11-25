@@ -36,6 +36,7 @@ in {
             inherit
               (pkgs)
               aria2
+              freetube
               streamlink
               ;
           }
