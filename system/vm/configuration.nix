@@ -134,6 +134,8 @@
       ;
   };
 
+  time.timeZone = "Europe/Copenhagen";
+
   users = {
     users.root.openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAV4W4TVF5yqOwKFax+b2XtRYbdKy1wy4zFXfFZfv5be xnix"
