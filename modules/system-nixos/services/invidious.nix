@@ -47,7 +47,7 @@ in {
         filter = {
           family = "inet";
           content = ''
-            chain input-allow {
+            chain input-new {
               ip6 saddr { ${trustedIpv6s} } tcp dport {80, 443} log prefix "nft-accept-lan-invidious: " level info
               ip6 saddr { ${trustedIpv6s} } tcp dport {80, 443} counter accept
 
