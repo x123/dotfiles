@@ -4,8 +4,7 @@
   ...
 }: {
   imports = [
-    ../../modules/user/common-packages.nix
-    ../../modules/user/common-ssh.nix
+    ../../modules/user/common
     ../../modules/user/git.nix
     ../../modules/user/gpg-agent.nix
     ../../modules/user/shell

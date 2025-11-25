@@ -5,8 +5,7 @@
   ...
 }: {
   imports = [
-    ../../modules/user/common-packages.nix
-    ../../modules/user/common-ssh.nix
+    ../../modules/user/common
     ../../modules/user/dev.nix
     ../../modules/user/git.nix
     ../../modules/user/shell

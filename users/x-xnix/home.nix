@@ -11,8 +11,7 @@
     ../../modules/user/desktop/blender.nix
     ../../modules/user/desktop/calibre.nix
     ../../modules/user/desktop/chromium.nix
-    ../../modules/user/common-packages.nix
-    ../../modules/user/common-ssh.nix
+    ../../modules/user/common
     ../../modules/user/dev.nix
     ../../modules/user/desktop/discord.nix
     ../../modules/user/desktop/firefox.nix
