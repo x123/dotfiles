@@ -29,7 +29,7 @@
             primary = true;
             crtc = 0;
             mode = "2560x1440";
-            rate = "59.95";
+            rate = "144.00";
           };
         };
       };
