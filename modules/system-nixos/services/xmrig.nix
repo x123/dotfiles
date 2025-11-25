@@ -30,8 +30,9 @@
       after = ["network.target"];
       description = "XMRig Mining Software Service";
       serviceConfig = {
-        ExecStartPre = "${lib.getExe config.custom.system-nixos.services.xmrig.package} --config=${config.custom.system-nixos.services.xmrig.configFile} --dry-run";
-        ExecStart = "${lib.getExe config.custom.system-nixos.services.xmrig.package} --config=${config.custom.system-nixos.services.xmrig.configFile}";
+        LoadCredential = ["xmrig.json:${config.custom.system-nixos.services.xmrig.configFile}"];
+        ExecStart = "${lib.getExe config.custom.system-nixos.services.xmrig.package} --config=\${CREDENTIALS_DIRECTORY}/xmrig.json";
+        # ExecStart = "${lib.getExe config.custom.system-nixos.services.xmrig.package} --config=${config.custom.system-nixos.services.xmrig.configFile}";
         # https://xmrig.com/docs/miner/randomx-optimization-guide/msr
         # If you use recent XMRig with root privileges (Linux) or admin
         # privileges (Windows) the miner configure all MSR registers
