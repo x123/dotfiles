@@ -34,6 +34,7 @@
     ./obs-studio.nix
     ./p2p.nix
     ./slack.nix
+    ./subsonic.nix
     ./telegram.nix
     ./tor-browser.nix
     ./video.nix
