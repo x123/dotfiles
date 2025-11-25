@@ -46,7 +46,10 @@
     dropbox
     firefox
 
-    # media
+    # audio
+    pavucontrol
+
+    # art
     gimp
 
     # dev
