@@ -13,14 +13,36 @@
     git
   ];
 
+  environment.pathsToLink = [ "/share/bash-completion" ];
+
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
   services.nix-daemon.enable = true;
 
   # Create /etc/zshrc that loads the nix-darwin environment.
-  programs.zsh.enable = true;  # default shell on catalina
-  programs.bash.enable = true;
+  programs.zsh = {
+    enable = true;  # default shell on catalina
+    enableCompletion = true;
+  };
+
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+  };
+
+  system.defaults = {
+	dock = {
+	  autohide = true;
+	  #orientation = "right";
+	};
+
+	finder = {
+	  AppleShowAllExtensions = true;
+	  _FXShowPosixPathInTitle = true;
+	  FXEnableExtensionChangeWarning = false;
+	};
+  };
 
   # Set Git commit hash for darwin-version.
   #system.configurationRevision = self.rev or self.dirtyRev or null;
