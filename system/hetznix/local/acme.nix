@@ -3,7 +3,7 @@
     "DO_AUTH_TOKEN_FILE" = {};
   };
 
-  users.users.nginx.extraGroups = ["acme"];
+  # users.users.nginx.extraGroups = ["acme"];
   users.users.caddy.extraGroups = ["acme"];
 
   security.acme = {
