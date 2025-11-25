@@ -137,6 +137,22 @@
         ];
       };
 
+      "x@nixpad" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config = {
+            allowUnfree = true;
+            cudaSupport = true;
+            allowAliases = false;
+          };
+        };
+        extraSpecialArgs = {inherit inputs;};
+        modules = [
+          nur.nixosModules.nur
+          ./system/nixpad/users/x/home.nix
+        ];
+      };
+
       "root@nixium" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = "x86_64-linux";
@@ -175,6 +191,16 @@
           nixos-hardware.nixosModules.common-pc-ssd
           sops-nix.nixosModules.sops
           ./system/xnix/configuration.nix
+        ];
+      };
+
+      nixpad = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [
+          nixos-hardware.nixosModules.lenovo-thinkpad-t480s
+          sops-nix.nixosModules.sops
+          ./system/nixpad/configuration.nix
         ];
       };
 
