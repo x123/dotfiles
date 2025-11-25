@@ -16,6 +16,10 @@
           family = "Fira Mono for Powerline";
           style = "Regular";
         };
+        bold = {
+          family = "Fira Mono for Powerline";
+          style = "Bold";
+        };
         size = 10;
         draw_bold_text_with_bright_colors = true;
       };
