@@ -214,7 +214,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.root = import ./users/root-nixium/home.nix;
+              users.root = import ./system/nixium/users/root/home.nix;
               extraSpecialArgs = {inherit inputs;};
             };
           }
