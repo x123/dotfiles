@@ -24,6 +24,7 @@
       bluetooth.enable = true;
       nvidia.enable = true;
       sound.enable = true;
+      via.enable = true;
     };
 
     networking.tornet.enable = true;
