@@ -241,6 +241,7 @@ in {
             [
               {command = "${pkgs.autorandr}/bin/autorandr -l home";}
               {command = "${pkgs.xorg.setxkbmap}/bin/setxkbmap -option compose:ralt";}
+              {command = "${pkgs.hsetroot}/bin/hsetroot -solid '#000000'";}
               #{command = "${pkgs.feh}/bin/feh --bg-fill ${background}";}
               {command = "${pkgs.picom}/bin/picom --daemon";}
               {command = "${pkgs.i3}/bin/i3-msg workspace 1";}
