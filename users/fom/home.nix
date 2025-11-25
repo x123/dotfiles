@@ -15,7 +15,7 @@
     ../../modules/user/shell
     ../../modules/user/video.nix
     ../../modules/user/neovim.nix
-    ../../modules/user/keepass.nix
+    ../../modules/user/desktop/keepass.nix
   ];
 
   home = {

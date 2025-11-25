@@ -21,7 +21,7 @@
     ../../modules/user/gpg-agent.nix
     ../../modules/user/helix.nix
     ../../modules/user/home-manager.nix
-    ../../modules/user/keepass.nix
+    ../../modules/user/desktop/keepass.nix
     ../../modules/user/neomutt.nix
     ../../modules/user/neovim.nix
     ../../modules/user/shell
