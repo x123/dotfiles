@@ -8,6 +8,7 @@
     ../../../../modules/user
     ./local/borgmatic.nix
     ./local/btop.nix
+    ./local/gnucash-quotes-systemd-timer.nix
     ./local/poe.nix
   ];
 
