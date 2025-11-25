@@ -112,7 +112,7 @@ in {
           enable = true;
           bars = {
             default = {
-              icons = "none";
+              icons = "awesome6";
               blocks =
                 [
                   {
@@ -240,7 +240,7 @@ in {
           bars = [
             {
               fonts = {
-                names = ["DejaVu Sans" "CodeNewRoman Nerd Font" "Font Awesome 6 Free"];
+                names = ["DejaVu Sans Mono" "Font Awesome 6 Free" "Material Symbols Sharp"];
                 size = 10.0;
               };
               mode = "dock";
