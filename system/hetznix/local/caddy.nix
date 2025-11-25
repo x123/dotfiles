@@ -16,11 +16,11 @@
 
   services.caddy = {
     enable = true;
-    globalConfig = ''
-      debug
-      http_port 8880
-      https_port 8883
-    '';
+    # globalConfig = ''
+    #   debug
+    #   http_port 8880
+    #   https_port 8883
+    # '';
     virtualHosts = {
       "ip.boxchop.city" = {
         useACMEHost = "boxchop.city";
