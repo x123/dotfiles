@@ -78,16 +78,26 @@
         identityFile = "/home/x/.ssh/id_nixpad";
         identitiesOnly = true;
       };
+      "xnix" = {
+        hostname = "xnix.lan";
+        port = 22;
+        user = "x";
+        identityFile = "/home/x/.ssh/id_nixpad";
+        identitiesOnly = true;
+      };
+      "xnix.lan" = {
+        hostname = "xnix.lan";
+        port = 22;
+        user = "x";
+        identityFile = "/home/x/.ssh/id_nixpad";
+        identitiesOnly = true;
+      };
       "hetznix" = {
         hostname = "hetznix.boxchop.city";
         port = 22;
         user = "root";
         identityFile = "/home/x/.ssh/id_nixpad";
         identitiesOnly = true;
-        checkHostIP = false;
-        extraOptions = {
-          StrictHostKeyChecking = "no";
-        };
       };
       "hetznix.boxchop.city" = {
         hostname = "hetznix.boxchop.city";
@@ -95,10 +105,6 @@
         user = "root";
         identityFile = "/home/x/.ssh/id_nixpad";
         identitiesOnly = true;
-        checkHostIP = false;
-        extraOptions = {
-          StrictHostKeyChecking = "no";
-        };
       };
     };
   };
