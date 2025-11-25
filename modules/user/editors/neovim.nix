@@ -52,6 +52,7 @@
           nvim-lspconfig
           nvim-surround
           nvim-treesitter
+          nvim-web-devicons
           oil-nvim
           telescope-nvim
           tmux-nvim
