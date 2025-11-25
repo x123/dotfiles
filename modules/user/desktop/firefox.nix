@@ -61,7 +61,7 @@
       programs.firefox = {
         enable = true;
         profiles."x" = {
-          extensions = builtins.attrValues {
+          extensions.packages = builtins.attrValues {
             inherit
               (pkgs.nur.repos.rycee.firefox-addons)
               darkreader
