@@ -1,12 +1,21 @@
-{pkgs, ...}: {
-  imports = [];
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  options = {
+    custom.user.dev.sqlite.enable = lib.mkEnableOption "SQLite database tools" // {default = true;};
+  };
 
-  home = {
-    packages = builtins.attrValues {
-      inherit
-        (pkgs)
-        sqlite
-        ;
+  config = lib.mkIf (config.custom.user.dev.enable && config.custom.user.dev.sqlite.enable) {
+    home = {
+      packages = builtins.attrValues {
+        inherit
+          (pkgs)
+          sqlite
+          ;
+      };
     };
   };
 }
