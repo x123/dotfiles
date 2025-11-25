@@ -28,8 +28,7 @@
         };
         modules = [
           ./users/fom/home.nix
-      ];
-      
+        ];
       };
 
       nixos-xnixwsl = home-manager.lib.homeManagerConfiguration {
@@ -39,8 +38,8 @@
         };
         modules = [
           ./users/nixos/home.nix
-      ];
-    };
+        ];
+      };
 
       x-xnix = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
@@ -57,8 +56,8 @@
     darwinConfigurations = {
       fom-mba14 = nix-darwin.lib.darwinSystem {
 	    system = "aarch64-darwin";
-	modules = [
-	  home-manager.darwinModules.home-manager
+	    modules = [
+	      home-manager.darwinModules.home-manager
           ./system/fom-mba14/configuration.nix
         ];
       };
@@ -67,7 +66,6 @@
     nixosConfigurations = {
       xnixwsl = lib.nixosSystem {
         system = "x86_64-linux";
-
         modules = [
           nixos-wsl.nixosModules.wsl
           ./system/xnixwsl/configuration.nix
@@ -76,12 +74,10 @@
 
       xnix = lib.nixosSystem {
         system = "x86_64-linux";
-
         modules = [
           ./system/xnix/configuration.nix
         ];
       };
     };
-
   };
 }
