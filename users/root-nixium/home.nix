@@ -5,25 +5,12 @@
   ...
 }: {
   imports = [
-    #<sops-nix/modules/home-manager/sops.nix>
-    #../../modules/user/ai.nix
-    #../../modules/user/alacritty
-    #../../modules/user/blender.nix
-    #../../modules/user/calibre.nix
-    #../../modules/user/chromium.nix
     ../../modules/user/common-packages.nix
     ../../modules/user/common-ssh.nix
     ../../modules/user/dev.nix
-    #../../modules/user/discord.nix
     ../../modules/user/git.nix
-    #../../modules/user/gpg-agent.nix
-    #../../modules/user/keepass.nix
-    #../../modules/user/pytorch.nix
     ../../modules/user/shell
-    #../../modules/user/tor-browser.nix
-    #../../modules/user/video.nix
     ../../modules/user/editors/neovim.nix
-    #../../modules/user/x11
   ];
 
   home = {
