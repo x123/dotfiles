@@ -21,10 +21,16 @@
     plugins = builtins.attrValues {
       inherit
         (pkgs.vimPlugins)
+        cmp-nvim-lsp
+        cmp-nvim-lua
+        cmp-path
+        cmp-vsnip
         comment-nvim
         gitsigns-nvim
+        lspkind-nvim
         lualine-nvim
         nord-nvim
+        nvim-cmp
         nvim-lastplace
         nvim-lspconfig
         nvim-treesitter
@@ -110,6 +116,44 @@
         numhl = true,
       })
 
+      -- nvim-cmp
+      local cmp = require("cmp")
+      cmp.setup({
+        snippet = {
+          expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body)
+          end,
+        },
+        window = {
+          completion = cmp.config.window.bordered(),
+          -- documentation = cmp.config.window.bordered(),
+        },
+        mapping = cmp.mapping.preset.insert({
+          ["<C-Space>"] = cmp.mapping.complete(),
+          ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        }),
+        sources = cmp.config.sources({
+          { name = "nvim_lua" },
+          { name = "nvim_lsp" },
+          { name = "vsnip" },
+          { name = "path" },
+        }, {
+          { name = "buffer", keyword_length = 5},
+        }),
+        formatting = {
+          format = require("lspkind").cmp_format {
+            with_text = true,
+            menu = {
+              buffer = "[buf]",
+              nvim_lsp = "[LSP]",
+              nvim_lua = "[api]",
+              path = "[path]",
+              vsnip = "[snip]",
+            },
+          },
+        },
+      })
+
       -- Telescope
       require("telescope").setup()
 
@@ -153,19 +197,37 @@
         lastplace_open_folds = true
       })
 
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
       local lspconfig = require("lspconfig")
-      lspconfig.cssls.setup({})
-      lspconfig.elixirls.setup({
-        cmd = { "${pkgs.elixir-ls}/bin/elixir-ls" };
+      lspconfig.cssls.setup({
+        capabilities = capabilities,
       })
-      lspconfig.eslint.setup({})
-      lspconfig.gopls.setup({})
-      lspconfig.html.setup({})
-      lspconfig.jsonls.setup({})
-      lspconfig.lua_ls.setup({})
-      lspconfig.marksman.setup({})
+      lspconfig.elixirls.setup({
+        capabilities = capabilities,
+        cmd = { "${pkgs.elixir-ls}/bin/elixir-ls" },
+      })
+      lspconfig.eslint.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.gopls.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.html.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.jsonls.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.marksman.setup({
+        capabilities = capabilities,
+      })
       lspconfig.nixd.setup({
         autostart = true,
+        capabilities = capabilities,
         cmd = { "${pkgs.nixd}/bin/nixd" },
         settings = {
           ['nixd'] = {
@@ -177,6 +239,7 @@
       })
       lspconfig.nil_ls.setup({
         autostart = true,
+        capabilities = capabilities,
         cmd = { "${pkgs.nil}/bin/nil" },
         settings = {
           ['nil'] = {
@@ -186,7 +249,9 @@
           },
         },
       })
-      lspconfig.terraformls.setup({})
+      lspconfig.terraformls.setup({
+        capabilities = capabilities,
+      })
 
       -- Use LspAttach autocommand to only map the following keys
       -- after the language server attaches to the current buffer
