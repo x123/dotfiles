@@ -10,6 +10,11 @@ in {
 
   options = {
     custom.desktop.i3status-rust = {
+      battery.enable = lib.mkOption {
+        default = false;
+        type = lib.types.bool;
+        description = "Whether to enable battery monitoring in i3status-rust";
+      };
       nvidia.enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -126,6 +131,20 @@ in {
                     inputs = cfg.desktop.i3status-rust.temperature.inputs;
                     interval = 1;
                     idle = 55;
+                  }
+                ]
+                else []
+              )
+              ++ (
+                if cfg.desktop.i3status-rust.battery.enable
+                then [
+                  {
+                    block = "battery";
+                    format = " $icon $percentage {$time |}";
+                    full_format = " $icon $percentage {$time |}";
+                    interval = 1;
+                    missing_format = "";
+                    # device = "BAT0";
                   }
                 ]
                 else []
