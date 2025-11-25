@@ -27,7 +27,7 @@
       home = {
         packages = [
           pkgs.anydesk
-          # pkgs.rustdesk
+          pkgs.rustdesk
         ];
       };
     };
