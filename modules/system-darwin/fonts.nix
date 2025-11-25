@@ -10,7 +10,7 @@ in {
 
   config = lib.mkIf (cfg.system-darwin.enable && cfg.system-darwin.fonts.enable) {
     fonts.packages = [
-      pkgs.nerdfonts
+      pkgs.nerd-fonts.code-new-roman
       pkgs.powerline-fonts
     ];
   };

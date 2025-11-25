@@ -48,8 +48,11 @@
       packages = builtins.attrValues {
         inherit
           (pkgs)
-          nerdfonts # very large
           scrot
+          ;
+        inherit
+          (pkgs.nerd-fonts)
+          code-new-roman
           ;
       };
     };
