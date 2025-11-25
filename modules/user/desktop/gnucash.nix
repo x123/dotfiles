@@ -13,7 +13,7 @@
     {
       home = {
         packages = [
-          pkgs.gnucash
+          pkgs.unstable-small.gnucash # TODO change back to normal
         ];
       };
     };
