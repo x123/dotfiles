@@ -21,8 +21,6 @@
       elixir.enable = false;
     };
 
-    games.enable = false;
-
     hardware = {
       bluetooth.enable = true;
       laptop.enable = true;
@@ -55,6 +53,7 @@
       nftables.enable = true;
     };
 
+    steam.enable = false;
     wayland.enable = false;
     x11.enable = true;
   };
