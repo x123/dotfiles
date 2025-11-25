@@ -65,6 +65,7 @@
       nix-ssh-serve.enable = false;
     };
 
+    wayland.enable = false;
     x11.enable = true;
   };
 
