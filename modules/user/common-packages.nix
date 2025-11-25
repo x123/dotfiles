@@ -18,7 +18,7 @@
       git
       git-crypt
       jq
-      rocgdb # for strings
+	  rocmPackages.rocgdb
       yq
 
       # crypto
