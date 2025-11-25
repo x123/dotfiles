@@ -101,7 +101,7 @@
         hooks.extraConfig = {
           ntfy = {
             topic = "borgmatic-xnix";
-            server = "https://ntfy.boxchop.city:8883";
+            server = "https://ntfy.boxchop.city";
             username = "borgmatic-xnix";
             password = "strata-potentials-expressly";
             start = {
@@ -125,7 +125,7 @@
             states = ["start" "finish" "fail"];
           };
           uptime_kuma = {
-            push_url = "https://kuma.boxchop.city:8883/api/push/UvJTTCFLgp";
+            push_url = "https://kuma.boxchop.city/api/push/UvJTTCFLgp";
             states = ["start" "finish" "fail"];
           };
         };

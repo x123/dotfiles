@@ -4,7 +4,7 @@
       enable = true;
       settings = {
         listen-http = "127.0.0.1:2586";
-        base-url = "https://ntfy.boxchop.city:8883";
+        base-url = "https://ntfy.boxchop.city";
         upstream-base-url = "https://ntfy.sh";
         auth-default-access = "deny-all";
         behind-proxy = true;
