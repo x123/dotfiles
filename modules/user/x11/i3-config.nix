@@ -9,6 +9,15 @@
     xfce.thunar
   ];
 
+  home.file = {
+    i3lock-dpms = {
+      enable = true;
+      #executable = true;
+      source = ./files/i3lock-dpms;
+      target = "bin/i3lock-dpms";
+    };
+  };
+
   programs.rofi = {
     enable = true;
     theme = "${pkgs.rofi}/share/rofi/themes/Arc-Dark.rasi";
@@ -76,7 +85,8 @@
           titlebar = false;
         };
         keybindings = lib.mkOptionDefault {
-          "${my-modifier}+Shift+l" = "exec ${pkgs.i3lock}/bin/i3lock -n -c 000000";
+          "${my-modifier}+Shift+l" = "exec ~/bin/i3lock-dpms";
+          #"${my-modifier}+Shift+l" = "exec ${pkgs.i3lock}/bin/i3lock -n -c 000000";
           "${my-modifier}+Tab" = "exec ${pkgs.rofi}/bin/rofi -show window";
           "${my-modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show combi";
         };
