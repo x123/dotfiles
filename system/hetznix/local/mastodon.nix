@@ -43,7 +43,6 @@ in {
   services.caddy = {
     enable = true;
     globalConfig = ''
-      debug
       http_port 80
       https_port 443
     '';
