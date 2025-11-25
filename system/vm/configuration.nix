@@ -9,7 +9,7 @@
   disabledModules = ["virtualisation/vmware-guest.nix"];
 
   # Share our host filesystem
-  fileSystems."/host" = {
+  fileSystems."/sharing" = {
     fsType = "fuse./run/current-system/sw/bin/vmhgfs-fuse";
     device = ".host:/Users/fom/vm/sharing";
     options = [
