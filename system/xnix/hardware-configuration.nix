@@ -38,6 +38,8 @@
     '';
     blacklistedKernelModules = ["amdgpu"];
     extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
+    # optional, but ensures rpc-statsd is running for on demand nfs mounting
+    supportedFilesystems = ["nfs"];
   };
 
   services.fstrim.enable = true;
@@ -53,6 +55,12 @@
       device = "/dev/disk/by-label/XDATA";
       fsType = "ext4";
       options = ["noatime" "nodiratime"];
+    };
+
+    "/mnt/nfs/xdata" = {
+      device = "192.168.1.187:/volume1/xdata";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto"];
     };
   };
 
