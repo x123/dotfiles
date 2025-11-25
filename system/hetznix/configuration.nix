@@ -23,7 +23,6 @@
     ./local/ntfy.nix
     ./local/postfix.nix
     ./local/postgres.nix
-    ./local/rustdesk-server.nix
     ./local/uptime-kuma.nix
   ];
 
@@ -43,6 +42,12 @@
       };
 
       nftables.enable = true;
+
+      rustdesk-server = {
+        enable = true;
+        openFirewallNftables = true;
+        relayHosts = ["hetznix.nixlink.net"];
+      };
     };
   };
 
