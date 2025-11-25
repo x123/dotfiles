@@ -8,6 +8,9 @@ let
     strace
     sysstat
 
+    # hardware info
+    dmidecode
+
     # term/shell
     usbutils
     whois
@@ -44,7 +47,6 @@ with lib;
 
         # hardware info
         inxi
-        dmidecode
 
         # media
         imagemagick

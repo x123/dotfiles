@@ -25,7 +25,7 @@
 
   in {
     homeManagerConfigurations = {
-      fom-fom-mba14 = home-manager.lib.homeManagerConfiguration {
+      fom-fom-MBA = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = "aarch64-darwin";
           extra-platforms = "x86_64-darwin";
@@ -75,12 +75,12 @@
     };
 
     darwinConfigurations = {
-      fom-mba14 = nix-darwin.lib.darwinSystem {
+      fom-MBA = nix-darwin.lib.darwinSystem {
 	    system = "aarch64-darwin";
         specialArgs = {inherit inputs;};
 	    modules = [
 	      home-manager.darwinModules.home-manager
-          ./system/fom-mba14/configuration.nix
+          ./system/fom-MBA/configuration.nix
         ];
       };
     };

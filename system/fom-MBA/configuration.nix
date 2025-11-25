@@ -38,6 +38,8 @@
     "fom"
   ];
 
+  networking.hostName = "fom-MBA";
+
   services.nix-daemon.enable = true;
 
   # Create /etc/zshrc that loads the nix-darwin environment.
