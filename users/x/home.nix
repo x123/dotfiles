@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../modules/alacritty.nix
     ../modules/common-packages.nix
     ../modules/common-ssh.nix
     ../modules/firefox.nix
@@ -87,21 +88,7 @@
         identityFile = "/home/x/.ssh/id_xbox";
       };
     };
-
   };
-
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      env.TERM = "xterm-256color";
-      font = {
-        size = 10;
-        draw_bold_text_with_bright_colors = true;
-      };
-      scrolling.multiplier = 5;
-      selection.save_to_clipboard = true;
-    };
-  }; 
 
   programs.bash = {
     enable = true;
