@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   imports = [
     ../../modules/user/darwin/alacritty.nix
     ../../modules/user/darwin/common-packages.nix
