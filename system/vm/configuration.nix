@@ -121,6 +121,9 @@
       (pkgs)
       vim
       wget
+      git
+      gtkmm3
+      xclip
       ;
   };
 
