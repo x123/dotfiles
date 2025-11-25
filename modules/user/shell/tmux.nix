@@ -7,7 +7,9 @@
     mouse = true;
     keyMode = "vi";
     clock24 = true;
-    shortcut = "a";
+    shortcut = "Space";
+    baseIndex = 1;
+    aggressiveResize = true;
     plugins = with pkgs; [
       tmuxPlugins.nord
     ];
