@@ -34,6 +34,7 @@ in {
         TransPort = [9040];
         DNSPort = 5353;
         VirtualAddrNetworkIPv4 = "172.30.0.0/16";
+        ExitNodes = "{us} StrictNodes 1";
       };
     };
 
