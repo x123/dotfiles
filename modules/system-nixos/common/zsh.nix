@@ -3,12 +3,17 @@
   lib,
   pkgs,
   ...
-}: let
-  cfg = config.custom;
-in {
+}: {
   imports = [];
+  options = {
+    custom.system-nixos.common.zsh.enable = lib.mkOption {
+      default = true;
+      type = lib.types.bool;
+      description = "Whether to enable common zsh settings";
+    };
+  };
 
-  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.common.zsh.enable) {
+  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.common.zsh.enable) {
     environment.systemPackages = [
       pkgs.zsh
     ];
