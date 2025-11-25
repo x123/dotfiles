@@ -6,7 +6,11 @@
 }: {
   imports = [];
 
-  config = lib.mkIf (config.custom.user.mail.enable && config.custom.mail.neomutt.enable) {
+  options = {
+    custom.user.mail.neomutt.enable = lib.mkEnableOption "neomutt" // {default = false;};
+  };
+
+  config = lib.mkIf (config.custom.user.mail.enable && config.custom.user.mail.neomutt.enable) {
     home = {
       file = {
         neomuttrc = {
