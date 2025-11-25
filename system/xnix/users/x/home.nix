@@ -31,6 +31,7 @@
     desktop = {
       enable = true;
 
+      anki.enable = true;
       anydesk.enable = true;
       audio.enable = true; # this is just youtube-music right now
       calibre.enable = true;
