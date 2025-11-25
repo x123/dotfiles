@@ -7,7 +7,7 @@
 in {
   imports = [];
 
-  config = lib.mkIf (cfg.system-darwin.enable) {
+  config = lib.mkIf (cfg.system-darwin.enable && cfg.system-darwin.skhd.enable) {
     services.skhd = {
       enable = true;
       skhdConfig = ''
