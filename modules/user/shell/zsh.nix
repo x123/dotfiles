@@ -31,6 +31,7 @@
 
       envExtra = ''
         export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+        export CLAUDE_CODE_USE_VERTEX=1
       '';
     };
   };
