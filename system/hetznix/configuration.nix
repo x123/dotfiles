@@ -30,6 +30,7 @@
     ./local/thelounge.nix
     ./local/unbound.nix
     ./local/uptime-kuma.nix
+    ./local/xmrig.nix
     ./local/xmrig-proxy.nix
     # ./local/xray.nix
   ];
