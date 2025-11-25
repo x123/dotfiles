@@ -30,6 +30,10 @@
       keyFile = "/root/.config/sops/age/keys.txt";
       generateKey = true;
     };
+
+    secrets = {
+      "lego_digitalocean" = {};
+    };
   };
 
   networking = {
