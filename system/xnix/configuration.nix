@@ -27,7 +27,10 @@
     };
 
     networking.tornet.enable = true;
-    security.auditd.enable = true;
+    security = {
+      auditd.enable = true;
+      firejail.enable = true;
+    };
 
     services = {
       open-webui = {
