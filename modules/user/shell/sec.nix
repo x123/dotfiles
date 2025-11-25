@@ -4,9 +4,13 @@
     packages = builtins.attrValues {
       inherit
         (pkgs)
-        netcat-gnu
         ffuf
+        netcat-gnu
         urlencode
+        ;
+      inherit
+        (pkgs.unstable-small)
+        ip2asn
         ;
       inherit
         (pkgs.python312Packages)
