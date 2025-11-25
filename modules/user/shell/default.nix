@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./btop.nix
     ./fonts.nix
     ./htop.nix
     ./social.nix
