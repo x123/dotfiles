@@ -52,6 +52,8 @@
             retries = 5;
             retry_wait = 5;
             ssh_command = "${pkgs.openssh}/bin/ssh -p 23 -i ${config.sops.secrets."ssh/u413840-sub1".path}";
+            # needed for first run after repo is moved to another drive / folder / etc.
+            # relocated_repo_access_is_ok = true;
           };
           encryptionPasscommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets."borg/xnix".path}";
         };
