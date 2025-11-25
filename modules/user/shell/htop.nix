@@ -11,7 +11,7 @@
     highlight_megabytes = 1;
     highlight_threads = 1;
     show_program_path = 0;
-    tree_view = 1;
+    tree_view = 0;
     show_cpu_temperature = 1;
     show_cpu_frequency = 1;
     enable_mouse = 0;
