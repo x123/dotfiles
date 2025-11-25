@@ -2,7 +2,7 @@
   imports = [];
 
   # dock size
-  targets.darwin.defaults."com.apple.dock".tilesize = 128;
+  targets.darwin.defaults."com.apple.dock".tilesize = 64;
 
   # default search engine
   targets.darwin.search = "DuckDuckGo";
