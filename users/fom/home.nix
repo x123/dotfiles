@@ -4,6 +4,7 @@
     ../../modules/user/darwin/common-packages.nix
     ../../modules/user/darwin/common-ssh.nix
     ../../modules/user/darwin/control-center.nix
+    ../../modules/user/darwin/safari.nix
     ../../modules/user/git.nix
     ../../modules/user/shell.nix
     ../../modules/user/vim.nix
