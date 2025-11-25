@@ -40,6 +40,7 @@
     ./telegram.nix
     ./tor-browser.nix
     ./video.nix
+    ./xmr.nix
   ];
 
   options.custom.user.desktop = {

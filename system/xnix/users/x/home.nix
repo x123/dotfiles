@@ -59,6 +59,7 @@
         telegram.enable = false;
         tor-browser.enable = true;
         video.enable = true;
+        xmr.enable = true;
 
         wayland = {
           enable = false;
