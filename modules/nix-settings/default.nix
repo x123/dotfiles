@@ -7,6 +7,7 @@
 
   environment.systemPackages = [
     pkgs.nh
+    pkgs.nix-output-monitor
     pkgs.nix-tree
   ];
 
