@@ -110,7 +110,7 @@
         };
         extraSpecialArgs = {inherit inputs;};
         modules = [
-          ./users/fom/home.nix
+          ./system/fom-MBA/users/fom/home.nix
         ];
       };
 
