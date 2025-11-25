@@ -42,6 +42,4 @@
       databases = ["mastodon"];
     };
   };
-
-  networking.firewall.allowedTCPPorts = [80 443];
 }
