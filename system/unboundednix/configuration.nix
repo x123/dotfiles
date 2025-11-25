@@ -58,7 +58,7 @@
         replace=domain/${config.networking.domain}/
       '';
     };
-    nameservers = ["192.168.1.127"];
+    nameservers = ["192.168.1.1"];
     search = [];
   };
 
@@ -67,7 +67,7 @@
     networks."99-ethernet" = {
       matchConfig.Name = "eth0";
       networkConfig = {
-        DNS = ["192.168.1.127"];
+        DNS = ["192.168.1.1"];
         MulticastDNS = false;
         LLMNR = false;
         IPv6AcceptRA = false;
@@ -87,7 +87,7 @@
 
   services.resolved = {
     enable = false;
-    fallbackDns = ["192.168.1.127"];
+    fallbackDns = ["192.168.1.1"];
     llmnr = "false";
   };
 
