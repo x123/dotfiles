@@ -39,7 +39,7 @@
     alacritty = {
       settings = {
         font = {
-          size = lib.mkForce 14;
+          size = lib.mkForce 16;
         };
       };
     };
