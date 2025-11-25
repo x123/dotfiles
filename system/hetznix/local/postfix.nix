@@ -36,6 +36,7 @@
       };
       extraAliases = ''
         nix: x123
+        apt-hunt: x123
       '';
       extraConfig = ''
         smtpd_recipient_restrictions =
