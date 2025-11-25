@@ -11,6 +11,7 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     blender-bin.url = "github:edolstra/nix-warez/?dir=blender";
     nixified-ai.url = "github:nixified-ai/flake";
+    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
 
     ghostty.url = "git+ssh://git@me.github.com/mitchellh/ghostty";
 
@@ -35,17 +36,42 @@
     blender-bin,
     nixified-ai,
     ghostty,
+    pre-commit-hooks,
     ...
   }: let
     supportedSystems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
     forEachSupportedSystem = f:
       nixpkgs.lib.genAttrs supportedSystems (system:
         f {
+          inherit system;
           pkgs = import nixpkgs {inherit system;};
         });
-    #lib = nixpkgs.lib;
   in {
-    devShells = forEachSupportedSystem ({pkgs}: {
+    checks = forEachSupportedSystem ({
+      pkgs,
+      system,
+    }: {
+      pre-commit-check = pre-commit-hooks.lib.${system}.run {
+        src = ./.;
+        hooks = {
+          alejandra.enable = true;
+          shellcheck.enable = true;
+          statix.enable = true;
+          custom-shellcheck = {
+            enable = false;
+            name = "shellcheck";
+            entry = "${pkgs.shellcheck}/bin/shellcheck";
+            files = "^bin/";
+            #types = ["executable" "text" "bash" "csh" "sh" "zsh" "tcsh"];
+          };
+        };
+      };
+    });
+
+    devShells = forEachSupportedSystem ({
+      pkgs,
+      system,
+    }: {
       default = pkgs.mkShell {
         packages = with pkgs; [
           age
@@ -60,6 +86,7 @@
 
         shellHook = ''
           export PATH="$PWD/bin:$PATH"
+          ${self.checks.${system}.pre-commit-check.shellHook}
         '';
       };
     });
