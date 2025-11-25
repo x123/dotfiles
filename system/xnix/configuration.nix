@@ -27,7 +27,11 @@
       via.enable = true;
     };
 
-    networking.tornet.enable = true;
+    networking = {
+      tornet.enable = true;
+      wireguard.enable = true;
+    };
+
     security = {
       apparmor.enable = true;
       auditd.enable = true;
