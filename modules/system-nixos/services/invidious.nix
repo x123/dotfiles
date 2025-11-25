@@ -42,16 +42,15 @@ in {
     # users.users.caddy.extraGroups = [config.users.groups.ssl.name];
 
     networking.nftables = lib.mkIf (cfg.system-nixos.services.invidious.openFirewallNftables) {
-      enable = true;
       tables = {
         filter = {
           family = "inet";
           content = ''
             chain input-new {
-              ip6 saddr { ${trustedIpv6s} } tcp dport {80, 443} log prefix "nft-accept-lan-invidious: " level info
+              ip6 saddr { ${trustedIpv6s} } tcp dport {80, 443} log prefix "nft-accept-invidious: " level info
               ip6 saddr { ${trustedIpv6s} } tcp dport {80, 443} counter accept
 
-              ip saddr { ${trustedIpv4s} } tcp dport {80, 443} log prefix "nft-accept-lan-invidious: " level info
+              ip saddr { ${trustedIpv4s} } tcp dport {80, 443} log prefix "nft-accept-invidious: " level info
               ip saddr { ${trustedIpv4s} } tcp dport {80, 443} counter accept
             }'';
         };
