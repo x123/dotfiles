@@ -56,7 +56,7 @@
         extraSpecialArgs = {inherit inputs;};
         modules = [
           nur.nixosModules.nur
-          ./users/x/home.nix
+          ./users/x-xnix/home.nix
         ];
       };
 
