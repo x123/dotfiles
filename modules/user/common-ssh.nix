@@ -12,7 +12,7 @@
         serverAliveInterval = 60;
         extraOptions = {
           ConnectTimeout = "10";
-          VisualHostKey = "yes";
+          VisualHostKey = "no";
         };
       };
     };
