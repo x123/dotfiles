@@ -11,10 +11,21 @@ in {
   config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.x11.enable) {
     programs.dconf.enable = true;
 
+    programs.hyprland.enable = true;
+    programs.hyprlock.enable = true;
+
     services = {
       displayManager = {
         autoLogin.enable = false;
-        defaultSession = "none+i3";
+        ly = {
+          enable = true;
+          settings = {
+            animation = "doom"; # or matrix
+            hide_borders = true;
+            animation_timeout_sec = 0;
+          };
+        };
+        #defaultSession = "none+i3";
       };
 
       xserver = {
@@ -31,28 +42,38 @@ in {
           xterm.enable = false;
         };
 
-        displayManager = {
-          lightdm = {
-            enable = true;
-            greeter.enable = true;
-          };
-        };
+        # displayManager = {
+        #   # gdm.enable = true;
+        #   ly.enable = true;
+        #   # lemurs
+        #   # ly
+        #   # emptty
+        #   # lightdm = {
+        #   #   enable = true;
+        #   #   greeter.enable = true;
+        #   # };
+        # };
 
         windowManager = {
-          i3 = {
+          hypr = {
             enable = true;
-            package = pkgs.i3; # or pkgs.i3-gaps
-            extraPackages = builtins.attrValues {
-              inherit
-                (pkgs)
-                dmenu
-                i3status
-                i3lock
-                i3lock-fancy
-                rofi
-                ;
-            };
           };
+          # sway = {
+          # };
+          # i3 = {
+          #   enable = true;
+          #   package = pkgs.i3; # or pkgs.i3-gaps
+          #   extraPackages = builtins.attrValues {
+          #     inherit
+          #       (pkgs)
+          #       dmenu
+          #       i3status
+          #       i3lock
+          #       i3lock-fancy
+          #       rofi
+          #       ;
+          #   };
+          # };
         };
       };
     };
