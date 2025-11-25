@@ -43,8 +43,8 @@
     programs.git = {
       enable = true;
       settings = {
-        user.email = "x123";
-        user.name = "x123@users.noreply.github.com";
+        user.email = "x123@users.noreply.github.com";
+        user.name = "x123";
         init.defaultBranch = "master";
         push.autoSetupRemote = true;
       };
