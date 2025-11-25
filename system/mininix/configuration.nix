@@ -14,6 +14,8 @@
   custom.system-nixos = {
     enable = true;
 
+    hardware.qemu-guest.enable = true;
+
     services = {
       tftp = {
         enable = true;
