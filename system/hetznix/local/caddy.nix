@@ -7,6 +7,21 @@
     };
   };
 
+  networking.nftables = {
+    tables = {
+      filter = {
+        family = "inet";
+        content = ''
+          chain input-new {
+            # caddy
+            tcp dport { 8880, 8883 } log prefix "nft-input-accept-caddy: " level info
+            tcp dport { 8880, 8883 } counter accept
+          }
+        '';
+      };
+    };
+  };
+
   services.caddy = {
     enable = true;
     globalConfig = ''
