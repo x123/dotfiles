@@ -14,7 +14,7 @@
     ./local/caddy-blockblaster.nix
     ./local/caddy-ip.nix
     ./local/dovecot.nix
-    ./local/fail2ban.nix
+
     # ./local/mastodon.nix
     ./local/nftables-blackhole.nix
     ./local/nftables-caddy.nix
@@ -47,6 +47,31 @@
         enable = true;
         openFirewallNftables = true;
         relayHosts = ["hetznix.nixlink.net"];
+      };
+
+      fail2ban = {
+        enable = true;
+        allowLocalNetworks = true;
+        ignoreIP = [
+          "nixlink.net"
+          "empire.nixlink.net"
+        ];
+        customFilters = {
+          "dovecot2-custom" = ''
+            [Definition]
+            failregex = ^.*authentication failure; logname=<F-ALT_USER1>\S*</F-ALT_USER1> uid=\S* euid=\S* tty=dovecot ruser=<F-USER>\S*</F-USER> rhost=<HOST>(?:\s+user=<F-ALT_USER>\S*</F-ALT_USER>)?\s*$
+            journalmatch = _SYSTEMD_UNIT=dovecot.service
+          '';
+        };
+        jails = {
+          dovecot = {
+            settings = {
+              filter = "dovecot2-custom[mode=normal]";
+              maxretry = "3";
+              backend = "systemd";
+            };
+          };
+        };
       };
     };
   };
