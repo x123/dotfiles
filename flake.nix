@@ -237,13 +237,11 @@
           disko.nixosModules.disko
           ./system/hetznix/configuration.nix
           sops-nix.nixosModules.sops
-          #sops-nix.modules.home-manager.sops
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              #users.root = import ./users/root-nixium/home.nix;
               extraSpecialArgs = {inherit inputs;};
             };
           }
