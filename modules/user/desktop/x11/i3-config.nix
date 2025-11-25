@@ -184,7 +184,6 @@ in {
                   }
                 ];
               settings = {
-                # font = "pango:DejaVuSansM Nerd Font, Font Awesome 6 Free";
                 theme = {
                   theme = "nord-dark";
                 };
@@ -241,8 +240,8 @@ in {
           bars = [
             {
               fonts = {
-                names = ["CodeNewRoman Nerd Font"];
-                size = 12.0;
+                names = ["DejaVu Sans" "CodeNewRoman Nerd Font" "Font Awesome 6 Free"];
+                size = 10.0;
               };
               mode = "dock";
               hiddenState = "show";
