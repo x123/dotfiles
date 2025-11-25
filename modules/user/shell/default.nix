@@ -35,16 +35,6 @@
   };
 
   config = lib.mkIf config.custom.user.shell.enable {
-    nixpkgs.overlays = [
-      (
-        final: prev: {
-          x123 = import inputs.nixpkgs-x123 {
-            inherit system;
-          };
-        }
-      )
-    ];
-
     programs = {
       dircolors = {
         enable = true;
