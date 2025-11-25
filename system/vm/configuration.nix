@@ -68,7 +68,7 @@
 
   virtualisation.vmware.guest.enable = true;
 
-  services.xserver.dpi = 180;
+  services.xserver.dpi = 224;
   environment.variables = {
     GDK_SCALE = "2";
     GDK_DPI_SCALE = "0.5";
