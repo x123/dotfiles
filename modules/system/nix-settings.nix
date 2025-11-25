@@ -1,17 +1,21 @@
 {
+  lib,
   pkgs,
-  config,
   ...
 }: {
   imports = [];
 
-  system.activationScripts.diff = {
-    supportsDryActivation = true;
-    text = ''
-      ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff \
-          /run/current-system "$systemConfig"
-    '';
-  };
+  # show nvd diffs after (nixos|darwin)-rebuild switch
+  system.activationScripts.postUserActivation =
+    {
+      text = ''
+        ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff \
+            /run/current-system "$systemConfig"
+      '';
+    }
+    // lib.optionalAttrs pkgs.stdenv.isLinux {
+      supportsDryActivation = true;
+    };
 
   nix = {
     # support nix flakes
