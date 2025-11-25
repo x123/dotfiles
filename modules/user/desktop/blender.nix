@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  blender = pkgs.blender.override {cudaSupport = true;};
+  blender = pkgs.blender.override {cudaSupport = config.custom.desktop.blender.cudaSupport;};
 in {
   imports = [];
 
@@ -14,6 +14,11 @@ in {
         default = false;
         type = lib.types.bool;
         description = "Whether to enable blender.";
+      };
+      cudaSupport = lib.mkOption {
+        default = false;
+        type = lib.types.bool;
+        description = "Whether to enable cudaSupport.";
       };
     };
   };
