@@ -17,6 +17,8 @@
   custom.system-nixos = {
     enable = true;
 
+    hardware.qemu-guest.enable = true;
+
     services = {
       openssh = {
         enable = true;
