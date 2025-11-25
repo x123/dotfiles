@@ -1,6 +1,6 @@
-{pkgs, inputs, ...}: {
+{pkgs, inputs, lib, ...}: {
   imports = [
-    ../../modules/user/darwin/alacritty
+    ../../modules/user/alacritty
     ../../modules/user/darwin/common-packages.nix
     ../../modules/user/darwin/common-ssh.nix
     ../../modules/user/darwin/macos.nix
@@ -10,6 +10,15 @@
     ../../modules/user/vim.nix
     ../../modules/user/keepass.nix
   ];
+
+  # force override the font size for alacritty
+  programs.alacritty = {
+    settings = {
+      font = {
+        size = lib.mkForce 14;
+      };
+    };
+  };
 
   home = {
     username = "fom";
