@@ -28,6 +28,7 @@
     };
 
     editors = {
+      emacs.enable = true;
       helix.enable = false;
       neovim.enable = true;
       vim.enable = false;
