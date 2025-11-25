@@ -19,6 +19,7 @@
     ../../modules/user/helix.nix
     ../../modules/user/home-manager.nix
     ../../modules/user/keepass.nix
+    ../../modules/user/neomutt.nix
     ../../modules/user/neovim.nix
     ../../modules/user/shell
     ../../modules/user/systemd/timer-binrich-fetch.nix
