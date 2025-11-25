@@ -16,7 +16,7 @@
     ../../modules/user/dev.nix
     ../../modules/user/desktop/discord.nix
     ../../modules/user/desktop/firefox.nix
-    ../../modules/user/ghostty.nix
+    ../../modules/user/desktop/ghostty.nix
     ../../modules/user/git.nix
     ../../modules/user/gpg-agent.nix
     ../../modules/user/helix.nix
