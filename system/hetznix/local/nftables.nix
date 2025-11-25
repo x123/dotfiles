@@ -42,7 +42,7 @@
           set ks4 {
             type ipv4_addr
             flags timeout
-            timeout 10m
+            timeout 60m
             gc-interval 4s
           }
 
