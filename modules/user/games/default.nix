@@ -37,7 +37,7 @@
               blightmud
               brogue-ce
               crawl
-              godot_4
+              # godot_4
               openttd
               sil
               sil-q
