@@ -6,8 +6,7 @@
 }: {
   imports = [
     ../../modules/user/common
-    ../../modules/user/dev.nix
-    ../../modules/user/git.nix
+    ../../modules/user/dev
     ../../modules/user/shell
     ../../modules/user/editors/neovim.nix
   ];

@@ -12,11 +12,10 @@
     ../../modules/user/desktop/calibre.nix
     ../../modules/user/desktop/chromium.nix
     ../../modules/user/common
-    ../../modules/user/dev.nix
+    ../../modules/user/dev
     ../../modules/user/desktop/discord.nix
     ../../modules/user/desktop/firefox.nix
     ../../modules/user/desktop/ghostty.nix
-    ../../modules/user/git.nix
     ../../modules/user/editors/helix.nix
     ../../modules/user/home-manager.nix
     ../../modules/user/desktop/keepass.nix
