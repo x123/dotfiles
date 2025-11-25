@@ -14,6 +14,7 @@
   nix.settings.trusted-users = [
     "root"
     "x"
+    "fom"
     "@wheel"
   ];
   nix.gc = (if pkgs.stdenv.isDarwin then {
