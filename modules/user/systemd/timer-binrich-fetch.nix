@@ -8,6 +8,7 @@
       OnUnitActiveSec = "150s";
       Unit = "binrich-fetch.service";
     };
+    Install.WantedBy = [ "default.target" ];
   };
 
   systemd.user.services = {
