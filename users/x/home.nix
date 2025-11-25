@@ -220,6 +220,12 @@
     forwardAgent = false;
 
     matchBlocks = {
+      "*" = {
+        serverAliveInterval = 60;
+        extraOptions = {
+          ConnectTimeout = "10";
+        };
+      };
       "adamantium" = {
         hostname = "adamantium.boxchop.city";
         user = "root";
