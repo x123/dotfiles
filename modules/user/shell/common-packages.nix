@@ -53,6 +53,7 @@ in {
             fzf
             hyperfine
             killall
+            links2
             lsof
             parallel
             tree
