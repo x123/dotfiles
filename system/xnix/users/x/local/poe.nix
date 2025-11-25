@@ -23,6 +23,13 @@ in {
     };
   };
 
+  home.packages = builtins.attrValues {
+    inherit
+      (pkgs)
+      gamemode
+      ;
+  };
+
   home.file = {
     xbindkeysrc = {
       enable = true;
