@@ -5,6 +5,9 @@
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
+    options = [
+      "--cmd n"
+    ];
   };
 
 }
