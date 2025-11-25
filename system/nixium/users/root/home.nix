@@ -1,14 +1,9 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
-    ../../modules/user/common
-    ../../modules/user/dev
-    ../../modules/user/shell
-    ../../modules/user/editors/neovim.nix
+    ../../../../modules/user/common
+    ../../../../modules/user/dev
+    ../../../../modules/user/shell
+    ../../../../modules/user/editors/neovim.nix
   ];
 
   home = {

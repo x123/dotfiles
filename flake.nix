@@ -144,7 +144,7 @@
         };
         extraSpecialArgs = {inherit inputs;};
         modules = [
-          ./users/root-nixium/home.nix
+          ./system/nixium/users/root/home.nix
         ];
       };
     };
