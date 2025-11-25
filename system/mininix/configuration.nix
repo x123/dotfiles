@@ -10,7 +10,7 @@
     ../../modules/nix-settings # do not remove
     ../../modules/system-nixos
 
-    ./local/n8n.nix
+    # ./local/n8n.nix
     # ./local/syncthing.nix
   ];
 
