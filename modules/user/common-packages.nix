@@ -9,6 +9,7 @@
       killall
       pciutils
       ripgrep
+      tree
       usbutils
       whois
 
