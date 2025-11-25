@@ -33,6 +33,7 @@
     shellAliases = {
       adamantium = "ssh adamantium";
       boxchop = "ssh adamantium";
+      ls = "ls --color";
     };
   };
 
