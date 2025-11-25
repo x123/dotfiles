@@ -74,8 +74,8 @@
   };
 
   fileSystems = {
-    "/xdata" = {
-      device = "192.168.1.187:/volume1/xdata";
+    "/mnt/truenas/iron/xdata" = {
+      device = "truenas.empire.internal:/mnt/iron/xdata";
       fsType = "nfs";
       options = ["x-systemd.automount" "noauto"];
     };

@@ -20,8 +20,8 @@
       webHome = pkgs.flood-for-transmission; # for alternate webUI
       credentialsFile = config.sops.secrets."transmission-creds".path;
       settings = {
-        download-dir = "/xdata/completed";
-        incomplete-dir = "/xdata/downloads";
+        download-dir = "/mnt/truenas/iron/xdata/completed";
+        incomplete-dir = "/mnt/truenas/iron/xdata/downloads";
         incomplete-dir-enabled = true;
         rpc-bind-address = "192.168.1.188";
         # peer-port = XXXX;
