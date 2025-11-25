@@ -110,6 +110,7 @@
         htop
         pciutils
         ripgrep
+        visidata
         ;
     };
 
