@@ -11,6 +11,7 @@
     "borg/xnix" = {};
     "ntfy/user" = {};
     "ntfy/pass" = {};
+    "ssh/u413840-sub1" = {};
   };
 
   home.packages = [
@@ -22,7 +23,12 @@
     enable = true;
     backups = {
       x-at-xnix-home = {
-        storage.encryptionPasscommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets."borg/xnix".path}";
+        storage = {
+          extraConfig = {
+            ssh_command = "${pkgs.openssh}/bin/ssh -p 23 -i ${config.sops.secrets."ssh/u413840-sub1".path}";
+          };
+          encryptionPasscommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets."borg/xnix".path}";
+        };
         consistency = {
           checks = [
             {
@@ -95,6 +101,10 @@
         };
         location = {
           repositories = [
+            {
+              "path" = "ssh://u413840-sub1@u413840.your-storagebox.de/./xnix";
+              "label" = "xnix-storagebox";
+            }
             {
               "path" = "/mnt/xdata/borg";
               "label" = "local";
