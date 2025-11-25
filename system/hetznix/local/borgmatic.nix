@@ -48,7 +48,7 @@
           "! var/run"
           "! run"
           "! mnt"
-          "! tmp"
+          # "! tmp"
           "- root/src/nixpkgs"
           "- root/.cache"
           "- root/**/.cache"
