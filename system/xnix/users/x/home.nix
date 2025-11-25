@@ -57,6 +57,7 @@
       keepassxc.enable = true;
       keybase.enable = true;
       mullvad.enable = true;
+      mumble.enable = true;
       obs-studio.enable = false;
       slack.enable = true;
       telegram.enable = true;
