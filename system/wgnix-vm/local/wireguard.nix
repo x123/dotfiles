@@ -62,9 +62,15 @@
         nat = {
           family = "inet";
           content = ''
+            chain prerouting {
+              type nat hook prerouting priority -100;
+              iifname "wg0" tcp dport 39272 counter dnat ip to 10.10.10.6
+              iifname "wg0" udp dport 39272 counter dnat ip to 10.10.10.6
+            }
+
             chain postrouting {
               # this hook runs just before packets leave the server
-              type nat hook postrouting priority 100; policy accept;
+              type nat hook postrouting priority 100; # policy accept;
 
               ip saddr 10.10.10.0/24 oifname "wg0" counter masquerade
             }
@@ -83,9 +89,9 @@
               # established/related
               ct state related,established counter accept
 
-              # allow from the iodine tunnel ('dns0') and out to the internet
-              # ('enp1s0')
               iifname "ens19" oifname "wg0" counter accept comment "Allow in ens19 and out wg0"
+              iifname "wg0" oifname "ens19" counter accept comment "Allow in wg0 and out ens19"
+              limit rate 60/minute burst 20 packets log prefix "nft-forward-drop: " level info
             }
           '';
         };
