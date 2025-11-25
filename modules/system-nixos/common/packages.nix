@@ -18,6 +18,7 @@
       inherit
         (pkgs)
         dnsutils
+        fio
         iftop
         mtr
         openssl
