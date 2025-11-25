@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./fonts.nix
     ./tmux.nix
     ./starship.nix
   ];
