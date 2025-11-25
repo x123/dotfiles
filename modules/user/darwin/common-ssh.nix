@@ -17,8 +17,6 @@
 
     extraConfig = ''
       AddKeysToAgent yes
-    '' + ''
-      Match host * exec "ssh-agent UPDATESTARTUPTTY /bye"
     '';
   };
 
