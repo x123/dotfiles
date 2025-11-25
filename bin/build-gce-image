@@ -10,4 +10,4 @@ fi
 
 SHORT_HOSTNAME=$1
 
-nixos-rebuild build-vm --flake .#"${SHORT_HOSTNAME}"
+nix build -v .#nixosConfigurations."${SHORT_HOSTNAME}".config.system.build.googleComputeImage
