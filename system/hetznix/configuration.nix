@@ -16,6 +16,7 @@
     ./local/mastodon.nix
     ./local/nftables-http.nix
     ./local/nftables-knock.nix
+    # ./local/nftables-netperf.nix
     ./local/nginx.nix
     ./local/ntfy.nix
     ./local/postfix.nix
