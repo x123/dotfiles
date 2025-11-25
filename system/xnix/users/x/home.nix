@@ -61,7 +61,7 @@
       mumble.enable = true;
       obs-studio.enable = false;
       slack.enable = true;
-      telegram.enable = true;
+      telegram.enable = false;
       tor-browser.enable = true;
       video.enable = true;
 
