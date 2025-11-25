@@ -47,11 +47,43 @@
       packages = builtins.attrValues {
         inherit
           (pkgs)
+          material-symbols
+          powerline-fonts
           scrot
           ;
         inherit
           (pkgs.nerd-fonts)
+          _0xproto
+          _3270
+          agave
+          anonymice
+          arimo
+          blex-mono
           code-new-roman
+          cousine
+          d2coding
+          dejavu-sans-mono
+          fira-code
+          fira-mono
+          go-mono
+          gohufont
+          hack
+          hasklug
+          hurmit
+          iosevka
+          lekton
+          lilex
+          meslo-lg
+          monofur
+          monoid
+          mononoki
+          mplus
+          noto
+          overpass
+          profont
+          tinos
+          ubuntu
+          zed-mono
           ;
       };
     };
