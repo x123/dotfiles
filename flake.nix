@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-x123.url = "github:x123/nixpkgs/x123-add-dnsdbq";
     # nixpkgs-unstable-small.url = "nixpkgs/nixos-unstable-small";
     ghostty.url = "git+ssh://git@me.github.com/ghostty-org/ghostty";
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
@@ -39,6 +40,7 @@
     self,
     nixpkgs,
     # nixpkgs-unstable-small,
+    nixpkgs-x123,
     nixos-hardware,
     home-manager,
     sops-nix,
