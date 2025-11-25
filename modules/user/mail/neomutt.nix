@@ -1,17 +1,24 @@
-{pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [];
 
-  home = {
-    file = {
-      neomuttrc = {
-        enable = true;
-        target = ".config/neomutt/neomuttrc";
-        source = ./neomuttrc;
+  config = lib.mkIf config.custom.mail.enable {
+    home = {
+      file = {
+        neomuttrc = {
+          enable = true;
+          target = ".config/neomutt/neomuttrc";
+          source = ./neomuttrc;
+        };
       };
-    };
 
-    packages = [
-      pkgs.neomutt
-    ];
+      packages = [
+        pkgs.neomutt
+      ];
+    };
   };
 }

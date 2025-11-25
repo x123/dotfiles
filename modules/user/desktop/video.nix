@@ -1,11 +1,9 @@
 {
   config,
-  pkgs,
   lib,
-  inputs,
+  pkgs,
   ...
 }: let
-  cfg = config.mypackages.common-packages;
   broken_on_darwin = builtins.attrValues {
     inherit
       (pkgs)
@@ -15,18 +13,16 @@
   };
 in {
   options = {
-    mypackages.video = {
+    custom.desktop.video = {
       enable = lib.mkOption {
-        default = true;
+        default = false;
         type = lib.types.bool;
-        description = ''
-          Whether to enable the video packages.
-        '';
+        description = "Whether to enable the video packages.";
       };
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (config.custom.desktop.enable && config.custom.desktop.video.enable) {
     home = {
       packages =
         builtins.attrValues {
