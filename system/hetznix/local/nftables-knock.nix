@@ -151,10 +151,22 @@
               jump ipv6_pk
 
               # ssh
-              tcp dport 22 ip saddr @ipv4_ks4 log prefix "nft-input-pn-traffic-accept: " level info
+              tcp dport 22 ip saddr @ipv4_ks4 log prefix "nft-input-pn-traffic-ssh-accept: " level info
               tcp dport 22 ip saddr @ipv4_ks4 counter accept
-              tcp dport 22 ip6 saddr @ipv6_ks4 log prefix "nft-input-pn-traffic-accept: " level info
+              tcp dport 22 ip6 saddr @ipv6_ks4 log prefix "nft-input-pn-traffic-ssh-accept: " level info
               tcp dport 22 ip6 saddr @ipv6_ks4 counter accept
+
+              # crusader
+              tcp dport 35481 ip saddr @ipv4_ks4 log prefix "nft-input-pn-traffic-crusader-accept: " level info
+              tcp dport 35481 ip saddr @ipv4_ks4 counter accept
+              tcp dport 35481 ip6 saddr @ipv6_ks4 log prefix "nft-input-pn-traffic-crusader-accept: " level info
+              tcp dport 35481 ip6 saddr @ipv6_ks4 counter accept
+
+              # crusader udp
+              udp dport 35481 ip saddr @ipv4_ks4 log prefix "nft-input-pn-traffic-crusader-accept: " level info
+              udp dport 35481 ip saddr @ipv4_ks4 counter accept
+              udp dport 35481 ip6 saddr @ipv6_ks4 log prefix "nft-input-pn-traffic-crusader-accept: " level info
+              udp dport 35481 ip6 saddr @ipv6_ks4 counter accept
             }
           '';
         };
