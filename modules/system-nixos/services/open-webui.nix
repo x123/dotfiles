@@ -3,9 +3,8 @@
   lib,
   ...
 }: let
-  cfg = config.custom;
-  trustedIpv4s = builtins.concatStringsSep "," cfg.system-nixos.services.open-webui.trustedIpv4Networks;
-  trustedIpv6s = builtins.concatStringsSep "," cfg.system-nixos.services.open-webui.trustedIpv6Networks;
+  trustedIpv4s = builtins.concatStringsSep "," config.custom.system-nixos.services.open-webui.trustedIpv4Networks;
+  trustedIpv6s = builtins.concatStringsSep "," config.custom.system-nixos.services.open-webui.trustedIpv6Networks;
 in {
   options = {
     custom.system-nixos.services.open-webui = {
@@ -53,18 +52,18 @@ in {
     };
   };
 
-  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.services.open-webui.enable) {
-    networking.nftables = lib.mkIf (cfg.system-nixos.services.open-webui.openFirewallNftables) {
+  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.services.open-webui.enable) {
+    networking.nftables = lib.mkIf (config.custom.system-nixos.services.open-webui.openFirewallNftables) {
       tables = {
         filter = {
           family = "inet";
           content = ''
             chain input-new {
-              ip6 saddr { ${trustedIpv6s} } tcp dport ${builtins.toString cfg.system-nixos.services.open-webui.port} log prefix "nft-accept-open-webui: " level info
-              ip6 saddr { ${trustedIpv6s} } tcp dport ${builtins.toString cfg.system-nixos.services.open-webui.port} counter accept
+              ip6 saddr { ${trustedIpv6s} } tcp dport ${builtins.toString config.custom.system-nixos.services.open-webui.port} log prefix "nft-accept-open-webui: " level info
+              ip6 saddr { ${trustedIpv6s} } tcp dport ${builtins.toString config.custom.system-nixos.services.open-webui.port} counter accept
 
-              ip saddr { ${trustedIpv4s} } tcp dport ${builtins.toString cfg.system-nixos.services.open-webui.port} log prefix "nft-accept-open-webui: " level info
-              ip saddr { ${trustedIpv4s} } tcp dport ${builtins.toString cfg.system-nixos.services.open-webui.port} counter accept
+              ip saddr { ${trustedIpv4s} } tcp dport ${builtins.toString config.custom.system-nixos.services.open-webui.port} log prefix "nft-accept-open-webui: " level info
+              ip saddr { ${trustedIpv4s} } tcp dport ${builtins.toString config.custom.system-nixos.services.open-webui.port} counter accept
             }'';
         };
       };
@@ -73,9 +72,9 @@ in {
     services = {
       open-webui = {
         enable = true;
-        environment = cfg.system-nixos.services.open-webui.environment;
-        host = cfg.system-nixos.services.open-webui.host;
-        port = cfg.system-nixos.services.open-webui.port;
+        environment = config.custom.system-nixos.services.open-webui.environment;
+        host = config.custom.system-nixos.services.open-webui.host;
+        port = config.custom.system-nixos.services.open-webui.port;
       };
     };
   };

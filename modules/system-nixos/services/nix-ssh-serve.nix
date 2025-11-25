@@ -2,9 +2,7 @@
   config,
   lib,
   ...
-}: let
-  cfg = config.custom.system-nixos;
-in {
+}: {
   options = {
     custom.system-nixos.services.nix-ssh-serve = {
       enable = lib.mkOption {
@@ -15,7 +13,7 @@ in {
     };
   };
 
-  config = lib.mkIf (cfg.enable && cfg.services.nix-ssh-serve.enable) {
+  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.services.nix-ssh-serve.enable) {
     nix.settings.trusted-users = ["nix-ssh"];
     nix.sshServe = {
       enable = true;

@@ -3,9 +3,8 @@
   lib,
   ...
 }: let
-  cfg = config.custom;
-  trustedIpv4s = builtins.concatStringsSep "," cfg.system-nixos.services.openssh.trustedIpv4Networks;
-  trustedIpv6s = builtins.concatStringsSep "," cfg.system-nixos.services.openssh.trustedIpv6Networks;
+  trustedIpv4s = builtins.concatStringsSep "," config.custom.system-nixos.services.openssh.trustedIpv4Networks;
+  trustedIpv6s = builtins.concatStringsSep "," config.custom.system-nixos.services.openssh.trustedIpv6Networks;
 in {
   options = {
     custom.system-nixos.services.openssh = {
@@ -32,7 +31,7 @@ in {
     };
   };
 
-  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.services.openssh.enable) {
+  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.services.openssh.enable) {
     services.openssh = {
       enable = true;
       openFirewall = true;
@@ -42,7 +41,7 @@ in {
       };
     };
 
-    networking.nftables = lib.mkIf (cfg.system-nixos.services.openssh.openFirewallNftables) {
+    networking.nftables = lib.mkIf (config.custom.system-nixos.services.openssh.openFirewallNftables) {
       tables = {
         filter = {
           family = "inet";

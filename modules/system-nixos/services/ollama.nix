@@ -3,9 +3,8 @@
   lib,
   ...
 }: let
-  cfg = config.custom;
-  trustedIpv4s = builtins.concatStringsSep "," cfg.system-nixos.services.ollama.trustedIpv4Networks;
-  trustedIpv6s = builtins.concatStringsSep "," cfg.system-nixos.services.ollama.trustedIpv6Networks;
+  trustedIpv4s = builtins.concatStringsSep "," config.custom.system-nixos.services.ollama.trustedIpv4Networks;
+  trustedIpv6s = builtins.concatStringsSep "," config.custom.system-nixos.services.ollama.trustedIpv6Networks;
 in {
   options = {
     custom.system-nixos.services.ollama = {
@@ -48,18 +47,18 @@ in {
     };
   };
 
-  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.services.ollama.enable) {
-    networking.nftables = lib.mkIf (cfg.system-nixos.services.ollama.openFirewallNftables) {
+  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.services.ollama.enable) {
+    networking.nftables = lib.mkIf (config.custom.system-nixos.services.ollama.openFirewallNftables) {
       tables = {
         filter = {
           family = "inet";
           content = ''
             chain input-new {
-              ip6 saddr { ${trustedIpv6s} } tcp dport ${builtins.toString cfg.system-nixos.services.ollama.port} log prefix "nft-accept-ollama: " level info
-              ip6 saddr { ${trustedIpv6s} } tcp dport ${builtins.toString cfg.system-nixos.services.ollama.port} counter accept
+              ip6 saddr { ${trustedIpv6s} } tcp dport ${builtins.toString config.custom.system-nixos.services.ollama.port} log prefix "nft-accept-ollama: " level info
+              ip6 saddr { ${trustedIpv6s} } tcp dport ${builtins.toString config.custom.system-nixos.services.ollama.port} counter accept
 
-              ip saddr { ${trustedIpv4s} } tcp dport ${builtins.toString cfg.system-nixos.services.ollama.port} log prefix "nft-accept-ollama: " level info
-              ip saddr { ${trustedIpv4s} } tcp dport ${builtins.toString cfg.system-nixos.services.ollama.port} counter accept
+              ip saddr { ${trustedIpv4s} } tcp dport ${builtins.toString config.custom.system-nixos.services.ollama.port} log prefix "nft-accept-ollama: " level info
+              ip saddr { ${trustedIpv4s} } tcp dport ${builtins.toString config.custom.system-nixos.services.ollama.port} counter accept
             }'';
         };
       };
@@ -68,9 +67,9 @@ in {
     services = {
       ollama = {
         enable = true;
-        environmentVariables = cfg.system-nixos.services.ollama.environment;
-        host = cfg.system-nixos.services.ollama.host;
-        port = cfg.system-nixos.services.ollama.port;
+        environmentVariables = config.custom.system-nixos.services.ollama.environment;
+        host = config.custom.system-nixos.services.ollama.host;
+        port = config.custom.system-nixos.services.ollama.port;
       };
     };
   };
