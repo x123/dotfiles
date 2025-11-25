@@ -3,6 +3,8 @@
   lib,
   ...
 }: let
+  trustedIpv4sList = config.custom.system-nixos.services.tftp.trustedIpv4Networks;
+  trustedIpv6sList = config.custom.system-nixos.services.tftp.trustedIpv6Networks;
   trustedIpv4s = builtins.concatStringsSep "," config.custom.system-nixos.services.tftp.trustedIpv4Networks;
   trustedIpv6s = builtins.concatStringsSep "," config.custom.system-nixos.services.tftp.trustedIpv6Networks;
 in {
@@ -52,11 +54,15 @@ in {
           content = ''
             chain input-new {
               # tftp
+            ${lib.optionalString (trustedIpv6sList != []) ''
               ip6 saddr { ${trustedIpv6s} } udp dport 69 log prefix "nft-accept-tftp: " level info
               ip6 saddr { ${trustedIpv6s} } udp dport 69 counter accept
+            ''}
 
+            ${lib.optionalString (trustedIpv4sList != []) ''
               ip saddr { ${trustedIpv4s} } udp dport 69 log prefix "nft-accept-tftp: " level info
               ip saddr { ${trustedIpv4s} } udp dport 69 counter accept
+            ''}
             }
           '';
         };
