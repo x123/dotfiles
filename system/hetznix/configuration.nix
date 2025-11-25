@@ -50,7 +50,7 @@
     initrd.kernelModules = [];
     kernelModules = [];
     extraModulePackages = [];
-    kernelPackages = pkgs.linuxKernel.packages.linux_6_11; # 2024-12-24 nftables kernel alignment https://lore.kernel.org/stable/Z2V3fhnOaOMcCtUt@calendula/T/
+    kernelPackages = pkgs.linuxPackages_latest;
     loader.systemd-boot = {
       enable = true;
       configurationLimit = 4;
