@@ -2,10 +2,10 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/nix-settings # do not remove
-    ../../modules/system-v2
+    ../../modules/system-nixos
   ];
 
-  custom.system-v2 = {
+  custom.system-nixos = {
     enable = true;
 
     common = {

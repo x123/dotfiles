@@ -7,7 +7,7 @@
   ];
 
   options = {
-    custom.system-v2.hardware = {
+    custom.system-nixos.hardware = {
       bluetooth.enable = lib.mkOption {
         default = false;
         type = lib.types.bool;

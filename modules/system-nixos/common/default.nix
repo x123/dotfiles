@@ -6,7 +6,7 @@
   ];
 
   options = {
-    custom.system-v2.common = {
+    custom.system-nixos.common = {
       console-theme.enable = lib.mkOption {
         default = false;
         type = lib.types.bool;

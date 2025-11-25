@@ -7,7 +7,7 @@
 in {
   imports = [];
 
-  config = lib.mkIf (cfg.system-v2.enable && cfg.system-v2.hardware.laptop.enable) {
+  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.hardware.laptop.enable) {
     powerManagement = {
       enable = true;
       powertop.enable = true;
