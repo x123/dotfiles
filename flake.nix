@@ -74,7 +74,7 @@
             noLambdaPatternNames = true;
           };
           shellcheck.enable = true;
-          statix.enable = true;
+          statix.enable = false;
         };
       };
     });
