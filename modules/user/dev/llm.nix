@@ -12,8 +12,11 @@
   config = lib.mkIf (config.custom.user.dev.enable && config.custom.user.dev.llm.enable) {
     home.packages = builtins.attrValues {
       inherit
-        (pkgs.unstable-small)
+        (pkgs.master)
         claude-code
+        ;
+      inherit
+        (pkgs.unstable-small)
         fabric-ai
         opencode
         whisper-cpp
