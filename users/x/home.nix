@@ -29,7 +29,7 @@
     # crypto
     age
     gnupg
-    #sops
+    sops
     keepassxc
 
     # archivs

@@ -22,7 +22,7 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" ];
   boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.kernelModules = [ "it87" "k10temp" "nct6683" "nct6775" ];
+  boot.kernelModules = [ "it87" "k10temp" "nct6683" ];
 
   networking.hostName = "xnix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -116,16 +116,6 @@
     #  kate
     #  thunderbird
     #];
-  };
-
-  home-manager.users.x = { pkgs, ... }: {
-    programs.bash.enable = true;
-    home.packages = with pkgs; [
-      firefox
-      git
-      home-manager
-    ];
-    home.stateVersion = "23.05";
   };
 
   # Allow unfree packages
