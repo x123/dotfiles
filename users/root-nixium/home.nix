@@ -44,14 +44,6 @@
 
   programs.ssh = {
     matchBlocks = {
-      "adamantium" = {
-        hostname = "adamantium.boxchop.city";
-        user = "root";
-        port = 2222;
-        identityFile = "/run/secrets/ssh/nixium/private";
-        #identityFile = "~/.ssh/id_nixium";
-        identitiesOnly = true;
-      };
       "github.com" = {
         hostname = "github.com";
         port = 22;

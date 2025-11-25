@@ -34,8 +34,6 @@
     ];
 
     shellAliases = {
-      adamantium = "ssh adamantium";
-      boxchop = "ssh adamantium";
       nixium = "ssh nixium";
       ls = "ls --color";
       less = "less -mNg";
