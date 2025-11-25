@@ -10,6 +10,7 @@
     ../../modules/user/git.nix
     ../../modules/user/gpg-agent.nix
     ../../modules/user/keepass.nix
+    ../../modules/user/pytorch.nix
     ../../modules/user/shell
     ../../modules/user/tor-browser.nix
     ../../modules/user/video.nix
