@@ -8,7 +8,8 @@
       checkconf = true; # wont work if settings.remote-control or settings.include are used
       settings = {
         server = {
-          interface = ["enp1s0" "lo"];
+          interface = ["0.0.0.0" "::0"];
+          access-control = ["0.0.0.0/0 allow" "::0/0 allow"];
         };
       };
     };
