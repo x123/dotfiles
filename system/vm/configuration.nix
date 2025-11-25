@@ -1,15 +1,12 @@
 {pkgs, ...}: {
   imports = [
-    ./custom-vmware-guest.nix
     ./disk-config.nix
     ../../modules/nix-settings # do not remove
     ../../modules/system-nixos
   ];
 
-  disabledModules = ["virtualisation/vmware-guest.nix"];
-
   # Share our host filesystem
-  fileSystems."/sharing" = {
+  fileSystems."/mnt/sharing" = {
     fsType = "fuse./run/current-system/sw/bin/vmhgfs-fuse";
     device = ".host:/Users/fom/vm/sharing";
     options = [
@@ -36,7 +33,7 @@
     hardware = {
       bluetooth.enable = false;
       nvidia.enable = false;
-      sound.enable = true;
+      sound.enable = false;
     };
 
     services = {
@@ -77,9 +74,12 @@
     _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
   };
 
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnsupported = true;
+
   boot = {
     binfmt.emulatedSystems = ["x86_64-linux"];
-    initrd.availableKernelModules = ["xhci_pci" "nvme" "virtio_scsi" "sr_mod"];
+    initrd.availableKernelModules = ["uhci_hcd" "ahci" "xhci_pci" "nvme" "usbhid" "sr_mod"];
     initrd.kernelModules = [];
     kernelModules = [];
     extraModulePackages = [];
