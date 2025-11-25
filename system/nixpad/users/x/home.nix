@@ -44,7 +44,7 @@
 
       x11 = {
         enable = true;
-        i3.enable = false;
+        i3.enable = true;
       };
     };
 
