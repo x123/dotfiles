@@ -14,15 +14,16 @@
   };
 
   config = lib.mkIf (config.custom.system-darwin.enable && config.custom.system-darwin.ai.enable) {
-    nixpkgs.overlays = [
-      (
-        final: prev: {
-          unstable-small = import inputs.nixpkgs-unstable-small {
-            system = "aarch64-darwin";
-          };
-        }
-      )
-    ];
-    environment.systemPackages = [pkgs.unstable-small.ollama];
+    # nixpkgs.overlays = [
+    #   (
+    #     final: prev: {
+    #       unstable-small = import inputs.nixpkgs-unstable-small {
+    #         system = "aarch64-darwin";
+    #       };
+    #     }
+    #   )
+    # ];
+    # environment.systemPackages = [pkgs.unstable-small.ollama];
+    environment.systemPackages = [pkgs.ollama];
   };
 }
