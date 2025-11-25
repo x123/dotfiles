@@ -17,7 +17,7 @@
     ./discord.nix
     ./dropbox.nix
     ./element.nix
-    ./firefox.nix
+    # ./firefox.nix
     ./flameshot.nix
     ./freecad.nix
     ./ghostty.nix
@@ -29,6 +29,7 @@
     ./java.nix
     ./keepass.nix
     ./keybase.nix
+    ./librewolf.nix
     ./mullvad.nix
     ./mumble.nix
     ./obs-studio.nix
