@@ -25,6 +25,7 @@
     ./gnucash.nix
     ./gtk.nix
     ./inkscape.nix
+    ./irc.nix
     ./java.nix
     ./keepass.nix
     ./keybase.nix
