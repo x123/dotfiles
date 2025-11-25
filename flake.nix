@@ -60,6 +60,18 @@
         ];
       };
 
+      root-nixium = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config = { allowUnfree = true; };
+        };
+        extraSpecialArgs = {inherit inputs;};
+        modules = [
+          ./users/root-nixium/home.nix
+        ];
+      };
+
+      # UTM based VM
       x-nixos-utm = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = "aarch64-linux";
