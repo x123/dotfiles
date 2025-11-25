@@ -19,6 +19,10 @@
     ../../modules/system/zsh.nix
     ];
 
+  sops.defaultSopsFile = ./secrets.yaml;
+  sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+  sops.secrets.test_secret = {};
+
   nix.settings.trusted-substituters = ["https://ai.cachix.org"];
   nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
 
@@ -49,6 +53,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   environment.systemPackages = with pkgs; [
+    git
     vim
     wget
   ];
