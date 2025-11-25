@@ -1,0 +1,36 @@
+#!env bash
+# shellcheck disable=SC2239
+set -xeuo pipefail
+
+if which scutil
+then
+  HOSTNAME=$(scutil --get LocalHostName)
+else
+  HOSTNAME=$(hostname -s)
+fi
+
+if [ ! "$(whoami)" ]
+then
+	echo "Error: Not able to determine USER ... Bailing out!";
+	exit 1;
+else
+  USER=$(whoami)
+fi
+
+if [ -z "${HOSTNAME}" ]
+then
+  echo "Error: Not able to determine HOSTNAME ... Bailing out!";
+  exit 1;
+fi
+
+echo "${USER}-${HOSTNAME}"
+pushd ~/.dotfiles
+if nix build -v .#homeManagerConfigurations."${USER}"-"${HOSTNAME}".activationPackage
+then
+  nvd diff "$(home-manager generations | head -n1 | awk -F " -> " '{print $2}')" ./result 
+  popd
+else
+  echo "Build above failed, cannot use nvd to compare previous generation";
+  popd
+  exit 1;
+fi
