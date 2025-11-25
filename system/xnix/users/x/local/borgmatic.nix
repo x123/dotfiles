@@ -7,7 +7,11 @@
     ./borgmatic-xnix-systemd-timer.nix
   ];
 
-  sops.secrets."borg/xnix" = {};
+  sops.secrets = {
+    "borg/xnix" = {};
+    "ntfy/user" = {};
+    "ntfy/pass" = {};
+  };
 
   home.packages = [
     pkgs.borgmatic
@@ -51,6 +55,33 @@
           #     }
           #   ];
           # };
+        };
+        hooks.extraConfig = {
+          ntfy = {
+            topic = "borgmatic-xnix";
+            server = "https://ntfy.boxchop.city:8883";
+            username = "borgmatic-xnix";
+            password = "strata-potentials-expressly";
+            start = {
+              title = "borgmatic: backup started on xnix";
+              message = "Watch this space...";
+              tags = "borgmatic";
+              priority = "min";
+            };
+            finish = {
+              title = "borgmatic: backup completed successfully on xnix";
+              message = "Nice!";
+              tags = "borgmatic,+1";
+              priority = "min";
+            };
+            fail = {
+              title = "borgmatic: backup failed on xnix";
+              message = "You should probably fix it";
+              tags = "borgmatic,-1,skull";
+              priority = "max";
+            };
+            states = ["start" "finish" "fail"];
+          };
         };
         retention = {
           keepDaily = 7;
