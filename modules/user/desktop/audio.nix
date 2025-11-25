@@ -5,10 +5,10 @@
   ...
 }: let
   broken_on_darwin = builtins.attrValues {
-    inherit
-      (pkgs)
-      youtube-music
-      ;
+    # inherit
+    #   (pkgs)
+    #   youtube-music
+    #   ;
   };
 in {
   options = {
