@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+if [ -z "$1" ]
+then
+  echo "Error: ${0} requires a system name to apply."
+  echo "Example: ${0} nixium"
+  exit 1
+fi
+
+SHORT_HOSTNAME=$1
+
+if which nh
+then
+  nh os switch -v . -H "${SHORT_HOSTNAME}"
+elif which darwin-rebuild
+then
+  darwin-rebuild -v switch --flake .#"${SHORT_HOSTNAME}"
+else
+  echo "Error: Could not find nixos-rebuild or darwin-rebuild ... Bailing out!"
+  exit 1
+fi
