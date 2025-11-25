@@ -139,12 +139,12 @@
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
-          { name = "nvim_lua" },
-          { name = "nvim_lsp" },
-          { name = "vsnip" },
-          { name = "path" },
+          { name = "nvim_lua", keyword_length = 2 },
+          { name = "nvim_lsp", keyword_length = 5 },
+          { name = "vsnip", keyword_length = 5 },
+          { name = "path", keyword_length = 1 },
         }, {
-          { name = "buffer", keyword_length = 5},
+          { name = "buffer", keyword_length = 5 },
         }),
         formatting = {
           format = require("lspkind").cmp_format {
@@ -206,30 +206,17 @@
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       local lspconfig = require("lspconfig")
-      lspconfig.cssls.setup({
-        capabilities = capabilities,
-      })
+      lspconfig.cssls.setup({ capabilities = capabilities, })
+      lspconfig.eslint.setup({ capabilities = capabilities, })
+      lspconfig.gopls.setup({ capabilities = capabilities, })
+      lspconfig.html.setup({ capabilities = capabilities, })
+      lspconfig.jsonls.setup({ capabilities = capabilities, })
+      lspconfig.lua_ls.setup({ capabilities = capabilities, })
+      lspconfig.marksman.setup({ capabilities = capabilities, })
+      lspconfig.terraformls.setup({ capabilities = capabilities, })
       lspconfig.elixirls.setup({
         capabilities = capabilities,
         cmd = { "${pkgs.elixir-ls}/bin/elixir-ls" },
-      })
-      lspconfig.eslint.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.gopls.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.html.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.jsonls.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.marksman.setup({
-        capabilities = capabilities,
       })
       lspconfig.nixd.setup({
         autostart = true,
@@ -254,9 +241,6 @@
             },
           },
         },
-      })
-      lspconfig.terraformls.setup({
-        capabilities = capabilities,
       })
 
       -- Use LspAttach autocommand to only map the following keys
