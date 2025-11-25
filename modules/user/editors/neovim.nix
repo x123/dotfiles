@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
@@ -78,6 +77,7 @@ in {
           comment-nvim
           conform-nvim
           copilot-vim
+          CopilotChat-nvim
           gitsigns-nvim
           lspkind-nvim
           lualine-nvim
@@ -153,6 +153,10 @@ in {
         vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gvgv")
 
         vim.keymap.set('n', "<leader>U", vim.cmd.UndotreeToggle)
+
+        -- CopilotChat
+        require("CopilotChat").setup({
+        })
 
         -- avante
         require("avante").setup({
