@@ -96,6 +96,21 @@
         "type": "github"
       }
     },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1701598471,
+        "narHash": "sha256-kHdJ2qc4qKeMTzUIHEcP41ah/dBIhCgvWgrjllt2G78=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "a89745edd5f657e2e5be5ed1bea86725ca78d92e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixos-wsl": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -135,11 +150,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1701623572,
-        "narHash": "sha256-NBxGAGL+NqUON+2g9SjPJzcBIgov0gCM8WT8mZM83Xg=",
+        "lastModified": 1701636328,
+        "narHash": "sha256-tUG15xG0nx5aG1Ezw3Y3OOdVqb0NFiXDu7Dnla+T6Vs=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "805f936f3ce5589d53c2a2c5eeab4019a233e10d",
+        "rev": "d52153ca963cb8072332dc18c3665626fec86647",
         "type": "github"
       },
       "original": {
@@ -153,6 +168,7 @@
         "blender-bin": "blender-bin",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
+        "nixos-hardware": "nixos-hardware",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
         "nur": "nur"
