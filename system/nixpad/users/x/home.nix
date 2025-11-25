@@ -90,14 +90,14 @@
         identitiesOnly = true;
       };
       "xnix" = {
-        hostname = "xnix.lan";
+        hostname = "xnix.empire.internal";
         port = 22;
         user = "x";
         identityFile = "/home/x/.ssh/id_nixpad";
         identitiesOnly = true;
       };
-      "xnix.lan" = {
-        hostname = "xnix.lan";
+      "xnix.empire.internal" = {
+        hostname = "xnix.empire.internal";
         port = 22;
         user = "x";
         identityFile = "/home/x/.ssh/id_nixpad";
