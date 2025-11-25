@@ -18,16 +18,10 @@
         "x-scheme-handler/http" = ["firefox.desktop"];
       };
 
-      home = {
-        packages = [
-          pkgs.firefox
-          pkgs.librewolf
-        ];
-      };
-
-      programs.librewolf = {
-        enable = true;
-      };
+      # home = {
+      #   packages = [
+      #   ];
+      # };
 
       programs.firefox = {
         enable = true;
