@@ -7,7 +7,7 @@
   imports = [];
 
   options = {
-    custom.ai.pytorch = {
+    custom.user.ai.pytorch = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -16,7 +16,7 @@
     };
   };
 
-  config = lib.mkIf (config.custom.ai.enable && config.custom.ai.pytorch.enable) {
+  config = lib.mkIf (config.custom.user.ai.enable && config.custom.user.ai.pytorch.enable) {
     home = {
       packages = builtins.attrValues {
         inherit

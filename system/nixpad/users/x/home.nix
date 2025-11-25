@@ -58,17 +58,17 @@
       };
     };
 
-    ai = {
-      enable = false;
-
-      ollama.enable = true;
-      pytorch.enable = false;
-    };
-
     games.enable = false;
     laptop.enable = true;
 
     user = {
+      ai = {
+        enable = false;
+
+        ollama.enable = true;
+        pytorch.enable = false;
+      };
+
       editors = {
         emacs.enable = false;
         helix.enable = false;

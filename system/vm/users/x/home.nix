@@ -42,16 +42,16 @@
       };
     };
 
-    ai = {
-      enable = false;
-
-      ollama.enable = false;
-      pytorch.enable = false;
-    };
-
     games.enable = false;
 
     user = {
+      ai = {
+        enable = false;
+
+        ollama.enable = false;
+        pytorch.enable = false;
+      };
+
       editors = {
         emacs.enable = false;
         helix.enable = false;
