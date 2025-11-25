@@ -6,11 +6,11 @@
 
 {
   imports = [
-  ../../modules/system/darwin/fonts.nix
-  #../../modules/system/darwin/karabiner.nix
-  ../../modules/system/nix-settings.nix # do not remove
-  #../../modules/system/darwin/yabai.nix
-  ../../modules/system/darwin/skhd.nix
+    ../../modules/system/darwin/fonts.nix
+    #../../modules/system/darwin/karabiner.nix
+    ../../modules/system/nix-settings.nix # do not remove
+    #../../modules/system/darwin/yabai.nix
+    ../../modules/system/darwin/skhd.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -44,7 +44,7 @@
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh = {
-    enable = true;  # default shell on catalina
+    enable = true; # default shell on catalina
     enableCompletion = true;
   };
 

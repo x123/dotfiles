@@ -1,5 +1,5 @@
-{pkgs, config, ...}: {
-  imports = [];
+{ pkgs, config, ... }: {
+  imports = [ ];
 
   programs.htop.enable = true;
   programs.htop.settings = {

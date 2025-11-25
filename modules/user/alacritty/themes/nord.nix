@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.alacritty = {
     settings = {
       # begin nord theme

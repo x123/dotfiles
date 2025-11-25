@@ -1,10 +1,10 @@
-{pkgs, ...}: {
-  imports = [];
+{ pkgs, ... }: {
+  imports = [ ];
 
   console = {
     earlySetup = true;
     font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v14n.psf.gz";
-    packages = with pkgs; [ powerline-fonts];
+    packages = with pkgs; [ powerline-fonts ];
     colors = [
       "3b4252" # color0#define nord1
       "bf616a" # color1#define nord11

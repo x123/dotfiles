@@ -17,11 +17,11 @@
     ../../modules/system/steam.nix
     ../../modules/system/x11.nix
     ../../modules/system/zsh.nix
-    ];
+  ];
 
   sops.defaultSopsFile = ./secrets.yaml;
   sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-  sops.secrets.test_secret = {};
+  sops.secrets.test_secret = { };
 
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;

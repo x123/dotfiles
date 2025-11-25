@@ -1,5 +1,5 @@
-{pkgs, lib, ...}: {
-  imports = [];
+{ pkgs, lib, ... }: {
+  imports = [ ];
   home.packages = with pkgs; [
     blueman
     dunst
@@ -61,21 +61,22 @@
       # url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/03c6c20be96c38827037d2238357f2c777ec4aa5/wallpapers/nix-wallpaper-dracula.png";
       # sha256 = "SykeFJXCzkeaxw06np0QkJCK28e0k30PdY8ZDVcQnh4=";
       # };
-    in {
+    in
+    {
       enable = true;
       config = {
         startup = [
-          {command = "${pkgs.autorandr}/bin/autorandr -l home";}
-          {command = "${pkgs.feh}/bin/feh --bg-fill ${background}";}
-          {command = "${pkgs.dunst}/bin/dunst &";}
-          {command = "${pkgs.picom}/bin/picom --daemon";}
-          {command = "${pkgs.i3}/bin/i3-msg workspace 1";}
-          {command = "${pkgs.redshift}/bin/redshift -l 55.7:12.6 -t 5700:3600 -g 0.8 -m randr -v";}
-          {command = "${pkgs.networkmanagerapplet}/bin/nm-applet &";}
-          {command = "${pkgs.blueman}/bin/blueman-applet &";}
-        ] ++ (if pkgs.stdenv.isDarwin || pkgs.stdenv.hostPlatform.system == "aarch64-linux" then []
+          { command = "${pkgs.autorandr}/bin/autorandr -l home"; }
+          { command = "${pkgs.feh}/bin/feh --bg-fill ${background}"; }
+          { command = "${pkgs.dunst}/bin/dunst &"; }
+          { command = "${pkgs.picom}/bin/picom --daemon"; }
+          { command = "${pkgs.i3}/bin/i3-msg workspace 1"; }
+          { command = "${pkgs.redshift}/bin/redshift -l 55.7:12.6 -t 5700:3600 -g 0.8 -m randr -v"; }
+          { command = "${pkgs.networkmanagerapplet}/bin/nm-applet &"; }
+          { command = "${pkgs.blueman}/bin/blueman-applet &"; }
+        ] ++ (if pkgs.stdenv.isDarwin || pkgs.stdenv.hostPlatform.system == "aarch64-linux" then [ ]
         else [
-          {command = "${pkgs.dropbox}/bin/dropbox &";}
+          { command = "${pkgs.dropbox}/bin/dropbox &"; }
         ]
         );
         modifier = my-modifier;

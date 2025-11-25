@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  imports = [];
+{ pkgs, ... }: {
+  imports = [ ];
 
   targets.darwin.defaults."com.apple.Safari".AutoFillCreditCardData = false;
   targets.darwin.defaults."com.apple.Safari".AutoFillPasswords = false;

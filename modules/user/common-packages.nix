@@ -1,4 +1,4 @@
-{config, pkgs, lib, ...}:
+{ config, pkgs, lib, ... }:
 let
   cfg = config.mypackages.common-packages;
   broken_on_darwin = with pkgs; [
@@ -72,6 +72,7 @@ with lib;
         git
         git-crypt
         jq
+        nixpkgs-fmt
         yq
 
         # crypto
@@ -92,7 +93,7 @@ with lib;
 
         # misc
         pinentry
-      ] ++ (if pkgs.stdenv.isDarwin then []
+      ] ++ (if pkgs.stdenv.isDarwin then [ ]
       else broken_on_darwin
       );
     };

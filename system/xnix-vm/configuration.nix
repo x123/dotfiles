@@ -11,7 +11,7 @@
     #../../modules/system/nvidia.nix
     #../../modules/system/sound.nix
     #../../modules/system/x11.nix
-    ];
+  ];
 
   # Enable the X11 windowing system.
   #services.xserver.enable = true;
@@ -67,7 +67,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-# List packages installed in system profile. To search, run:
+  # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim

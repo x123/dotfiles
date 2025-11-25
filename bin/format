@@ -1,0 +1,4 @@
+#!env zsh
+set -xeuo pipefail
+pushd ~/.dotfiles
+nixpkgs-fmt **/*.nix
