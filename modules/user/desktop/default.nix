@@ -29,6 +29,7 @@
     ./keepass.nix
     ./keybase.nix
     ./mullvad.nix
+    ./mumble.nix
     ./obs-studio.nix
     ./p2p.nix
     ./slack.nix
