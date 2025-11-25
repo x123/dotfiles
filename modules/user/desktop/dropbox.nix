@@ -27,6 +27,8 @@
       home = {
         packages = [
           pkgs.dropbox
+          pkgs.maestral
+          pkgs.maestral-gui
         ];
       };
     };
