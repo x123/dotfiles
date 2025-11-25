@@ -9,19 +9,7 @@
     EDITOR = "vim";
   };
 
-  imports = [
-    <sops-nix/modules/home-manager/sops.nix>
-  ];
-
-  sops = {
-    age.keyFile = "/home/x/.config/sops/age/keys.txt";
-    defaultSopsFile = /home/x/.config/sops/secrets/secrets.yaml;
-    secrets = {
-      xbox = {};
-      github-email = {};
-    };
-
-  };
+  imports = [];
 
   nixpkgs = {
     config = {
@@ -41,7 +29,7 @@
     # crypto
     age
     gnupg
-    sops
+    #sops
     keepassxc
 
     # archivs
@@ -67,6 +55,7 @@
     pciutils
     usbutils
   ];
+
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
