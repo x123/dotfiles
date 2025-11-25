@@ -23,6 +23,9 @@
   ];
   users.users.fom.shell = pkgs.bash;
 
+  environment.variables = {
+    EDITOR = "vim";
+  };
   #environment.pathsToLink = [ "/share/bash-completion" ];
 
   # Necessary for using flakes on this system.
