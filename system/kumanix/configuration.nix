@@ -83,6 +83,23 @@
       ];
       linkConfig.RequiredForOnline = "routable";
     };
+    networks."100-dot-ten" = {
+      matchConfig.Name = "eth1";
+      networkConfig = {
+        MulticastDNS = false;
+        LLMNR = false;
+        # DHCP = "ipv4";
+        IPv6AcceptRA = false;
+        # LinkLocalAddressing=false; # disable all LinkLocalAddressing
+        IPv6LinkLocalAddressGenerationMode = "none"; # disable just IPv6 Link Local Address Generation
+      };
+      address = [
+        "10.10.10.13/24"
+      ];
+      routes = [
+      ];
+      linkConfig.RequiredForOnline = "routable";
+    };
   };
 
   services.resolved = {
