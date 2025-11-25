@@ -29,7 +29,7 @@
 
     networking = {
       tornet.enable = true;
-      wireguard.enable = true;
+      wireguard.enable = false;
     };
 
     security = {
