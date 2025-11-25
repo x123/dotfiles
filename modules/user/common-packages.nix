@@ -49,6 +49,7 @@ with lib;
         htop
         killall
         lsof
+        mosh
         nnn
         parallel
         pciutils
