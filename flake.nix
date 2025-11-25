@@ -71,19 +71,6 @@
         ];
       };
 
-      # UTM based VM
-      x-nixos-utm = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "aarch64-linux";
-          config = { allowUnfree = true; };
-        };
-        extraSpecialArgs = {inherit inputs;};
-        modules = [
-          nur.nixosModules.nur
-          ./users/x-nixos-utm/home.nix
-        ];
-      };
-
     };
 
     darwinConfigurations = {
@@ -124,14 +111,6 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./system/xnix-vm/configuration.nix
-        ];
-      };
-
-      nixos-utm = lib.nixosSystem {
-        system = "aarch64-linux";
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./system/nixos-utm/configuration.nix
         ];
       };
 
