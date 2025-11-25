@@ -5,6 +5,7 @@
       (modulesPath + "/virtualisation/google-compute-image.nix")
       ../../modules/system/nix-settings.nix # do not remove
       ../../modules/system/zsh.nix
+      ../../modules/system/elixir.nix
       ./binary-cache.nix
       ./binrich.nix
       ./postgres.nix
