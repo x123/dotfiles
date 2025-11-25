@@ -2,31 +2,37 @@
   imports = [];
 
   home = {
-    packages = with pkgs; [
-      elixir-ls
-      gopls
-      marksman
-      nixd
-      terraform-ls
-      vscode-langservers-extracted
-    ];
+    packages = builtins.attrValues {
+      inherit
+        (pkgs)
+        elixir-ls
+        gopls
+        marksman
+        nixd
+        terraform-ls
+        vscode-langservers-extracted
+        ;
+    };
   };
 
   programs.vim = {
     enable = true;
-    plugins = with pkgs.vimPlugins; [
-      nerdtree
-      nerdtree-git-plugin
-      vim-airline
-      vim-airline-themes
-      vim-elixir
-      vim-fugitive
-      vim-lastplace
-      vim-lsp
-      vim-lsp-settings
-      vim-nix
-      vim-tmux-navigator
-    ];
+    plugins = builtins.attrValues {
+      inherit
+        (pkgs.vimPlugins)
+        nerdtree
+        nerdtree-git-plugin
+        vim-airline
+        vim-airline-themes
+        vim-elixir
+        vim-fugitive
+        vim-lastplace
+        vim-lsp
+        vim-lsp-settings
+        vim-nix
+        vim-tmux-navigator
+        ;
+    };
     defaultEditor = false;
     settings = {
       number = true;

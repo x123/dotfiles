@@ -6,7 +6,7 @@
   imports = [];
 
   # packages
-  home.packages = with pkgs; [
-    yed
+  home.packages = [
+    pkgs.yed
   ];
 }

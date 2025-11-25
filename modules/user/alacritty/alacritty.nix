@@ -3,8 +3,8 @@
     ./themes/nord.nix
   ];
 
-  home.packages = with pkgs; [
-    alacritty
+  home.packages = [
+    pkgs.alacritty
   ];
 
   programs.alacritty = {

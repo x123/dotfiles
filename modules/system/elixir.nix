@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   imports = [];
 
-  environment.systemPackages = with pkgs; [
-    beam.packages.erlangR25.elixir_1_16
-    erlang
+  environment.systemPackages = [
+    pkgs.beam.packages.erlangR25.elixir_1_16
+    pkgs.erlang
   ];
 }

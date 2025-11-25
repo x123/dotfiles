@@ -84,13 +84,15 @@
   };
 
   home = {
-    packages = with pkgs; [
-      # term/shell
-      file
-      htop
-      pciutils
-      ripgrep
-    ];
+    packages = builtins.attrValues {
+      inherit
+        (pkgs)
+        file
+        htop
+        pciutils
+        ripgrep
+        ;
+    };
 
     shellAliases = {
       nixium = "ssh nixium";

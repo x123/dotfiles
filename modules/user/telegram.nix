@@ -2,8 +2,8 @@
   imports = [];
 
   home = {
-    packages = with pkgs; [
-      telegram-desktop
+    packages = [
+      pkgs.telegram-desktop
     ];
   };
 }

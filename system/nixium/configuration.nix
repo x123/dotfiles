@@ -45,10 +45,13 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-  ];
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs)
+      vim
+      wget
+      ;
+  };
 
   users.motdFile = ./files/nixium.motd;
 

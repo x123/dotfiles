@@ -2,10 +2,13 @@
   imports = [];
 
   home = {
-    packages = with pkgs; [
-      github-cli
-      gitleaks
-    ];
+    packages = builtins.attrValues {
+      inherit
+        (pkgs)
+        github-cli
+        gitleaks
+        ;
+    };
   };
 
   programs.git = {

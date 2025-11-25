@@ -39,9 +39,8 @@
       bind-key -T copy-mode-vi 'C-Right' select-pane -R
     '';
 
-    plugins = with pkgs; [
-      tmuxPlugins.nord
-      #tmuxPlugins.vim-tmux-navigator
+    plugins = [
+      pkgs.tmuxPlugins.nord
     ];
   };
 }

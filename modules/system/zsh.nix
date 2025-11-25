@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   imports = [];
 
-  environment.systemPackages = with pkgs; [
-    zsh
+  environment.systemPackages = [
+    pkgs.zsh
   ];
 
   programs.zsh.enable = true;

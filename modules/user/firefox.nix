@@ -6,27 +6,30 @@
   imports = [];
 
   home = {
-    packages = with pkgs; [
-      firefox
+    packages = [
+      pkgs.firefox
     ];
   };
 
   programs.firefox = {
     enable = true;
     profiles."x" = {
-      extensions = with config.nur.repos.rycee.firefox-addons; [
-        clearurls
-        darkreader
-        decentraleyes
-        keepassxc-browser
-        libredirect
-        no-pdf-download
-        noscript
-        plasma-integration
-        privacy-badger
-        tridactyl
-        ublock-origin
-      ];
+      extensions = builtins.attrValues {
+        inherit
+          (config.nur.repos.rycee.firefox-addons)
+          clearurls
+          darkreader
+          decentraleyes
+          keepassxc-browser
+          libredirect
+          no-pdf-download
+          noscript
+          plasma-integration
+          privacy-badger
+          tridactyl
+          ublock-origin
+          ;
+      };
 
       settings = {
         # Performance settings

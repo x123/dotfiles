@@ -2,8 +2,8 @@
   imports = [];
 
   home = {
-    packages = with pkgs; [
-      helix
+    packages = [
+      pkgs.helix
     ];
   };
 

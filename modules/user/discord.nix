@@ -18,8 +18,8 @@
   ];
 
   home = {
-    packages = with pkgs; [
-      discord
+    packages = [
+      pkgs.discord
     ];
   };
 }

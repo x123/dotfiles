@@ -17,10 +17,13 @@
   #  ];
 
   home = {
-    packages = with pkgs; [
-      calibre
-      libmtp
-      optipng
-    ];
+    packages = builtins.attrValues {
+      inherit
+        (pkgs)
+        calibre
+        libmtp
+        optipng
+        ;
+    };
   };
 }

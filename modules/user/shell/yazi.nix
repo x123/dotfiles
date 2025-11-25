@@ -21,18 +21,20 @@
   };
 
   home = {
-    packages = with pkgs; [
-      yazi
-
-      ffmpegthumbnailer # optional, for video thumbnails
-      unar # optional, for archive preview
-      jq # optional, for JSON preview
-      poppler # optional, for PDF preview
-      fd # optional, for file searching
-      ripgrep # for file content searching
-      fzf # optional, for quick file subtree navigation
-      zoxide # optional, for historical directories navigation
-    ];
+    packages = builtins.attrValues {
+      inherit
+        (pkgs)
+        fd # optional, for file searching
+        ffmpegthumbnailer # optional, for video thumbnails
+        fzf # optional, for quick file subtree navigation
+        jq # optional, for JSON preview
+        poppler # optional, for PDF preview
+        ripgrep # for file content searching
+        unar # optional, for archive preview
+        yazi # REQUIRED
+        zoxide # optional, for historical directories navigation
+        ;
+    };
 
     shellAliases = {
       y = "yazi";

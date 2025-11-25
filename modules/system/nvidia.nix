@@ -5,18 +5,11 @@
 }: {
   imports = [];
 
-  # packages
-  #environment.systemPackages = with pkgs; [
-  #  cudatoolkit
-  #];
-
   hardware.opengl = {
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
-    extraPackages = with pkgs; [
-      vaapiVdpau
-    ];
+    extraPackages = [pkgs.vaapiVdpau];
   };
 
   services.xserver.videoDrivers = ["nvidia"];

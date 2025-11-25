@@ -44,17 +44,15 @@
     isNormalUser = true;
     description = "x";
     extraGroups = ["networkmanager" "wheel"];
-    #packages = with pkgs; [
-    #  firefox
-    #  kate
-    #  thunderbird
-    #];
   };
 
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-  ];
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs)
+      vim
+      wget
+      ;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

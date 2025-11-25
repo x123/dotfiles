@@ -43,9 +43,12 @@
   );
 
   home = {
-    packages = with pkgs; [
-      nerdfonts # very large
-      scrot
-    ];
+    packages = builtins.attrValues {
+      inherit
+        (pkgs)
+        nerdfonts # very large
+        scrot
+        ;
+    };
   };
 }

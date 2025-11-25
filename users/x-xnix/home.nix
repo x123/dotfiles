@@ -57,20 +57,24 @@
     };
   };
 
-  home.packages = with pkgs; [
-    # net
-    persepolis
-    dropbox
-
-    # office
-    libreoffice
-
-    # art
-    gimp
-
-    # misc
-    xygrib
-  ];
+  home.packages = builtins.attrValues {
+    inherit
+      (pkgs)
+      # net
+      
+      persepolis
+      dropbox
+      # office
+      
+      libreoffice
+      # art
+      
+      gimp
+      # misc
+      
+      xygrib
+      ;
+  };
 
   programs.ssh = {
     matchBlocks = {
