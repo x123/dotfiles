@@ -543,21 +543,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-unstable-small": {
-      "locked": {
-        "lastModified": 1724050343,
-        "narHash": "sha256-tGRPGJKwczrM7793zaR74KnuYLMHArJvYXmGu8Wo9oI=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "ed434d7889eddb68002d81bc25212f26ff8f2862",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "ref": "nixos-unstable-small",
-        "type": "indirect"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1719082008,
@@ -673,7 +658,6 @@
         "nixified-ai": "nixified-ai",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
-        "nixpkgs-unstable-small": "nixpkgs-unstable-small",
         "nur": "nur",
         "pre-commit-hooks": "pre-commit-hooks_2",
         "sops-nix": "sops-nix"
