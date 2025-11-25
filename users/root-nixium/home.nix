@@ -22,7 +22,7 @@
     ../../modules/user/shell
     #../../modules/user/tor-browser.nix
     #../../modules/user/video.nix
-    ../../modules/user/neovim.nix
+    ../../modules/user/editors/neovim.nix
     #../../modules/user/x11
   ];
 

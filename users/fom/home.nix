@@ -14,7 +14,7 @@
     ../../modules/user/git.nix
     ../../modules/user/shell
     ../../modules/user/video.nix
-    ../../modules/user/neovim.nix
+    ../../modules/user/editors/neovim.nix
     ../../modules/user/desktop/keepass.nix
   ];
 
