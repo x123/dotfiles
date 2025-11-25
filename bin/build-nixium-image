@@ -1,5 +1,6 @@
-#!/bin/sh
-set -x
+#!env bash
+# shellcheck disable=SC2239
+set -xeuo pipefail
 
 pushd ~/.dotfiles || exit 1
 nix build -v .#nixosConfigurations.nixium.config.system.build.googleComputeImage
