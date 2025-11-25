@@ -28,12 +28,9 @@
     package = pkgs.nixVersions.stable;
 
     settings = {
-      experimental-features = ["nix-command" "flakes"];
-
       auto-optimise-store = true;
-      allowed-users = [
-        "*"
-      ];
+      experimental-features = ["nix-command" "flakes"];
+      allowed-users = ["*"];
       trusted-users = [
         "root"
         "x"
