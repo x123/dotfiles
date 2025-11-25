@@ -7,12 +7,6 @@ function usage() {
   echo "Example: ${0} user@nixium.boxchop.city nixium"
 }
 
-if [ "$(uname -s)" == "Darwin" ]
-then
-  echo "Error: ${0} doesn't support Darwin. Try apply-remote-ssh instead."
-  exit 1
-fi
-
 if [ -z "$1" ] || [ -z "$2" ]
 then
   usage
@@ -30,8 +24,8 @@ fi
 
 if ! which nixos-rebuild
 then
-  echo "Error: cannot find nixos-rebuild."
-  exit 1
+  echo "Info: Cannot find nixos-rebuild, trying to run in-place with 'nix run nixpkgs#nixos-rebuild'"
+  nix run nixpkgs#nixos-rebuild -- -v switch --fast --target-host "${REMOTE_BUILDER}" --use-remote-sudo --use-substitutes --flake .#"${SYSTEM_TO_APPLY}"
+else
+   nixos-rebuild -v switch --fast --target-host "${REMOTE_BUILDER}" --use-remote-sudo --use-substitutes --flake .#"${SYSTEM_TO_APPLY}"
 fi
-
-nixos-rebuild -v switch --target-host "${REMOTE_BUILDER}" --use-remote-sudo --flake .#"${SYSTEM_TO_APPLY}"
