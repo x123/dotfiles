@@ -8,6 +8,7 @@
     inherit
       (pkgs)
       vlc
+      mpv
       pavucontrol
       ;
   };
@@ -36,7 +37,6 @@ in {
             inherit
               (pkgs)
               aria2
-              mpv
               streamlink
               ;
           }
