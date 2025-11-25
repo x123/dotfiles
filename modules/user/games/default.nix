@@ -22,6 +22,7 @@
         inherit
           (pkgs)
           airshipper
+          angband
           freeorion
           openttd
           unciv
