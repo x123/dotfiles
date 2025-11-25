@@ -26,23 +26,41 @@
   };
 
   config =
-    lib.mkIf
-    (
-      config.custom.desktop.enable
-      && !pkgs.stdenv.isDarwin
-    )
-    {
-      home.packages = builtins.attrValues {
-        inherit
-          (pkgs)
-          anydesk # broken 6.3.1 doesn't have source download - 2024-04-28
-          
-          dropbox
-          gimp
-          libreoffice
-          persepolis
-          xygrib
-          ;
-      };
-    };
+    lib.mkMerge
+    [
+      (lib.mkIf
+        (
+          config.custom.desktop.enable
+          && !pkgs.stdenv.isDarwin
+        )
+        {
+          home.packages = builtins.attrValues {
+            inherit
+              (pkgs)
+              anydesk # broken 6.3.1 doesn't have source download - 2024-04-28
+              
+              dropbox
+              gimp
+              libreoffice
+              persepolis
+              xygrib
+              ;
+          };
+        })
+      (
+        lib.mkIf
+        (
+          config.custom.desktop.enable
+          && pkgs.stdenv.isDarwin
+        )
+        {
+          home.packages = builtins.attrValues {
+            inherit
+              (pkgs)
+              gimp
+              ;
+          };
+        }
+      )
+    ];
 }
