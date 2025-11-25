@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -xeuo pipefail
+set -euo pipefail
 
 if which scutil
 then
@@ -22,11 +22,11 @@ then
   exit 1;
 fi
 
-echo "${USER}-${HOSTNAME}"
-if nix build -v .#homeManagerConfigurations."${USER}"-"${HOSTNAME}".activationPackage
+if home-manager switch --flake .
 then
-    ./result/activate;
+  echo "Success: Build and switched to new HM generation.";
+  exit 0;
 else
-    echo "Error: Build above failed, not running ./result/activate";
-    exit 1;
+  echo "Error: Build above failed, not activating new HM generation.";
+  exit 1;
 fi

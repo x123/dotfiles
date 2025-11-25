@@ -98,8 +98,8 @@
       };
     });
 
-    homeManagerConfigurations = {
-      fom-fom-MBA = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations = {
+      "fom@fom-MBA" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = "aarch64-darwin";
           extra-platforms = "x86_64-darwin";
@@ -111,7 +111,7 @@
         ];
       };
 
-      nixos-xnixwsl = home-manager.lib.homeManagerConfiguration {
+      "nixos@xnixwsl" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = "x86_64-linux";
           config = {allowUnfree = true;};
@@ -122,7 +122,7 @@
         ];
       };
 
-      x-xnix = home-manager.lib.homeManagerConfiguration {
+      "x@xnix" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = "x86_64-linux";
           config = {allowUnfree = true;};
@@ -134,7 +134,7 @@
         ];
       };
 
-      root-nixium = home-manager.lib.homeManagerConfiguration {
+      "root@nixium" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = "x86_64-linux";
           config = {allowUnfree = true;};
