@@ -8,6 +8,7 @@
       marksman
       nixd
       terraform-ls
+      vscode-langservers-extracted
     ];
   };
 
@@ -72,10 +73,14 @@
       require("mason-lspconfig").setup()
 
       local lspconfig = require("lspconfig")
+      lspconfig.cssls.setup {}
       lspconfig.elixirls.setup {
       	cmd = { "${pkgs.elixir-ls}/bin/elixir-ls" };
       }
+      lspconfig.eslint.setup {}
       lspconfig.gopls.setup {}
+      lspconfig.html.setup {}
+      lspconfig.jsonls.setup {}
       lspconfig.lua_ls.setup {}
       lspconfig.marksman.setup {}
       lspconfig.nixd.setup {}
