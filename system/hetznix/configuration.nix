@@ -12,6 +12,7 @@
     ./local/invidious.nix
     ./local/mastodon.nix
     ./local/nginx.nix
+    ./local/postgres.nix
     # ./local/maddy.nix
   ];
 
