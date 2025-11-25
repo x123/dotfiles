@@ -10,6 +10,7 @@
       blender.enable = false;
       gimp.enable = true;
       video.enable = true;
+      keepassxc.enable = true;
     };
 
     editors = {
