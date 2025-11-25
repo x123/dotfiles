@@ -16,6 +16,7 @@
     ./firefox.nix
     ./flameshot.nix
     ./ghostty.nix
+    ./gimp.nix
     ./keepass.nix
     ./obs-studio.nix
     ./slack.nix
