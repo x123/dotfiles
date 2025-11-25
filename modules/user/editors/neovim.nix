@@ -56,6 +56,7 @@
           oil-nvim
           telescope-live-grep-args-nvim
           telescope-nvim
+          telescope-ui-select-nvim
           tmux-nvim
           undotree
           vim-vsnip
@@ -220,6 +221,9 @@
                   ["<C-space>"] = require("telescope.actions").to_fuzzy_refine,
                 }
               }
+            },
+            ['ui-select'] = {
+              require("telescope.themes").get_dropdown({})
             }
           }
         })
