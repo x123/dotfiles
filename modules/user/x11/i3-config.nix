@@ -1,10 +1,11 @@
 {pkgs, lib, ...}: {
   imports = [];
   home.packages = with pkgs; [
-    feh
-    dunst
-    networkmanagerapplet
     blueman
+    dunst
+    feh
+    networkmanagerapplet
+    redshift
   ];
 
   programs.rofi = {
@@ -40,7 +41,7 @@
           {command = "${pkgs.dunst}/bin/dunst &";}
           {command = "${pkgs.picom}/bin/picom --daemon";}
           {command = "${pkgs.i3}/bin/i3-msg workspace 1";}
-          {command = "systemctl --user start redshift";}
+          {command = "${pkgs.redshift}/bin/redshift -l 55.7:12.6 -t 5700:3600 -g 0.8 -m randr -v";}
         ];
         modifier = my-modifier;
         terminal = "alacritty";
