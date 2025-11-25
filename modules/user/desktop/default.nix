@@ -6,16 +6,17 @@
 }: {
   imports = [
     ./alacritty
-    ./calibre
     ./anki.nix
+    ./audio.nix
     ./blender.nix
+    ./calibre
     ./chromium.nix
     ./discord.nix
     ./element.nix
     ./firefox.nix
     ./ghostty.nix
-    ./obs-studio.nix
     ./keepass.nix
+    ./obs-studio.nix
     ./telegram.nix
     ./tor-browser.nix
     ./video.nix
