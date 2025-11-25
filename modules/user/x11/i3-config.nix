@@ -117,6 +117,7 @@
       config = {
         startup = [
           { command = "${pkgs.autorandr}/bin/autorandr -l home"; }
+          { command = "${pkgs.setxkbmap}/bin/setxkbmap -option compose:ralt"; }
           { command = "${pkgs.feh}/bin/feh --bg-fill ${background}"; }
           { command = "${pkgs.dunst}/bin/dunst &"; }
           { command = "${pkgs.picom}/bin/picom --daemon"; }
@@ -152,7 +153,6 @@
         ];
         keybindings = lib.mkOptionDefault {
           "${my-modifier}+Shift+l" = "exec ~/bin/i3lock-dpms";
-          #"${my-modifier}+Shift+l" = "exec ${pkgs.i3lock}/bin/i3lock -n -c 000000";
           "${my-modifier}+Tab" = "exec ${pkgs.rofi}/bin/rofi -show window";
           "${my-modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show combi";
           "${my-modifier}+Shift+s" = "sticky toggle";
