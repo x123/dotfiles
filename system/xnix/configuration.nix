@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./local/nftables.nix
+    #./local/nftables.nix
     ../../modules/nix-settings # do not remove
     ../../modules/system-nixos
   ];
@@ -54,6 +54,7 @@
       };
 
       jellyfin.enable = true;
+      nftables.enable = true;
       nix-ssh-serve.enable = false;
     };
 
