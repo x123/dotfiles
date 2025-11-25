@@ -16,13 +16,19 @@
 
   nix = {
     distributedBuilds = true;
+    extraOptions = ''
+      builders-use-substitutes = true
+    '';
 
     buildMachines = [
       {
         hostName = "xnix.empire.internal";
+        system = pkgs.stdenv.hostPlatform.system;
+        protocol = "ssh-ng";
+        maxJobs = 8;
+        speedFactor = 2;
         sshUser = "builder";
         sshKey = "/etc/ssh/ssh_host_ed25519_key";
-        system = pkgs.stdenv.hostPlatform.system;
         supportedFeatures = ["nixos-test" "big-parallel" "kvm"];
       }
     ];
