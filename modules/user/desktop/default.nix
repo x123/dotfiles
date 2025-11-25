@@ -27,6 +27,7 @@
     ./java.nix
     ./keepass.nix
     ./keybase.nix
+    ./mullvad.nix
     ./obs-studio.nix
     ./p2p.nix
     ./slack.nix
