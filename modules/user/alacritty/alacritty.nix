@@ -13,14 +13,14 @@
       env.TERM = "xterm-256color";
       font = {
         normal = {
-          family = "Fira Mono for Powerline";
+          family = "CodeNewRoman Nerd Font";
           style = "Regular";
         };
         bold = {
-          family = "Fira Mono for Powerline";
+          family = "CodeNewRoman Nerd Font";
           style = "Bold";
         };
-        size = 10;
+        size = 12;
       };
       window.opacity = 0.9;
       scrolling.multiplier = 5;
