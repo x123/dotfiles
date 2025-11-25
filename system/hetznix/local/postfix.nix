@@ -12,7 +12,6 @@
       enableSubmission = true;
       enableSubmissions = true;
       rootAlias = "x123";
-      domain = "nixlink.net";
       submissionOptions = {
         milter_macro_daemon_name = "ORIGINATING";
         smtpd_client_restrictions = "permit_sasl_authenticated,reject";
