@@ -5,20 +5,6 @@
     ../../modules/system-nixos
   ];
 
-  # Share our host filesystem
-  fileSystems."/mnt/sharing" = {
-    fsType = "fuse./run/current-system/sw/bin/vmhgfs-fuse";
-    device = ".host:/Users/fom/vm/sharing";
-    options = [
-      "umask=22"
-      "uid=1000"
-      "gid=1000"
-      "allow_other"
-      "auto_unmount"
-      "defaults"
-    ];
-  };
-
   custom.system-nixos = {
     enable = true;
 
@@ -65,6 +51,21 @@
     x11.enable = true;
   };
 
+  # vm specific settings
+  # Share our host filesystem
+  fileSystems."/host" = {
+    fsType = "fuse./run/current-system/sw/bin/vmhgfs-fuse";
+    device = ".host:/";
+    options = [
+      "umask=22"
+      "uid=1000"
+      "gid=1000"
+      "allow_other"
+      "auto_unmount"
+      "defaults"
+    ];
+  };
+
   virtualisation.vmware.guest.enable = true;
 
   services.xserver.dpi = 180;
@@ -73,9 +74,6 @@
     GDK_DPI_SCALE = "0.5";
     _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
   };
-
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowUnsupported = true;
 
   boot = {
     binfmt.emulatedSystems = ["x86_64-linux"];
@@ -90,6 +88,10 @@
     };
     loader.efi.canTouchEfiVariables = true;
   };
+
+  nixpkgs.config.allowAliases = false;
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnsupported = true;
 
   # sops = {
   #   defaultSopsFile = ./secrets.yaml;
