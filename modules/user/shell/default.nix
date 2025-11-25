@@ -98,6 +98,7 @@
       dns-cache-flush = "sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder";
 
       narsil-term = "narsil -mgcu -- -n4";
+      angband-term = "angband -c -mgcu -- -B -K -n4";
       # subset of oh-my-zsh aliases
       "ga" = "git add";
       "gaa" = "git add --all";
