@@ -22,6 +22,14 @@
       video.enable = true;
     };
 
+    ai = {
+      enable = true;
+
+      invokeai.enable = false;
+      ollama.enable = true;
+      pytorch.enable = false;
+    };
+
     editors = {
       helix.enable = true;
       neovim.enable = true;
