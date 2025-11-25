@@ -92,7 +92,7 @@
     };
 
     shellAliases = {
-      nixium = "ssh nixium";
+      hetznix = "ssh hetznix";
       ls = "ls --color";
       less = "less -mNg";
       nsp = "nix search nixpkgs";
