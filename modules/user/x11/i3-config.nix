@@ -21,7 +21,8 @@
   programs.rofi = {
     enable = true;
     theme = "${pkgs.rofi}/share/rofi/themes/Arc-Dark.rasi";
-    terminal = "${pkgs.alacritty}/bin/alacritty";
+    terminal = "ghostty";
+    #terminal = "${pkgs.alacritty}/bin/alacritty";
     extraConfig = {
       modes = "window,drun,ssh,run,combi";
       combi-modes = "window,ssh,drun,run";
@@ -80,7 +81,8 @@
         ]
         );
         modifier = my-modifier;
-        terminal = "alacritty";
+        terminal = "ghostty";
+        #terminal = "${pkgs.alacritty}/bin/alacritty";
         window = {
           hideEdgeBorders = "smart";
           titlebar = false;
