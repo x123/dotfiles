@@ -72,6 +72,7 @@ in {
         theme = "${pkgs.rofi}/share/rofi/themes/Arc-Dark.rasi";
         terminal = "ghostty";
         extraConfig = {
+          dpi = 0;
           modes = "window,drun,ssh,run,combi";
           combi-modes = "window,ssh,drun,run";
         };
