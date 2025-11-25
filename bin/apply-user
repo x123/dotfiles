@@ -1,35 +1,36 @@
-#!/bin/sh
-set -x
-USER=`whoami`
-SCUTIL=`which scutil`
+#!env bash
+# shellcheck disable=SC2239
+set -xeuo pipefail
 
-if [ ! -z "${SCUTIL}" ]
+if which scutil
 then
-	HOSTNAME=`scutil --get LocalHostName`
+  HOSTNAME=$(scutil --get LocalHostName)
 else
-	HOSTNAME=`hostname -s`
+  HOSTNAME=$(hostname -s)
 fi
 
-if [ -z "${USER}" ]
+if [ ! "$(whoami)" ]
 then
-	echo "Not able to set USER with whoami ... Bailing out";
+	echo "Error: Not able to determine USER ... Bailing out!";
 	exit 1;
+else
+  USER=$(whoami)
 fi
+
 if [ -z "${HOSTNAME}" ]
 then
-	echo "Not able to get HOSTNAME with hostname -s ... Bailing out";
-	exit 1;
+  echo "Error: Not able to determine HOSTNAME ... Bailing out!";
+  exit 1;
 fi
 
 echo "${USER}-${HOSTNAME}"
-pushd ~/.dotfiles
-nix build -v .#homeManagerConfigurations.${USER}-${HOSTNAME}.activationPackage
-if [ $? -eq 0 ]
+pushd ~/.dotfiles || exit 1
+if nix build -v .#homeManagerConfigurations."${USER}"-"${HOSTNAME}".activationPackage
 then
     ./result/activate;
-    popd
+    popd || exit 1
 else
-    echo "Build above failed, not running ./result/activate";
-    popd
+    echo "Error: Build above failed, not running ./result/activate";
+    popd || exit 1
     exit 1;
 fi
