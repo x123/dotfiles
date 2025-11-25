@@ -1,10 +1,21 @@
 {
   config,
+  inputs,
   pkgs,
   ...
 }: {
   imports = [
     ./borgmatic-xnix-systemd-timer.nix
+  ];
+
+  nixpkgs.overlays = [
+    (
+      final: prev: {
+        unstable-small = import inputs.nixpkgs-unstable-small {
+          system = "x86_64-linux";
+        };
+      }
+    )
   ];
 
   sops.secrets = {
@@ -15,12 +26,13 @@
   };
 
   home.packages = [
-    pkgs.borgmatic
+    pkgs.unstable-small.borgmatic
     pkgs.xxHash
   ];
 
   programs.borgmatic = {
     enable = true;
+    package = pkgs.unstable-small.borgmatic;
     backups = {
       x-at-xnix-home = {
         storage = {
