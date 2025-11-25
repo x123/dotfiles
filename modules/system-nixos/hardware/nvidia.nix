@@ -22,7 +22,14 @@ in {
         powerManagement.finegrained = false;
         open = false;
         nvidiaSettings = true;
-        package = config.boot.kernelPackages.nvidiaPackages.stable;
+        #package = config.boot.kernelPackages.nvidiaPackages.stable; # defaults to latest
+        package = config.boot.kernelPackages.nvidiaPackages.production;
+        # package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+        #   version = "520.56.06";
+        #   sha256_64bit = "sha256-UWdLAL7Wdm7EPUHKhNGNaTkGI0+FUZBptqNB92wRPEY=";
+        #   settingsSha256 = "sha256-NeT3tb7NGicKHnNkuOwbte6BJsP1bUzPSE+TXnevCAM=";
+        #   persistencedSha256 = lib.fakeHash;
+        # };
       };
     };
 
