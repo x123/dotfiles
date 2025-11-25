@@ -5,6 +5,7 @@
     ./fonts.nix
     ./karabiner.nix
     ./skhd.nix
+    ./stats.nix
     ./yabai.nix
   ];
 
