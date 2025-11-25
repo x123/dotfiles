@@ -8,7 +8,9 @@
     ./disk-config.nix
     ../../modules/system/nix-settings.nix # do not remove
     ../../modules/system/zsh.nix
+    ./local/acme.nix
     ./local/invidious.nix
+    ./local/nginx.nix
     # ./local/maddy.nix
   ];
 
