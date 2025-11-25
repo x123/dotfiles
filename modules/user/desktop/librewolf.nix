@@ -64,24 +64,32 @@ in {
           then pkgs.librewolf
           else pkgs.librewolf-bin;
         profiles."x" = {
-          extensions.packages = builtins.attrValues {
-            inherit
-              (pkgs.nur.repos.rycee.firefox-addons)
-              darkreader
-              decentraleyes
-              # keepassxc-browser
-              libredirect
-              # no-pdf-download
-              noscript
-              # plasma-integration
-              privacy-badger
-              redirector
-              sponsorblock
-              tridactyl
-              ublock-origin
-              youtube-alternative-switch
-              ;
-          };
+          extensions.packages =
+            builtins.attrValues
+            (
+              {
+                inherit
+                  (pkgs.nur.repos.rycee.firefox-addons)
+                  darkreader
+                  decentraleyes
+                  # keepassxc-browser
+                  libredirect
+                  # no-pdf-download
+                  noscript
+                  # plasma-integration
+                  privacy-badger
+                  redirector
+                  sponsorblock
+                  tridactyl
+                  ublock-origin
+                  youtube-alternative-switch
+                  ;
+              }
+              // lib.optionalAttrs isDarwin {
+                lastpass-password-manager =
+                  pkgs.nur.repos.rycee.firefox-addons.lastpass-password-manager;
+              }
+            );
 
           settings = {
             # Performance settings
