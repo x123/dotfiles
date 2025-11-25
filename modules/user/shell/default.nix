@@ -113,7 +113,7 @@
       "gcn!" = "git commit -v --no-edit --amend";
       "gcan!" = "git commit -v -a --no-edit --amend";
       "gcb" = "git checkout -b";
-      "gcm" = "git checkout $(git_main_branch)";
+      "gcm" = "git checkout master";
       "gcmsg" = "git commit -m";
       "gco" = "git checkout";
       "gd" = "git diff";
