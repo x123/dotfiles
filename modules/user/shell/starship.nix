@@ -1,85 +1,101 @@
-{pkgs, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   imports = [];
 
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-    enableBashIntegration = true;
-    settings = {
-      add_newline = false;
-
-      format = "$username$hostname$nix_shell$git_branch$git_commit$git_state$git_status$directory$jobs$cmd_duration$character";
-
-      gcloud.disabled = false;
-
-      shlvl = {
-        disabled = false;
-        symbol = "ﰬ";
-        style = "bright-red bold";
+  options = {
+    custom.user.shell.starship = {
+      enable = lib.mkOption {
+        default = true;
+        type = lib.types.bool;
+        description = "Whether to enable starship";
       };
+    };
+  };
 
-      shell = {
-        disabled = false;
-        format = "$indicator";
-        fish_indicator = "";
-        bash_indicator = "[bash](bright-white) ";
-        zsh_indicator = "[zsh](bright-white) ";
-      };
+  config = lib.mkIf (config.custom.user.shell.enable && config.custom.user.shell.starship.enable) {
+    programs.starship = {
+      enable = true;
+      enableZshIntegration = true;
+      enableBashIntegration = true;
+      settings = {
+        add_newline = false;
 
-      username = {
-        style_user = "bright-white bold";
-        style_root = "bright-red bold";
-      };
+        format = "$username$hostname$nix_shell$git_branch$git_commit$git_state$git_status$directory$jobs$cmd_duration$character";
 
-      hostname = {
-        style = "bright-green bold";
-        ssh_only = true;
-      };
+        gcloud.disabled = false;
 
-      nix_shell = {
-        symbol = "";
-        format = "[$symbol$name]($style) ";
-        style = "bright-purple bold";
-      };
+        shlvl = {
+          disabled = false;
+          symbol = "ﰬ";
+          style = "bright-red bold";
+        };
 
-      git_branch = {
-        only_attached = true;
-        format = "[$symbol$branch]($style) ";
-        symbol = "שׂ";
-        style = "bright-yellow bold";
-      };
+        shell = {
+          disabled = false;
+          format = "$indicator";
+          fish_indicator = "";
+          bash_indicator = "[bash](bright-white) ";
+          zsh_indicator = "[zsh](bright-white) ";
+        };
 
-      git_commit = {
-        only_detached = true;
-        format = "[ﰖ$hash]($style) ";
-        style = "bright-yellow bold";
-      };
+        username = {
+          style_user = "bright-white bold";
+          style_root = "bright-red bold";
+        };
 
-      git_state = {
-        style = "bright-purple bold";
-      };
+        hostname = {
+          style = "bright-green bold";
+          ssh_only = true;
+        };
 
-      git_status = {
-        style = "bright-green bold";
-      };
+        nix_shell = {
+          symbol = "";
+          format = "[$symbol$name]($style) ";
+          style = "bright-purple bold";
+        };
 
-      directory = {
-        read_only = " ";
-        truncation_length = 0;
-      };
+        git_branch = {
+          only_attached = true;
+          format = "[$symbol$branch]($style) ";
+          symbol = "שׂ";
+          style = "bright-yellow bold";
+        };
 
-      cmd_duration = {
-        format = "[$duration]($style) ";
-        style = "bright-blue";
-      };
+        git_commit = {
+          only_detached = true;
+          format = "[ﰖ$hash]($style) ";
+          style = "bright-yellow bold";
+        };
 
-      jobs = {
-        style = "bright-green bold";
-      };
+        git_state = {
+          style = "bright-purple bold";
+        };
 
-      character = {
-        success_symbol = "[\\$](bright-green bold)";
-        error_symbol = "[\\$](bright-red bold)";
+        git_status = {
+          style = "bright-green bold";
+        };
+
+        directory = {
+          read_only = " ";
+          truncation_length = 0;
+        };
+
+        cmd_duration = {
+          format = "[$duration]($style) ";
+          style = "bright-blue";
+        };
+
+        jobs = {
+          style = "bright-green bold";
+        };
+
+        character = {
+          success_symbol = "[\\$](bright-green bold)";
+          error_symbol = "[\\$](bright-red bold)";
+        };
       };
     };
   };

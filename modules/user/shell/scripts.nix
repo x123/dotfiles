@@ -1,209 +1,228 @@
-{pkgs, ...}: {
-  home.packages = [
-    (pkgs.writeShellScriptBin "dni" ''
-      #!/usr/bin/env bash
-      set -euo pipefail
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [];
 
-      # --- Defaults ---
-      LOOKBACK_DAYS=30
-      IP_ADDRESS=""
-      JSON_OUTPUT=false
+  options = {
+    custom.user.shell.scripts = {
+      enable = lib.mkOption {
+        default = true;
+        type = lib.types.bool;
+        description = "Whether to enable custom shell scripts";
+      };
+    };
+  };
 
-      # --- Usage Function ---
-      usage() {
-        echo "Usage: $0 <ip_address> [--lookback <days>] [-j] [-h|--help]" >&2
-        echo "  <ip_address>      The IP address to query." >&2
-        echo "  --lookback <days> Optional number of days to look back (default: 30)." >&2
-        echo "  -j                Output full JSON instead of the default slim view." >&2
-        echo "  -h, --help        Display this help message." >&2
-        exit 1
-      }
+  config = lib.mkIf (config.custom.user.shell.enable && config.custom.user.shell.scripts.enable) {
+    home.packages = [
+      (pkgs.writeShellScriptBin "dni" ''
+        #!/usr/bin/env bash
+        set -euo pipefail
 
-      # --- Argument Parsing ---
-      while [[ $# -gt 0 ]]; do
-        key="$1"
-        case $key in
-          --lookback)
-            if [[ -z "''${2:-}" ]] || ! [[ "$2" =~ ^[0-9]+$ ]]; then
-              echo "Error: --lookback requires a number of days." >&2
-              exit 1
-            fi
-            LOOKBACK_DAYS="$2"
-            shift 2
-            ;;
-          -j)
-            JSON_OUTPUT=true
-            shift
-            ;;
-          -h|--help)
-            usage
-            ;;
-          *)
-            if [ -z "$IP_ADDRESS" ]; then
-              IP_ADDRESS="$1"
-            fi
-            shift
-            ;;
-        esac
-      done
+        # --- Defaults ---
+        LOOKBACK_DAYS=30
+        IP_ADDRESS=""
+        JSON_OUTPUT=false
 
-      # --- Input Validation ---
-      if [ -z "$IP_ADDRESS" ]; then
-        usage
-      fi
+        # --- Usage Function ---
+        usage() {
+          echo "Usage: $0 <ip_address> [--lookback <days>] [-j] [-h|--help]" >&2
+          echo "  <ip_address>      The IP address to query." >&2
+          echo "  --lookback <days> Optional number of days to look back (default: 30)." >&2
+          echo "  -j                Output full JSON instead of the default slim view." >&2
+          echo "  -h, --help        Display this help message." >&2
+          exit 1
+        }
 
-      # --- Date Calculation ---
-      START_DATE=$(${pkgs.coreutils}/bin/date -d "$LOOKBACK_DAYS days ago" +%Y-%m-%d)
+        # --- Argument Parsing ---
+        while [[ $# -gt 0 ]]; do
+          key="$1"
+          case $key in
+            --lookback)
+              if [[ -z "''${2:-}" ]] || ! [[ "$2" =~ ^[0-9]+$ ]]; then
+                echo "Error: --lookback requires a number of days." >&2
+                exit 1
+              fi
+              LOOKBACK_DAYS="$2"
+              shift 2
+              ;;
+            -j)
+              JSON_OUTPUT=true
+              shift
+              ;;
+            -h|--help)
+              usage
+              ;;
+            *)
+              if [ -z "$IP_ADDRESS" ]; then
+                IP_ADDRESS="$1"
+              fi
+              shift
+              ;;
+          esac
+        done
 
-      # --- Command Execution ---
-      if [ "$JSON_OUTPUT" = true ]; then
-        echo "Executing (json output): dnsdbq -j -T datefix -A ''${START_DATE} -s -i ''${IP_ADDRESS}" >&2
-        ${pkgs.dnsdbq}/bin/dnsdbq -j -T datefix -A "''${START_DATE}" -s -i "''${IP_ADDRESS}"
-      else
-        echo "Executing: dnsdbq ... | jq | sed | sort | uniq" >&2
-        ${pkgs.dnsdbq}/bin/dnsdbq -j -T datefix -A "''${START_DATE}" -s -i "''${IP_ADDRESS}" | ${pkgs.jq}/bin/jq '.rrname' | ${pkgs.gnused}/bin/sed 's/"//g' | ${pkgs.gnused}/bin/sed 's/\.$//g' | ${pkgs.coreutils}/bin/sort | ${pkgs.coreutils}/bin/uniq
-      fi
-    '')
+        # --- Input Validation ---
+        if [ -z "$IP_ADDRESS" ]; then
+          usage
+        fi
 
-    (pkgs.writeShellScriptBin "dna" ''
-      #!/usr/bin/env bash
-      set -euo pipefail
+        # --- Date Calculation ---
+        START_DATE=$(${pkgs.coreutils}/bin/date -d "$LOOKBACK_DAYS days ago" +%Y-%m-%d)
 
-      # --- Defaults ---
-      LOOKBACK_DAYS=30
-      DOMAIN=""
-      JSON_OUTPUT=false
+        # --- Command Execution ---
+        if [ "$JSON_OUTPUT" = true ]; then
+          echo "Executing (json output): dnsdbq -j -T datefix -A ''${START_DATE} -s -i ''${IP_ADDRESS}" >&2
+          ${pkgs.dnsdbq}/bin/dnsdbq -j -T datefix -A "''${START_DATE}" -s -i "''${IP_ADDRESS}"
+        else
+          echo "Executing: dnsdbq ... | jq | sed | sort | uniq" >&2
+          ${pkgs.dnsdbq}/bin/dnsdbq -j -T datefix -A "''${START_DATE}" -s -i "''${IP_ADDRESS}" | ${pkgs.jq}/bin/jq '.rrname' | ${pkgs.gnused}/bin/sed 's/"//g' | ${pkgs.gnused}/bin/sed 's/\.$//g' | ${pkgs.coreutils}/bin/sort | ${pkgs.coreutils}/bin/uniq
+        fi
+      '')
 
-      # --- Usage Function ---
-      usage() {
-        echo "Usage: $0 <domain> [--lookback <days>] [-j] [-h|--help]" >&2
-        echo "  <domain>          The domain name to query." >&2
-        echo "  --lookback <days> Optional number of days to look back (default: 30)." >&2
-        echo "  -j                Output full JSON instead of the default slim view." >&2
-        echo "  -h, --help        Display this help message." >&2
-        exit 1
-      }
+      (pkgs.writeShellScriptBin "dna" ''
+        #!/usr/bin/env bash
+        set -euo pipefail
 
-      # --- Argument Parsing ---
-      while [[ $# -gt 0 ]]; do
-        key="$1"
-        case $key in
-          --lookback)
-            if [[ -z "''${2:-}" ]] || ! [[ "$2" =~ ^[0-9]+$ ]]; then
-              echo "Error: --lookback requires a number of days." >&2
-              exit 1
-            fi
-            LOOKBACK_DAYS="$2"
-            shift 2
-            ;;
-          -j)
-            JSON_OUTPUT=true
-            shift
-            ;;
-          -h|--help)
-            usage
-            ;;
-          *)
-            if [ -z "$DOMAIN" ]; then
-              DOMAIN="$1"
-            fi
-            shift
-            ;;
-        esac
-      done
+        # --- Defaults ---
+        LOOKBACK_DAYS=30
+        DOMAIN=""
+        JSON_OUTPUT=false
 
-      # --- Input Validation ---
-      if [ -z "$DOMAIN" ]; then
-        usage
-      fi
+        # --- Usage Function ---
+        usage() {
+          echo "Usage: $0 <domain> [--lookback <days>] [-j] [-h|--help]" >&2
+          echo "  <domain>          The domain name to query." >&2
+          echo "  --lookback <days> Optional number of days to look back (default: 30)." >&2
+          echo "  -j                Output full JSON instead of the default slim view." >&2
+          echo "  -h, --help        Display this help message." >&2
+          exit 1
+        }
 
-      # --- Date Calculation ---
-      START_DATE=$(${pkgs.coreutils}/bin/date -d "$LOOKBACK_DAYS days ago" +%Y-%m-%d)
+        # --- Argument Parsing ---
+        while [[ $# -gt 0 ]]; do
+          key="$1"
+          case $key in
+            --lookback)
+              if [[ -z "''${2:-}" ]] || ! [[ "$2" =~ ^[0-9]+$ ]]; then
+                echo "Error: --lookback requires a number of days." >&2
+                exit 1
+              fi
+              LOOKBACK_DAYS="$2"
+              shift 2
+              ;;
+            -j)
+              JSON_OUTPUT=true
+              shift
+              ;;
+            -h|--help)
+              usage
+              ;;
+            *)
+              if [ -z "$DOMAIN" ]; then
+                DOMAIN="$1"
+              fi
+              shift
+              ;;
+          esac
+        done
 
-      # --- Command Execution ---
-      RR_QUERY="''${DOMAIN}/A"
+        # --- Input Validation ---
+        if [ -z "$DOMAIN" ]; then
+          usage
+        fi
 
-      if [ "$JSON_OUTPUT" = true ]; then
-        echo "Executing (json output): dnsdbq -j -T datefix -A ''${START_DATE} -s -r ''${RR_QUERY}" >&2
-        ${pkgs.dnsdbq}/bin/dnsdbq -j -T datefix -A "''${START_DATE}" -s -r "''${RR_QUERY}"
-      else
-        echo "Executing: dnsdbq ... | jq -r '.rdata[]'" >&2
-        ${pkgs.dnsdbq}/bin/dnsdbq -j -T datefix -A "''${START_DATE}" -s -r "''${RR_QUERY}" | ${pkgs.jq}/bin/jq -r '.rdata[]'
-      fi
-    '')
+        # --- Date Calculation ---
+        START_DATE=$(${pkgs.coreutils}/bin/date -d "$LOOKBACK_DAYS days ago" +%Y-%m-%d)
 
-    (pkgs.writeShellScriptBin "knock" ''
-      #!/usr/bin/env bash
-      set -euo pipefail
+        # --- Command Execution ---
+        RR_QUERY="''${DOMAIN}/A"
 
-      # --- Usage Function ---
-      usage() {
-        echo "Usage: $0 <host> <port1> [port2] [port3] ..." >&2
-        echo "  <host>    The target host (IP address or hostname)" >&2
-        echo "  <port>    One or more ports to check" >&2
-        echo "" >&2
-        echo "Example: $0 10.10.10.10 4444 5555 6666" >&2
-        exit 1
-      }
+        if [ "$JSON_OUTPUT" = true ]; then
+          echo "Executing (json output): dnsdbq -j -T datefix -A ''${START_DATE} -s -r ''${RR_QUERY}" >&2
+          ${pkgs.dnsdbq}/bin/dnsdbq -j -T datefix -A "''${START_DATE}" -s -r "''${RR_QUERY}"
+        else
+          echo "Executing: dnsdbq ... | jq -r '.rdata[]'" >&2
+          ${pkgs.dnsdbq}/bin/dnsdbq -j -T datefix -A "''${START_DATE}" -s -r "''${RR_QUERY}" | ${pkgs.jq}/bin/jq -r '.rdata[]'
+        fi
+      '')
 
-      # --- Argument Validation ---
-      if [ $# -lt 2 ]; then
-        echo "Error: At least a host and one port are required." >&2
-        usage
-      fi
+      (pkgs.writeShellScriptBin "knock" ''
+        #!/usr/bin/env bash
+        set -euo pipefail
 
-      if [[ "$1" == "-h" || "$1" == "--help" ]]; then
-        usage
-      fi
+        # --- Usage Function ---
+        usage() {
+          echo "Usage: $0 <host> <port1> [port2] [port3] ..." >&2
+          echo "  <host>    The target host (IP address or hostname)" >&2
+          echo "  <port>    One or more ports to check" >&2
+          echo "" >&2
+          echo "Example: $0 10.10.10.10 4444 5555 6666" >&2
+          exit 1
+        }
 
-      HOST=$1
-      shift
+        # --- Argument Validation ---
+        if [ $# -lt 2 ]; then
+          echo "Error: At least a host and one port are required." >&2
+          usage
+        fi
 
-      # --- Port Knocking ---
-      for PORT in "$@"
-      do
-        echo "Checking port $PORT on $HOST..."
-        ${pkgs.nmap}/bin/nmap -4 -Pn --host-timeout 20ms --max-retries 0 -p "''${PORT}" "''${HOST}"
-        ${pkgs.nmap}/bin/nmap -6 -Pn --host-timeout 20ms --max-retries 0 -p "''${PORT}" "''${HOST}"
-      done
-    '')
+        if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+          usage
+        fi
 
-    (pkgs.writeShellScriptBin "qdrant-local" ''
-      #!/usr/bin/env bash
-      set -euo pipefail
+        HOST=$1
+        shift
 
-      # --- Usage Function ---
-      usage() {
-        echo "Usage: $0 <api_key>" >&2
-        echo "  <api_key>    The API key to set for the local Qdrant instance" >&2
-        echo "" >&2
-        echo "Example: $0 my-secret-api-key" >&2
-        exit 1
-      }
+        # --- Port Knocking ---
+        for PORT in "$@"
+        do
+          echo "Checking port $PORT on $HOST..."
+          ${pkgs.nmap}/bin/nmap -4 -Pn --host-timeout 20ms --max-retries 0 -p "''${PORT}" "''${HOST}"
+          ${pkgs.nmap}/bin/nmap -6 -Pn --host-timeout 20ms --max-retries 0 -p "''${PORT}" "''${HOST}"
+        done
+      '')
 
-      # --- Argument Validation ---
-      if [ $# -ne 1 ]; then
-        echo "Error: Exactly one argument (API key) is required." >&2
-        usage
-      fi
+      (pkgs.writeShellScriptBin "qdrant-local" ''
+        #!/usr/bin/env bash
+        set -euo pipefail
 
-      if [[ "$1" == "-h" || "$1" == "--help" ]]; then
-        usage
-      fi
+        # --- Usage Function ---
+        usage() {
+          echo "Usage: $0 <api_key>" >&2
+          echo "  <api_key>    The API key to set for the local Qdrant instance" >&2
+          echo "" >&2
+          echo "Example: $0 my-secret-api-key" >&2
+          exit 1
+        }
 
-      API_KEY="$1"
+        # --- Argument Validation ---
+        if [ $# -ne 1 ]; then
+          echo "Error: Exactly one argument (API key) is required." >&2
+          usage
+        fi
 
-      # --- Environment Setup ---
-      export QDRANT__SERVICE__API_KEY="''${API_KEY}"
-      export QDRANT__SERVICE__ENABLE_TLS=0
+        if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+          usage
+        fi
 
-      # --- System Limits ---
-      ulimit -n 10240
+        API_KEY="$1"
 
-      # --- Start Qdrant ---
-      echo "Starting local Qdrant instance with API key: ''${API_KEY}"
-      echo "TLS disabled, file descriptor limit set to 10240"
-      ${pkgs.qdrant}/bin/qdrant
-    '')
-  ];
+        # --- Environment Setup ---
+        export QDRANT__SERVICE__API_KEY="''${API_KEY}"
+        export QDRANT__SERVICE__ENABLE_TLS=0
+
+        # --- System Limits ---
+        ulimit -n 10240
+
+        # --- Start Qdrant ---
+        echo "Starting local Qdrant instance with API key: ''${API_KEY}"
+        echo "TLS disabled, file descriptor limit set to 10240"
+        ${pkgs.qdrant}/bin/qdrant
+      '')
+    ];
+  };
 }
