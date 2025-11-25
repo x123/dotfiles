@@ -19,12 +19,12 @@ in {
       enable = true;
       # package = pkgs.unstable-small.mastodon;
       database.createLocally = true;
-      localDomain = "social.nixlink.net";
+      localDomain = "social.boxchop.city";
       configureNginx = false; # we use caddy below
       smtp = {
         createLocally = false;
-        host = "hetznix.nixlink.net";
-        fromAddress = "noreply@social.nixlink.net";
+        host = "hetznix.boxchop.city";
+        fromAddress = "noreply@social.boxchop.city";
       };
       extraConfig.SINGLE_USER_MODE = "true";
       streamingProcesses = 7;
@@ -48,7 +48,7 @@ in {
     '';
     virtualHosts = {
       "${cfg.localDomain}" = {
-        useACMEHost = "nixlink.net";
+        useACMEHost = "boxchop.city";
         extraConfig = ''
           handle_path /system/* {
             file_server * {
