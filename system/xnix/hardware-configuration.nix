@@ -33,8 +33,8 @@
     initrd.kernelModules = [];
     kernelParams = [
       # "pcie_aspm.policy=powersave"
-      "pcie_aspm.policy=powersupersave"
-      # "pcie_aspm.policy=performance"
+      # "pcie_aspm.policy=powersupersave"
+      "pcie_aspm.policy=performance"
     ];
     # kernelPackages = pkgs.linuxKernel.packages.linux_6_11;
     kernelPackages = pkgs.linuxPackages_latest; # lqx or zen or latest
