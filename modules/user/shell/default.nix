@@ -102,6 +102,7 @@
       angband-term = "angband -c -mgcu -- -B -K -n4";
       tintin = "tt++";
       reboot-to-bios = "sudo systemctl reboot --firmware-setup";
+      power = "sudo turbostat --quiet --interval 1 --Summary --cpu package --show PkgWatt,Busy%,Core,CoreTmp,Thermal";
       # subset of oh-my-zsh aliases
       "ga" = "git add";
       "gaa" = "git add --all";
