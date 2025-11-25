@@ -125,7 +125,7 @@
         "10.10.10.8/24"
       ];
       routes = [
-        {Gateway = "10.10.10.1";}
+        {Gateway = "10.10.10.253";}
       ];
       linkConfig.RequiredForOnline = "routable";
     };
