@@ -27,6 +27,7 @@
           {
             inherit
               (pkgs)
+              audacity
               bitwig-studio
               ;
           };
