@@ -29,54 +29,54 @@ in {
         #defaultSession = "none+i3";
       };
 
-      xserver = {
-        enable = true;
-        xkb = {
-          layout = "us";
-          variant = "";
-        };
-
-        autoRepeatDelay = 250;
-        autoRepeatInterval = 45;
-
-        desktopManager = {
-          xterm.enable = false;
-        };
-
-        # displayManager = {
-        #   # gdm.enable = true;
-        #   ly.enable = true;
-        #   # lemurs
-        #   # ly
-        #   # emptty
-        #   # lightdm = {
-        #   #   enable = true;
-        #   #   greeter.enable = true;
-        #   # };
-        # };
-
-        windowManager = {
-          hypr = {
-            enable = true;
-          };
-          # sway = {
-          # };
-          # i3 = {
-          #   enable = true;
-          #   package = pkgs.i3; # or pkgs.i3-gaps
-          #   extraPackages = builtins.attrValues {
-          #     inherit
-          #       (pkgs)
-          #       dmenu
-          #       i3status
-          #       i3lock
-          #       i3lock-fancy
-          #       rofi
-          #       ;
-          #   };
-          # };
-        };
-      };
+      # xserver = {
+      #   enable = true;
+      #   xkb = {
+      #     layout = "us";
+      #     variant = "";
+      #   };
+      #
+      #   autoRepeatDelay = 250;
+      #   autoRepeatInterval = 45;
+      #
+      #   desktopManager = {
+      #     xterm.enable = false;
+      #   };
+      #
+      #   # displayManager = {
+      #   #   # gdm.enable = true;
+      #   #   ly.enable = true;
+      #   #   # lemurs
+      #   #   # ly
+      #   #   # emptty
+      #   #   # lightdm = {
+      #   #   #   enable = true;
+      #   #   #   greeter.enable = true;
+      #   #   # };
+      #   # };
+      #
+      #   windowManager = {
+      #     hypr = {
+      #       enable = true;
+      #     };
+      #     # sway = {
+      #     # };
+      #     # i3 = {
+      #     #   enable = true;
+      #     #   package = pkgs.i3; # or pkgs.i3-gaps
+      #     #   extraPackages = builtins.attrValues {
+      #     #     inherit
+      #     #       (pkgs)
+      #     #       dmenu
+      #     #       i3status
+      #     #       i3lock
+      #     #       i3lock-fancy
+      #     #       rofi
+      #     #       ;
+      #     #   };
+      #     # };
+      #   };
+      # };
     };
   };
 }
