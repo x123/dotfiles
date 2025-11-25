@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ../../modules/user/darwin/common-packages.nix
-    ../../modules/user/common-ssh.nix
+    ../../modules/user/darwin/common-ssh.nix
     ../../modules/user/git.nix
     ../../modules/user/shell.nix
     ../../modules/user/vim.nix
