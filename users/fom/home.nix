@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ../../modules/user/darwin/alacritty.nix
     ../../modules/user/darwin/common-packages.nix
     ../../modules/user/darwin/common-ssh.nix
     ../../modules/user/git.nix
