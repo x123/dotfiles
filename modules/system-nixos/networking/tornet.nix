@@ -35,6 +35,25 @@ in {
               }
             '';
           };
+          filter = {
+            family = "inet";
+            content = ''
+              chain input-new {
+                # udp/5353
+                # ip6 udp dport 5353 log prefix "nft-accept-tornet-ip6-udp: " level info
+                # ip6 udp dport 5353 counter accept
+
+                iifname "tornet" udp dport 5353 log prefix "nft-accept-tornet-ip-udp: " level info
+                iifname "tornet" udp dport 5353 counter accept
+
+                # tcp/9040
+                # ip6 tcp dport 9040 log prefix "nft-accept-tornet-ip6-tcp: " level info
+                # ip6 tcp dport 9040 counter accept
+
+                iifname "tornet" tcp dport 9040 log prefix "nft-accept-tornet-ip-tcp: " level info
+                iifname "tornet" tcp dport 9040 counter accept
+              }'';
+          };
         };
       };
 
