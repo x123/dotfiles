@@ -48,6 +48,14 @@ in {
         description = "Whether to enable the P2Poool mini (true) or Main (false)";
       };
 
+      stratum = lib.mkOption {
+        type = lib.types.str;
+        default = "127.0.0.1:4444";
+        description = ''
+          The stratum server to listen on.
+        '';
+      };
+
       host = lib.mkOption {
         type = lib.types.str;
         default = "127.0.0.1";
@@ -175,6 +183,7 @@ in {
             --rpc-port ${toString cfg.rpcPort} \
             --zmq-port ${toString cfg.zmqPort} \
             --host ${cfg.host} \
+            --stratum ${cfg.stratum} \
         ''
         + "--loglevel ${toString cfg.logLevel}"
         + "${lib.optionalString cfg.mini " \\\n --mini"}"
