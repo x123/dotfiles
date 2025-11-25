@@ -22,6 +22,9 @@
   boot.kernelParams = [ ];
   boot.kernelPackages = pkgs.linuxPackages_zen; # lqx or zen or latest
   boot.kernelModules = [ "k10temp" "kvm-amd" "nct6683" ];
+  boot.extraModprobeConfig = ''
+    options nct6683 force=1 force_id=0x2e
+  '';
   boot.blacklistedKernelModules = [ "snd_hda_intel" ];
   boot.extraModulePackages = [ ];
 
