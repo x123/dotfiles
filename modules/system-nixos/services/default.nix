@@ -6,5 +6,6 @@
     ./nix-ssh-serve.nix
     ./open-webui.nix
     ./openssh.nix
+    ./qdrant.nix
   ];
 }

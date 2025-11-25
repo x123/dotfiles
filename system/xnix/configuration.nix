@@ -71,6 +71,7 @@
       jellyfin.enable = false;
       nftables.enable = true;
       nix-ssh-serve.enable = false;
+      qdrant.enable = true;
     };
 
     wayland.enable = false;
