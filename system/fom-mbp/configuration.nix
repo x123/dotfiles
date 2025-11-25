@@ -4,7 +4,10 @@
     ../../modules/system-darwin
   ];
 
-  custom.system-darwin.enable = true;
+  custom.system-darwin = {
+    enable = true;
+    ai.enable = true;
+  };
 
   environment = {
     systemPackages = builtins.attrValues {
