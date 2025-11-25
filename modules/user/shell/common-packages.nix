@@ -42,7 +42,7 @@ in {
             # existing packages
             bc
             cpulimit
-            coreutils-full
+            coreutils
             dnsdbq
             file
             htop
