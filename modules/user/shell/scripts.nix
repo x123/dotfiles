@@ -167,5 +167,43 @@
         ${pkgs.nmap}/bin/nmap -6 -Pn --host-timeout 20ms --max-retries 0 -p "''${PORT}" "''${HOST}"
       done
     '')
+
+    (pkgs.writeShellScriptBin "qdrant-local" ''
+      #!/usr/bin/env bash
+      set -euo pipefail
+
+      # --- Usage Function ---
+      usage() {
+        echo "Usage: $0 <api_key>" >&2
+        echo "  <api_key>    The API key to set for the local Qdrant instance" >&2
+        echo "" >&2
+        echo "Example: $0 my-secret-api-key" >&2
+        exit 1
+      }
+
+      # --- Argument Validation ---
+      if [ $# -ne 1 ]; then
+        echo "Error: Exactly one argument (API key) is required." >&2
+        usage
+      fi
+
+      if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+        usage
+      fi
+
+      API_KEY="$1"
+
+      # --- Environment Setup ---
+      export QDRANT__SERVICE__API_KEY="''${API_KEY}"
+      export QDRANT__SERVICE__ENABLE_TLS=0
+
+      # --- System Limits ---
+      ulimit -n 10240
+
+      # --- Start Qdrant ---
+      echo "Starting local Qdrant instance with API key: ''${API_KEY}"
+      echo "TLS disabled, file descriptor limit set to 10240"
+      ${pkgs.qdrant}/bin/qdrant
+    '')
   ];
 }
