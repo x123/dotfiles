@@ -132,6 +132,10 @@
     enable = false; # commenting this out will cause resolvconf to fail
     fallbackDns = ["192.168.1.127"];
     llmnr = "false";
+    # this prevents the 127.0.0.53 stub resolver
+    extraConfig = ''
+      DNSStubListener=no
+    '';
   };
 
   environment.systemPackages = builtins.attrValues {
