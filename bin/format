@@ -1,5 +1,6 @@
-#!env zsh
-set -euo pipefail
+#!env bash
+# shellcheck disable=SC2239
+set -xeuo pipefail
 pushd ~/.dotfiles || exit 1
 alejandra .
 popd || exit 1
