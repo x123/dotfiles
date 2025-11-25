@@ -10,7 +10,7 @@
   ];
 
   options.custom = {
-    games.enable = lib.mkEnableOption "enable games";
+    user.games.enable = lib.mkEnableOption "enable games";
   };
 
   config =
@@ -18,7 +18,7 @@
     [
       (lib.mkIf
         (
-          config.custom.games.enable
+          config.custom.user.games.enable
           && !pkgs.stdenv.isDarwin
         )
         {
@@ -46,7 +46,7 @@
         })
       (lib.mkIf
         (
-          config.custom.games.enable
+          config.custom.user.games.enable
           && pkgs.stdenv.isDarwin
         )
         {

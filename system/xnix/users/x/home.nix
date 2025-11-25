@@ -80,8 +80,6 @@
       };
     };
 
-    games.enable = true;
-
     user = {
       ai = {
         enable = true;
@@ -98,6 +96,7 @@
         vscode.enable = true;
       };
 
+      games.enable = true;
       mail.enable = true;
     };
   };

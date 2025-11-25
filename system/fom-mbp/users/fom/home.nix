@@ -37,8 +37,6 @@
       keepassxc.enable = true;
     };
 
-    games.enable = true;
-
     user = {
       editors = {
         emacs.enable = false;
@@ -48,6 +46,7 @@
         vscode.enable = true;
       };
 
+      games.enable = true;
       mail.enable = false;
       shell.enable = true;
     };

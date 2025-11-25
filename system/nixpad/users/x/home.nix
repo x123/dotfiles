@@ -58,7 +58,6 @@
       };
     };
 
-    games.enable = false;
     laptop.enable = true;
 
     user = {
@@ -77,6 +76,7 @@
         vscode.enable = false;
       };
 
+      games.enable = false;
       mail.enable = true;
     };
   };
