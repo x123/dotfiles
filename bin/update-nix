@@ -1,5 +1,4 @@
-#!env bash
-# shellcheck disable=SC2239
+#!/usr/bin/env bash
 set -xeuo pipefail
 pushd ~/.dotfiles || exit 1
 nix flake update --commit-lock-file
