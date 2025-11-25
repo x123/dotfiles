@@ -4,8 +4,8 @@
   ...
 }: let
   cfg = config.custom;
-  trustedIpv4s = builtins.concatStringsSep "," cfg.system-nixos.services.invidious.trustedIpv4Networks;
-  trustedIpv6s = builtins.concatStringsSep "," cfg.system-nixos.services.invidious.trustedIpv6Networks;
+  trustedIpv4s = builtins.concatStringsSep "," cfg.system-nixos.services.openssh.trustedIpv4Networks;
+  trustedIpv6s = builtins.concatStringsSep "," cfg.system-nixos.services.openssh.trustedIpv6Networks;
 in {
   options = {
     custom.system-nixos.services.openssh = {
