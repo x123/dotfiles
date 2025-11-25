@@ -91,7 +91,7 @@
 
   nixpkgs.config.allowAliases = false;
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowUnsupported = true;
+  nixpkgs.config.allowUnsupportedSystem = true;
 
   # sops = {
   #   defaultSopsFile = ./secrets.yaml;
