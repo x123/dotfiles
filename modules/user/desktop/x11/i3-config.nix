@@ -216,7 +216,7 @@ in {
         dunst.enable = true;
         network-manager-applet.enable = true;
         picom = {
-          enable = false;
+          enable = true;
           activeOpacity = 1.0;
           inactiveOpacity = 1.0;
           opacityRules = [
