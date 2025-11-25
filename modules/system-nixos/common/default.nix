@@ -3,6 +3,7 @@
     ./console-theme.nix
     ./filesystems.nix
     ./locale.nix
+    ./packages.nix
     ./zsh.nix
   ];
 
