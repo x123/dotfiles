@@ -12,6 +12,17 @@
     sudo ${pkgs.nftables}/bin/nft delete rule inet filter input handle $HANDLE
   '';
 in {
+  xdg = {
+    desktopEntries = {
+      steam-coreparked = {
+        name = "steam-coreparked";
+        exec = "${pkgs.util-linux}/bin/taskset -c 0-7,16-23 steam";
+        categories = ["Application"];
+        terminal = false;
+      };
+    };
+  };
+
   home.file = {
     xbindkeysrc = {
       enable = true;
