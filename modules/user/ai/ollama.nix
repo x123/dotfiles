@@ -18,11 +18,11 @@
 
   config = lib.mkIf (config.custom.ai.enable && config.custom.ai.ollama.enable) {
     home = {
+      # re-add oterm once fixed
       packages = builtins.attrValues {
         inherit
           (pkgs)
           ollama-cuda
-          oterm
           ;
       };
     };
