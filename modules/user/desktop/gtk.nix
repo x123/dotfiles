@@ -14,8 +14,6 @@
       theme = {
         package = pkgs.nordic;
         name = "Nordic";
-        #name = "breeze-dark";
-        #package = pkgs.breeze-gtk;
       };
       gtk2.extraConfig = ''
         gtk-toolbar-style=3
@@ -26,10 +24,6 @@
         gtk-toolbar-style = 3;
         gtk-decoration-layout = "icon:minimize,maximize,close";
         gtk-enable-animations = true;
-        #gtk-cursor-theme-name = breeze_cursors
-        #gtk-cursor-theme-size=24
-        #gtk-icon-theme-name="breeze-dark";
-        #gtk-modules="colorreload-gtk-module";
       };
       gtk4.extraConfig = {
         gtk-application-prefer-dark-theme = true;
@@ -37,10 +31,6 @@
         gtk-toolbar-style = 3;
         gtk-decoration-layout = "icon:minimize,maximize,close";
         gtk-enable-animations = true;
-        #gtk-cursor-theme-name = breeze_cursors
-        #gtk-cursor-theme-size=24
-        #gtk-icon-theme-name="breeze-dark";
-        #gtk-modules="colorreload-gtk-module";
       };
     };
   };

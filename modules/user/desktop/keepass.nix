@@ -21,7 +21,6 @@
     (
       config.custom.desktop.enable
       && config.custom.desktop.keepassxc.enable
-      # && !pkgs.stdenv.isDarwin
     )
     {
       home = {
