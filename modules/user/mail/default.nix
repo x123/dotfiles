@@ -2,5 +2,14 @@
   imports = [
     ./neomutt.nix
   ];
-  options.custom.mail.enable = lib.mkEnableOption "enable mail clients";
+
+  options = {
+    custom.user.mail.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Whether to enable mail configuration.";
+    };
+
+    custom.mail.neomutt.enable = lib.mkEnableOption "neomutt mail client";
+  };
 }
