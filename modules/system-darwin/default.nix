@@ -1,5 +1,6 @@
 {lib, ...}: {
   imports = [
+    ./aerospace.nix
     ./fonts.nix
     ./karabiner.nix
     ./skhd.nix
@@ -12,6 +13,11 @@
         default = false;
         type = lib.types.bool;
         description = "Whether to enable darwin";
+      };
+      aerospace.enable = lib.mkOption {
+        default = true;
+        type = lib.types.bool;
+        description = "Whether to enable aerospace on darwin";
       };
       fonts.enable = lib.mkOption {
         default = true;
