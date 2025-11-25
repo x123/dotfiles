@@ -5,7 +5,7 @@
   ...
 }: {
   programs.vscode = {
-    enable = false;
+    enable = true;
     profiles.default.extensions = builtins.attrValues {
       inherit
         (pkgs.vscode-extensions.vscodevim)
