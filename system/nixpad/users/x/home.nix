@@ -22,7 +22,7 @@
       blender.enable = true;
       discord.enable = true;
       flameshot.enable = true;
-      ghostty.enable = false;
+      ghostty.enable = true;
       obs-studio.enable = false;
       slack.enable = true;
       video.enable = true;
