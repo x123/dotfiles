@@ -5,7 +5,9 @@
 { config, pkgs, ... }:
 
 {
-  imports = [];
+  imports = [
+  ../../modules/system/darwin/yabai.nix
+  ];
 
   environment.systemPackages = with pkgs; [
     vim
