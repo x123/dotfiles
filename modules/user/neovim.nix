@@ -59,10 +59,16 @@
       nnoremap <C-left> <cmd>lua require("tmux").move_left()<cr>
       nnoremap <C-right> <cmd>lua require("tmux").move_right()<cr>
 
-      nnoremap <leader>ff <cmd>Telescope find_files<cr>
-      nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-      nnoremap <leader>fb <cmd>Telescope buffers<cr>
-      nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+      nnoremap <space>w\ <cmd>vsplit<cr>
+      nnoremap <space>ws <cmd>split<cr>
+      nnoremap <space>qq <cmd>quit<cr>
+      nnoremap <space>zz <cmd>wq<cr>
+      nnoremap <space>wx <C-W>x
+
+      nnoremap <space>ff <cmd>Telescope find_files<cr>
+      nnoremap <space>fg <cmd>Telescope live_grep<cr>
+      nnoremap <space>fb <cmd>Telescope buffers<cr>
+      nnoremap <space>fh <cmd>Telescope help_tags<cr>
     '';
     extraLuaConfig = ''
       vim.opt.termguicolors = true
@@ -143,16 +149,16 @@
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
           vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
           vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-          vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-          vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-          vim.keymap.set('n', '<space>wl', function()
+          vim.keymap.set('n', '<space>Wa', vim.lsp.buf.add_workspace_folder, opts)
+          vim.keymap.set('n', '<space>Wr', vim.lsp.buf.remove_workspace_folder, opts)
+          vim.keymap.set('n', '<space>Wl', function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
           end, opts)
           vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
           vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
           vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
           vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-          vim.keymap.set('n', '<space>f', function()
+          vim.keymap.set('n', '<space>F', function()
             vim.lsp.buf.format { async = true }
           end, opts)
         end,
