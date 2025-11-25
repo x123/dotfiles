@@ -55,6 +55,7 @@ in {
             killall
             links2
             lsof
+            mdwatch
             parallel
             tree
             # hardware info
