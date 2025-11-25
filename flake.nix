@@ -146,14 +146,6 @@
         ];
       };
 
-      xnix-vm = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./system/xnix-vm/configuration.nix
-        ];
-      };
-
       nixium = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
