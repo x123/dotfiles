@@ -41,6 +41,18 @@
         ];
       };
 
+      openssh = {
+        enable = true;
+        openFirewallNftables = true;
+        trustedIpv4Networks = [
+          "192.168.1.0/24"
+          "192.168.9.0/24"
+        ];
+        trustedIpv6Networks = [
+          "fd65:4e21:dde4::1/60"
+        ];
+      };
+
       jellyfin.enable = true;
       nix-ssh-serve.enable = false;
     };
@@ -92,15 +104,6 @@
     hostName = "xnix";
     domain = "empire.boxchop.city";
     networkmanager.enable = true;
-  };
-
-  services.openssh = {
-    enable = true;
-    openFirewall = true;
-    settings = {
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
-    };
   };
 
   environment.systemPackages = builtins.attrValues {
