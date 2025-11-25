@@ -64,7 +64,7 @@
           }
           chain k4 {
             set update ip saddr timeout 0s @ks3
-            set add ip saddr @ks4 log prefix "nft-pn accepted: "
+            set add ip saddr @ks4 log prefix "nft-pn accepted: " level info
           }
 
           chain refk {
@@ -119,68 +119,89 @@
               comment "Accept DHCPv6 replies from IPv6 link-local addresses"
 
               return
+
+              # possible simplifications
+              # icmpv6 type != { nd-redirect, 139 } accept comment "Accept all ICMPv6 messages except redirects and node information queries (type 139).  See RFC 4890, section 4.4."
+              # ip6 daddr fe80::/64 udp dport 546 accept comment "DHCPv6 client"
+          }
+
+          chain rpfilter {
+            type filter hook prerouting priority mangle + 10; policy drop;
+            meta nfproto ipv4 udp sport . udp dport { 68 . 67, 67 . 68 } accept comment "DHCPv4 client/server"
+            fib saddr . mark . iif oif exists accept
+            jump rpfilter-allow
+          }
+
+          chain rpfilter-allow {
           }
 
           chain input {
-            type filter hook input priority 0; policy drop; # default drop
+            type filter hook input priority filter; policy drop;
 
             # loopback interface
-            iifname "lo" accept comment "Always accept loopback"
+            iifname "lo" accept comment "trusted interfaces"
 
-            # established/related connections
-            ct state established,related counter accept comment "Accept established/related connections"
+            ct state vmap {
+              invalid : jump input-log-drop,
+              established : accept,
+              related : accept,
+              new : jump input-allow,
+              untracked : jump input-allow
+            }
 
-            # invalid connections
-            ct state invalid limit rate 1/second burst 5 packets log prefix "nft-input-drop bad-state-in: "
-            ct state invalid counter drop comment "Drop invalid connections"
-
-            # icmp ping/traceroute
-            icmp type echo-request counter accept comment "Accept ICMP ping requests"
             udp dport 33434-33523 counter reject comment "Properly reject traceroute UDP requests"
+            limit rate 60/minute burst 20 packets log prefix "nft-input-drop: " level info
+            counter name cnt_input_drop drop
+          }
 
+          chain input-allow {
             # jump to ipv6 chain and return
             jump ipv6
 
             # pk
             jump pk
 
+            icmp type echo-request counter accept comment "Accept ICMP ping requests"
+
             # ntp
             udp dport 123 counter accept comment "Allow NTP"
 
             # ssh
-            tcp dport 22 ip saddr @ks4 log prefix "nft-input-pn-traffic-accept: "
+            tcp dport 22 ip saddr @ks4 log prefix "nft-input-pn-traffic-accept: " level info
             tcp dport 22 ip saddr @ks4 counter accept
-            # ip saddr @ssh_whitelisted tcp dport 22 ct state new counter accept comment "Allow whitelisted SSH"
 
             # http/https
-            tcp dport { 80, 443 } log prefix "nft-input-accept: "
+            tcp dport { 80, 443 } log prefix "nft-input-accept-http: " level info
             tcp dport { 80, 443 } counter accept
+          }
 
-
-            limit rate 60/minute burst 20 packets log prefix "nft-input-drop: " level info
-            counter name cnt_input_drop drop
+          chain input-log-drop {
+            ct state invalid limit rate 1/second burst 5 packets log prefix "nft-input-drop bad-state-in: " level warn
+            ct state invalid counter drop comment "Drop invalid connections"
           }
 
           # output chain
           chain output {
-            type filter hook output priority 0; policy accept;
+            type filter hook output priority filter; policy accept;
 
             # loopback interface
             oifname "lo" accept comment "Always accept loopback"
 
-            # established/related connections
-            ct state related,established counter accept comment "Accept established/related connections"
+            ct state vmap {
+              invalid : jump output-log-drop,
+              established : accept,
+              related : accept,
+              new : jump output-allow,
+              untracked : jump output-allow
+            }
+          }
 
-            # invalid connections
-            ct state invalid limit rate 1/second burst 5 packets log prefix "nft-output-drop bad-state-out: "
-            ct state invalid counter drop comment "Drop invalid connections"
-
+          chain output-allow {
             # icmp
             icmp type {echo-request,echo-reply} counter accept comment "Accept ICMP ping requests"
 
             # icmpv6
             icmpv6 type {echo-request,echo-reply} counter accept comment "Accept ICMPv6 requests"
-
             # DNS
             tcp dport 53 counter accept comment "Allow DNS on TCP/53"
             udp dport 53 counter accept comment "Allow DNS on UDP/53"
@@ -191,6 +212,11 @@
             # SMTP/SMTPS
             tcp dport 25 ct state new counter accept comment "Allow SMTP/25"
             tcp dport 465 ct state new counter accept comment "Allow SMTPS/465"
+          }
+
+          chain output-log-drop {
+            ct state invalid limit rate 1/second burst 5 packets log prefix "nft-output-drop bad-state-out: " level warn
+            ct state invalid counter drop comment "Drop invalid connections"
           }
         '';
       };
