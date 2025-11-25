@@ -14,6 +14,20 @@
     # ./local/syncthing.nix
   ];
 
+  nix = {
+    distributedBuilds = true;
+
+    buildMachines = [
+      {
+        hostName = "xnix.empire.internal";
+        sshUser = "builder";
+        sshKey = "/etc/ssh/ssh_host_ed25519_key";
+        system = pkgs.stdenv.hostPlatform.system;
+        supportedFeatures = ["nixos-test" "big-parallel" "kvm"];
+      }
+    ];
+  };
+
   # allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
