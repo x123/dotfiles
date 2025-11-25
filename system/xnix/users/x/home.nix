@@ -10,7 +10,7 @@
     ./local/btop.nix
     ./local/gnucash-quotes-systemd-timer.nix
     ./local/eq.nix
-    ./local/poe.nix
+    # ./local/poe.nix
     ./local/steam-coreparked.nix
   ];
 
