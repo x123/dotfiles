@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-pushd ~/.dotfiles || exit 1
 nix build -v .#nixosConfigurations.nixium.config.system.build.googleComputeImage
-popd || exit 1
