@@ -182,6 +182,11 @@
             # http/https
             tcp dport { 80, 443 } log prefix "nft-input-accept-http: " level info
             tcp dport { 80, 443 } counter accept
+
+            # SMTP/SMTPS
+            tcp dport 25 counter accept comment "Allow SMTP/25"
+            tcp dport 465 counter accept comment "Allow SMTPS/465"
+            tcp dport 587 counter accept comment "Allow SMTPS/587"
           }
 
           chain input-log-drop {
@@ -221,6 +226,7 @@
             # SMTP/SMTPS
             tcp dport 25 ct state new counter accept comment "Allow SMTP/25"
             tcp dport 465 ct state new counter accept comment "Allow SMTPS/465"
+            tcp dport 587 ct state new counter accept comment "Allow SMTPS/587"
           }
 
           chain output-log-drop {
