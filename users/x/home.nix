@@ -76,6 +76,7 @@
 
     # misc
     pinentry
+    xygrib
 
     # system tools
     lm_sensors
