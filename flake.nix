@@ -168,7 +168,7 @@
         ];
       };
 
-      "x@nixveeem" = home-manager.lib.homeManagerConfiguration {
+      "x@vm" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = "aarch64-linux";
           config = {
@@ -183,7 +183,7 @@
         };
         modules = [
           nur.nixosModules.nur
-          ./system/nixveeem/users/x/home.nix
+          ./system/vm/users/x/home.nix
         ];
       };
     };
@@ -249,16 +249,16 @@
         ];
       };
 
-      nixveeem = nixpkgs.lib.nixosSystem {
+      vm = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = {
           inherit inputs;
           system = "aarch64-linux";
-          hostname = "nixveeem.31337";
+          hostname = "vm.local";
         };
         modules = [
           disko.nixosModules.disko
-          ./system/nixveeem/configuration.nix
+          ./system/vm/configuration.nix
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           {
