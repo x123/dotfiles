@@ -15,7 +15,7 @@
   # not sure
   targets.darwin.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
   targets.darwin.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode2 = true;
-  targets.darwin.defaults.NSGlobalDomain._HIHideMenuBar = true;
+  targets.darwin.defaults.NSGlobalDomain._HIHideMenuBar = false; # top menubar
 
   targets.darwin.defaults.dock.autohide = true;
   targets.darwin.defaults.dock.mru-spaces = false;
