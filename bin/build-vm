@@ -1,7 +1,9 @@
 #!/bin/sh
 set -xe
 
+pushd ~/.dotfiles
 nixos-rebuild build-vm --flake .#xnix-vm
+popd
 
 # without nixos-rebuild
 #nix build .#nixosConfigurations.xnix-vm.config.system.build.vm

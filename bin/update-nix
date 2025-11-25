@@ -1,3 +1,5 @@
 #!/bin/sh
 set -xe
+pushd ~/.dotfiles
 nix flake update --commit-lock-file
+popd
