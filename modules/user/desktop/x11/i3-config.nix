@@ -120,6 +120,21 @@ in {
                     headphones_indicator = true;
                   }
                   {
+                    block = "notify";
+                    driver = "dunst";
+                    format = " $icon {($notification_count.eng(w:1)) |}";
+                    click = [
+                      {
+                        button = "left";
+                        action = "toggle_paused";
+                      }
+                      {
+                        button = "right";
+                        action = "show";
+                      }
+                    ];
+                  }
+                  {
                     alert = 5.0;
                     block = "disk_space";
                     info_type = "available";
