@@ -24,10 +24,15 @@
       discord.enable = true;
       flameshot.enable = true;
       ghostty.enable = true;
+      obs-studio.enable = false;
+      slack.enable = true;
+      video.enable = true;
+
       blender = {
         enable = false;
         cudaSupport = true;
       };
+
       i3status-rust = {
         temperature = {
           enable = true;
@@ -36,9 +41,6 @@
         };
         nvidia.enable = true;
       };
-      obs-studio.enable = false;
-      slack.enable = true;
-      video.enable = true;
     };
 
     ai = {
