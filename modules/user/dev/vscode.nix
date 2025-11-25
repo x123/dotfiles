@@ -9,6 +9,10 @@
     package = pkgs.vscodium;
     profiles.default.extensions = builtins.attrValues {
       inherit
+        (pkgs.vscode-extensions.rooveterinaryinc)
+        roo-cline
+        ;
+      inherit
         (pkgs.vscode-extensions.vscodevim)
         vim
         ;
