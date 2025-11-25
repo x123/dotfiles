@@ -67,17 +67,17 @@
         LogRateLimitIntervalSec = 0;
 
         ExecStartPre =
-          pkgs.writeShellScript "sleep-one-minute"
+          pkgs.writeShellScript "sleep-10-seconds"
           ''
             set -euo pipefail
-            ${pkgs.coreutils}/bin/sleep 1m
+            ${pkgs.coreutils}/bin/sleep 10s
           '';
 
         ExecStart =
           pkgs.writeShellScript "borgmatic-xnix"
           ''
             set -euo pipefail
-            ${pkgs.systemd}/bin/systemd-inhibit --who="x" --what="sleep:shutdown" --why="Prevent interrupting scheduled backup" ${pkgs.borgmatic}/bin/borgmatic --verbosity -2 --syslog-verbosity 1
+            ${pkgs.systemd}/bin/systemd-inhibit --who="x" --what="sleep:shutdown" --why="Prevent interrupting scheduled backup" ${pkgs.borgmatic}/bin/borgmatic --verbosity -2 --syslog-verbosity 2
           '';
       };
     };
