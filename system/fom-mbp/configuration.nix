@@ -6,7 +6,7 @@
 
   custom.system-darwin = {
     enable = true;
-    ai.enable = false;
+    ai.enable = true;
   };
 
   environment = {
