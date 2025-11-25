@@ -6,19 +6,19 @@
 
 {
   imports = [
-    ../../modules/system/bluetooth.nix
+    #../../modules/system/bluetooth.nix
     ../../modules/system/nix-settings.nix # do not remove
-    ../../modules/system/nvidia.nix
-    ../../modules/system/sound.nix
+    #../../modules/system/nvidia.nix
+    #../../modules/system/sound.nix
     #../../modules/system/x11.nix
     ];
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  #services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
+  #services.xserver.displayManager.sddm.enable = true;
+  #services.xserver.desktopManager.xfce.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -26,14 +26,14 @@
     xkbVariant = "";
   };
 
-  networking.hostName = "xnixvm"; # Define your hostname.
+  networking.hostName = "xnix-vm"; # Define your hostname.
   #networking.nameservers = [ "1.1.1.1" ];
 
   # Enable networking
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Europe/Copenhagen";
+  #time.timeZone = "Europe/Copenhagen";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -70,7 +70,20 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
+
+    # network
+    tor
+    torsocks
+    kubo
   ];
+
+  virtualisation.vmVariant = {
+    virtualisation = {
+      memorySize = 2048;
+      cores = 2;
+      graphics = false;
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
