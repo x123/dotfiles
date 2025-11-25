@@ -19,6 +19,7 @@
             cargo
             elixir-ls
             gopls
+            lua-language-server
             marksman
             nil
             nixd
