@@ -6,6 +6,7 @@
     ./desktop
     ./dev
     ./editors
+    ./games
     ./mail
     ./shell
     ./x11
