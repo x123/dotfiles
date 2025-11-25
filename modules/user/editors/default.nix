@@ -8,6 +8,7 @@
     ./helix.nix
     ./neovim.nix
     ./vim.nix
+    ./vscode.nix
   ];
 
   options.custom.user.editors.enable = lib.mkOption {
