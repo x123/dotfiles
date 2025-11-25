@@ -9,7 +9,6 @@
     ../../modules/system/zsh.nix
     ../../modules/system/elixir.nix
     ./binary-cache.nix
-    ./binrich.nix
     ./postgres.nix
   ];
 
