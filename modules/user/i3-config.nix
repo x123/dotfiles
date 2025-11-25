@@ -3,6 +3,8 @@
   home.packages = with pkgs; [
     feh
     dunst
+    networkmanagerapplet
+    blueman
   ];
 
   programs.rofi = {
@@ -14,6 +16,9 @@
       combi-modes = "window,ssh,drun,run";
     };
   };
+
+  services.blueman-applet.enable = true;
+  services.network-manager-applet.enable = true;
 
   # compositing
   services.picom.enable = true;
