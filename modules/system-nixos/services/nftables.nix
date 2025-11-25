@@ -26,6 +26,20 @@ in {
           filter = {
             family = "inet";
             content = ''
+              set ipv4_blackhole {
+                type ipv4_addr
+                flags interval
+                auto-merge
+                comment "drop all traffic from these hosts"
+              }
+
+              set ipv6_blackhole {
+                type ipv6_addr
+                flags interval
+                auto-merge
+                comment "drop all traffic from these hosts"
+              }
+
               counter cnt_input_drop {
                 comment "count all packets that hit the final drop in the input chain"
               }
@@ -89,6 +103,12 @@ in {
 
                 # loopback interface
                 iifname "lo" accept comment "trusted interfaces"
+
+                # drop blackholed traffic
+                ip saddr @ipv4_blackhole log prefix "nft-input-ipv4-blackhole-drop: " level info
+                ip saddr @ipv4_blackhole drop
+                ip6 saddr @ipv6_blackhole log prefix "nft-input-ipv6-blackhole-drop: " level info
+                ip6 saddr @ipv6_blackhole drop
 
                 ct state vmap {
                   invalid : jump input-log-drop,

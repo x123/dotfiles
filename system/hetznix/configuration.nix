@@ -13,6 +13,7 @@
     ./local/caddy.nix
     ./local/dovecot.nix
     ./local/mastodon.nix
+    ./local/nftables-blackhole.nix
     ./local/nftables-http.nix
     ./local/nftables-knock.nix
     # ./local/nftables-netperf.nix
