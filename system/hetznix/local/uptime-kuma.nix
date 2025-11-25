@@ -19,8 +19,8 @@
     caddy = {
       enable = true;
       virtualHosts = {
-        "kuma.boxchop.city" = {
-          useACMEHost = "boxchop.city";
+        "kuma.nixlink.net" = {
+          useACMEHost = "nixlink.net";
           extraConfig = ''
             reverse_proxy 127.0.0.1:4000
 

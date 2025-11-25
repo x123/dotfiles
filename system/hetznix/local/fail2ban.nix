@@ -13,8 +13,8 @@
     banaction-allports = ''nftables-allports[blocktype=drop]'';
     ignoreIP = [
       "127.0.0.1/8"
-      "boxchop.city"
-      "empire.boxchop.city"
+      "nixlink.net"
+      "empire.nixlink.net"
     ];
     bantime = "10m";
     bantime-increment = {

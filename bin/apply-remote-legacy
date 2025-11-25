@@ -4,7 +4,7 @@ set -eo pipefail
 function usage() {
   echo "Error: ${0} requires a remote user@system and a system to apply"
   echo "Syntax: ${0} user@remote-host system-short-name"
-  echo "Example: ${0} user@hetznix.boxchop.city hetznix"
+  echo "Example: ${0} user@hetznix.nixlink.net hetznix"
 }
 
 if [ -z "$1" ] || [ -z "$2" ]

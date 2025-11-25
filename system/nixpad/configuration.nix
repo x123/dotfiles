@@ -73,7 +73,7 @@
   # networking
   networking = {
     hostName = "nixpad";
-    domain = "empire.boxchop.city";
+    domain = "empire.nixlink.net";
     networkmanager.enable = true;
   };
 

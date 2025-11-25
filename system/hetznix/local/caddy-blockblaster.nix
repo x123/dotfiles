@@ -2,10 +2,10 @@
   services.caddy = {
     enable = true;
     virtualHosts = {
-      "blockblaster.boxchop.city" = {
-        useACMEHost = "boxchop.city";
+      "blockblaster.nixlink.net" = {
+        useACMEHost = "nixlink.net";
         extraConfig = ''
-          root * /var/www/blockblaster.boxchop.city
+          root * /var/www/blockblaster.nixlink.net
           encode zstd gzip
           redir /play /v0.1.34/blockblaster.html
           file_server

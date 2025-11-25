@@ -12,7 +12,7 @@
       enableSubmission = true;
       enableSubmissions = true;
       rootAlias = "x123";
-      domain = "boxchop.city";
+      domain = "nixlink.net";
       config = {
         # inet_interfaces = "loopback-only";
         # inet_protocols = "ipv4";
@@ -21,10 +21,10 @@
         inet_protocols = "all";
         milter_default_action = "accept";
         milter_protocol = "2";
-        mydestination = "hetznix.boxchop.city social.boxchop.city boxchop.city localhost";
-        mydomain = "boxchop.city";
-        myhostname = "hetznix.boxchop.city";
-        myorigin = "boxchop.city";
+        mydestination = "hetznix.nixlink.net social.nixlink.net nixlink.net localhost";
+        mydomain = "nixlink.net";
+        myhostname = "hetznix.nixlink.net";
+        myorigin = "nixlink.net";
         non_smtpd_milters = "unix:/run/opendkim/opendkim.sock";
         propagate_unmatched_extension = "";
         recipient_delimiter = "+";
@@ -74,13 +74,13 @@
           reject_unknown_sender_domain
           reject_unauthenticated_sender_login_mismatch
       '';
-      sslCert = config.security.acme.certs."boxchop.city".directory + "/full.pem";
-      sslKey = config.security.acme.certs."boxchop.city".directory + "/key.pem";
+      sslCert = config.security.acme.certs."nixlink.net".directory + "/full.pem";
+      sslKey = config.security.acme.certs."nixlink.net".directory + "/key.pem";
     };
 
     opendkim = {
       enable = true;
-      domains = "csl:boxchop.city,social.boxchop.city,hetznix.boxchop.city";
+      domains = "csl:nixlink.net,social.nixlink.net,hetznix.nixlink.net";
       selector = "default";
       configFile = pkgs.writeText "opendkim.conf" ''
         UMask 0007

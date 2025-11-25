@@ -255,7 +255,7 @@
         specialArgs = {
           inherit inputs;
           system = "aarch64-linux";
-          hostname = "hetznix.boxchop.city";
+          hostname = "hetznix.nixlink.net";
         };
         modules = [
           disko.nixosModules.disko

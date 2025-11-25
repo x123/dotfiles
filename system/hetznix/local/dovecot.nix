@@ -11,8 +11,8 @@
       enableQuota = false;
       createMailUser = false;
       showPAMFailure = true;
-      sslServerCert = config.security.acme.certs."boxchop.city".directory + "/cert.pem";
-      sslServerKey = config.security.acme.certs."boxchop.city".directory + "/key.pem";
+      sslServerCert = config.security.acme.certs."nixlink.net".directory + "/cert.pem";
+      sslServerKey = config.security.acme.certs."nixlink.net".directory + "/key.pem";
       mailLocation = "maildir:~/Maildir";
       extraConfig = ''
         service auth {
