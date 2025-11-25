@@ -12,7 +12,6 @@
     ./local/borgmatic.nix
     ./local/caddy.nix
     ./local/dovecot.nix
-    ./local/invidious.nix
     ./local/mastodon.nix
     ./local/nftables-http.nix
     ./local/nftables-knock.nix
