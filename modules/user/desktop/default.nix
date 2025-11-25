@@ -35,7 +35,8 @@
       home.packages = builtins.attrValues {
         inherit
           (pkgs)
-          anydesk
+          #anydesk # broken 6.3.1 doesn't have source download - 2024-04-28
+          
           dropbox
           gimp
           libreoffice
