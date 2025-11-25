@@ -47,7 +47,9 @@
       nixpkgs.lib.genAttrs supportedSystems (system:
         f {
           inherit system;
-          pkgs = import nixpkgs {inherit system;};
+          pkgs = import nixpkgs {
+            inherit system;
+          };
         });
   in {
     checks = forEachSupportedSystem ({
@@ -106,7 +108,10 @@
         pkgs = import nixpkgs {
           system = "aarch64-darwin";
           extra-platforms = "x86_64-darwin";
-          config = {allowUnfree = true;};
+          config = {
+            allowUnfree = true;
+            allowAliases = false;
+          };
         };
         extraSpecialArgs = {inherit inputs;};
         modules = [
@@ -117,7 +122,10 @@
       "nixos@xnixwsl" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = "x86_64-linux";
-          config = {allowUnfree = true;};
+          config = {
+            allowUnfree = true;
+            allowAliases = false;
+          };
         };
         extraSpecialArgs = {inherit inputs;};
         modules = [
@@ -144,7 +152,10 @@
       "root@nixium" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = "x86_64-linux";
-          config = {allowUnfree = true;};
+          config = {
+            allowUnfree = true;
+            allowAliases = false;
+          };
         };
         extraSpecialArgs = {inherit inputs;};
         modules = [
