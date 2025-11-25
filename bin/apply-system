@@ -5,15 +5,15 @@ set -xeuo pipefail
 if which darwin-rebuild
 then
   echo "Found darwin-rebuild at $(which darwin-rebuild)"
-  pushd ~/.dotfiles || exit
+  pushd ~/.dotfiles || exit 1
   darwin-rebuild -v switch --flake .#
-  popd || exit
+  popd || exit 1
 elif which nixos-rebuild
 then
   echo "Found nixos-rebuild at $(which nixos-rebuild)"
-	pushd ~/.dotfiles || exit
+	pushd ~/.dotfiles || exit 1
 	sudo nixos-rebuild -v switch --flake .#
-	popd || exit
+	popd || exit 1
 else
 	echo "Error: Could not find nixos-rebuild or darwin-rebuild ... Bailing out!"
 	exit 1

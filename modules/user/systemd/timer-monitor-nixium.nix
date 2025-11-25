@@ -24,9 +24,9 @@
           ''
             set -euo pipefail
 
-            pushd /home/x/src/gcp-terraform/nixium
+            pushd /home/x/src/gcp-terraform/nixium || exit 1
             ${pkgs.systemd}/bin/systemd-cat --identifier="monitor-nixium.service" --priority="info" --stderr-priority="err" ${pkgs.sops}/bin/sops exec-env /home/x/src/gcp-terraform/nixium/secrets.yaml '${pkgs.terraform}/bin/terraform plan -compact-warnings -refresh-only -detailed-exitcode -no-color'
-            popd
+            popd || exit 1
           '';
       };
     };

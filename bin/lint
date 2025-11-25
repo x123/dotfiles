@@ -1,5 +1,5 @@
 #!env zsh
 set -euo pipefail
-pushd ~/.dotfiles
+pushd ~/.dotfiles || exit 1
 statix check .
-popd
+popd || exit 1

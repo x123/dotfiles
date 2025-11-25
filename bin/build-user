@@ -24,13 +24,13 @@ then
 fi
 
 echo "${USER}-${HOSTNAME}"
-pushd ~/.dotfiles
+pushd ~/.dotfiles || exit 1
 if nix build -v .#homeManagerConfigurations."${USER}"-"${HOSTNAME}".activationPackage
 then
   nvd diff "$(home-manager generations | head -n1 | awk -F " -> " '{print $2}')" ./result 
-  popd
+  popd || exit 1
 else
   echo "Build above failed, cannot use nvd to compare previous generation";
-  popd
+  popd || exit 1
   exit 1;
 fi

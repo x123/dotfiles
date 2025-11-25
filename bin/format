@@ -1,5 +1,5 @@
 #!env zsh
 set -euo pipefail
-pushd ~/.dotfiles
+pushd ~/.dotfiles || exit 1
 alejandra .
-popd
+popd || exit 1

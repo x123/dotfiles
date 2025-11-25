@@ -1,9 +1,9 @@
 #!/bin/sh
 set -xe
 
-pushd ~/.dotfiles
+pushd ~/.dotfiles || exit 1
 nixos-rebuild build-vm --flake .#xnix-vm
-popd
+popd || exit 1
 
 # without nixos-rebuild
 #nix build .#nixosConfigurations.xnix-vm.config.system.build.vm

@@ -9,11 +9,11 @@ if [ ! -z "${DARWIN_REBUILD}" ]; then
 	exit 1
 elif [ ! -z "${NIXOS_REBUILD}" ]; then
 	echo "Found nixos-rebuild at ${NIXOS_REBUILD}"
-	pushd ~/.dotfiles
+	pushd ~/.dotfiles || exit 1
     nixos-rebuild -v switch --target-host root@nixium.boxchop.city --flake .#nixium
-	popd
+	popd || exit 1
 else
 	echo "Could not find nixos-rebuild or darwin-rebuild ... Bailing out!"
-  popd
+  popd || exit 1
 	exit 1
 fi
