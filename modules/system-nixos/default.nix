@@ -10,6 +10,7 @@
     ./steam
     ./wayland
     ./x11
+    ./xnix-builder
   ];
 
   options = {

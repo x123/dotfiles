@@ -12,7 +12,10 @@ SHORT_HOSTNAME=$1
 
 if which nixos-rebuild
 then
-  sudo --preserve-env=SSH_AUTH_SOCK nixos-rebuild -v switch --flake .#"${SHORT_HOSTNAME}"
+  # this works for remote builders
+  sudo --preserve-env=NIX_SSHOPTS nixos-rebuild -v switch --flake .#"${SHORT_HOSTNAME}"
+  # below only needed if private git repos are pulled in by the flake, but will break remote building application via apply-remote-ssh
+  #sudo --preserve-env=SSH_AUTH_SOCK nixos-rebuild -v switch --flake .#"${SHORT_HOSTNAME}"
 elif which darwin-rebuild
 then
   sudo darwin-rebuild -v switch --flake .#"${SHORT_HOSTNAME}"

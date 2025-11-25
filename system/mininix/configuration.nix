@@ -14,26 +14,6 @@
     # ./local/syncthing.nix
   ];
 
-  nix = {
-    distributedBuilds = true;
-    extraOptions = ''
-      builders-use-substitutes = true
-    '';
-
-    buildMachines = [
-      {
-        hostName = "xnix.empire.internal";
-        system = pkgs.stdenv.hostPlatform.system;
-        protocol = "ssh-ng";
-        maxJobs = 8;
-        speedFactor = 2;
-        sshUser = "builder";
-        sshKey = "/etc/ssh/ssh_host_ed25519_key";
-        supportedFeatures = ["nixos-test" "big-parallel" "kvm"];
-      }
-    ];
-  };
-
   # allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
@@ -44,6 +24,7 @@
     enable = true;
 
     hardware.qemu-guest.enable = true;
+    xnix-builder.enable = true;
 
     services = {
       tftp = {
