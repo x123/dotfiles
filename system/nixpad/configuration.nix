@@ -2,14 +2,6 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/system-v2
-    # ../../modules/system/bluetooth.nix
-    # ../../modules/system/cifs.nix
-    # ../../modules/system/console.nix
-    # ../../modules/system/locale.nix
-    # ../../modules/system/nix-settings.nix # do not remove
-    # ../../modules/system/sound.nix
-    # ../../modules/system/x11.nix
-    # ../../modules/system/zsh.nix
   ];
 
   custom.system-v2 = {
