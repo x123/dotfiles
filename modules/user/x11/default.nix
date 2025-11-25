@@ -20,9 +20,6 @@
     mimeApps = {
       enable = true;
       associations.added = {};
-      associations.removed = {
-        "text/plain" = ["calibre-ebook-viewer.desktop"];
-      };
       defaultApplications = {
         "text/plain" = ["vim.desktop"];
         "x-scheme-handler/https" = ["firefox.desktop"];
