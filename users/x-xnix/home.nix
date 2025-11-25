@@ -18,6 +18,7 @@
     ../../modules/user/keepass.nix
     #../../modules/user/pytorch.nix
     ../../modules/user/shell
+    ../../modules/user/systemd/timer-monitor-nixium.nix
     ../../modules/user/tor-browser.nix
     ../../modules/user/video.nix
     ../../modules/user/vim.nix
