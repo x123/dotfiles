@@ -24,10 +24,7 @@
             terraform-ls
             vscode-langservers-extracted
             ;
-        }
-        ++ [
-          inputs.lexical.packages.${pkgs.stdenv.hostPlatform.system}.default
-        ];
+        };
     };
 
     programs.neovim = {
@@ -233,13 +230,6 @@
         lspconfig.elixirls.setup({
           capabilities = capabilities,
           cmd = { "${pkgs.elixir-ls}/bin/elixir-ls" },
-        })
-        lspconfig.lexical.setup({
-          filetypes = { "elixir", "eelixir", "heex" },
-          cmd = { "${inputs.lexical.packages.${pkgs.stdenv.hostPlatform.system}.default}/binsh/start_lexical.sh" },
-          root_dir = function(fname)
-            return lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir()
-          end,
         })
 
         -- nix
