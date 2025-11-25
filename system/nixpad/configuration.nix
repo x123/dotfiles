@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/nix-settings # do not remove
     ../../modules/system-v2
   ];
 
@@ -9,7 +10,6 @@
 
     common = {
       console-theme.enable = false;
-      # zsh.enable = true;
     };
 
     dev.elixir.enable = false;

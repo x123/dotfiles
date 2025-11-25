@@ -6,6 +6,7 @@
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
+    ../../modules/nix-settings # do not remove
     ../../modules/system-v2
     ./local/acme.nix
     ./local/borgmatic.nix

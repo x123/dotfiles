@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/nix-settings # do not remove
     ../../modules/system-v2
   ];
 

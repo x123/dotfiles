@@ -2,7 +2,6 @@
   imports = [
     ./console-theme.nix
     ./locale.nix
-    ./nix-settings.nix
     ./zsh.nix
   ];
 
@@ -17,11 +16,6 @@
         default = true;
         type = lib.types.bool;
         description = "Whether to enable common locale settings";
-      };
-      nix-settings.enable = lib.mkOption {
-        default = true;
-        type = lib.types.bool;
-        description = "Whether to enable common nix settings";
       };
       zsh.enable = lib.mkOption {
         default = true;
