@@ -63,6 +63,9 @@
             name = "all";
             username = "postgres";
             format = "custom";
+            psql_command = "${pkgs.postgresql}/bin/psql";
+            pg_dump_command = "${pkgs.postgresql}/bin/pg_dump";
+            pg_restore_command = "${pkgs.postgresql}/bin/pg_restore";
           }
         ];
         retries = 5;
