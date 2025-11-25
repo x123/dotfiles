@@ -4,28 +4,46 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     # nixpkgs-unstable-small.url = "nixpkgs/nixos-unstable-small";
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
-    home-manager.url = "github:nix-community/home-manager";
-    sops-nix.url = "github:Mic92/sops-nix";
-    nur.url = "github:nix-community/NUR";
-    nix-darwin.url = "github:LnL7/nix-darwin";
-    blender-bin.url = "github:edolstra/nix-warez/?dir=blender";
-    nixified-ai.url = "github:nixified-ai/flake";
-    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
-    disko.url = "github:nix-community/disko";
-
-    narsil-flake.url = "github:x123/narsil-flake";
     ghostty.url = "git+ssh://git@me.github.com/ghostty-org/ghostty";
-    lexical.url = "github:lexical-lsp/lexical";
+    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+    narsil-flake.url = "github:x123/narsil-flake";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nur.url = "github:nix-community/NUR";
 
-    # minimize duplicate instances of inputs
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    #sops-nix.inputs.nixpkgs.follows = "nixpkgs"; # optional, not necessary
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    blender-bin.inputs.nixpkgs.follows = "nixpkgs";
-    nixified-ai.inputs.nixpkgs.follows = "nixpkgs";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
-    lexical.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs"; # optional, not necessary
+    };
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    blender-bin = {
+      url = "github:edolstra/nix-warez/?dir=blender";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixified-ai = {
+      url = "github:nixified-ai/flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    lexical = {
+      url = "github:lexical-lsp/lexical";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
