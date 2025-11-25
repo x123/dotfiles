@@ -117,7 +117,7 @@
       config = {
         startup = [
           { command = "${pkgs.autorandr}/bin/autorandr -l home"; }
-          { command = "${pkgs.setxkbmap}/bin/setxkbmap -option compose:ralt"; }
+          { command = "${pkgs.xorg.setxkbmap}/bin/setxkbmap -option compose:ralt"; }
           { command = "${pkgs.feh}/bin/feh --bg-fill ${background}"; }
           { command = "${pkgs.dunst}/bin/dunst &"; }
           { command = "${pkgs.picom}/bin/picom --daemon"; }
