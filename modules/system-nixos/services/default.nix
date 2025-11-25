@@ -9,5 +9,6 @@
     ./open-webui.nix
     ./openssh.nix
     ./qdrant.nix
+    ./sonarr.nix
   ];
 }
