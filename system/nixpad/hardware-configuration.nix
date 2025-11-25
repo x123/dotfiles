@@ -9,6 +9,11 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  powerManagement = {
+    enable = true;
+    powertop.enable = true;
+  };
+
   boot = {
     # binfmt.emulatedSystems = ["aarch64-linux"];
     loader = {
