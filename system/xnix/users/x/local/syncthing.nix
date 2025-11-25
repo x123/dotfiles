@@ -4,10 +4,10 @@
   ...
 }: {
   services.syncthing = {
-    enable = true;
+    enable = false;
     guiAddress = "127.0.0.1:8384";
     settings.gui.user = "x";
-    tray.enable = true;
+    tray.enable = false;
     # overrideDevices = false;
     # overrideFolders = false;
     settings = {
