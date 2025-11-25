@@ -55,6 +55,7 @@ in {
             file
             fzf
             htop
+            hyperfine
             killall
             lsof
             mosh
