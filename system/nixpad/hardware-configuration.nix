@@ -14,6 +14,8 @@
     powertop.enable = true;
   };
 
+  systemd.sleep.extraConfig = "HibernateDelaySec=1h";
+
   boot = {
     # binfmt.emulatedSystems = ["aarch64-linux"];
     loader = {
