@@ -13,6 +13,7 @@
     ./local/mastodon.nix
     ./local/nftables.nix
     ./local/nginx.nix
+    ./local/postfix.nix
     ./local/postgres.nix
     # ./local/maddy.nix
   ];
