@@ -28,7 +28,6 @@
     kernelParams = [];
     kernelPackages = pkgs.linuxPackages_latest; # lqx or zen or latest
     kernelModules = [
-      "k10temp"
       "kvm-amd"
       "nct6683"
       "v4l2loopback"
