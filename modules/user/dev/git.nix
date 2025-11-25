@@ -27,6 +27,19 @@
       };
     };
 
+    programs.delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options = {
+        navigate = true;
+        light = false;
+        conflictStyle = "diff3";
+        colorMoved = "default";
+        syntax-theme = "zenburn";
+        side-by-side = false;
+      };
+    };
+
     programs.git = {
       enable = true;
       settings = {
@@ -34,18 +47,6 @@
         user.name = "x123@users.noreply.github.com";
         init.defaultBranch = "master";
         push.autoSetupRemote = true;
-      };
-
-      delta = {
-        enable = true;
-        options = {
-          navigate = true;
-          light = false;
-          conflictStyle = "diff3";
-          colorMoved = "default";
-          syntax-theme = "zenburn";
-          side-by-side = false;
-        };
       };
     };
   };
