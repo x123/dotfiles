@@ -19,6 +19,7 @@
         gtk-adwaita = true
         window-decoration = false
         gtk-titlebar = false
+        confirm-close-surface = false
 
         font-size = 12
         #font-family = "Inconsolata LGC"
