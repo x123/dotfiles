@@ -25,7 +25,7 @@
             reverse_proxy 127.0.0.1:4000
 
             @auth {
-              not path /api/push/*
+              not path /api/push/* /api/status-page/* /status/* /assets/* /apple-touch-icon.png /icon.svg
             }
 
             basic_auth @auth {
