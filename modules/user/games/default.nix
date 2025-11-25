@@ -23,15 +23,16 @@
           home.packages = builtins.attrValues {
             inherit
               (pkgs)
+              unciv
               angband
               blightmud
               brogue-ce
+              godot_4
               narsil
               openttd
               sil
               sil-q
               tintin
-              unciv
               ;
           };
         })
