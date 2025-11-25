@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./docker.nix
+    ./fail2ban.nix
     ./invidious.nix
     ./jellyfin.nix
     ./nftables.nix
