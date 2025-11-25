@@ -8,7 +8,6 @@
     ./btop.nix
     ./fonts.nix
     ./htop.nix
-    ./social.nix
     ./starship.nix
     ./tmux.nix
     ./zoxide.nix
