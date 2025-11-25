@@ -26,6 +26,8 @@
             chain input-new {
               # iodine/DNS
               udp dport 53 counter accept comment "Allow UDP/53"
+
+              iifname "dns0" accept comment "dns0 iodine trusted interface"
             }
           '';
         };
