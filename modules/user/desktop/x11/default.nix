@@ -47,6 +47,7 @@
       packages = builtins.attrValues {
         inherit
           (pkgs)
+          font-awesome
           material-symbols
           powerline-fonts
           scrot
