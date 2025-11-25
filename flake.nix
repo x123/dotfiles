@@ -5,6 +5,7 @@
     nixpkgs.url = "nixpkgs/nixos-unstable"; # nixos-23.05
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager.url = "github:nix-community/home-manager"; # /release-23.05
+    sops-nix.url = "github:Mic92/sops-nix";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nur.url = "github:nix-community/NUR";
     nix-darwin.url = "github:LnL7/nix-darwin";
@@ -13,13 +14,14 @@
 
     # minimize duplicate instances of inputs
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    #sops-nix.inputs.nixpkgs.follows = "nixpkgs"; # optional, not necessary
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     blender-bin.inputs.nixpkgs.follows = "nixpkgs";
     nixified-ai.inputs.nixpkgs.follows = "nixpkgs";
   };
   
-  outputs = inputs@{ self, nixpkgs, home-manager, nur, nixos-wsl, nix-darwin, blender-bin, nixos-hardware, nixified-ai, ... }:
+  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, sops-nix, nixos-wsl, nur, nix-darwin, blender-bin, nixified-ai, ... }:
   let 
     lib = nixpkgs.lib;
 
@@ -102,6 +104,7 @@
           nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
           nixos-hardware.nixosModules.common-pc
           nixos-hardware.nixosModules.common-pc-ssd
+          sops-nix.nixosModules.sops
           ./system/xnix/configuration.nix
         ];
       };
