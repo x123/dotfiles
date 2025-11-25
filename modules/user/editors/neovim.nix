@@ -65,7 +65,6 @@ in {
       plugins = builtins.attrValues {
         inherit
           (pkgs.vimPlugins)
-          avante-nvim
           bigfile-nvim
           cmp-nvim-lsp
           cmp-nvim-lua
@@ -179,17 +178,6 @@ in {
             "matchparen",
             "vimopts",
             "filetype",
-          },
-        })
-
-        -- avante
-        require("avante").setup({
-          provider = "ollama",
-          providers = {
-            ollama = {
-              endpoint = "http://127.0.0.1:11434",
-              model = "qwen3:32b",
-            },
           },
         })
 
