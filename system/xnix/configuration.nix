@@ -120,6 +120,18 @@
 
   time.timeZone = "Europe/Copenhagen";
 
+  security.sudo.extraRules = [
+    {
+      users = [config.users.users.x.name];
+      commands = [
+        {
+          command = "ALL";
+          options = ["NOPASSWD"];
+        }
+      ];
+    }
+  ];
+
   users.users.x = {
     isNormalUser = true;
     description = "x";
