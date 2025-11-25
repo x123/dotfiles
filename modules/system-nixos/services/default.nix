@@ -14,5 +14,6 @@
     ./sonarr.nix
     ./tang.nix
     ./tftp.nix
+    ./xmrig.nix
   ];
 }
