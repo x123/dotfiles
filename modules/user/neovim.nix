@@ -33,6 +33,7 @@
         nvim-cmp
         nvim-lastplace
         nvim-lspconfig
+        nvim-surround
         nvim-treesitter
         telescope-nvim
         tmux-nvim
@@ -118,10 +119,8 @@
         numhl = true,
       })
 
-
-      -- require("vim-vsnip").setup({})
-      -- require("vim-vsnip-integ").setup({})
-      -- require("cmp-vsnip").setup({})
+      -- nvim-surround
+      require("nvim-surround").setup({})
 
       -- nvim-cmp
       local cmp = require("cmp")
