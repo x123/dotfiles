@@ -2,12 +2,17 @@
   config,
   lib,
   ...
-}: let
-  cfg = config.custom;
-in {
+}: {
   imports = [];
+  options = {
+    custom.system-nixos.hardware.sound.enable = lib.mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Whether to enable system sound hardware & packages";
+    };
+  };
 
-  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.hardware.sound.enable) {
+  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.hardware.sound.enable) {
     # Enable sound with pipewire.
     services.pulseaudio.enable = false;
     security.rtkit.enable = true;

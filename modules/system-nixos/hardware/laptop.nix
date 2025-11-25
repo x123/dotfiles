@@ -2,12 +2,18 @@
   config,
   lib,
   ...
-}: let
-  cfg = config.custom;
-in {
+}: {
   imports = [];
 
-  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.hardware.laptop.enable) {
+  options = {
+    custom.system-nixos.hardware.laptop.enable = lib.mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Whether to enable system laptop hardware & packages";
+    };
+  };
+
+  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.hardware.laptop.enable) {
     powerManagement = {
       enable = true;
       powertop.enable = true;

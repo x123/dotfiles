@@ -2,12 +2,18 @@
   config,
   lib,
   ...
-}: let
-  cfg = config.custom;
-in {
+}: {
   imports = [];
 
-  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.hardware.bluetooth.enable) {
+  options = {
+    custom.system-nixos.hardware.bluetooth.enable = lib.mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Whether to enable system bluetooth hardware & packages";
+    };
+  };
+
+  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.hardware.bluetooth.enable) {
     services.blueman.enable = true;
 
     hardware.bluetooth = {

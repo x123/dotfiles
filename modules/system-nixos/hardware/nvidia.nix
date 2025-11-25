@@ -3,12 +3,17 @@
   lib,
   pkgs,
   ...
-}: let
-  cfg = config.custom;
-in {
+}: {
   imports = [];
+  options = {
+    custom.system-nixos.hardware.nvidia.enable = lib.mkOption {
+      default = false;
+      type = lib.types.bool;
+      description = "Whether to enable system nvidia hardware & packages";
+    };
+  };
 
-  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.hardware.nvidia.enable) {
+  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.hardware.nvidia.enable) {
     hardware = {
       graphics = {
         enable = true;
