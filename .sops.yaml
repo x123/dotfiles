@@ -3,6 +3,7 @@ keys:
   - &system_xnix age1cuhquw0nsjm2nsuggezdkmxsj92p5vc97jtjmskmpwxdh50k5djs3xusfc
   - &system_hetznix age10qcnqa522q8txznv59n02zh3jgw6a9nwlsjj9eezxxvrykvkkskqtd8d4n
   - &system_wgnix age13re5npdkf29lch3mp5hm48yed3d0fkc0s3yu0wzu0x9jxl9nn4yseeq78a
+  - &system_wgnix-vm age1aj73mlk837xqmt2ahtjv09k78fyudv7t9h623fmtq5vn93029qmq2y3ua8
   - &mba age1qsykrrtcjsmhw9zst5r52vzpkdj7mxp66c0has02vcf7an230p0s07hhpn
 creation_rules:
   - path_regex: ^secrets.yaml$
@@ -44,3 +45,9 @@ creation_rules:
         - *x123
         - *mba
         - *system_wgnix
+  - path_regex: ^system/wgnix-vm/[^/]+\.yaml$
+    key_groups:
+      - age:
+        - *x123
+        - *mba
+        - *system_wgnix-vm
