@@ -395,11 +395,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1707359146,
-        "narHash": "sha256-9j+KJX5vqIPpTtXhf/5OexzUA8cL9X44XaZJ/uRHtq4=",
+        "lastModified": 1707501615,
+        "narHash": "sha256-Xggbi13v5XXzL5pyTIOsG5HRcoMMPr+jW0ixuVLxcnI=",
         "owner": "lexical-lsp",
         "repo": "lexical",
-        "rev": "949a42b5753fbae059aaebea4c7bc0949b225ac2",
+        "rev": "fb9546c777b75d03d13042126b82b75f9cf62d04",
         "type": "github"
       },
       "original": {
@@ -636,11 +636,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1707484745,
-        "narHash": "sha256-Lga8ehiL4girIGkkFeoaxIQkRMcsl7wvM6bhJzTkeek=",
+        "lastModified": 1707500742,
+        "narHash": "sha256-rdJOiKeJfTD5iaJ/KVksDBo5lDUSvjcdxp/F/9Kzyvw=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "fa5f11396cf60d1f091336f344987539b46870cd",
+        "rev": "2e13570e2eb9164eae348f806bc6493c5d194a1a",
         "type": "github"
       },
       "original": {
