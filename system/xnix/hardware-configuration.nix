@@ -100,7 +100,7 @@
     # };
 
     # samsung-970-evo
-    "luks-5a397788-b568-428e-8093-4c73891ee9d5" = {
+    "luks-samsung-970-evo" = {
       device = "/dev/disk/by-uuid/5a397788-b568-428e-8093-4c73891ee9d5";
       allowDiscards = true;
       bypassWorkqueues = true;
