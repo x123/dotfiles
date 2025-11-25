@@ -50,7 +50,6 @@ with lib;
         killall
         lsof
         mosh
-        nnn
         parallel
         pciutils
         ripgrep

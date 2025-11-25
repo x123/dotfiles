@@ -40,7 +40,6 @@
       ls = "ls --color";
       less = "less -mNg";
       nsp = "nix search nixpkgs";
-      nnn = "nnn -c -R";
       dns-cache-flush = "sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder";
       # TODO: make this a script (to install terminfo on remotes)
       # "infocmp -x | ssh SOMEMACHINE -- tic -x -"
