@@ -18,6 +18,7 @@
 
       blender.enable = true;
       discord.enable = true;
+      obs-studio.enable = true;
       video.enable = true;
     };
 

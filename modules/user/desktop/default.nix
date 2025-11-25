@@ -12,6 +12,7 @@
     ./discord.nix
     ./firefox.nix
     ./ghostty.nix
+    ./obs-studio.nix
     ./keepass.nix
     ./telegram.nix
     ./tor-browser.nix
