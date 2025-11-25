@@ -60,6 +60,7 @@
 
       programs.firefox = {
         enable = true;
+        package = pkgs.firefox-bin;
         profiles."x" = {
           extensions.packages = builtins.attrValues {
             inherit
