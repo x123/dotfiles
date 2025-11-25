@@ -50,7 +50,7 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/53A8-75EB";
     fsType = "vfat";
-    options = ["fmask=0022" "dmask=0022"];
+    # options = ["fmask=0022" "dmask=0022"];
   };
 
   boot.initrd.luks.devices."luks-1dc251b2-ea87-4005-915e-764bb03f7a11" = {
