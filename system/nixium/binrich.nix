@@ -6,9 +6,9 @@
     owner = config.users.users.binrich.name;
   };
 
-  environment.systemPackages = [
-    inputs.binrich.packages.${pkgs.stdenv.hostPlatform.system}.binrich
-  ];
+  # environment.systemPackages = [
+  #   inputs.binrich.packages.${pkgs.stdenv.hostPlatform.system}.binrich
+  # ];
 
   users.users.binrich = {
     createHome = true;
