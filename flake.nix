@@ -127,7 +127,10 @@
             allowAliases = false;
           };
         };
-        extraSpecialArgs = {inherit inputs;};
+        extraSpecialArgs = {
+          inherit inputs;
+          system = "aarch64-darwin";
+        };
         modules = [
           ./system/fom-MBA/users/fom/home.nix
         ];
@@ -142,7 +145,10 @@
             allowAliases = false;
           };
         };
-        extraSpecialArgs = {inherit inputs;};
+        extraSpecialArgs = {
+          inherit inputs;
+          system = "x86_64-linux";
+        };
         modules = [
           nur.nixosModules.nur
           ./system/xnix/users/x/home.nix
@@ -158,7 +164,10 @@
             allowAliases = false;
           };
         };
-        extraSpecialArgs = {inherit inputs;};
+        extraSpecialArgs = {
+          inherit inputs;
+          system = "x86_64-linux";
+        };
         modules = [
           nur.nixosModules.nur
           ./system/nixpad/users/x/home.nix
@@ -218,7 +227,10 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = {inherit inputs;};
+              extraSpecialArgs = {
+                inherit inputs;
+                # system = "aarch64-linux";
+              };
             };
           }
         ];
