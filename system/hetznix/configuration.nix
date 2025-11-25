@@ -30,7 +30,7 @@
     ./local/thelounge.nix
     ./local/unbound.nix
     ./local/uptime-kuma.nix
-    ./local/xray.nix
+    # ./local/xray.nix
   ];
 
   custom.system-nixos = {
