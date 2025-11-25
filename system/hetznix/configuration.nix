@@ -28,6 +28,7 @@
     ./local/postfix.nix
     ./local/postgres.nix
     ./local/thelounge.nix
+    ./local/unbound.nix
     ./local/uptime-kuma.nix
     ./local/xray.nix
   ];
