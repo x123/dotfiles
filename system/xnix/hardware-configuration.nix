@@ -102,6 +102,12 @@
       fsType = "nfs";
       options = ["x-systemd.automount" "noauto"];
     };
+
+    "/mnt/truenas/iron/xdata" = {
+      device = "truenas.empire.internal:/mnt/iron/xdata";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto"];
+    };
   };
 
   boot.initrd.luks.devices = {
