@@ -6,6 +6,7 @@
       ../../modules/system/nix-settings.nix # do not remove
       ../../modules/system/zsh.nix
       ./binary-cache.nix
+      ./postgres.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen; # lqx or zen or latest
