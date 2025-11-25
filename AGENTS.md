@@ -6,8 +6,6 @@ operating within this repository.
 ## Build/Lint/Test Commands
 
 * **Lint**: `deadnix -l -L .`, `statix check .`, `shellcheck bin/*`
-* **Pre-commit checks**: `nix flake check` (runs alejandra, deadnix,
-  markdownlint, shellcheck)
 * **Testing**: Tests must be completed by the user, please ask them to test
   the changes and report back.
 
