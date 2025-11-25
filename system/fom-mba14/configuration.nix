@@ -32,7 +32,7 @@
   users.users.fom.shell = pkgs.bash;
 
   # nix settings
-  nix.settings.extra-platforms = "x86_64-darwin";
+  nix.settings.extra-platforms = "x86_64-darwin aarch64-darwin";
   nix.settings.allowed-users = [
     "@admin"
     "fom"
