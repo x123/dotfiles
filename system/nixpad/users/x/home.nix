@@ -58,8 +58,6 @@
       };
     };
 
-    laptop.enable = true;
-
     user = {
       ai = {
         enable = false;
@@ -77,6 +75,7 @@
       };
 
       games.enable = false;
+      laptop.enable = true;
       mail.enable = true;
     };
   };
