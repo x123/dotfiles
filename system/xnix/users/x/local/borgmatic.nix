@@ -3,6 +3,10 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./borgmatic-xnix-systemd-timer.nix
+  ];
+
   sops.secrets."borg/xnix" = {};
 
   home.packages = [
