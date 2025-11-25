@@ -61,7 +61,7 @@
 
   networking.hostName = "fom-mbp";
 
-  services.nix-daemon.enable = true;
+  ids.gids.nixbld = 350;
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh = {
