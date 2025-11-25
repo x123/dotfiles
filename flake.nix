@@ -14,6 +14,7 @@
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     disko.url = "github:nix-community/disko";
 
+    narsil-flake.url = "github:x123/narsil-flake";
     ghostty.url = "git+ssh://git@me.github.com/mitchellh/ghostty";
     lexical.url = "github:lexical-lsp/lexical";
 
@@ -43,6 +44,7 @@
     pre-commit-hooks,
     disko,
     lexical,
+    narsil-flake,
     ...
   }: let
     supportedSystems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
