@@ -6,6 +6,7 @@
     ../../modules/user/alacritty
     ../../modules/user/blender.nix
     ../../modules/user/calibre.nix
+    ../../modules/user/chromium.nix
     ../../modules/user/common-packages.nix
     ../../modules/user/common-ssh.nix
     ../../modules/user/dev.nix
@@ -79,6 +80,12 @@
         hostname = "github.com";
         port = 22;
         identityFile = "/home/x/.ssh/id_xbox";
+      };
+      "nixium.boxchop.city" = {
+        hostname = "nixium.boxchop.city";
+        port = 22;
+        user = "root";
+        identityFile = "/home/x/.ssh/id_xnix";
       };
     };
   };
