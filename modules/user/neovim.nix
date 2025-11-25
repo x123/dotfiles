@@ -53,13 +53,6 @@
       set background=dark
       set nohlsearch
       set scrolloff=10
-
-      nnoremap <space>w\ <cmd>vsplit<cr>
-      nnoremap <space>ws <cmd>split<cr>
-      nnoremap <space>qq <cmd>quit<cr>
-      nnoremap <space>zz <cmd>wq<cr>
-      nnoremap <space>wx <C-W>x
-
     '';
     extraLuaConfig = ''
       vim.opt.termguicolors = true
@@ -68,6 +61,14 @@
           theme = 'nord'
         }
       }
+
+      -- personal keybinds
+      vim.keymap.set("n", "<space>w\\", "<cmd>vsplit<cr>")
+      vim.keymap.set("n", "<space>ws", "<cmd>split<cr>")
+      vim.keymap.set("n", "<space>qq", "<cmd>quit<cr>")
+      vim.keymap.set("n", "<space>QQ", "<cmd>quit!<cr>")
+      vim.keymap.set("n", "<space>zz", "<cmd>wq<cr>")
+      vim.keymap.set("n", "<space>wx", "<C-W>x")
 
       -- Telescope
       require("telescope").setup()
