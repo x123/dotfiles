@@ -155,6 +155,8 @@
             "- home/x/.config/*/Cache"
             "- home/x/invokeai/models/.cache"
             "- home/x/src/nixpkgs"
+            "- home/x/priv/t"
+            "- home/x/priv/.x"
           ];
         };
       };
