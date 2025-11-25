@@ -52,6 +52,7 @@
       set shiftwidth=2
       set background=dark
       set nohlsearch
+      set scrolloff=10
 
       nnoremap <C-up> <cmd>lua require("tmux").move_top()<cr>
       nnoremap <C-down> <cmd>lua require("tmux").move_bottom()<cr>
