@@ -14,6 +14,15 @@
     tree_view = 1;
     show_cpu_temperature = 1;
     show_cpu_frequency = 1;
+    enable_mouse = 0;
+    sort_key = config.lib.htop.fields.PERCENT_CPU;
+    tree_sort_key = config.lib.htop.fields.PERCENT_CPU;
+    sort_direction = -1;
+    tree_sort_direction = 1;
+    all_branches_collapsed = 0;
+    hide_kernel_threads = 1;
+    hide_userland_threads = 0;
+    hide_running_in_container = 0;
     fields = with config.lib.htop.fields; [
       PID
       USER
