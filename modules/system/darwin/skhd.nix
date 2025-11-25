@@ -25,6 +25,9 @@
     shift + alt - up : yabai -m window --warp north
     shift + alt - right : yabai -m window --warp east
 
+    alt - v : yabai -m window --insert south
+    alt - h : yabai -m window --insert east
+
     shift + alt - c : launchctl kickstart -k "gui/''${UID}/org.nixos.yabai" && launchctl kickstart -k "gui/''${UID}/org.nixos.skhd"
 
     # float / unfloat window and center on screen
