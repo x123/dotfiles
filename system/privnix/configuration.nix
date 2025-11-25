@@ -65,54 +65,73 @@
     };
   };
 
+  boot.kernel.sysctl."net.ipv6.conf.all.disable_ipv6" = true;
+
   networking = {
     hostName = "privnix";
     domain = "empire.internal";
     enableIPv6 = false;
+    # useNetworkd = true; # not needed when using systemd.network.enable = true
+    dhcpcd.enable = false;
     useDHCP = false;
-    defaultGateway = {
-      address = "10.10.10.1";
+    resolvconf = {
+      enable = true;
+      # this is needed to disable the domain entry in /etc/resolv.conf
+      extraConfig = ''
+        replace=domain/${config.networking.domain}/
+      '';
     };
-    nameservers = [
-      "192.168.1.127"
-    ];
-    resolvconf.enable = false;
+    nameservers = ["192.168.1.127"];
     search = [];
-    interfaces.ens18 = {
-      ipv4 = {
-        addresses = [
-          {
-            address = "192.168.1.151";
-            prefixLength = 24;
-          }
-        ];
-      };
-    };
-    interfaces.ens19 = {
-      ipv4 = {
-        addresses = [
-          {
-            address = "10.10.10.8";
-            prefixLength = 24;
-          }
-        ];
-      };
-    };
+  };
 
-    # interfaces.enp1s0.ipv6.addresses = [
-    #   {
-    #     address = "2a01:4f8:1c1b:51d1::1";
-    #     prefixLength = 64;
-    #   }
-    #   {
-    #     address = "2a01:4f8:1c1b:51d1::6";
-    #     prefixLength = 128;
-    #   }
-    # ];
-    # defaultGateway6 = {
-    #   address = "fe80::1";
-    #   interface = "enp1s0";
-    # };
+  systemd.network = {
+    enable = true;
+    networks."98-ens18" = {
+      matchConfig.Name = "enp6s18";
+      networkConfig = {
+        DNS = [
+          "192.168.1.127"
+        ];
+        # DHCP = "ipv4";
+        IPv6AcceptRA = false;
+        # LinkLocalAddressing=false; # disable all LinkLocalAddressing
+        IPv6LinkLocalAddressGenerationMode = "none"; # disable just IPv6 Link Local Address Generation
+      };
+      address = [
+        "192.168.1.151/24"
+      ];
+      # routes = [
+      #   {Gateway = "192.168.1.1";}
+      # ];
+      linkConfig.RequiredForOnline = "routable";
+    };
+    networks."99-ens19" = {
+      matchConfig.Name = "enp6s19";
+      networkConfig = {
+        # DNS = [
+        #   "192.168.1.127"
+        # ];
+        # DHCP = "ipv4";
+        IPv6AcceptRA = false;
+        # LinkLocalAddressing=false; # disable all LinkLocalAddressing
+        IPv6LinkLocalAddressGenerationMode = "none"; # disable just IPv6 Link Local Address Generation
+      };
+      address = [
+        "10.10.10.8/24"
+      ];
+      routes = [
+        {Gateway = "10.10.10.1";}
+      ];
+      linkConfig.RequiredForOnline = "routable";
+    };
+  };
+
+  # systemd-resolved disalbed for now (favoring old-school resolvconf)
+  services.resolved = {
+    enable = false; # commenting this out will cause resolvconf to fail
+    fallbackDns = ["192.168.1.127"];
+    llmnr = "false";
   };
 
   environment.systemPackages = builtins.attrValues {
