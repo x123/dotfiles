@@ -13,7 +13,7 @@
         connect-timeout = 5;
         builders-use-substitutes = true;
         # max-jobs = 0; # to disable building locally
-        extra-substituters = ["ssh://xnix.empire.internal"];
+        #extra-substituters = ["ssh://xnix.empire.internal"];
         fallback = true;
       };
 
