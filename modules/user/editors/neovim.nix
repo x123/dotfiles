@@ -54,6 +54,7 @@
           nvim-treesitter
           nvim-web-devicons
           oil-nvim
+          telescope-live-grep-args-nvim
           telescope-nvim
           tmux-nvim
           undotree
@@ -205,10 +206,26 @@
         vim.keymap.set("n", "-", "<cmd>Oil<cr>", {desc = "Open parent directory"})
 
         -- Telescope
-        require("telescope").setup()
+        require("telescope").setup({
+          extensions = {
+            live_grep_args = {
+              auto_quoting = true,
+              mappings = {
+                i = {
+                  ["<C-k>"] = require("telescope-live-grep-args.actions").quote_prompt(),
+                  ["<C-i>"] = require("telescope-live-grep-args.actions").quote_prompt({
+                    postfix = " --iglob "
+                  }),
+                  -- freeze the current list and start a fuzzy search in the frozen list
+                  ["<C-space>"] = require("telescope.actions").to_fuzzy_refine,
+                }
+              }
+            }
+          }
+        })
 
         vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
-        vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
+        vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
         vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
         vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 
