@@ -17,4 +17,12 @@
     '';
   };
 
+  programs.ssh = {
+    extraConfig = (if pkgs.stdenv.isDarwin then ''''
+    else ''
+      Match host * exec "gpg-connect-agent UPDATESTARTUPTTY /bye"
+    ''
+    );
+  };
+
 }
