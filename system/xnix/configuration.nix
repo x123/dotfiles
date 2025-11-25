@@ -29,19 +29,6 @@
     networking.tornet.enable = true;
 
     services = {
-      invidious = {
-        enable = true;
-        domain = "invidious.xnix.lan";
-        openFirewallNftables = true;
-        trustedIpv4Networks = [
-          "192.168.1.0/24"
-          "192.168.9.0/24"
-        ];
-        trustedIpv6Networks = [
-          "fd65:4e21:dde4::1/60"
-        ];
-      };
-
       open-webui = {
         enable = false;
         host = "127.0.0.1";
@@ -83,17 +70,6 @@
     age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
 
     secrets = {
-      "ssl/invidious.xnix.lan/cert" = {
-        mode = "0644";
-        owner = config.users.users.root.name;
-        group = config.users.groups.ssl.name;
-      };
-      "ssl/invidious.xnix.lan/key" = {
-        mode = "0640";
-        owner = config.users.users.root.name;
-        group = config.users.groups.ssl.name;
-      };
-
       "muttrc" = {
         mode = "0400";
         owner = config.users.users.x.name;
