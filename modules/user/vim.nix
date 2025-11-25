@@ -4,10 +4,14 @@
   programs.vim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
+      nerdtree
+      nerdtree-git-plugin
       vim-airline
       vim-airline-themes
+      vim-fugitive
       vim-lastplace
       vim-nix
+      vim-tmux-navigator
     ];
     defaultEditor = true;
     settings = {
@@ -24,6 +28,16 @@
       set cursorline
       set showmatch
       let g:airline_theme='base16_nord'
+      nnoremap <leader>n :NERDTreeFocus<CR>
+      nnoremap <C-n> :NERDTree<CR>
+      nnoremap <C-t> :NERDTreeToggle<CR>
+      nnoremap <C-f> :NERDTreeFind<CR>
+      let g:tmux_navigator_no_mappings = 1
+      nnoremap <C-up> :TmuxNavigateUp<CR>
+      nnoremap <C-down> :TmuxNavigateDown<CR>
+      nnoremap <C-left> :TmuxNavigateLeft<CR>
+      nnoremap <C-right> :TmuxNavigateRight<CR>
+      nnoremap <C-tab> :TmuxNavigatePrevious<CR>
     '';
   };
 
