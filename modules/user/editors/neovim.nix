@@ -235,9 +235,11 @@ in {
         -- avante
         require("avante").setup({
           provider = "ollama",
-          ollama = {
-            endpoint = "http://127.0.0.1:11434",
-            model = "qwen3:32b",
+          providers = {
+            ollama = {
+              endpoint = "http://127.0.0.1:11434",
+              model = "qwen3:32b",
+            },
           },
         })
 
