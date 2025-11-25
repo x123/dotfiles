@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   imports = [
+    ./gtk.nix
     ./i3-config.nix
   ];
 
