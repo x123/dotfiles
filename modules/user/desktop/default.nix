@@ -18,6 +18,7 @@
     ./ghostty.nix
     ./keepass.nix
     ./obs-studio.nix
+    ./slack.nix
     ./telegram.nix
     ./tor-browser.nix
     ./video.nix
