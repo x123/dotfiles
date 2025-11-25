@@ -9,7 +9,7 @@
     ../../modules/user/git.nix
     ../../modules/user/shell
     ../../modules/user/video.nix
-    ../../modules/user/vim.nix
+    ../../modules/user/neovim.nix
     ../../modules/user/keepass.nix
   ];
 

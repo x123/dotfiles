@@ -13,8 +13,10 @@
     extraConfig = ''
       # Set true color
       set-option -sa terminal-overrides ",xterm*:Tc"
+
       set-option -g bell-action none
       set-option -g visual-bell off
+      set-option -sg escape-time 10
 
       # Keep CWD on splits
       bind '"' split-window -v -c "#{pane_current_path}"
