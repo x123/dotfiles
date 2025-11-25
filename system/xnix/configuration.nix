@@ -112,6 +112,21 @@
 
       nftables.enable = true;
       nix-ssh-serve.enable = false;
+
+      tang = {
+        enable = true;
+        openFirewallNftables = true;
+        trustedIpv4Networks = [
+          "127.0.0.1/24"
+          "192.168.1.0/24"
+          "192.168.9.0/24"
+        ];
+        trustedIpv6Networks = [
+          "fdab:817c:904c::/60" # gk-2
+          "fd65:4e21:dde4::/60" # gk
+        ];
+      };
+
       qdrant.enable = true;
     };
 
