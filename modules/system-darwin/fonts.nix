@@ -8,7 +8,7 @@
 in {
   imports = [];
 
-  config = lib.mkIf (cfg.system-darwin.enable) {
+  config = lib.mkIf (cfg.system-darwin.enable && cfg.system-darwin.fonts.enable) {
     fonts.packages = [
       pkgs.nerdfonts
       pkgs.powerline-fonts
