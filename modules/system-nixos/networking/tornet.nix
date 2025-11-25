@@ -20,7 +20,7 @@ in {
     };
 
     networking = {
-      #useNetworkd = true;
+      useNetworkd = true;
       bridges."tornet".interfaces = [];
       nftables = {
         enable = true;
@@ -48,6 +48,24 @@ in {
           }
         ];
       };
+    };
+
+    systemd.network = {
+      enable = true;
+      wait-online.enable = false;
+      networks.tornet = {
+        matchConfig.Name = "tornet";
+        DHCP = "no";
+        networkConfig = {
+          ConfigureWithoutCarrier = true;
+          Address = "10.100.100.1/24";
+        };
+        linkConfig.ActivationPolicy = "always-up";
+      };
+    };
+
+    boot.kernel.sysctl = {
+      "net.ipv4.conf.tornet.route_localnet" = 1;
     };
   };
 }
