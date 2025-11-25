@@ -24,6 +24,7 @@
       discord.enable = true;
       flameshot.enable = true;
       ghostty.enable = true;
+      inkscape.enable = true;
       obs-studio.enable = false;
       slack.enable = true;
       telegram.enable = true;
