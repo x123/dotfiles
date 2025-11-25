@@ -25,6 +25,8 @@
       x-at-xnix-home = {
         storage = {
           extraConfig = {
+            retries = 5;
+            retry_wait = 5;
             ssh_command = "${pkgs.openssh}/bin/ssh -p 23 -i ${config.sops.secrets."ssh/u413840-sub1".path}";
           };
           encryptionPasscommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets."borg/xnix".path}";
