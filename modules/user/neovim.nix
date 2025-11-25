@@ -2,42 +2,49 @@
   imports = [];
 
   home = {
-    packages = with pkgs; [
-      elixir-ls
-      gopls
-      marksman
-      nixd
-      terraform-ls
-      vscode-langservers-extracted
-    ];
+    packages = builtins.attrValues {
+      inherit
+        (pkgs)
+        elixir-ls
+        gopls
+        marksman
+        nixd
+        terraform-ls
+        vscode-langservers-extracted
+        ;
+    };
   };
 
   programs.neovim = {
     enable = true;
-    plugins = with pkgs; [
-      vimPlugins.comment-nvim
-      vimPlugins.gitsigns-nvim
-      vimPlugins.lualine-nvim
-      vimPlugins.nord-nvim
-      vimPlugins.nvim-lastplace
-      vimPlugins.nvim-lspconfig
-      vimPlugins.undotree
-
-      vimPlugins.nvim-treesitter
-      vimPlugins.nvim-treesitter-parsers.c
-      vimPlugins.nvim-treesitter-parsers.elixir
-      vimPlugins.nvim-treesitter-parsers.go
-      vimPlugins.nvim-treesitter-parsers.json
-      vimPlugins.nvim-treesitter-parsers.lua
-      vimPlugins.nvim-treesitter-parsers.markdown
-      vimPlugins.nvim-treesitter-parsers.nix
-      vimPlugins.nvim-treesitter-parsers.terraform
-      vimPlugins.nvim-treesitter-parsers.vimdoc
-      vimPlugins.nvim-treesitter-parsers.zig
-
-      vimPlugins.telescope-nvim
-      vimPlugins.tmux-nvim
-    ];
+    plugins = builtins.attrValues {
+      inherit
+        (pkgs.vimPlugins)
+        comment-nvim
+        gitsigns-nvim
+        lualine-nvim
+        nord-nvim
+        nvim-lastplace
+        nvim-lspconfig
+        nvim-treesitter
+        telescope-nvim
+        tmux-nvim
+        undotree
+        ;
+      inherit
+        (pkgs.vimPlugins.nvim-treesitter-parsers)
+        c
+        elixir
+        go
+        json
+        lua
+        markdown
+        nix
+        terraform
+        vimdoc
+        zig
+        ;
+    };
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
