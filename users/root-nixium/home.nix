@@ -46,12 +46,12 @@
         hostname = "adamantium.boxchop.city";
         user = "root";
         port = 2222;
-        identityFile = "/home/x/.ssh/id_nixium";
+        identityFile = "~/.ssh/id_nixium";
       };
       "github.com" = {
         hostname = "github.com";
         port = 22;
-        identityFile = "/home/x/.ssh/id_nixium";
+        identityFile = "~/.ssh/id_nixium";
       };
     };
   };
