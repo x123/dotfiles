@@ -9,6 +9,7 @@
     ../../modules/system/nix-settings.nix # do not remove
     ../../modules/system/zsh.nix
     ./local/acme.nix
+    ./local/borgmatic.nix
     ./local/caddy.nix
     ./local/dovecot.nix
     ./local/invidious.nix
