@@ -16,6 +16,7 @@
       port = 64738;
       environmentFile = config.sops.secrets."MURMUR_ENV".path;
       password = "$MURMURD_PASSWORD";
+      clientCertRequired = false;
 
       sslCert = config.security.acme.certs."nixlink.net".directory + "/cert.pem";
       sslKey = config.security.acme.certs."nixlink.net".directory + "/key.pem";
