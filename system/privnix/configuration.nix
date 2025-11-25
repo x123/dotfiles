@@ -22,7 +22,8 @@
         enable = true;
         openFirewallNftables = true;
         trustedIpv4Networks = [
-          "0.0.0.0/0"
+          "192.168.1.0/24"
+          "192.168.9.0/24"
         ];
         trustedIpv6Networks = [];
       };
