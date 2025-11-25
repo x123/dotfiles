@@ -8,6 +8,7 @@
   imports = [
   ../../modules/system/darwin/karabiner.nix
   ../../modules/system/darwin/yabai.nix
+  ../../modules/system/darwin/skhd.nix
   ];
 
   environment.systemPackages = with pkgs; [
