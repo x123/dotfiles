@@ -10,4 +10,16 @@
     enable = true;
     secretKeyFile = config.sops.secrets."binary-cache/nixium/private".path;
   };
+
+  services.nginx = {
+  enable = true;
+  recommendedProxySettings = true;
+  virtualHosts = {
+    # ... existing hosts config etc. ...
+    "nixium.boxchop.city" = {
+      locations."/".proxyPass = "http://${config.services.nix-serve.bindAddress}:${toString config.services.nix-serve.port}";
+    };
+  };
+};
+
 }
