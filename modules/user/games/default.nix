@@ -22,6 +22,13 @@
           && !pkgs.stdenv.isDarwin
         )
         {
+          programs.lutris = {
+            enable = true;
+            # extraPackages = [ pkgs.vulkan-tools pkgs.gamescope pkgs.gamemode ];
+            protonPackages = [pkgs.proton-ge-bin];
+            # winePackages = [ pkgs.wineWow64Packages.full ];
+          };
+
           home.packages = builtins.attrValues {
             inherit
               (pkgs)
@@ -38,12 +45,20 @@
               ;
             inherit
               (pkgs.unstable-small)
+              bottles
               gamescope
-              lutris
+              # lutris
               narsil
+              protonup-rs
+              vulkan-tools
               wine
+              # wine64
               winetricks
               ;
+            # inherit
+            #   (pkgs.unstable-small.wineWow64Packages)
+            #   unstableFull
+            #   ;
           };
         })
       (lib.mkIf
