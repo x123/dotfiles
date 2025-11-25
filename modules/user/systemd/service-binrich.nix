@@ -1,28 +1,44 @@
-{ pkgs, ... }: {
-  imports = [ ];
+{ pkgs, flake-inputs, ... }:
 
+let
+  binrich-release = flake-inputs.binrich.packages.${pkgs.stdenv.hostPlatform.system}.binrich;
+  bash = pkgs.bash;
+  #binrich-release = flake-inputs.binrich.packages.${pkgs.stdenv.hostPlatform.system}.binrich;
+  br = "br";
+  working_directory = "/home/binrich";
+in
+{
   systemd.user.services = {
     binrich = {
       Unit = {
         Description = "binrich";
       };
 
+      # Environment = {
+      #   path = [ pkgs.bash ];
+      # };
+
       Service = {
         Type = "exec";
-        ExecStart = pkgs.writeShellScript "binrich-fetch"
+        WorkingDirectory = working_directory;
+        DynamicUser = false;
+        PrivateTmp = true;
+        ExecStart = pkgs.writeShellScript "binrich-start"
           ''
             set -euo pipefail
-
-
-            pushd ~/src/binrich
-            ${pkgs.rsync}/bin/rsync -avz root@nixium.boxchop.city:/root/deploy/binrich/data/handyapi.com_responses.txt ~/src/binrich/data/results/handyapi.com_responses.txt
-            ${pkgs.rsync}/bin/rsync -avz root@nixium.boxchop.city:/root/deploy/binrich/data/periodic-workstream.txt ~/src/binrich/data/results/periodic-workstream.txt
-            ${pkgs.rsync}/bin/rsync -avz root@nixium.boxchop.city:/var/backup/postgresql ~/src/binrich/data/results/
-            ${pkgs.rsync}/bin/rsync -avz root@nixium.boxchop.city:/root/deploy/binrich/bin/binrich.log\* ~/src/binrich/data/results/
-            popd
+            eval $(${pkgs.coreutils}/bin/cat /run/secrets/postgres/nixium/binrichfile) ${binrich-release}/bin/binrich start
+          '';
+        ExecStop = pkgs.writeShellScript "binrich-stop"
+          ''
+            set -euo pipefail
+            eval $(${pkgs.coreutils}/bin/cat /run/secrets/postgres/nixium/binrichfile) ${binrich-release}/bin/binrich stop
+          '';
+        ExecReload = pkgs.writeShellScript "binrich-restart"
+          ''
+            set -euo pipefail
+            eval $(${pkgs.coreutils}/bin/cat /run/secrets/postgres/nixium/binrichfile) ${binrich-release}/bin/binrich restart
           '';
       };
     };
   };
-
 }
