@@ -95,6 +95,7 @@ in {
           undotree
           vim-vsnip
           vim-vsnip-integ
+          which-key-nvim
           ;
         inherit
           (pkgs.vimPlugins.nvim-treesitter-parsers)
