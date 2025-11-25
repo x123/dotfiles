@@ -26,6 +26,7 @@
       ghostty.enable = true;
       obs-studio.enable = false;
       slack.enable = true;
+      telegram.enable = true;
       video.enable = true;
 
       blender = {
