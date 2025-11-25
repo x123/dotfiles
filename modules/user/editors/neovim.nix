@@ -73,6 +73,7 @@ in {
           codecompanion-nvim
           comment-nvim
           conform-nvim
+          diffview-nvim
           gitsigns-nvim
           lspkind-nvim
           lualine-nvim
@@ -160,7 +161,9 @@ in {
         vim.keymap.set('n', "<leader>U", vim.cmd.UndotreeToggle)
 
         -- neogit
-        require("neogit").setup({})
+        require("neogit").setup({
+          disable_context_highlighting = true
+        })
 
         -- bigfile
         require("bigfile").setup({
