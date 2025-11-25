@@ -17,6 +17,7 @@
 
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
+  nix.settings.extra-platforms = "x86_64-darwin";
 
   services.nix-daemon.enable = true;
 

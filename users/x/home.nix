@@ -11,6 +11,7 @@
     ../../modules/user/gpg-agent.nix
     ../../modules/user/keepass.nix
     ../../modules/user/shell.nix
+    ../../modules/user/tor-browser.nix
     ../../modules/user/video.nix
     ../../modules/user/vim.nix
   ];
