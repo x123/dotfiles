@@ -10,6 +10,7 @@
     ../../modules/system-nixos
     ./local/acme.nix
     ./local/borgmatic.nix
+    ./local/caddy-blockblaster.nix
     ./local/caddy.nix
     ./local/dovecot.nix
     ./local/fail2ban.nix
