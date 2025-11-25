@@ -20,7 +20,7 @@
     desktop = {
       enable = true;
 
-      audio.enable = false; # this is just youtube-music right now
+      audio.enable = true; # this is just youtube-music right now
       discord.enable = true;
       flameshot.enable = true;
       ghostty.enable = true;
