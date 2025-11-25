@@ -153,7 +153,10 @@
           "waybar"
           "${pkgs.networkmanagerapplet}/bin/nm-applet &"
           "${pkgs.blueman}/bin/blueman-applet &"
-          "firejail --name=browser firefox --no-remote --new-instance & ghostty"
+          "firejail --name=browser firefox & ghostty"
+          # "firejail --name=browser firefox --no-remote --new-instance & ghostty"
+          "firejail --name=keepassxc keepassxc"
+          "firejail --name=discord Discord"
         ];
 
         env = [

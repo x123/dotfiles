@@ -13,9 +13,21 @@
       && !pkgs.stdenv.isDarwin
     )
     {
+      xdg = {
+        desktopEntries = {
+          fj-firefox = {
+            name = "fj-firefox";
+            exec = "firejail --name=browser firefox";
+            categories = ["Application" "Network" "WebBrowser"];
+            mimeType = ["text/html" "text/xml"];
+            terminal = false;
+          };
+        };
+      };
+
       xdg.mimeApps.defaultApplications = {
-        "x-scheme-handler/https" = ["firefox.desktop"];
-        "x-scheme-handler/http" = ["firefox.desktop"];
+        "x-scheme-handler/https" = ["fj-firefox.desktop"];
+        "x-scheme-handler/http" = ["fj-firefox.desktop"];
       };
 
       home = {
