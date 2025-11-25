@@ -6,7 +6,7 @@
 }: {
   imports = [
     #../../modules/user/pytorch.nix
-    ../../modules/user/ai.nix
+    #../../modules/user/ai.nix
     ../../modules/user/alacritty
     ../../modules/user/blender.nix
     ../../modules/user/calibre.nix
