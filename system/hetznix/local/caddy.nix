@@ -1,6 +1,6 @@
 {config, ...}: {
   sops.secrets = {
-    "fam" = {
+    "caddy/auth/fam" = {
       mode = "0440";
       owner = config.users.users.caddy.name;
       group = config.users.users.caddy.group;
@@ -22,7 +22,7 @@
           root * /var/www/jandf.boxchop.city
           file_server
           basic_auth {
-            import ${config.sops.secrets."fam".path}
+            import ${config.sops.secrets."caddy/auth/fam".path}
           }
         '';
       };
