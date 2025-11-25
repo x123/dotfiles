@@ -101,6 +101,7 @@ in {
             nmap
             # passwords
             
+            phraze
             xkcdpass
             ;
         }
