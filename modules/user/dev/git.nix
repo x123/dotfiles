@@ -13,6 +13,14 @@
       packages = builtins.attrValues {
         inherit
           (pkgs)
+          # dev tools from common
+          difftastic
+          git
+          git-crypt
+          jq
+          nixpkgs-fmt
+          yq
+          # existing packages
           github-cli
           gitleaks
           ;

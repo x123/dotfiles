@@ -10,11 +10,14 @@
     ./aliases.nix
     ./btop.nix
     ./common-packages.nix
+    ./crypto.nix
     ./fonts.nix
     ./htop.nix
+    ./network.nix
     ./presenterm.nix
     ./scripts.nix
     ./sec.nix
+    ./ssh.nix
     ./starship.nix
     ./tmux.nix
     ./zoxide.nix
