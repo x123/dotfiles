@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -xeuo pipefail
+
+nix-store --repair --verify --check-contents
