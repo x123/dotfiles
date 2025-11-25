@@ -11,6 +11,10 @@
     baseIndex = 1;
     aggressiveResize = true;
     extraConfig = ''
+      # Set true color
+      set-option -sa terminal-overrides ",xterm*:Tc"
+
+      # Keep CWD on splits
       bind '"' split-window -v -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
 
