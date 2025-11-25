@@ -1,4 +1,4 @@
-{lib, ...}: {
+{...}: {
   imports = [
     ./apparmor.nix
     ./auditd.nix

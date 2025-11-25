@@ -2,9 +2,7 @@
   config,
   lib,
   ...
-}: let
-  cfg = config.custom;
-in {
+}: {
   imports = [];
 
   options = {
@@ -17,7 +15,7 @@ in {
     };
   };
 
-  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.security.apparmor.enable) {
+  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.security.apparmor.enable) {
     security = {
       apparmor.enable = true;
     };
