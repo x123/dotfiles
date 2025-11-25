@@ -42,19 +42,13 @@ in {
             nixd
             terraform-ls
             vscode-langservers-extracted
-            # rust
-            
             rust-analyzer
             rustc
             rustfmt
             ;
           inherit
             (pkgs.python312Packages)
-            # main lsp
-            
             python-lsp-server
-            # extensions
-            
             pyls-isort
             pylsp-mypy
             python-lsp-black
@@ -240,18 +234,27 @@ in {
 
         -- avante
         require("avante").setup({
-          provider = "claude",
-          cursor_applying_provider = "claude",
-          behaviour = {
-            enable_cursor_planning_mode = true, -- enable cursor planning mode!
+          provider = "ollama",
+          --cursor_applying_provider = "ollama",
+          --behaviour = {
+          --  enable_cursor_planning_mode = true, -- enable cursor planning mode!
+          --},
+          vendors = {
+            ollama = {
+              __inherited_from = "openai",
+              api_key_name = "",
+              endpoint = "http://127.0.0.1:11434/v1",
+              model = "qwen3:32b",
+              disable_tools = false,
+            },
           },
-          claude = {
-            endpoint = "https://api.anthropic.com",
-            model = "claude-3-7-sonnet-20250219",
-            timeout = 30000, -- Timeout in milliseconds
-            temperature = 0,
-            max_tokens = 20480,
-          },
+          --claude = {
+          --  endpoint = "https://api.anthropic.com",
+          --  model = "claude-3-7-sonnet-20250219",
+          --  timeout = 30000, -- Timeout in milliseconds
+          --  temperature = 0,
+          --  max_tokens = 20480,
+          --},
         })
 
         -- nord
