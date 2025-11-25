@@ -22,7 +22,6 @@ This repository contains a centralized configuration for:
 
 ### Darwin (macOS) Systems
 
-- **fom-MBA**: MacBook Air (Apple Silicon)
 - **fom-mbp**: MacBook Pro (Apple Silicon)
 
 ### Home Manager Configurations
