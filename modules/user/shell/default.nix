@@ -103,6 +103,7 @@
     packages = builtins.attrValues {
       inherit
         (pkgs)
+        bc
         cpulimit
         dnsdbq
         file
