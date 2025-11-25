@@ -7,6 +7,8 @@
     ./hardware-configuration.nix
     ../../modules/nix-settings # do not remove
     ../../modules/system-nixos
+
+    ./local/nftables-syncthing.nix
   ];
 
   custom.system-nixos = {
