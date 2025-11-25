@@ -21,6 +21,7 @@ in {
 
       nftables = {
         enable = true;
+        flushRuleset = true;
         tables = {
           filter = {
             family = "inet";
