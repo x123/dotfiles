@@ -12,6 +12,7 @@
     ./calibre
     ./chromium.nix
     ./discord.nix
+    ./dropbox.nix
     ./element.nix
     ./firefox.nix
     ./flameshot.nix
@@ -45,7 +46,6 @@
               (pkgs)
               anydesk # broken 6.3.1 doesn't have source download - 2024-04-28
               
-              dropbox
               gimp
               libreoffice
               persepolis
