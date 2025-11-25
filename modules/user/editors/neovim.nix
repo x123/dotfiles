@@ -235,26 +235,10 @@ in {
         -- avante
         require("avante").setup({
           provider = "ollama",
-          --cursor_applying_provider = "ollama",
-          --behaviour = {
-          --  enable_cursor_planning_mode = true, -- enable cursor planning mode!
-          --},
-          vendors = {
-            ollama = {
-              __inherited_from = "openai",
-              api_key_name = "",
-              endpoint = "http://127.0.0.1:11434/v1",
-              model = "qwen3:32b",
-              disable_tools = false,
-            },
+          ollama = {
+            endpoint = "http://127.0.0.1:11434",
+            model = "qwen3:32b",
           },
-          --claude = {
-          --  endpoint = "https://api.anthropic.com",
-          --  model = "claude-3-7-sonnet-20250219",
-          --  timeout = 30000, -- Timeout in milliseconds
-          --  temperature = 0,
-          --  max_tokens = 20480,
-          --},
         })
 
         -- nord
