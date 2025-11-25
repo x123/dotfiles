@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+function usage() {
+  echo "Error: ${0} requires a remote user@system and a system to apply"
+  echo "Syntax: ${0} user@remote-host system-short-name"
+  echo "Example: ${0} user@nixium.boxchop.city nixium"
+}
+
+if [ "$(uname -s)" == "Darwin" ]
+then
+  echo "Error: ${0} doesn't support Darwin. Try apply-remote-ssh instead."
+  exit 1
+fi
+
+if [ -z "$1" ]
+then
+  usage
+  exit 1
+fi
+
+if [ -z "$2" ]
+then
+  usage
+  exit 1
+fi
+
+REMOTE_BUILDER=$1
+SYSTEM_TO_APPLY=$2
+
+if ! ssh -t -o ConnectTimeout=1 "${REMOTE_BUILDER}" "echo SSH success"
+then
+  echo "Error: Failed SSH to ${REMOTE_BUILDER}"
+  exit 1
+fi
+
+if ! which nixos-rebuild
+then
+  echo "Error: cannot find nixos-rebuild."
+  exit 1
+fi
+
+nixos-rebuild -v switch --target-host "${REMOTE_BUILDER}" --flake .#"${SYSTEM_TO_APPLY}"
