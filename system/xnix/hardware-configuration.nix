@@ -12,13 +12,14 @@
   boot.loader = {
     systemd-boot.enable = true;
     systemd-boot.configurationLimit = 100;
+    systemd-boot.memtest86.enable = true;
     efi.canTouchEfiVariables = true;
   };
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" "usb_storage" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.kernelModules = [ "it87" "k10temp" "nct6683" "kvm-amd" ];
+  boot.kernelModules = [ "it87" "k10temp" "nct6683" "kvm-amd" "nct6687d"];
   boot.extraModulePackages = [ ];
 
   services.fstrim.enable = true;
