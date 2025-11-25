@@ -147,13 +147,15 @@
           "DP-1, highrr, 0x0, 1"
         ];
         exec-once = [
-          "systemctl --user start wlsunset.service"
+          "systemctl --user restart wlsunset.service"
           "systemctl --user restart xdg-desktop-portal-gtk.service"
+          "systemctl --user restart hyperpaper.service"
           "waybar"
-          "hyprpaper"
           "${pkgs.networkmanagerapplet}/bin/nm-applet &"
           "${pkgs.blueman}/bin/blueman-applet &"
+          "firejail --name=browser firefox --no-remote --new-instance & ghostty"
         ];
+
         env = [
           "XCURSOR_SIZE,24"
           "HYPRCURSOR_SIZE,24"
@@ -441,6 +443,6 @@
       };
     };
 
-    # xsession.enable = true;
+    xsession.enable = true;
   };
 }
