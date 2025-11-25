@@ -16,7 +16,11 @@
       console-theme.enable = false;
     };
 
-    dev.elixir.enable = false;
+    dev = {
+      enable = false;
+      elixir.enable = false;
+    };
+
     games.enable = false;
 
     hardware = {

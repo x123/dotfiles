@@ -13,7 +13,11 @@
       filesystems.enable = true;
     };
 
-    dev.elixir.enable = false;
+    dev = {
+      enable = false;
+      elixir.enable = false;
+    };
+
     games.enable = false;
 
     hardware = {

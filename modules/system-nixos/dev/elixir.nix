@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}: let
-  cfg = config.custom;
-in {
+}: {
   imports = [];
 
   options = {
@@ -18,7 +16,7 @@ in {
     };
   };
 
-  config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.dev.elixir.enable) {
+  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.dev.enable && config.custom.system-nixos.dev.elixir.enable) {
     environment.systemPackages = [
       pkgs.beam.packages.erlang_25.elixir_1_16
       pkgs.erlang
