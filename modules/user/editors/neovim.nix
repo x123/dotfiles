@@ -228,6 +228,9 @@
         vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
         vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
         vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
+        vim.keymap.set("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>")
+        vim.keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<cr>")
+        vim.keymap.set("n", "<leader>fw", "<cmd>Telescope grep_string<cr>")
 
         -- tmux navigation
         require("tmux").setup{
