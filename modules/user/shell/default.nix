@@ -46,6 +46,14 @@
     enableZshIntegration = true;
   };
 
+  programs.bat = {
+    enable = true;
+    config = {
+      pager = "less -mg";
+      theme = "Nord";
+    };
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
