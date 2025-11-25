@@ -1,7 +1,9 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
+  system,
   ...
 }: {
   imports = [
@@ -33,6 +35,10 @@
               sil
               sil-q
               tintin
+              ;
+            inherit
+              (inputs.nixpkgs-unstable-small.legacyPackages.${system})
+              bottles
               ;
           };
         })
