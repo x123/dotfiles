@@ -1,7 +1,7 @@
 {pkgs, inputs, lib, ...}: {
   imports = [
     ../../modules/user/alacritty
-    ../../modules/user/darwin/common-packages.nix
+    ../../modules/user/common-packages.nix
     ../../modules/user/darwin/common-ssh.nix
     ../../modules/user/darwin/macos.nix
     ../../modules/user/darwin/safari.nix
