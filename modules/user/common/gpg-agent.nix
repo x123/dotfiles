@@ -2,7 +2,10 @@
   imports = [];
 
   services.gpg-agent = {
-    enable = true;
+    enable =
+      if pkgs.stdenv.isDarwin
+      then false
+      else true;
 
     defaultCacheTtl = 31536000;
     defaultCacheTtlSsh = 31536000;
