@@ -8,6 +8,7 @@
   programs.rofi = {
     enable = true;
     theme = "${pkgs.rofi}/share/rofi/themes/Arc-Dark.rasi";
+    terminal = "${pkgs.alacritty}/bin/alacritty";
     extraConfig = {
       modes = "window,drun,ssh,run,combi";
       combi-modes = "window,ssh,drun,run";
