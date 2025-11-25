@@ -22,6 +22,7 @@
           "kuma.nixlink.net"
           "ntfy.nixlink.net"
           "social.nixlink.net"
+          "tl.nixlink.net"
         ];
         enableDebugLogs = true;
         credentialFiles = {

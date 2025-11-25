@@ -24,6 +24,7 @@
     ./local/ntfy.nix
     ./local/postfix.nix
     ./local/postgres.nix
+    ./local/thelounge.nix
     ./local/uptime-kuma.nix
   ];
 
