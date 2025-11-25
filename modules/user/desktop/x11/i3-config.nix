@@ -240,8 +240,8 @@ in {
           bars = [
             {
               fonts = {
-                names = ["DejaVu Sans Mono" "Font Awesome 6 Free" "Material Symbols Sharp"];
-                size = 10.0;
+                names = ["CodeNewRoman Nerd Font Mono"];
+                size = 11.0;
               };
               mode = "dock";
               hiddenState = "show";
