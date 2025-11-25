@@ -22,12 +22,13 @@
       vimPlugins.nvim-lastplace
       vimPlugins.nvim-lspconfig
       vimPlugins.nvim-treesitter
-      vimPlugins.nvim-treesitter-parsers.markdown
-      vimPlugins.nvim-treesitter-parsers.go
       vimPlugins.nvim-treesitter-parsers.elixir
+      vimPlugins.nvim-treesitter-parsers.go
       vimPlugins.nvim-treesitter-parsers.json
+      vimPlugins.nvim-treesitter-parsers.markdown
       vimPlugins.nvim-treesitter-parsers.nix
       vimPlugins.nvim-treesitter-parsers.terraform
+      vimPlugins.telescope-nvim
       vimPlugins.tmux-nvim
     ];
     defaultEditor = true;
@@ -41,14 +42,19 @@
       let g:airline_theme='base16_nord'
       set number relativenumber
       set expandtab
-      set tabstop=2
-      set shiftwidth=2
+      set tabstop=4
+      set shiftwidth=4
       set background=dark
 
       nnoremap <C-up> <cmd>lua require("tmux").move_top()<cr>
       nnoremap <C-down> <cmd>lua require("tmux").move_bottom()<cr>
       nnoremap <C-left> <cmd>lua require("tmux").move_left()<cr>
       nnoremap <C-right> <cmd>lua require("tmux").move_right()<cr>
+
+      nnoremap <leader>ff <cmd>Telescope find_files<cr>
+      nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+      nnoremap <leader>fb <cmd>Telescope buffers<cr>
+      nnoremap <leader>fh <cmd>Telescope help_tags<cr>
     '';
     extraLuaConfig = ''
       vim.opt.termguicolors = true
@@ -57,6 +63,8 @@
           theme = 'nord'
         }
       }
+
+      require("telescope").setup()
 
       require("tmux").setup{
         options = {
