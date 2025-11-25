@@ -98,7 +98,6 @@
             sops
             ssh-to-age
             statix
-            vulnix
             ;
         };
 
