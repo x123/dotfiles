@@ -196,7 +196,7 @@ in {
         Group = "p2pool";
         Restart = "always";
         WorkingDirectory = cfg.dataDir;
-        TimeoutStop = 60;
+        # TimeoutStop = 60; # doesn't work
 
         EnvironmentFile = lib.mkIf (cfg.environmentFile != null) [cfg.environmentFile];
 
@@ -248,22 +248,22 @@ in {
         ];
         SystemCallFilter = [
           "~@chown:EPERM"
-          "@clock:EPERM"
-          "@cpu-emulation:EPERM"
-          "@debug:EPERM"
-          "@keyring:EPERM"
-          "@memlock:EPERM"
-          "@module:EPERM"
-          "@mount:EPERM"
-          "@obsolete:EPERM"
-          "@pkey:EPERM"
-          "@privileged:EPERM"
-          "@raw-io:EPERM"
-          "@reboot:EPERM"
-          "@sandbox:EPERM"
-          "@setuid:EPERM"
-          "@swap:EPERM"
-          "@timer:EPERM"
+          "@clock"
+          "@cpu-emulation"
+          "@debug"
+          "@keyring"
+          "@memlock"
+          "@module"
+          "@mount"
+          "@obsolete"
+          "@pkey"
+          "@privileged"
+          "@raw-io"
+          "@reboot"
+          "@sandbox"
+          "@setuid"
+          "@swap"
+          "@timer"
         ];
       };
     };
