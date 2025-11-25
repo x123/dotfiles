@@ -32,7 +32,7 @@ in {
             (pkgs)
             # net
             aria2
-            drill
+            ldns
             sshfs
             # network tools
             dnsutils
