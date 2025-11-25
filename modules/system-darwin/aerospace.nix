@@ -15,25 +15,118 @@ in {
         enable-normalization-flatten-containers = false;
         enable-normalization-opposite-orientation-for-nested-containers = false;
         on-focused-monitor-changed = ["move-mouse monitor-lazy-center"];
+        on-window-detected = [
+          {
+            check-further-callbacks = false;
+            "if" = {
+              app-id = "com.mitchellh.ghostty";
+            };
+            run = [
+              "move-node-to-workspace 1"
+            ];
+          }
+          {
+            check-further-callbacks = false;
+            "if" = {
+              app-id = "org.mozilla.firefox";
+            };
+            run = [
+              "move-node-to-workspace 1"
+            ];
+          }
+          {
+            check-further-callbacks = false;
+            "if" = {
+              app-id = "com.microsoft.Outlook";
+            };
+            run = [
+              "move-node-to-workspace 2"
+            ];
+          }
+          {
+            check-further-callbacks = false;
+            "if" = {
+              app-id = "com.tinyspeck.slackmacgap";
+            };
+            run = [
+              "move-node-to-workspace 3"
+            ];
+          }
+          {
+            check-further-callbacks = false;
+            "if" = {
+              app-id = "keybase.Electron";
+            };
+            run = [
+              "move-node-to-workspace 3"
+            ];
+          }
+          {
+            check-further-callbacks = false;
+            "if" = {
+              app-id = "com.lastpass.LastPass";
+            };
+            run = [
+              "move-node-to-workspace 4"
+            ];
+          }
+          {
+            check-further-callbacks = false;
+            "if" = {
+              app-id = "com.bitwarden.desktop";
+            };
+            run = [
+              "move-node-to-workspace 4"
+            ];
+          }
+          {
+            check-further-callbacks = false;
+            "if" = {
+              app-id = "org.keepassxc.keepassxc";
+            };
+            run = [
+              "move-node-to-workspace 4"
+            ];
+          }
+          {
+            check-further-callbacks = false;
+            "if" = {
+              app-id = "com.microsoft.Powerpoint";
+            };
+            run = [
+              "move-node-to-workspace 5"
+            ];
+          }
+          {
+            check-further-callbacks = false;
+            "if" = {
+              app-id = "ru.keepcoder.Telegram";
+            };
+            run = [
+              "move-node-to-workspace 6"
+            ];
+          }
+        ];
         mode.main.binding = {
           alt-enter = ''
             exec-and-forget open -a ghostty
           '';
 
           # i3 wraps focus by default
-          alt-j = "focus --boundaries-action wrap-around-the-workspace left";
-          alt-k = "focus --boundaries-action wrap-around-the-workspace down";
-          alt-l = "focus --boundaries-action wrap-around-the-workspace up";
-          alt-semicolon = "focus --boundaries-action wrap-around-the-workspace right";
+          alt-h = "focus --boundaries-action wrap-around-the-workspace left";
+          alt-j = "focus --boundaries-action wrap-around-the-workspace down";
+          alt-k = "focus --boundaries-action wrap-around-the-workspace up";
+          alt-l = "focus --boundaries-action wrap-around-the-workspace right";
 
-          alt-shift-j = "move left";
-          alt-shift-k = "move down";
-          alt-shift-l = "move up";
-          alt-shift-semicolon = "move right";
+          alt-shift-h = "move left";
+          alt-shift-j = "move down";
+          alt-shift-k = "move up";
+          alt-shift-l = "move right";
 
           # Consider using "join-with" command as a "split" replacement if you want to enable normalizations;
-          alt-h = "split horizontal";
           alt-v = "split vertical";
+          alt-slash = "layout tiles horizontal vertical";
+          alt-comma = "layout accordion horizontal vertical";
 
           alt-f = "fullscreen";
 
