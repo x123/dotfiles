@@ -10,12 +10,12 @@ fi
 
 SHORT_HOSTNAME=$1
 
-if which darwin-rebuild
-then
-  darwin-rebuild -v switch --flake .#"${SHORT_HOSTNAME}"
-elif which nixos-rebuild
+if which nixos-rebuild
 then
   sudo --preserve-env=SSH_AUTH_SOCK nixos-rebuild -v switch --flake .#"${SHORT_HOSTNAME}"
+elif which darwin-rebuild
+then
+  darwin-rebuild -v switch --flake .#"${SHORT_HOSTNAME}"
 else
   echo "Error: Could not find nixos-rebuild or darwin-rebuild ... Bailing out!"
   exit 1
