@@ -13,19 +13,24 @@
     };
   };
 
-  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.common.packages.enable) {
-    environment.systemPackages = builtins.attrValues {
-      inherit
-        (pkgs)
-        dnsutils
-        fio
-        iftop
-        mtr
-        openssl
-        sysstat
-        tcpdump
-        wireguard-tools
-        ;
+  config =
+    lib.mkIf (
+      config.custom.system-nixos.enable
+      && config.custom.system-nixos.common.enable
+      && config.custom.system-nixos.common.packages.enable
+    ) {
+      environment.systemPackages = builtins.attrValues {
+        inherit
+          (pkgs)
+          dnsutils
+          fio
+          iftop
+          mtr
+          openssl
+          sysstat
+          tcpdump
+          wireguard-tools
+          ;
+      };
     };
-  };
 }

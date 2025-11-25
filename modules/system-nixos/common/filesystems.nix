@@ -13,11 +13,16 @@
     };
   };
 
-  config = lib.mkIf (config.custom.system-nixos.enable && config.custom.system-nixos.common.filesystems.enable) {
-    environment.systemPackages = [
-      pkgs.apfs-fuse
-      pkgs.apfsprogs
-      pkgs.nfs-utils
-    ];
-  };
+  config =
+    lib.mkIf (
+      config.custom.system-nixos.enable
+      && config.custom.system-nixos.common.enable
+      && config.custom.system-nixos.common.filesystems.enable
+    ) {
+      environment.systemPackages = [
+        pkgs.apfs-fuse
+        pkgs.apfsprogs
+        pkgs.nfs-utils
+      ];
+    };
 }
