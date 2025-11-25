@@ -28,6 +28,7 @@
     };
 
     networking = {
+      mullvad.enable = true;
       tornet.enable = true;
       wireguard.enable = false;
     };
