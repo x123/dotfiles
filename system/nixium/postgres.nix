@@ -38,5 +38,6 @@
   services.postgresqlBackup = {
     enable = true;
     backupAll = true;
+    startAt = "2 minutes";
   };
 }
