@@ -25,7 +25,7 @@
     ../../modules/user/neomutt.nix
     ../../modules/user/neovim.nix
     ../../modules/user/shell
-    ../../modules/user/telegram.nix
+    ../../modules/user/desktop/telegram.nix
     ../../modules/user/tor-browser.nix
     ../../modules/user/video.nix
     ../../modules/user/x11
