@@ -23,58 +23,11 @@
   in {
     homeManagerConfigurations = {
       nixos = home-manager.lib.homeManagerConfiguration {
-	inherit pkgs;
-	modules = [
-	{
-	  home = {
-	    username = "nixos";
-            homeDirectory = "/home/nixos";
-            stateVersion = "23.05";
- 	    packages = with pkgs; [
-	    # term/shell
-	    file
-	    htop
-	    pciutils
-	    ripgrep
-	    tmux
-	    usbutils
-	    whois
-
-	    # net
-	    aria2
-
-	    # dev
-	    git
-	    git-crypt
-	    rocgdb # for strings
-
-	    # crypto
-	    age
-	    gnupg
-	    sops
-
-	    # archives
-	    unzip
-	    zip
-
-	    # network tools
-	    dnsutils
-	    ethtool
-	    ipcalc
-	    mtr
-	    nmap
-
-	    # misc
-	    pinentry
-
-	    # system tools
-	    lm_sensors
-	    sysstat
-	  ];
-          };
-	}
-	];
-      };
+      inherit pkgs;
+      modules = [
+        ./users/nixos.nix
+      ];
+    };
 
       x = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
