@@ -115,8 +115,8 @@
         identityFile = "/home/x/.ssh/id_xnix";
         identitiesOnly = true;
       };
-      "gk-2.lan" = {
-        hostname = "gk-2.lan";
+      "gk-2.empire.internal" = {
+        hostname = "gk-2.empire.internal";
         port = 22;
         user = "root";
         identityFile = "/home/x/.ssh/id_xnix";
