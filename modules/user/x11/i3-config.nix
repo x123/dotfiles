@@ -5,6 +5,17 @@
   ...
 }: let
   cfg = config.custom;
+  xset = "${pkgs.xorg.xset}/bin/xset";
+  i3lock-dpms = "${pkgs.writeShellScript "i3lock-dpms" ''
+    set -euo pipefail
+    revert() {
+      ${xset} dpms 0 0 0
+    }
+    trap revert HUP INT TERM
+    ${xset} +dpms dpms 5 5 5
+    ${pkgs.i3lock}/bin/i3lock -n -c 000000
+    revert
+  ''}";
 in {
   imports = [];
 
@@ -53,15 +64,6 @@ in {
         redshift
         ;
       inherit (pkgs.xfce) thunar;
-    };
-
-    home.file = {
-      i3lock-dpms = {
-        enable = true;
-        #executable = true;
-        source = ./files/i3lock-dpms;
-        target = "bin/i3lock-dpms";
-      };
     };
 
     programs = {
@@ -237,7 +239,7 @@ in {
           }
         ];
         keybindings = lib.mkOptionDefault {
-          "${my-modifier}+Shift+l" = "exec ~/bin/i3lock-dpms";
+          "${my-modifier}+Shift+l" = "exec ${i3lock-dpms}";
           "${my-modifier}+Tab" = "exec ${pkgs.rofi}/bin/rofi -show window";
           "${my-modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show combi";
           "${my-modifier}+Shift+s" = "sticky toggle";
