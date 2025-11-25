@@ -10,6 +10,7 @@ in {
 
   config = lib.mkIf (cfg.system-nixos.enable && cfg.system-nixos.x11.enable) {
     programs.dconf.enable = true;
+    programs.i3lock.enable = true;
 
     services = {
       displayManager = {
