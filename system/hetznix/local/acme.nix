@@ -18,6 +18,7 @@
           "blockblaster.boxchop.city"
           "hetznix.boxchop.city"
           "jandf.boxchop.city"
+          "kuma.boxchop.city"
           "ntfy.boxchop.city"
           "social.boxchop.city"
         ];
