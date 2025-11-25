@@ -3,6 +3,7 @@
 {
   imports = [
   ../modules/gpg-agent.nix
+  ../modules/vim.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -181,25 +182,6 @@
     enable = true;
     userName = "x123";
     userEmail = "x123@users.noreply.github.com";
-  };
-
-  programs.vim = {
-    enable = true;
-    defaultEditor = true;
-    settings = {
-      number = true;
-      relativenumber = true;
-      tabstop = 4;
-      shiftwidth = 4;
-      expandtab = true;
-      background = "dark";
-    };
-    extraConfig = ''
-      syntax on
-      filetype plugin indent on
-      set cursorline
-      set showmatch
-    '';
   };
 
   programs.ssh = {
