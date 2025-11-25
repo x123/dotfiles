@@ -120,6 +120,7 @@
       picom.enable = true;
     };
 
+    xsession.enable = true;
     xsession.windowManager.i3 = let
       my-modifier = "Mod4"; #Mod1 is alt
       # background = "${pkgs.plasma-workspace-wallpapers}/share/wallpapers/Path/contents/images/2560x1600.jpg";

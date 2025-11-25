@@ -14,6 +14,7 @@
     ./discord.nix
     ./element.nix
     ./firefox.nix
+    ./flameshot.nix
     ./ghostty.nix
     ./keepass.nix
     ./obs-studio.nix

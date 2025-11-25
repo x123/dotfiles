@@ -19,6 +19,7 @@
       audio.enable = true;
       blender.enable = true;
       discord.enable = true;
+      flameshot.enable = true;
       obs-studio.enable = true;
       video.enable = true;
     };
