@@ -23,154 +23,167 @@
     nixified-ai.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, sops-nix, nixos-wsl, nur, nix-darwin, blender-bin, nixified-ai, ghostty, binrich, ... }:
-    let
-      supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
-      forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
-        pkgs = import nixpkgs { inherit system; };
-      });
-      #lib = nixpkgs.lib;
-    in
-    {
-      devShells = forEachSupportedSystem ({ pkgs }: {
-        default = pkgs.mkShell {
-          packages = (with pkgs;
-          [
-            age
-            alejandra
-            sops
-            ssh-to-age
-            statix
-            vulnix
-          ]);
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    nixos-hardware,
+    home-manager,
+    sops-nix,
+    nixos-wsl,
+    nur,
+    nix-darwin,
+    blender-bin,
+    nixified-ai,
+    ghostty,
+    binrich,
+    ...
+  }: let
+    supportedSystems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
+    forEachSupportedSystem = f:
+      nixpkgs.lib.genAttrs supportedSystems (system:
+        f {
+          pkgs = import nixpkgs {inherit system;};
+        });
+    #lib = nixpkgs.lib;
+  in {
+    devShells = forEachSupportedSystem ({pkgs}: {
+      default = pkgs.mkShell {
+        packages = with pkgs; [
+          age
+          alejandra
+          sops
+          ssh-to-age
+          statix
+          vulnix
+        ];
 
-          shellHook = ''
-            export PATH="$PWD/bin:$PATH"
-          '';
-        };
-      });
-
-      homeManagerConfigurations = {
-        fom-fom-MBA = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "aarch64-darwin";
-            extra-platforms = "x86_64-darwin";
-            config = { allowUnfree = true; };
-          };
-          extraSpecialArgs = { inherit inputs; };
-          modules = [
-            ./users/fom/home.nix
-          ];
-        };
-
-        nixos-xnixwsl = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "x86_64-linux";
-            config = { allowUnfree = true; };
-          };
-          extraSpecialArgs = { inherit inputs; };
-          modules = [
-            ./users/nixos/home.nix
-          ];
-        };
-
-        x-xnix = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "x86_64-linux";
-            config = { allowUnfree = true; };
-          };
-          extraSpecialArgs = { inherit inputs; };
-          modules = [
-            nur.nixosModules.nur
-            ./users/x-xnix/home.nix
-          ];
-        };
-
-        root-nixium = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "x86_64-linux";
-            config = { allowUnfree = true; };
-          };
-          extraSpecialArgs = { inherit inputs; };
-          modules = [
-            ./users/root-nixium/home.nix
-          ];
-        };
-
-        binrich-nixium = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "x86_64-linux";
-            config = { allowUnfree = true; };
-          };
-          extraSpecialArgs = { inherit inputs; };
-          modules = [
-            ./users/binrich-nixium/home.nix
-          ];
-        };
-
+        shellHook = ''
+          export PATH="$PWD/bin:$PATH"
+        '';
       };
+    });
 
-      darwinConfigurations = {
-        fom-MBA = nix-darwin.lib.darwinSystem {
+    homeManagerConfigurations = {
+      fom-fom-MBA = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
           system = "aarch64-darwin";
-          specialArgs = { inherit inputs; };
-          modules = [
-            home-manager.darwinModules.home-manager
-            ./system/fom-MBA/configuration.nix
-          ];
+          extra-platforms = "x86_64-darwin";
+          config = {allowUnfree = true;};
         };
+        extraSpecialArgs = {inherit inputs;};
+        modules = [
+          ./users/fom/home.nix
+        ];
       };
 
-      nixosConfigurations = {
-        xnixwsl = nixpkgs.lib.nixosSystem {
+      nixos-xnixwsl = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            nixos-wsl.nixosModules.wsl
-            ./system/xnixwsl/configuration.nix
-          ];
+          config = {allowUnfree = true;};
         };
+        extraSpecialArgs = {inherit inputs;};
+        modules = [
+          ./users/nixos/home.nix
+        ];
+      };
 
-        xnix = nixpkgs.lib.nixosSystem {
+      x-xnix = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            nixos-hardware.nixosModules.common-cpu-amd-pstate
-            nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
-            nixos-hardware.nixosModules.common-pc
-            nixos-hardware.nixosModules.common-pc-ssd
-            sops-nix.nixosModules.sops
-            ./system/xnix/configuration.nix
-          ];
+          config = {allowUnfree = true;};
         };
+        extraSpecialArgs = {inherit inputs;};
+        modules = [
+          nur.nixosModules.nur
+          ./users/x-xnix/home.nix
+        ];
+      };
 
-        xnix-vm = nixpkgs.lib.nixosSystem {
+      root-nixium = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./system/xnix-vm/configuration.nix
-          ];
+          config = {allowUnfree = true;};
         };
+        extraSpecialArgs = {inherit inputs;};
+        modules = [
+          ./users/root-nixium/home.nix
+        ];
+      };
 
-        nixium = nixpkgs.lib.nixosSystem {
+      binrich-nixium = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; hostname = "nixium.boxchop.city"; };
-          modules = [
-            ./system/nixium/configuration.nix
-            sops-nix.nixosModules.sops
-            #sops-nix.modules.home-manager.sops
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.root = import ./users/root-nixium/home.nix;
-              home-manager.users.binrich = import ./users/binrich-nixium/home.nix;
-              home-manager.extraSpecialArgs.flake-inputs = inputs;
-            }
-          ];
-          #specialArgs = { hostname = "nixium.boxchop.city"; };
+          config = {allowUnfree = true;};
         };
-
+        extraSpecialArgs = {inherit inputs;};
+        modules = [
+          ./users/binrich-nixium/home.nix
+        ];
       };
     };
+
+    darwinConfigurations = {
+      fom-MBA = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        specialArgs = {inherit inputs;};
+        modules = [
+          home-manager.darwinModules.home-manager
+          ./system/fom-MBA/configuration.nix
+        ];
+      };
+    };
+
+    nixosConfigurations = {
+      xnixwsl = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [
+          nixos-wsl.nixosModules.wsl
+          ./system/xnixwsl/configuration.nix
+        ];
+      };
+
+      xnix = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [
+          nixos-hardware.nixosModules.common-cpu-amd-pstate
+          nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
+          nixos-hardware.nixosModules.common-pc
+          nixos-hardware.nixosModules.common-pc-ssd
+          sops-nix.nixosModules.sops
+          ./system/xnix/configuration.nix
+        ];
+      };
+
+      xnix-vm = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./system/xnix-vm/configuration.nix
+        ];
+      };
+
+      nixium = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+          hostname = "nixium.boxchop.city";
+        };
+        modules = [
+          ./system/nixium/configuration.nix
+          sops-nix.nixosModules.sops
+          #sops-nix.modules.home-manager.sops
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.root = import ./users/root-nixium/home.nix;
+            home-manager.users.binrich = import ./users/binrich-nixium/home.nix;
+            home-manager.extraSpecialArgs.flake-inputs = inputs;
+          }
+        ];
+      };
+    };
+  };
 }

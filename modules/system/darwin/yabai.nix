@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ];
+{pkgs, ...}: {
+  imports = [];
 
   services.yabai = {
     enable = true;
@@ -43,5 +43,4 @@
       # Any other arbitrary config here
     '';
   };
-
 }

@@ -1,10 +1,13 @@
-{ pkgs, lib, config, ... }:
-let
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
   inherit (pkgs) stdenv;
   inherit (lib) mkIf;
-in
-{
-  imports = [ ];
+in {
+  imports = [];
 
   services.gpg-agent = mkIf stdenv.isLinux {
     enable = true;
@@ -15,10 +18,12 @@ in
     maxCacheTtlSsh = 86400;
     enableSshSupport = true;
     pinentryFlavor = "tty";
-    extraConfig = ''
-      pinentry-program ${pkgs.pinentry-qt}/bin/pinentry
-    '' + ''
-      allow-loopback-pinentry
-    '';
+    extraConfig =
+      ''
+        pinentry-program ${pkgs.pinentry-qt}/bin/pinentry
+      ''
+      + ''
+        allow-loopback-pinentry
+      '';
   };
 }

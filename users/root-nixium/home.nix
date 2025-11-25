@@ -1,6 +1,9 @@
-{ config, pkgs, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     #<sops-nix/modules/home-manager/sops.nix>
     #../../modules/user/ai.nix
@@ -53,5 +56,4 @@
       };
     };
   };
-
 }

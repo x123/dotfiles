@@ -1,6 +1,9 @@
-{ config, pkgs, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ../../modules/user/binrich.nix
     ../../modules/user/common-packages.nix
@@ -42,5 +45,4 @@
   #     };
   #   };
   # };
-
 }

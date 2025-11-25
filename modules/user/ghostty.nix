@@ -1,5 +1,11 @@
-{ pkgs, inputs, config, system, ... }: {
-  imports = [ ];
+{
+  pkgs,
+  inputs,
+  config,
+  system,
+  ...
+}: {
+  imports = [];
 
   home = {
     file.ghostty-conf = {
@@ -10,5 +16,4 @@
       inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
-
 }

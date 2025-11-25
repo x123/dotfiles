@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ];
+{pkgs, ...}: {
+  imports = [];
 
   programs.dconf.enable = true;
 
@@ -38,7 +38,5 @@
         rofi
       ];
     };
-
   };
-
 }

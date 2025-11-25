@@ -1,9 +1,12 @@
-{ pkgs, inputs, ... }: {
-  imports = [ ];
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [];
 
   # packages
   home.packages = with pkgs; [
     yed
   ];
-
 }

@@ -1,27 +1,29 @@
-{ modulesPath, pkgs, ... }:
 {
-  imports =
-    [
-      (modulesPath + "/virtualisation/google-compute-image.nix")
-      ../../modules/system/nix-settings.nix # do not remove
-      ../../modules/system/zsh.nix
-      ../../modules/system/elixir.nix
-      ./binary-cache.nix
-      ./binrich.nix
-      ./postgres.nix
-    ];
+  modulesPath,
+  pkgs,
+  ...
+}: {
+  imports = [
+    (modulesPath + "/virtualisation/google-compute-image.nix")
+    ../../modules/system/nix-settings.nix # do not remove
+    ../../modules/system/zsh.nix
+    ../../modules/system/elixir.nix
+    ./binary-cache.nix
+    ./binrich.nix
+    ./postgres.nix
+  ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen; # lqx or zen or latest
 
   sops.defaultSopsFile = ./secrets.yaml;
-  sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+  sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
   sops.age.keyFile = "/root/.config/sops/age/keys.txt";
   sops.age.generateKey = true;
 
-  sops.secrets."ssh/nixium/private" = { };
-  sops.secrets."ssh/nixium/public" = { };
+  sops.secrets."ssh/nixium/private" = {};
+  sops.secrets."ssh/nixium/public" = {};
 
-  sops.secrets."tg/nixiumbot" = { };
+  sops.secrets."tg/nixiumbot" = {};
 
   networking = {
     hostName = "nixium";
@@ -48,11 +50,10 @@
     createHome = true;
     isNormalUser = true;
     description = "x";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
     useDefaultShell = true;
   };
 
   system.stateVersion = "24.05";
-
 }

@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   imports = [
     ./themes/nord.nix
   ];
@@ -27,5 +27,4 @@
       selection.save_to_clipboard = true;
     };
   };
-
 }

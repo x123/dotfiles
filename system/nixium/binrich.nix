@@ -1,5 +1,10 @@
-{ config, pkgs, inputs, ... }: {
-  imports = [ ];
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [];
 
   sops.secrets."postgres/nixium/binrichfile" = {
     mode = "0400";
@@ -22,5 +27,4 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID6elYl8CWSR32Zx33D+XgQWM/721sDmnyFJec7vDeMb fom-mba"
     ];
   };
-
 }

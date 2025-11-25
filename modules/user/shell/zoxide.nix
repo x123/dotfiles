@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ];
+{pkgs, ...}: {
+  imports = [];
 
   programs.zoxide = {
     enable = true;
@@ -9,5 +9,4 @@
       "--cmd n"
     ];
   };
-
 }

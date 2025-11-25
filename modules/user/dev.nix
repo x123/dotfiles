@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ];
+{pkgs, ...}: {
+  imports = [];
 
   programs.direnv = {
     enable = true;
@@ -14,5 +14,4 @@
       zig
     ];
   };
-
 }

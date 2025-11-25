@@ -1,6 +1,9 @@
-{ config, pkgs, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     #../../modules/user/pytorch.nix
     ../../modules/user/ai.nix
@@ -103,5 +106,4 @@
       };
     };
   };
-
 }

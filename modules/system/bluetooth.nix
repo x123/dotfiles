@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ];
+{pkgs, ...}: {
+  imports = [];
 
   services.blueman.enable = true;
 
@@ -13,5 +13,4 @@
       };
     };
   };
-
 }
