@@ -71,6 +71,16 @@
     defaultGateway = {
       address = "10.10.10.1";
     };
+    interfaces.ens18 = {
+      ipv4 = {
+        addresses = [
+          {
+            address = "192.168.1.151";
+            prefixLength = 24;
+          }
+        ];
+      };
+    };
     interfaces.ens19 = {
       ipv4 = {
         addresses = [
