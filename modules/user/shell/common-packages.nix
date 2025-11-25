@@ -48,7 +48,6 @@ in {
             htop
             pciutils
             ripgrep
-            visidata
             # new shell tools from common
             fzf
             hyperfine
