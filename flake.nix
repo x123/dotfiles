@@ -268,7 +268,6 @@
               useUserPackages = true;
               extraSpecialArgs = {
                 inherit inputs;
-                # system = "aarch64-linux";
               };
             };
           }
