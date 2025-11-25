@@ -10,7 +10,10 @@
   ];
 
   boot = {
-    binfmt.emulatedSystems = ["aarch64-linux"];
+    binfmt = {
+      emulatedSystems = ["aarch64-linux"];
+      preferStaticEmulators = true; # required to work with podman
+    };
     loader = {
       systemd-boot = {
         enable = true;
