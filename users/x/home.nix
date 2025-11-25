@@ -1,16 +1,23 @@
 { config, pkgs, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
+  imports = [
+  ../modules/gpg-agent.nix
+  ];
+
+  nixpkgs.config.allowUnfree = true;
+
   home.username = "x";
   home.homeDirectory = "/home/x";
   home.sessionVariables = {
     #EDITOR = "vim";
   };
+  home.stateVersion = "23.05"; # dont change
 
-  imports = [];
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
 
+  # discord
   nixpkgs.overlays = [(
     self: super: {
       discord = super.discord.overrideAttrs (
@@ -22,12 +29,6 @@
     }
     )
   ];
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
 
   home.packages = with pkgs; [
     # term/shell
@@ -88,19 +89,6 @@
     lm_sensors
     sysstat
   ];
-
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "23.05";
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 
   programs.firefox = {
     enable = true;
@@ -336,19 +324,4 @@
     };
   };
 
-  services.gpg-agent = {
-    enable = true;
-
-    defaultCacheTtl = 86400;
-    defaultCacheTtlSsh = 86400;
-    maxCacheTtl = 86400;
-    maxCacheTtlSsh = 86400;
-    enableSshSupport = true;
-    pinentryFlavor = "tty";
-    extraConfig = ''
-      pinentry-program ${pkgs.pinentry-qt}/bin/pinentry
-    '' + ''
-      allow-loopback-pinentry
-    '';
-  };
 }
