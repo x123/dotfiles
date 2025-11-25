@@ -7,6 +7,7 @@
 
   environment.systemPackages = [
     pkgs.nh
+    pkgs.nix-tree
   ];
 
   # show nvd diffs after (nixos|darwin)-rebuild switch
