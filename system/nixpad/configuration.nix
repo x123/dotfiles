@@ -45,7 +45,7 @@
   };
 
   nix.settings.builders = lib.mkForce ''
-    x@xnix.lan  x86_64-linux /home/x/.ssh/id_nixpad
+    x@xnix.lan  x86_64-linux /home/x/.ssh/id_builder
   '';
 
   # networking
