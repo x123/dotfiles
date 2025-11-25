@@ -21,8 +21,7 @@
       packages = builtins.attrValues {
         inherit
           (pkgs)
-          #ollama
-          
+          ollama-cuda
           oterm
           ;
       };
