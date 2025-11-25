@@ -64,24 +64,54 @@
     };
   };
 
+  boot.kernel.sysctl."net.ipv6.conf.all.disable_ipv6" = true;
+
   networking = {
     hostName = "mininix";
     domain = "empire.internal";
     enableIPv6 = false;
-    # interfaces.enp1s0.ipv6.addresses = [
-    #   {
-    #     address = "2a01:4f8:1c1b:51d1::1";
-    #     prefixLength = 64;
-    #   }
-    #   {
-    #     address = "2a01:4f8:1c1b:51d1::6";
-    #     prefixLength = 128;
-    #   }
-    # ];
-    # defaultGateway6 = {
-    #   address = "fe80::1";
-    #   interface = "enp1s0";
-    # };
+    # useNetworkd = true; # not needed when using systemd.network.enable = true
+    dhcpcd.enable = false;
+    useDHCP = false;
+    resolvconf = {
+      enable = true;
+      # this is needed to disable the domain entry in /etc/resolv.conf
+      extraConfig = ''
+        replace=domain/${config.networking.domain}/
+      '';
+    };
+    nameservers = ["192.168.1.127"];
+    search = [];
+  };
+
+  systemd.network = {
+    enable = true;
+    networks."99-ethernet" = {
+      matchConfig.Name = "enp6s18";
+      networkConfig = {
+        DNS = [
+          "192.168.1.127"
+        ];
+        # DHCP = "ipv4";
+        IPv6AcceptRA = false;
+        # LinkLocalAddressing=false; # disable all LinkLocalAddressing
+        IPv6LinkLocalAddressGenerationMode = "none"; # disable just IPv6 Link Local Address Generation
+      };
+      address = [
+        "192.168.1.162/24"
+      ];
+      routes = [
+        {Gateway = "192.168.1.1";}
+      ];
+      linkConfig.RequiredForOnline = "routable";
+    };
+  };
+
+  # systemd-resolved disalbed for now (favoring old-school resolvconf)
+  services.resolved = {
+    enable = false; # commenting this out will cause resolvconf to fail
+    fallbackDns = ["192.168.1.127"];
+    llmnr = "false";
   };
 
   environment.systemPackages = builtins.attrValues {
