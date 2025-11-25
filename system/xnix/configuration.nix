@@ -120,6 +120,11 @@
     x11.enable = true;
   };
 
+  # nix.settings = {
+  #   cores = 14;
+  #   max-jobs = 1;
+  # };
+
   users.groups.ssl = {};
 
   sops = {
