@@ -29,6 +29,7 @@
     ./local/postgres.nix
     ./local/thelounge.nix
     ./local/uptime-kuma.nix
+    ./local/xray.nix
   ];
 
   custom.system-nixos = {
