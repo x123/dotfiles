@@ -69,19 +69,21 @@ in {
       plugins = builtins.attrValues {
         inherit
           (pkgs.vimPlugins)
+          CopilotChat-nvim
           avante-nvim
           cmp-nvim-lsp
           cmp-nvim-lua
           cmp-path
           cmp-vsnip
+          codecompanion-nvim
           comment-nvim
           conform-nvim
           copilot-vim
-          CopilotChat-nvim
           gitsigns-nvim
           lspkind-nvim
           lualine-nvim
           nord-nvim
+          nui-nvim
           nvim-cmp
           nvim-lastplace
           nvim-lspconfig
@@ -110,6 +112,7 @@ in {
           python
           terraform
           vimdoc
+          yaml
           zig
           ;
       };
@@ -160,6 +163,70 @@ in {
         vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gvgv")
 
         vim.keymap.set('n', "<leader>U", vim.cmd.UndotreeToggle)
+
+        -- codecompanion
+        require("codecompanion").setup({
+          adapters = {
+            qwen32b = function()
+              return require("codecompanion.adapters").extend(
+                "ollama",
+                {
+                  name = "qwen32b", -- Give this adapter a different name to differentiate it from the default ollama adapter
+                  schema = {
+                    model = {
+                      default = "qwen3:32b",
+                    },
+                    num_ctx = {
+                      default = 131072, -- 16384,
+                    },
+                    num_predict = {
+                      default = -1,
+                    },
+                  },
+                }
+                )
+            end,
+            mistralsmall31 = function()
+              return require("codecompanion.adapters").extend(
+                "ollama",
+                {
+                  name = "mistralsmall31", -- Give this adapter a different name to differentiate it from the default ollama adapter
+                  schema = {
+                    model = {
+                      default = "mistral-small3.1:24b",
+                    },
+                    num_ctx = {
+                      default = 4096,
+                    },
+                    num_predict = {
+                      default = -1,
+                    },
+                  },
+                }
+                )
+            end,
+            mixtral8x7b = function()
+              return require("codecompanion.adapters").extend(
+                "ollama",
+                {
+                  name = "mixtral8x7b", -- Give this adapter a different name to differentiate it from the default ollama adapter
+                  schema = {
+                    model = {
+                      default = "mixtral:8x7b",
+                    },
+                    num_predict = {
+                      default = -1,
+                    },
+                  },
+                }
+                )
+            end,
+          },
+          opts = {
+            -- log_level = "DEBUG", -- or "TRACE"
+            -- system_prompt = "Replace system prompt",
+          }
+        })
 
         -- CopilotChat
         require("CopilotChat").setup({
