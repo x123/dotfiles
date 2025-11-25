@@ -1,17 +1,12 @@
 {_, ...}: {
-  services.invidious = {
+  services.mastodon = {
     enable = true;
     database.createLocally = true;
-    domain = "hetznix.boxchop.city";
-    nginx.enable = true;
-    settings = {
-      force_resolve = "ipv6";
-      statistics_enabled = false;
-      registration_enabled = false;
-      popular_enabled = false;
-      admins = ["x123"];
-      decrypt_polling = true; # may use more bandwidth
-    };
+    localDomain = "social.boxchop.city";
+    configureNginx = true;
+    smtp.fromAddress = "noreply@social.boxchop.city";
+    extraConfig.SINGLE_USER_MODE = "true";
+    streamingProcesses = 7;
   };
 
   networking.firewall.allowedTCPPorts = [80 443];
@@ -19,7 +14,7 @@
   # this is needed to disable automatic ACME cert grab from invidious our own
   # definition in security.acme.certs (in acme.nix)
   services.nginx.virtualHosts = {
-    "hetznix.boxchop.city" = {
+    "social.boxchop.city" = {
       enableACME = false;
       useACMEHost = "boxchop.city";
     };
