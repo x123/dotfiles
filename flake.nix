@@ -12,6 +12,7 @@
     blender-bin.url = "github:edolstra/nix-warez/?dir=blender";
     nixified-ai.url = "github:nixified-ai/flake";
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+    disko.url = "github:nix-community/disko";
 
     ghostty.url = "git+ssh://git@me.github.com/mitchellh/ghostty";
 
@@ -22,6 +23,7 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     blender-bin.inputs.nixpkgs.follows = "nixpkgs";
     nixified-ai.inputs.nixpkgs.follows = "nixpkgs";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {
@@ -37,6 +39,7 @@
     nixified-ai,
     ghostty,
     pre-commit-hooks,
+    disko,
     ...
   }: let
     supportedSystems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
@@ -210,6 +213,29 @@
         };
         modules = [
           ./system/nixquisite/configuration.nix
+          sops-nix.nixosModules.sops
+          #sops-nix.modules.home-manager.sops
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              #users.root = import ./users/root-nixium/home.nix;
+              extraSpecialArgs.flake-inputs = inputs;
+            };
+          }
+        ];
+      };
+
+      hetznix = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = {
+          inherit inputs;
+          hostname = "hetznix.boxchop.city";
+        };
+        modules = [
+          disko.nixosModules.disko
+          ./system/hetznix/configuration.nix
           sops-nix.nixosModules.sops
           #sops-nix.modules.home-manager.sops
           home-manager.nixosModules.home-manager
