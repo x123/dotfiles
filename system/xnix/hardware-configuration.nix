@@ -23,9 +23,8 @@
     initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" "usb_storage"];
     initrd.kernelModules = [];
     kernelParams = [];
-    # FIXME 2025-01-23 6.13 nvidia iis broken, see https://github.com/NixOS/nixpkgs/issues/375730
-    kernelPackages = pkgs.linuxKernel.packages.linux_6_12;
-    # kernelPackages = pkgs.linuxPackages_latest; # lqx or zen or latest
+    # kernelPackages = pkgs.linuxKernel.packages.linux_6_11;
+    kernelPackages = pkgs.linuxPackages_latest; # lqx or zen or latest
     kernelModules = [
       "kvm-amd"
       "nct6683"
