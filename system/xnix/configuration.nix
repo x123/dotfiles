@@ -83,7 +83,7 @@
         ];
       };
 
-      jellyfin.enable = false;
+      jellyfin.enable = true;
       nftables.enable = true;
       nix-ssh-serve.enable = false;
       qdrant.enable = true;
