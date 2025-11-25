@@ -131,6 +131,8 @@
       power = "sudo turbostat --quiet --interval 1 --Summary --cpu package --show PkgWatt,Busy%,Core,CoreTmp,Thermal";
       fj-firefox-tornet = "firejail --name=browser-tornet --net=tornet --dns=5.9.164.112 --profile=$(nix eval --raw nixpkgs#firejail)/etc/firejail/firefox.profile firefox --private-window";
       fj-curl = "firejail --net=tornet --dns=5.9.164.112 --profile=$(nix eval --raw nixpkgs#firejail)/etc/firejail/curl.profile curl";
+      # fabric aliases
+      "toregex" = "fabric -r -p toregex";
       # subset of oh-my-zsh aliases
       "ga" = "git add";
       "gaa" = "git add --all";
