@@ -7,7 +7,7 @@
   imports = [];
 
   options = {
-    custom.desktop.gimp = {
+    custom.user.desktop.gimp = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -19,8 +19,8 @@
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
-      && config.custom.desktop.gimp.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.gimp.enable
     )
     {
       home = {

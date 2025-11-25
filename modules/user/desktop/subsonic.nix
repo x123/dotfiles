@@ -5,7 +5,7 @@
   ...
 }: {
   options = {
-    custom.desktop.subsonic = {
+    custom.user.desktop.subsonic = {
       enable = lib.mkOption {
         default = true;
         type = lib.types.bool;
@@ -17,8 +17,8 @@
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
-      && config.custom.desktop.subsonic.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.subsonic.enable
       && !pkgs.stdenv.isDarwin
     )
     {

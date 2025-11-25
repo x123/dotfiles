@@ -7,7 +7,7 @@
   imports = [];
 
   options = {
-    custom.desktop.dropbox = {
+    custom.user.desktop.dropbox = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -19,8 +19,8 @@
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
-      && config.custom.desktop.dropbox.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.dropbox.enable
       && !pkgs.stdenv.isDarwin
     )
     {

@@ -7,7 +7,7 @@
   imports = [];
 
   options = {
-    custom.desktop.element = {
+    custom.user.desktop.element = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -19,8 +19,8 @@
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
-      && config.custom.desktop.element.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.element.enable
       && !pkgs.stdenv.isDarwin
     )
     {

@@ -7,7 +7,7 @@
   imports = [];
 
   options = {
-    custom.desktop.keepassxc = {
+    custom.user.desktop.keepassxc = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -19,8 +19,8 @@
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
-      && config.custom.desktop.keepassxc.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.keepassxc.enable
     )
     {
       home = {

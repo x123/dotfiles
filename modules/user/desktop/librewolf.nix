@@ -9,7 +9,7 @@
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
+      config.custom.user.desktop.enable
       && !pkgs.stdenv.isDarwin
     )
     {

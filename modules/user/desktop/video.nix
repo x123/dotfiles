@@ -14,7 +14,7 @@
   };
 in {
   options = {
-    custom.desktop.video = {
+    custom.user.desktop.video = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -26,8 +26,8 @@ in {
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
-      && config.custom.desktop.video.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.video.enable
     )
     {
       home = {

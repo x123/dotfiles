@@ -6,13 +6,13 @@
 }: {
   imports = [];
 
-  options.custom.desktop.mullvad.enable = lib.mkEnableOption "mullvad";
+  options.custom.user.desktop.mullvad.enable = lib.mkEnableOption "mullvad";
 
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
-      && config.custom.desktop.mullvad.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.mullvad.enable
     )
     {
       home = {

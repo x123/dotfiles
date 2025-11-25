@@ -35,7 +35,7 @@ in {
   imports = [];
 
   options = {
-    custom.desktop.freecad = {
+    custom.user.desktop.freecad = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -52,8 +52,8 @@ in {
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
-      && config.custom.desktop.freecad.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.freecad.enable
       && !pkgs.stdenv.isDarwin
     )
     {

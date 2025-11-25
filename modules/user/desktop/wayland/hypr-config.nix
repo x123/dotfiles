@@ -7,7 +7,7 @@
   imports = [];
 
   options = {
-    custom.desktop.wayland.hyprland = {
+    custom.user.desktop.wayland.hyprland = {
       enable = lib.mkOption {
         default = true;
         type = lib.types.bool;
@@ -18,8 +18,8 @@
 
   config =
     lib.mkIf (
-      config.custom.desktop.enable
-      && config.custom.desktop.wayland.hyprland.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.wayland.hyprland.enable
       && !pkgs.stdenv.isDarwin
     ) {
       home.packages = builtins.attrValues {

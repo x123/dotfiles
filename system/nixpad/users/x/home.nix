@@ -29,40 +29,40 @@
   };
 
   custom = {
-    desktop = {
-      enable = true;
+    user = {
+      desktop = {
+        enable = true;
 
-      audio.enable = false; # this is just youtube-music right now
-      blender.enable = false;
-      discord.enable = false;
-      flameshot.enable = false;
-      ghostty.enable = true;
-      i3status-rust = {
-        battery.enable = true;
-        temperature = {
+        audio.enable = false; # this is just youtube-music right now
+        blender.enable = false;
+        discord.enable = false;
+        flameshot.enable = false;
+        ghostty.enable = true;
+        i3status-rust = {
+          battery.enable = true;
+          temperature = {
+            enable = true;
+            chip = "thinkpad-isa-0000";
+            inputs = ["CPU"];
+          };
+        };
+        keepassxc.enable = true;
+        obs-studio.enable = false;
+        slack.enable = false;
+        video.enable = true;
+
+        wayland = {
+          enable = false;
+          hyprland.enable = true;
+          sway.enable = false;
+        };
+
+        x11 = {
           enable = true;
-          chip = "thinkpad-isa-0000";
-          inputs = ["CPU"];
+          i3.enable = true;
         };
       };
-      keepassxc.enable = true;
-      obs-studio.enable = false;
-      slack.enable = false;
-      video.enable = true;
 
-      wayland = {
-        enable = false;
-        hyprland.enable = true;
-        sway.enable = false;
-      };
-
-      x11 = {
-        enable = true;
-        i3.enable = true;
-      };
-    };
-
-    user = {
       ai = {
         enable = false;
 

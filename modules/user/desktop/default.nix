@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    (lib.mkAliasOptionModule ["custom" "desktop"] ["custom" "user" "desktop"])
     ./alacritty
     ./wayland
     ./x11
@@ -41,10 +42,10 @@
     ./video.nix
   ];
 
-  options.custom = {
-    desktop.enable = lib.mkEnableOption "enable desktop environment";
-    desktop.wayland.enable = lib.mkEnableOption "enable wayland environment";
-    desktop.x11.enable = lib.mkEnableOption "enable x11 environment";
+  options.custom.user.desktop = {
+    enable = lib.mkEnableOption "enable desktop environment";
+    wayland.enable = lib.mkEnableOption "enable wayland environment";
+    x11.enable = lib.mkEnableOption "enable x11 environment";
   };
 
   config =
@@ -52,7 +53,7 @@
     [
       (lib.mkIf
         (
-          config.custom.desktop.enable
+          config.custom.user.desktop.enable
           && !pkgs.stdenv.isDarwin
         )
         {

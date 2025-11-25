@@ -20,14 +20,14 @@ in {
   imports = [];
 
   options = {
-    custom.desktop.x11.i3 = {
+    custom.user.desktop.x11.i3 = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
         description = "Whether to enable i3.";
       };
     };
-    custom.desktop.i3status-rust = {
+    custom.user.desktop.i3status-rust = {
       battery.enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -61,8 +61,8 @@ in {
 
   config =
     lib.mkIf (
-      config.custom.desktop.enable
-      && config.custom.desktop.x11.i3.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.x11.i3.enable
       && !pkgs.stdenv.isDarwin
     ) {
       home.packages = builtins.attrValues {

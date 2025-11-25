@@ -5,7 +5,7 @@
   ...
 }: {
   options = {
-    custom.desktop.audio = {
+    custom.user.desktop.audio = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -17,8 +17,8 @@
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
-      && config.custom.desktop.audio.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.audio.enable
     )
     {
       home = {

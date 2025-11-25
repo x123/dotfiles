@@ -28,16 +28,16 @@
   };
 
   custom = {
-    desktop = {
-      enable = true;
-
-      blender.enable = false;
-      gimp.enable = false;
-      video.enable = true;
-      keepassxc.enable = true;
-    };
-
     user = {
+      desktop = {
+        enable = true;
+
+        blender.enable = false;
+        gimp.enable = false;
+        video.enable = true;
+        keepassxc.enable = true;
+      };
+
       editors = {
         emacs.enable = false;
         helix.enable = false;

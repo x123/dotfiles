@@ -5,7 +5,7 @@
   ...
 }: {
   options = {
-    custom.desktop.java = {
+    custom.user.desktop.java = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -17,8 +17,8 @@
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
-      && config.custom.desktop.java.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.java.enable
     )
     {
       home = {

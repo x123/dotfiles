@@ -7,7 +7,7 @@
   imports = [];
 
   options = {
-    custom.desktop.keybase = {
+    custom.user.desktop.keybase = {
       enable = lib.mkOption {
         default = false;
         type = lib.types.bool;
@@ -19,8 +19,8 @@
   config =
     lib.mkIf
     (
-      config.custom.desktop.enable
-      && config.custom.desktop.keybase.enable
+      config.custom.user.desktop.enable
+      && config.custom.user.desktop.keybase.enable
       && !pkgs.stdenv.isDarwin
     )
     {
