@@ -5,10 +5,10 @@
   ...
 }: {
   options = {
-    custom.editors.vscode.enable = lib.mkEnableOption "VSCode editor and extensions" // {default = true;};
+    custom.user.editors.vscode.enable = lib.mkEnableOption "VSCode editor and extensions" // {default = true;};
   };
 
-  config = lib.mkIf (config.custom.user.editors.enable && config.custom.editors.vscode.enable) (
+  config = lib.mkIf (config.custom.user.editors.enable && config.custom.user.editors.vscode.enable) (
     lib.mkMerge
     [
       (lib.mkIf

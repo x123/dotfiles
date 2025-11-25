@@ -87,16 +87,19 @@
       pytorch.enable = false;
     };
 
-    editors = {
-      emacs.enable = false;
-      helix.enable = true;
-      neovim.enable = true;
-      vim.enable = false;
-      vscode.enable = true;
-    };
-
     games.enable = true;
-    mail.enable = true;
+
+    user = {
+      editors = {
+        emacs.enable = false;
+        helix.enable = false;
+        neovim.enable = true;
+        vim.enable = false;
+        vscode.enable = true;
+      };
+
+      mail.enable = true;
+    };
   };
 
   home = {
