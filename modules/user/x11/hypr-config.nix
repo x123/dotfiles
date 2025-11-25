@@ -111,13 +111,12 @@
             disable_loading_bar = false;
             hide_cursor = true;
             no_fade_in = true;
+            no_fade_out = true;
           };
 
           background = [
             {
-              path = "screenshot";
-              blur_passes = 10;
-              blur_size = 16;
+              path = "";
             }
           ];
 
