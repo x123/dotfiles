@@ -66,9 +66,9 @@
     allowAliases = false;
   };
 
-  nix.settings.builders = lib.mkForce ''
-    x@xnix.empire.internal  x86_64-linux /home/x/.ssh/id_builder
-  '';
+  # nix.settings.builders = lib.mkForce ''
+  #   x@xnix.empire.internal  x86_64-linux /home/x/.ssh/id_builder
+  # '';
 
   # networking
   networking = {
