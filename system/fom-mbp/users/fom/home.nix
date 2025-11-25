@@ -38,10 +38,11 @@
     };
 
     editors = {
-      emacs.enable = true;
+      emacs.enable = false;
       helix.enable = false;
       neovim.enable = true;
       vim.enable = false;
+      vscode.enable = true;
     };
 
     games.enable = true;
