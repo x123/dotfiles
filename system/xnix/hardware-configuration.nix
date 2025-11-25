@@ -51,6 +51,11 @@
       options = ["noatime" "nodiratime"];
     };
 
+    "/boot" = {
+      device = "/dev/disk/by-label/NIXBOOT";
+      fsType = "vfat";
+    };
+
     "/mnt/samsung-970-evo" = {
       device = "/dev/disk/by-label/samsung-970-evo";
       fsType = "ext4";
@@ -90,11 +95,6 @@
       keyFile = "/dev/disk/by-id/usb-Kingston_DataTraveler_2.0_00173182460CBF80194DAB60-0:0";
       fallbackToPassword = true;
     };
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-label/NIXBOOT";
-    fsType = "vfat";
   };
 
   swapDevices = [{device = "/dev/disk/by-label/NIXSWAP";}];
