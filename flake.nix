@@ -130,6 +130,24 @@
         ];
       };
 
+      "fom@fom-mbp" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "aarch64-darwin";
+          extra-platforms = "x86_64-darwin";
+          config = {
+            allowUnfree = true;
+            allowAliases = false;
+          };
+        };
+        extraSpecialArgs = {
+          inherit inputs;
+          system = "aarch64-darwin";
+        };
+        modules = [
+          ./system/fom-mbp/users/fom/home.nix
+        ];
+      };
+
       "x@xnix" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = "x86_64-linux";
@@ -196,6 +214,15 @@
         modules = [
           home-manager.darwinModules.home-manager
           ./system/fom-MBA/configuration.nix
+        ];
+      };
+
+      fom-mbp = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        specialArgs = {inherit inputs;};
+        modules = [
+          home-manager.darwinModules.home-manager
+          ./system/fom-mbp/configuration.nix
         ];
       };
     };
