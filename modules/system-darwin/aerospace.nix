@@ -9,7 +9,7 @@ in {
 
   config = lib.mkIf (cfg.system-darwin.enable && cfg.system-darwin.aerospace.enable) {
     services.aerospace = {
-      enable = true;
+      enable = false;
       settings = {
         # get more from https://github.com/fredrikaverpil/dotfiles/blob/72f92cc92a98d19227c161e64a2843966ce99254/aerospace.toml
         enable-normalization-flatten-containers = false;
