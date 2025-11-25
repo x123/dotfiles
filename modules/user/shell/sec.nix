@@ -22,12 +22,9 @@
         inherit
           (pkgs)
           ffuf
+          ip2asn
           netcat-gnu
           urlencode
-          ;
-        inherit
-          (pkgs.unstable-small)
-          ip2asn
           ;
         inherit
           (pkgs.python312Packages)

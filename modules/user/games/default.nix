@@ -37,7 +37,7 @@
               tintin
               ;
             inherit
-              (inputs.nixpkgs-unstable-small.legacyPackages.${system})
+              (pkgs.unstable-small)
               narsil
               wine
               winetricks

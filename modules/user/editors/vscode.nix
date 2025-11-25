@@ -38,10 +38,6 @@
             };
           };
           home.packages = builtins.attrValues {
-            # inherit
-            #   (inputs.nixpkgs-unstable-small.legacyPackages.${system})
-            #   aider-chat-full
-            #   ;
             inherit
               (pkgs)
               nodejs_24

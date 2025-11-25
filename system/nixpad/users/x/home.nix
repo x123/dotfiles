@@ -14,6 +14,10 @@
       final: prev: {
         unstable-small = import inputs.nixpkgs-unstable-small {
           system = "x86_64-linux";
+          config = {
+            allowUnfree = true;
+            allowAliases = false;
+          };
         };
       }
     )
