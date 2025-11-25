@@ -23,6 +23,7 @@
       vimPlugins.nord-nvim
       vimPlugins.nvim-lastplace
       vimPlugins.nvim-lspconfig
+      vimPlugins.undotree
 
       vimPlugins.nvim-treesitter
       vimPlugins.nvim-treesitter-parsers.c
@@ -76,6 +77,8 @@
       -- move visual selection up and down
       vim.keymap.set("v", "<S-Up>", ":m '<-2<CR>gv=gv")
       vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gv=gv")
+
+      vim.keymap.set('n', "<space>U", vim.cmd.UndotreeToggle)
 
       -- nord
       require("lualine").setup({
