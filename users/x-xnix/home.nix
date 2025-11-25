@@ -27,7 +27,7 @@
     ../../modules/user/shell
     ../../modules/user/desktop/telegram.nix
     ../../modules/user/desktop/tor-browser.nix
-    ../../modules/user/video.nix
+    ../../modules/user/desktop/video.nix
     ../../modules/user/x11
     ../../modules/user/yed.nix
   ];
