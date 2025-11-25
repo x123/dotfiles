@@ -1,0 +1,26 @@
+#!env bash
+# shellcheck disable=SC2239
+set -xeuo pipefail
+
+if which darwin-rebuild
+then
+  echo "Found darwin-rebuild at $(which darwin-rebuild)"
+	pushd ~/.dotfiles
+	if darwin-rebuild -v build --flake .#
+  then
+    nvd diff /run/current-system ./result
+  fi
+	popd
+elif which nixos-rebuild
+then
+  echo "Found nixos-rebuild at $(which nixos-rebuild)"
+	pushd ~/.dotfiles
+	if nixos-rebuild -v build --flake .#
+  then
+    nvd diff /run/current-system ./result
+  fi
+	popd
+else
+	echo "Error: Could not find nixos-rebuild or darwin-rebuild ... Bailing out!"
+	exit 1
+fi
