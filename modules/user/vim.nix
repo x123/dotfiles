@@ -6,7 +6,6 @@
       elixir-ls
       gopls
       marksman
-      nerdfonts
       nixd
       terraform-ls
     ];
