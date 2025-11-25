@@ -90,8 +90,8 @@
       vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
       -- move visual selection up and down
-      vim.keymap.set("v", "<S-Up>", ":m '<-2<CR>gv=gv")
-      vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gv=gv")
+      vim.keymap.set("v", "<S-Up>", ":m '<-2<CR>gvgv")
+      vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gvgv")
 
       vim.keymap.set('n', "<space>U", vim.cmd.UndotreeToggle)
 
