@@ -28,6 +28,10 @@
           ripgrep
           visidata
           ;
+        inherit
+          (pkgs.unixtools)
+          watch
+          ;
       };
     };
   };
