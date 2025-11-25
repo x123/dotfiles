@@ -32,7 +32,15 @@
 
   boot = {
     # binfmt.emulatedSystems = ["x86_64-linux"];
-    initrd.availableKernelModules = ["xhci_pci" "virtio_scsi" "sr_mod"];
+    initrd.availableKernelModules = [
+      "ata_piix"
+      "sd_mod"
+      "sr_mod"
+      "uhci_hcd"
+      "virtio_pci"
+      "virtio_scsi"
+      "xhci_pci"
+    ];
     initrd.kernelModules = [];
     kernelModules = [];
     extraModulePackages = [];
@@ -104,5 +112,5 @@
     };
   };
 
-  system.stateVersion = "25.05";
+  # system.stateVersion = "25.05";
 }
