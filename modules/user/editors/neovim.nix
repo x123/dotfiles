@@ -70,6 +70,7 @@ in {
       plugins = builtins.attrValues {
         inherit
           (pkgs.vimPlugins)
+          avante-nvim
           cmp-nvim-lsp
           cmp-nvim-lua
           cmp-path
@@ -150,6 +151,22 @@ in {
         vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gvgv")
 
         vim.keymap.set('n', "<leader>U", vim.cmd.UndotreeToggle)
+
+        -- avante
+        require("avante").setup({
+          provider = "claude",
+          cursor_applying_provider = "claude",
+          behaviour = {
+            enable_cursor_planning_mode = true, -- enable cursor planning mode!
+          },
+          claude = {
+            endpoint = "https://api.anthropic.com",
+            model = "claude-3-7-sonnet-20250219",
+            timeout = 30000, -- Timeout in milliseconds
+            temperature = 0,
+            max_tokens = 20480,
+          },
+        })
 
         -- nord
         require("lualine").setup({
