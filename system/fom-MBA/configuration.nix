@@ -15,19 +15,21 @@
     ../../modules/system/darwin/skhd.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    git
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      git
+      vim
+      wget
+    ];
 
-  environment.shells = with pkgs; [
-    bash
-    zsh
-  ];
+    shells = with pkgs; [
+      bash
+      zsh
+    ];
 
-  environment.variables = {
-    EDITOR = "vim";
+    variables = {
+      EDITOR = "vim";
+    };
   };
 
   # users

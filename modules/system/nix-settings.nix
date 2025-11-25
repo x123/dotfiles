@@ -5,29 +5,32 @@
 }: {
   imports = [];
 
-  # support nix flakes
-  nix.package = pkgs.nixFlakes;
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix = {
+    # support nix flakes
+    package = pkgs.nixFlakes;
 
-  nix.settings = {
-    trusted-substituters = [
-      "https://nixium.boxchop.city"
-    ];
+    settings = {
+      experimental-features = ["nix-command" "flakes"];
 
-    trusted-public-keys = [
-      "nixium.boxchop.city-1:I/9SEHdelbS1b8ZX5QeeQKtsugsCcIqCVCec4TZPXIw="
-    ];
+      trusted-substituters = [
+        "https://nixium.boxchop.city"
+      ];
 
-    auto-optimise-store = true;
-    allowed-users = [
-      "*"
-    ];
-    trusted-users = [
-      "root"
-      "x"
-      "fom"
-      "@wheel"
-    ];
+      trusted-public-keys = [
+        "nixium.boxchop.city-1:I/9SEHdelbS1b8ZX5QeeQKtsugsCcIqCVCec4TZPXIw="
+      ];
+
+      auto-optimise-store = true;
+      allowed-users = [
+        "*"
+      ];
+      trusted-users = [
+        "root"
+        "x"
+        "fom"
+        "@wheel"
+      ];
+    };
   };
 
   nix.gc =
