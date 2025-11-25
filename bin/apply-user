@@ -1,27 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if which scutil
-then
-  HOSTNAME=$(scutil --get LocalHostName)
-else
-  HOSTNAME=$(hostname -s)
-fi
-
-if [ ! "$(whoami)" ]
-then
-  echo "Error: Not able to determine USER ... Bailing out!";
-  exit 1;
-else
-  USER=$(whoami)
-fi
-
-if [ -z "${HOSTNAME}" ]
-then
-  echo "Error: Not able to determine HOSTNAME ... Bailing out!";
-  exit 1;
-fi
-
 if home-manager switch --flake .
 then
   echo "Success: Build and switched to new HM generation.";
