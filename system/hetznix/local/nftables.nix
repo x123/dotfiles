@@ -72,7 +72,7 @@
           }
 
           chain refk {
-            set update ip saddr timeout 2m @ks4
+            set update ip saddr timeout 60m @ks4
           }
 
           # 8209, 15388, 48665, 49676
