@@ -20,17 +20,21 @@
   nix.package = pkgs.nixFlakes;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  services.fstrim.enable = true;
+  # allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
+  # networking
   networking.hostName = "xnix";
-
-  # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
+  # packages
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+  ];
+
   time.timeZone = "Europe/Copenhagen";
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.x = {
     isNormalUser = true;
     description = "x";
@@ -38,14 +42,6 @@
     shell = pkgs.zsh;
     useDefaultShell = true;
   };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-  ];
 
   system.stateVersion = "23.05"; # Did you read the comment?
 }
