@@ -51,6 +51,7 @@
     config = {
       pager = "less -mg";
       theme = "Nord";
+      paging = "never";
     };
   };
 
