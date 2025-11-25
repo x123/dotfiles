@@ -22,7 +22,7 @@
       ghostty.enable = true;
       inkscape.enable = false;
       obs-studio.enable = false;
-      slack.enable = true;
+      slack.enable = false;
       telegram.enable = true;
       video.enable = true;
 
