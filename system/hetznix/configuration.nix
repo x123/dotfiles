@@ -10,6 +10,7 @@
     ../../modules/system/zsh.nix
     ./local/acme.nix
     ./local/caddy.nix
+    ./local/dovecot.nix
     ./local/invidious.nix
     ./local/mastodon.nix
     ./local/nftables.nix
