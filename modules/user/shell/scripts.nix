@@ -223,6 +223,43 @@
         echo "TLS disabled, file descriptor limit set to 10240"
         ${pkgs.qdrant}/bin/qdrant
       '')
+
+      (pkgs.writeShellScriptBin "ansiprint" ''
+        #!/usr/bin/env bash
+        set -euo pipefail
+
+        # --- Usage Function ---
+        usage() {
+          echo "Usage: $0 <filename>" >&2
+          echo "  <filename>    Path to the ANSI/ASCII art file to display" >&2
+          echo "" >&2
+          echo "Example: $0 ~/.config/ansimotd/good/1996/hype-02/raw/FF-CRUST.ANS" >&2
+          echo "" >&2
+          echo "This tool converts CP437 encoded ANSI files to UTF-8 for display." >&2
+          exit 1
+        }
+
+        # --- Argument Validation ---
+        if [ $# -ne 1 ]; then
+          echo "Error: Exactly one argument (filename) is required." >&2
+          usage
+        fi
+
+        if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+          usage
+        fi
+
+        FILENAME="$1"
+
+        # --- File Existence Check ---
+        if [ ! -f "$FILENAME" ]; then
+          echo "Error: File '$FILENAME' does not exist or is not a regular file." >&2
+          exit 1
+        fi
+
+        # --- Display ANSI File ---
+        ${pkgs.libiconv}/bin/iconv -f 437 -s -c "$FILENAME" | ${pkgs.coreutils}/bin/cat
+      '')
     ];
   };
 }
