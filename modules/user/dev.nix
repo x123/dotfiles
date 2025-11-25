@@ -13,7 +13,6 @@
       inherit
         (pkgs)
         sqlite
-        zig
         ;
     };
   };
