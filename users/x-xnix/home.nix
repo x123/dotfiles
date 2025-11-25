@@ -18,7 +18,7 @@
     ../../modules/user/desktop/ghostty.nix
     ../../modules/user/editors/helix.nix
     ../../modules/user/desktop/keepass.nix
-    ../../modules/user/neomutt.nix
+    ../../modules/user/mail/neomutt.nix
     ../../modules/user/editors/neovim.nix
     ../../modules/user/shell
     ../../modules/user/desktop/telegram.nix
