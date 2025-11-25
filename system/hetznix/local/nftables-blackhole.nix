@@ -12,9 +12,10 @@
               flags interval
               auto-merge
               comment "drop all traffic from these hosts"
-              # elements = {
-              #   87.120.93.10,
-              # }
+              elements = {
+                45.148.10.0/24,
+                81.30.107.0/24,
+              }
             }
           '';
         };
