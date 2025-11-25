@@ -16,6 +16,7 @@
         {
           inherit
             (pkgs)
+            cargo
             elixir-ls
             gopls
             marksman
@@ -23,6 +24,11 @@
             nixd
             terraform-ls
             vscode-langservers-extracted
+            # rust
+            
+            rust-analyzer
+            rustc
+            rustfmt
             ;
         };
     };
@@ -225,6 +231,31 @@
         lspconfig.lua_ls.setup({ capabilities = capabilities, })
         lspconfig.marksman.setup({ capabilities = capabilities, })
         lspconfig.terraformls.setup({ capabilities = capabilities, })
+
+        -- rust
+        lspconfig.rust_analyzer.setup({
+          capabilities = capabilities,
+          cmd = { "${pkgs.rust-analyzer}/bin/rust-analyzer" },
+          settings = {
+              ["rust-analyzer"] = {
+                  imports = {
+                      granularity = {
+                          group = "module",
+                      },
+                      prefix = "self",
+                  },
+                  cargo = {
+                      buildScripts = {
+                          enable = true,
+                      },
+                  },
+                  procMacro = {
+                      enable = true
+                  },
+              }
+          },
+          single_file_support = true,
+        })
 
         -- elixir
         lspconfig.elixirls.setup({
