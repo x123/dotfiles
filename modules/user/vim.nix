@@ -45,6 +45,7 @@
       set tabstop=4
       set shiftwidth=4
       set background=dark
+      set nohlsearch
 
       nnoremap <C-up> <cmd>lua require("tmux").move_top()<cr>
       nnoremap <C-down> <cmd>lua require("tmux").move_bottom()<cr>
