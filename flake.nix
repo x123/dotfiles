@@ -366,6 +366,29 @@
         ];
       };
 
+      kumanix = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+          system = "x86_64-linux";
+          hostname = "kumanix.empire.internal";
+        };
+        modules = [
+          ./system/kumanix/configuration.nix
+          sops-nix.nixosModules.sops
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {
+                inherit inputs;
+              };
+            };
+          }
+        ];
+      };
+
       unboundednix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
