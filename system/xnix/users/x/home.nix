@@ -21,6 +21,7 @@
       audio.enable = true;
       blender.enable = true;
       discord.enable = true;
+      ghostty.enable = true;
       flameshot.enable = true;
       obs-studio.enable = true;
       slack.enable = true;
