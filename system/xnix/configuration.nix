@@ -27,6 +27,7 @@
     };
 
     networking.tornet.enable = true;
+    security.auditd.enable = true;
 
     services = {
       open-webui = {
