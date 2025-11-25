@@ -17,6 +17,7 @@
 
     common = {
       console-theme.enable = false;
+      filesystems.enable = true;
     };
 
     dev.elixir.enable = false;

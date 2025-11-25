@@ -1,6 +1,7 @@
 {lib, ...}: {
   imports = [
     ./console-theme.nix
+    ./filesystems.nix
     ./locale.nix
     ./zsh.nix
   ];
@@ -11,6 +12,11 @@
         default = false;
         type = lib.types.bool;
         description = "Whether to enable console-theme";
+      };
+      filesystems.enable = lib.mkOption {
+        default = true;
+        type = lib.types.bool;
+        description = "Whether to enable additional filesystem support";
       };
       locale.enable = lib.mkOption {
         default = true;
