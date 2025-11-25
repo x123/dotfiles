@@ -14,7 +14,7 @@
     ./local/caddy-ip.nix
     ./local/dovecot.nix
     ./local/fail2ban.nix
-    ./local/mastodon.nix
+    # ./local/mastodon.nix
     ./local/nftables-blackhole.nix
     ./local/nftables-caddy.nix
     ./local/nftables-knock.nix
