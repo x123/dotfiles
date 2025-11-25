@@ -82,6 +82,13 @@
             interval = 1;
           }
           {
+            block = "temperature";
+            chip = "nct6686-isa-0a20";
+            interval = 1;
+            idle = 55;
+            inputs = ["AMD TSI Addr 98h"];
+          }
+          {
             block = "nvidia_gpu";
             gpu_id = 0;
             format = " $icon  RTX4090 $power $temperature $utilization $temperature ";
