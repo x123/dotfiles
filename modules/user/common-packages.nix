@@ -48,6 +48,7 @@ with lib;
         htop
         killall
         lsof
+        nnn
         parallel
         pciutils
         ripgrep
@@ -73,6 +74,7 @@ with lib;
         # crypto
         age
         gnupg
+        rage
         sops
 
         # archives

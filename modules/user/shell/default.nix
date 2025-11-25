@@ -38,6 +38,7 @@
       ls = "ls --color";
       less = "less -mNg";
       nsp = "nix search nixpkgs";
+      nnn = "nnn -R -e";
     };
   };
 
