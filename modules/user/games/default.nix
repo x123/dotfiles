@@ -24,6 +24,7 @@
             inherit
               (pkgs)
               angband
+              brogue-ce
               narsil
               openttd
               sil
