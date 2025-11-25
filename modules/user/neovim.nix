@@ -18,8 +18,6 @@
       vimPlugins.comment-nvim
       vimPlugins.gitsigns-nvim
       vimPlugins.lualine-nvim
-      vimPlugins.mason-lspconfig-nvim
-      vimPlugins.mason-nvim
       vimPlugins.nord-nvim
       vimPlugins.nvim-lastplace
       vimPlugins.nvim-lspconfig
@@ -128,9 +126,6 @@
       vim.keymap.set("n", "<C-down>", "<cmd>lua require('tmux').move_bottom()<cr>")
       vim.keymap.set("n", "<C-left>", "<cmd>lua require('tmux').move_left()<cr>")
       vim.keymap.set("n", "<C-right>", "<cmd>lua require('tmux').move_right()<cr>")
-
-      require("mason").setup()
-      require("mason-lspconfig").setup()
 
       require("nvim-treesitter.configs").setup({
         indent = {
