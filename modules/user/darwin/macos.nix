@@ -17,15 +17,24 @@
   targets.darwin.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode2 = true;
   targets.darwin.defaults.NSGlobalDomain._HIHideMenuBar = false; # top menubar
 
-  targets.darwin.defaults.dock.autohide = true;
-  targets.darwin.defaults.dock.mru-spaces = false;
-  targets.darwin.defaults.dock.orientation = "left";
-  targets.darwin.defaults.dock.showhidden = true;
+  # dock
+  targets.darwin.defaults.dock = {
+    autohide = true;
+    mru-spaces = false;
+    orientation = "left";
+    showhidden = true;
+  };
+
+  # dock size
+  targets.darwin.defaults."com.apple.dock".tilesize = 64;
 
   # finder
-  targets.darwin.defaults.finder.AppleShowAllExtensions = true;
-  targets.darwin.defaults.finder.QuitMenuItem = true;
-  targets.darwin.defaults.finder.FXEnableExtensionChangeWarning = false;
+  targets.darwin.defaults.finder = {
+    AppleShowAllExtensions = true;
+    _FXShowPosixPathInTitle = true;
+    FXEnableExtensionChangeWarning = false;
+    QuitMenuItem = true;
+  };
 
   # trackpad
   targets.darwin.defaults.trackpad.Clicking = true;
@@ -34,9 +43,6 @@
   targets.darwin.defaults.keyboard.enableKeyMapping = true;
   #system.keyboard.remapCapsLockToControl = true;
   #targets.darwin.defaults.keyboard.swapLeftCommandAndLeftAlt = true;
-
-  # dock size
-  targets.darwin.defaults."com.apple.dock".tilesize = 64;
 
   # default search engine
   targets.darwin.search = "DuckDuckGo";
