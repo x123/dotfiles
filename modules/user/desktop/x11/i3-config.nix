@@ -121,12 +121,12 @@ in {
                     headphones_indicator = true;
                   }
                   {
-                    alert = 10.0;
+                    alert = 5.0;
                     block = "disk_space";
                     info_type = "available";
                     interval = 60;
                     path = "/";
-                    warning = 20.0;
+                    warning = 10.0;
                   }
                   {
                     block = "memory";
