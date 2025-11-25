@@ -268,8 +268,8 @@ in {
                 names = ["CodeNewRoman Nerd Font Mono"];
                 size = 11.0;
               };
-              mode = "dock";
-              hiddenState = "show";
+              mode = "hide";
+              hiddenState = "hide";
               statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-default.toml";
               position = "bottom";
               trayOutput = "primary";
