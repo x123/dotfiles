@@ -24,6 +24,7 @@
             inherit
               (pkgs)
               angband
+              blightmud
               brogue-ce
               narsil
               openttd
