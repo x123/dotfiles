@@ -201,6 +201,28 @@
           }
         ];
       };
+
+      nixquisite = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+          hostname = "nixquisite.boxchop.city";
+        };
+        modules = [
+          ./system/nixquisite/configuration.nix
+          sops-nix.nixosModules.sops
+          #sops-nix.modules.home-manager.sops
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              #users.root = import ./users/root-nixium/home.nix;
+              extraSpecialArgs.flake-inputs = inputs;
+            };
+          }
+        ];
+      };
     };
   };
 }
