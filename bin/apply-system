@@ -10,10 +10,10 @@ then
 elif which nixos-rebuild
 then
   echo "Found nixos-rebuild at $(which nixos-rebuild)"
-	pushd ~/.dotfiles || exit 1
-	sudo nixos-rebuild -v switch --flake .#
-	popd || exit 1
+  pushd ~/.dotfiles || exit 1
+  sudo nixos-rebuild -v switch --flake .#
+  popd || exit 1
 else
-	echo "Error: Could not find nixos-rebuild or darwin-rebuild ... Bailing out!"
-	exit 1
+  echo "Error: Could not find nixos-rebuild or darwin-rebuild ... Bailing out!"
+  exit 1
 fi
