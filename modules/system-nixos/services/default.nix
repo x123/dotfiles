@@ -10,6 +10,7 @@
     ./open-webui.nix
     ./openssh.nix
     ./p2pool.nix
+    ./qnetd.nix
     ./qdrant.nix
     ./rustdesk-server.nix
     ./sonarr.nix
