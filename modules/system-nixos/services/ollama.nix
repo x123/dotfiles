@@ -54,11 +54,15 @@ in {
           family = "inet";
           content = ''
             chain input-new {
+              ${lib.optionalString (config.custom.system-nixos.services.ollama.trustedIpv6Networks != []) ''
               ip6 saddr { ${trustedIpv6s} } tcp dport ${builtins.toString config.custom.system-nixos.services.ollama.port} log prefix "nft-accept-ollama: " level info
               ip6 saddr { ${trustedIpv6s} } tcp dport ${builtins.toString config.custom.system-nixos.services.ollama.port} counter accept
+            ''}
 
+              ${lib.optionalString (config.custom.system-nixos.services.ollama.trustedIpv4Networks != []) ''
               ip saddr { ${trustedIpv4s} } tcp dport ${builtins.toString config.custom.system-nixos.services.ollama.port} log prefix "nft-accept-ollama: " level info
               ip saddr { ${trustedIpv4s} } tcp dport ${builtins.toString config.custom.system-nixos.services.ollama.port} counter accept
+            ''}
             }'';
         };
       };
