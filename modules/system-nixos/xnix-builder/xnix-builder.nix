@@ -29,6 +29,9 @@
         builders-use-substitutes = true;
         # max-jobs = 0; # to disable building locally
         extra-substituters = ["ssh://builder@xnix.empire.internal"];
+        trusted-public-keys = [
+          "xnix-nix-cache:ZkCN2MWPhiG8UarSjmhgaQKX3jy4DpLy4pwJFpRAo2M="
+        ];
         fallback = true;
       };
 
