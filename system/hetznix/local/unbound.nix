@@ -65,6 +65,7 @@ in {
           edns-buffer-size = 1232;
           hide-identity = true;
           hide-version = true;
+          tcp-idle-timeout = 60000;
           tls-service-pem = config.security.acme.certs."nixlink.net".directory + "/cert.pem";
           tls-service-key = config.security.acme.certs."nixlink.net".directory + "/key.pem";
           local-zone = blocklistEntries; # add blocklist entries from StevenBlack list
