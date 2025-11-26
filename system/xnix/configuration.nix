@@ -10,6 +10,7 @@
 
     ./local/nftables-syncthing.nix
     ./local/xmrig.nix
+    ./local/xnix-nix-cache.nix
   ];
 
   custom.system-nixos = {
