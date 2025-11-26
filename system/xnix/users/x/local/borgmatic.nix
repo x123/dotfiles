@@ -142,6 +142,9 @@
           patterns = [
             "R ${config.home.homeDirectory}"
             "! home/x/mnt" # never recurse into mnt
+            "- home/x/.bm"
+            "- home/x/.local/share/Steam"
+            "- home/x/Dropbox.orig"
             "- home/x/.cache"
             "- home/x/**/.cache"
             "- home/x/.config/*/Cache"
