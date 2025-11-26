@@ -61,17 +61,21 @@ in {
           content = ''
             chain input-new {
               # rustdesk
+              ${lib.optionalString (cfg.trustedIpv6Networks != []) ''
               ip6 saddr { ${trustedIpv6s} } tcp dport { 21115, 21116, 21117, 21118, 21119 } log prefix "nft-input-accept-rustdesk-tcp: " level info
               ip6 saddr { ${trustedIpv6s} } tcp dport { 21115, 21116, 21117, 21118, 21119 } counter accept
 
               ip6 saddr { ${trustedIpv6s} } udp dport 21116 log prefix "nft-input-accept-rustdesk-udp: " level info
               ip6 saddr { ${trustedIpv6s} } udp dport 21116 counter accept
+            ''}
 
+              ${lib.optionalString (cfg.trustedIpv4Networks != []) ''
               ip saddr { ${trustedIpv4s} } tcp dport { 21115, 21116, 21117, 21118, 21119 } log prefix "nft-input-accept-rustdesk-tcp: " level info
               ip saddr { ${trustedIpv4s} } tcp dport { 21115, 21116, 21117, 21118, 21119 } counter accept
 
               ip saddr { ${trustedIpv4s} } udp dport 21116 log prefix "nft-input-accept-rustdesk-udp: " level info
               ip saddr { ${trustedIpv4s} } udp dport 21116 counter accept
+            ''}
             }
           '';
         };

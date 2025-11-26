@@ -74,11 +74,15 @@ in {
           content = ''
             chain input-new {
               # xmrig
+              ${lib.optionalString (config.custom.system-nixos.services.xmrig-proxy.trustedIpv6Networks != []) ''
               ip6 saddr { ${trustedIpv6s} } tcp dport 3333 log prefix "nft-input-accept-xmrig-proxy: " level info
               ip6 saddr { ${trustedIpv6s} } tcp dport 3333 counter accept
+            ''}
 
+              ${lib.optionalString (config.custom.system-nixos.services.xmrig-proxy.trustedIpv4Networks != []) ''
               ip saddr { ${trustedIpv4s} } tcp dport 3333 log prefix "nft-input-accept-xmrig-proxy: " level info
               ip saddr { ${trustedIpv4s} } tcp dport 3333 counter accept
+            ''}
             }
           '';
         };

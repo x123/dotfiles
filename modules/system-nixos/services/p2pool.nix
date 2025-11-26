@@ -275,11 +275,15 @@ in {
           content = ''
             chain input-new {
               # p2pool
+              ${lib.optionalString (cfg.trustedIpv6Networks != []) ''
               ip6 saddr { ${trustedIpv6s} } tcp dport { 37888, 37889 } log prefix "nft-input-accept-p2pool-tcp: " level info
               ip6 saddr { ${trustedIpv6s} } tcp dport { 37888, 37889 } counter accept
+            ''}
 
+              ${lib.optionalString (cfg.trustedIpv4Networks != []) ''
               ip saddr { ${trustedIpv4s} } tcp dport { 37888, 37889 } log prefix "nft-input-accept-p2pool-tcp: " level info
               ip saddr { ${trustedIpv4s} } tcp dport { 37888, 37889 } counter accept
+            ''}
             }
           '';
         };

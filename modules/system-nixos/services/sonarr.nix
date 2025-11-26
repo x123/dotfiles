@@ -58,11 +58,15 @@ in {
           content = ''
             chain input-new {
               # sonarr
+              ${lib.optionalString (config.custom.system-nixos.services.sonarr.trustedIpv6Networks != []) ''
               ip6 saddr { ${trustedIpv6s} } tcp dport 8989 log prefix "nft-input-accept-sonarr: " level info
               ip6 saddr { ${trustedIpv6s} } tcp dport 8989 counter accept
+            ''}
 
+              ${lib.optionalString (config.custom.system-nixos.services.sonarr.trustedIpv4Networks != []) ''
               ip saddr { ${trustedIpv4s} } tcp dport 8989 log prefix "nft-input-accept-sonarr: " level info
               ip saddr { ${trustedIpv4s} } tcp dport 8989 counter accept
+            ''}
             }
           '';
         };

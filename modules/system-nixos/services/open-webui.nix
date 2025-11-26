@@ -59,11 +59,15 @@ in {
           family = "inet";
           content = ''
             chain input-new {
+              ${lib.optionalString (config.custom.system-nixos.services.open-webui.trustedIpv6Networks != []) ''
               ip6 saddr { ${trustedIpv6s} } tcp dport ${builtins.toString config.custom.system-nixos.services.open-webui.port} log prefix "nft-accept-open-webui: " level info
               ip6 saddr { ${trustedIpv6s} } tcp dport ${builtins.toString config.custom.system-nixos.services.open-webui.port} counter accept
+            ''}
 
+              ${lib.optionalString (config.custom.system-nixos.services.open-webui.trustedIpv4Networks != []) ''
               ip saddr { ${trustedIpv4s} } tcp dport ${builtins.toString config.custom.system-nixos.services.open-webui.port} log prefix "nft-accept-open-webui: " level info
               ip saddr { ${trustedIpv4s} } tcp dport ${builtins.toString config.custom.system-nixos.services.open-webui.port} counter accept
+            ''}
             }'';
         };
       };
