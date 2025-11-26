@@ -75,7 +75,7 @@ in {
           diffview-nvim
           gitsigns-nvim
           lspkind-nvim
-          lualine-nvim
+          #lualine-nvim
           neogit
           nord-nvim
           nui-nvim
@@ -182,11 +182,11 @@ in {
         })
 
         -- nord
-        require("lualine").setup({
-          options = {
-            theme = "nord"
-          }
-        })
+        --require("lualine").setup({
+        --  options = {
+        --    theme = "nord"
+        --  }
+        --})
 
         vim.g.airline_theme = "base16_nord"
 
