@@ -8,6 +8,7 @@
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nur.url = "github:nix-community/NUR";
+    nixpkgs-corosync.url = "github:x123/nixpkgs/x123-add-corosync-qdevice";
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -48,6 +49,7 @@
     home-manager,
     sops-nix,
     nur,
+    nixpkgs-corosync,
     nix-darwin,
     ghostty,
     pre-commit-hooks,

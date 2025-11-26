@@ -242,6 +242,22 @@
         "url": "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz"
       }
     },
+    "nixpkgs-corosync": {
+      "locked": {
+        "lastModified": 1764165512,
+        "narHash": "sha256-9DOXkaCzgeHl8F6bFy0H7yfosr7SZR002cmTzi75QoU=",
+        "owner": "x123",
+        "repo": "nixpkgs",
+        "rev": "3a1b467578287df38349eb663323f5c6bad2e593",
+        "type": "github"
+      },
+      "original": {
+        "owner": "x123",
+        "ref": "x123-add-corosync-qdevice",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1719876945,
@@ -377,6 +393,7 @@
         "nix-darwin": "nix-darwin",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
+        "nixpkgs-corosync": "nixpkgs-corosync",
         "nixpkgs-unstable-small": "nixpkgs-unstable-small",
         "nur": "nur",
         "pre-commit-hooks": "pre-commit-hooks",
