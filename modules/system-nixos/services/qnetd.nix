@@ -3,7 +3,11 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  cfg = config.custom.system-nixos.services.qnetd;
+  trustedIpv4s = builtins.concatStringsSep "," cfg.trustedIpv4Networks;
+  trustedIpv6s = builtins.concatStringsSep "," cfg.trustedIpv6Networks;
+in {
   options = {
     custom.system-nixos.services.qnetd = {
       enable = lib.mkOption {
@@ -20,6 +24,21 @@
         default = "/var/lib/corosync-qnetd";
         type = lib.types.path;
         description = "Path to the writable data directory for qnetd configuration";
+      };
+      openFirewallNftables = lib.mkOption {
+        default = false;
+        type = lib.types.bool;
+        description = "Whether to add nftables rules.";
+      };
+      trustedIpv4Networks = lib.mkOption {
+        default = ["127.0.0.1/32"];
+        type = lib.types.listOf lib.types.str;
+        description = "Trusted IPv4 ranges to open nftables firewall for.";
+      };
+      trustedIpv6Networks = lib.mkOption {
+        default = ["::1/128"];
+        type = lib.types.listOf lib.types.str;
+        description = "Trusted IPv6 ranges to open nftables firewall for.";
       };
     };
   };
@@ -57,6 +76,28 @@
             ${pkgs.coreutils}/bin/chown -R corosync-qnetd:corosync-qnetd /etc/corosync/qnetd
           fi
         ''}";
+      };
+    };
+
+    networking.nftables = lib.mkIf cfg.openFirewallNftables {
+      tables = {
+        filter = {
+          family = "inet";
+          content = ''
+            chain input-new {
+              # qnetd
+              ${lib.optionalString (cfg.trustedIpv6Networks != []) ''
+              ip6 saddr { ${trustedIpv6s} } tcp dport 5403 log prefix "nft-input-accept-qnetd: " level info
+              ip6 saddr { ${trustedIpv6s} } tcp dport 5403 counter accept
+            ''}
+
+              ${lib.optionalString (cfg.trustedIpv4Networks != []) ''
+              ip saddr { ${trustedIpv4s} } tcp dport 5403 log prefix "nft-input-accept-qnetd: " level info
+              ip saddr { ${trustedIpv4s} } tcp dport 5403 counter accept
+            ''}
+            }
+          '';
+        };
       };
     };
   };
