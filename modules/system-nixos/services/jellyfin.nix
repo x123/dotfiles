@@ -44,17 +44,21 @@ in {
           content = ''
             chain input-new {
               # jellyfin
+              ${lib.optionalString (config.custom.system-nixos.services.jellyfin.trustedIpv6Networks != []) ''
               ip6 saddr { ${trustedIpv6s} } tcp dport { 8096, 8920 } log prefix "nft-input-accept-jellyfin: " level info
               ip6 saddr { ${trustedIpv6s} } tcp dport { 8096, 8920 } counter accept
 
               ip6 saddr { ${trustedIpv6s} } udp dport { 7359 } log prefix "nft-input-accept-jellyfin-discovery: " level info
               ip6 saddr { ${trustedIpv6s} } udp dport { 7359 } counter accept
+            ''}
 
+              ${lib.optionalString (config.custom.system-nixos.services.jellyfin.trustedIpv4Networks != []) ''
               ip saddr { ${trustedIpv4s} } tcp dport { 8096, 8920 } log prefix "nft-input-accept-jellyfin: " level info
               ip saddr { ${trustedIpv4s} } tcp dport { 8096, 8920 } counter accept
 
               ip saddr { ${trustedIpv4s} } udp dport { 7359 } log prefix "nft-input-accept-jellyfin-discovery: " level info
               ip saddr { ${trustedIpv4s} } udp dport { 7359 } counter accept
+            ''}
             }
           '';
         };
