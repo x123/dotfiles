@@ -46,11 +46,15 @@ in {
           family = "inet";
           content = ''
             chain input-new {
+              ${lib.optionalString (config.custom.system-nixos.services.invidious.trustedIpv6Networks != []) ''
               ip6 saddr { ${trustedIpv6s} } tcp dport {80, 443} log prefix "nft-accept-invidious: " level info
               ip6 saddr { ${trustedIpv6s} } tcp dport {80, 443} counter accept
+            ''}
 
+              ${lib.optionalString (config.custom.system-nixos.services.invidious.trustedIpv4Networks != []) ''
               ip saddr { ${trustedIpv4s} } tcp dport {80, 443} log prefix "nft-accept-invidious: " level info
               ip saddr { ${trustedIpv4s} } tcp dport {80, 443} counter accept
+            ''}
             }'';
         };
       };
