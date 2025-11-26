@@ -147,7 +147,7 @@
       };
 
       qnetd = {
-        enable = true;
+        enable = false;
         package = pkgs.nixpkgs-corosync.corosync-qdevice;
         openFirewallNftables = true;
         trustedIpv4Networks = [
