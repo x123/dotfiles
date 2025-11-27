@@ -136,6 +136,12 @@
       fsType = "nfs";
       options = ["x-systemd.automount" "noauto"];
     };
+
+    "/mnt/truenas/iron/creative/f" = {
+      device = "truenas.empire.internal:/mnt/iron/creative/f";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto"];
+    };
   };
 
   boot.initrd.luks.devices = {
