@@ -106,23 +106,23 @@
       fsType = "vfat";
     };
 
-    "/mnt/samsung-970-evo" = {
-      device = "/dev/disk/by-label/samsung-970-evo";
-      fsType = "ext4";
-      options = ["noatime" "nodiratime"];
-    };
+    # "/mnt/samsung-970-evo" = {
+    #   device = "/dev/disk/by-label/samsung-970-evo";
+    #   fsType = "ext4";
+    #   options = ["noatime" "nodiratime"];
+    # };
 
-    "/mnt/nfs/xdata" = {
-      device = "192.168.1.187:/volume1/xdata";
-      fsType = "nfs";
-      options = ["x-systemd.automount" "noauto"];
-    };
-
-    "/mnt/nfs/xmisc" = {
-      device = "192.168.1.187:/volume1/xmisc";
-      fsType = "nfs";
-      options = ["x-systemd.automount" "noauto"];
-    };
+    # "/mnt/nfs/xdata" = {
+    #   device = "192.168.1.187:/volume1/xdata";
+    #   fsType = "nfs";
+    #   options = ["x-systemd.automount" "noauto"];
+    # };
+    #
+    # "/mnt/nfs/xmisc" = {
+    #   device = "192.168.1.187:/volume1/xmisc";
+    #   fsType = "nfs";
+    #   options = ["x-systemd.automount" "noauto"];
+    # };
 
     "/mnt/truenas/iron/xdata" = {
       device = "truenas.empire.internal:/mnt/iron/xdata";
@@ -143,14 +143,14 @@
     # };
 
     # samsung-970-evo
-    "luks-samsung-970-evo" = {
-      device = "/dev/disk/by-uuid/5a397788-b568-428e-8093-4c73891ee9d5";
-      allowDiscards = true;
-      bypassWorkqueues = true;
-      keyFileSize = 4096;
-      keyFile = "/dev/disk/by-id/usb-Kingston_DataTraveler_2.0_00173182460CBF80194DAB60-0:0";
-      fallbackToPassword = true;
-    };
+    # "luks-samsung-970-evo" = {
+    #   device = "/dev/disk/by-uuid/5a397788-b568-428e-8093-4c73891ee9d5";
+    #   allowDiscards = true;
+    #   bypassWorkqueues = true;
+    #   keyFileSize = 4096;
+    #   keyFile = "/dev/disk/by-id/usb-Kingston_DataTraveler_2.0_00173182460CBF80194DAB60-0:0";
+    #   fallbackToPassword = true;
+    # };
 
     # samsung-990-pro (NEWBOOT/NEWROOT)
     "luks-samsung-990-pro" = {
