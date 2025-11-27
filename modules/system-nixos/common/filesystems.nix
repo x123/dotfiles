@@ -19,10 +19,15 @@
       && config.custom.system-nixos.common.enable
       && config.custom.system-nixos.common.filesystems.enable
     ) {
+      boot.supportedFilesystems = {
+        btrfs = true;
+        zfs = true;
+      };
       environment.systemPackages = [
         pkgs.apfs-fuse
         pkgs.apfsprogs
         pkgs.nfs-utils
+        pkgs.zfs
       ];
     };
 }
