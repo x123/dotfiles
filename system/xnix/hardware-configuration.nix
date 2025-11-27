@@ -163,7 +163,10 @@
     };
   };
 
-  swapDevices = [{device = "/dev/disk/by-label/NIXSWAP_B";}];
+  swapDevices = [
+    {device = "/dev/disk/by-label/NIXSWAP_B";}
+    {device = "/dev/disk/by-label/NIXSWAP_ALT";}
+  ];
 
   networking.useDHCP = lib.mkDefault true;
 
