@@ -60,6 +60,9 @@
 
   services.fstrim.enable = true;
 
+  # required for ZFS pool metadata
+  networking.hostId = "d7219f63";
+
   fileSystems = {
     # OLDROOT
     # "/" = {
