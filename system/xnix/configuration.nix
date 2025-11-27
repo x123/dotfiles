@@ -10,6 +10,7 @@
     ../../modules/system-nixos
 
     ./local/nftables-syncthing.nix
+    ./local/sanoid.nix
     ./local/xmrig.nix
     ./local/xnix-nix-cache.nix
   ];
