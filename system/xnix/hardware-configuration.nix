@@ -78,7 +78,7 @@
     # };
 
     "/" = {
-      device = "zroot_temp/state/root";
+      device = "xnixtank/state/root";
       fsType = "zfs";
       # options = ["noatime" "nodiratime"];
     };
@@ -89,19 +89,19 @@
     # };
 
     "/home" = {
-      device = "zroot_temp/state/home";
+      device = "xnixtank/state/home";
       fsType = "zfs";
       # options = ["noatime" "nodiratime"];
     };
 
     "/nix" = {
-      device = "zroot_temp/scratch/nix";
+      device = "xnixtank/scratch/nix";
       fsType = "zfs";
       # options = ["noatime" "nodiratime"];
     };
 
     "/boot" = {
-      device = "/dev/disk/by-label/NIXBOOT_TMP";
+      device = "/dev/disk/by-label/NIXBOOT";
       # device = "/dev/disk/by-label/NEWBOOT";
       fsType = "vfat";
     };
@@ -163,7 +163,7 @@
     };
   };
 
-  swapDevices = [{device = "/dev/disk/by-label/NEWSWAP";}];
+  swapDevices = [{device = "/dev/disk/by-label/NIXSWAP_B";}];
 
   networking.useDHCP = lib.mkDefault true;
 
