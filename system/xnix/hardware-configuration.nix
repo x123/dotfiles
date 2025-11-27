@@ -94,6 +94,13 @@
       # options = ["noatime" "nodiratime"];
     };
 
+    "/home/x/.local/share/Steam" = {
+      device = "xnixtank/scratch/user/x/steam";
+      fsType = "zfs";
+      # options = ["noatime" "nodiratime"];
+      neededForBoot = false;
+    };
+
     "/nix" = {
       device = "xnixtank/scratch/nix";
       fsType = "zfs";
