@@ -78,13 +78,31 @@
     # };
 
     "/" = {
-      device = "/dev/disk/by-label/NEWROOT";
-      fsType = "ext4";
-      options = ["noatime" "nodiratime"];
+      device = "zroot_temp/state/root";
+      fsType = "zfs";
+      # options = ["noatime" "nodiratime"];
+    };
+    # "/" = {
+    #   device = "/dev/disk/by-label/NEWROOT";
+    #   fsType = "ext4";
+    #   options = ["noatime" "nodiratime"];
+    # };
+
+    "/home" = {
+      device = "zroot_temp/state/home";
+      fsType = "zfs";
+      # options = ["noatime" "nodiratime"];
+    };
+
+    "/nix" = {
+      device = "zroot_temp/scratch/nix";
+      fsType = "zfs";
+      # options = ["noatime" "nodiratime"];
     };
 
     "/boot" = {
-      device = "/dev/disk/by-label/NEWBOOT";
+      device = "/dev/disk/by-label/NIXBOOT_TMP";
+      # device = "/dev/disk/by-label/NEWBOOT";
       fsType = "vfat";
     };
 
