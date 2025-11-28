@@ -183,6 +183,19 @@
       # options = ["noatime" "nodiratime"];
     };
 
+    "/nix/var/nix/builds" = {
+      device = "tmpfs";
+      fsType = "tmpfs";
+      options = [
+        "size=75%"
+        "mode=755"
+        "nosuid"
+        "nodev"
+        "noatime"
+        "nodiratime"
+      ];
+    };
+
     "/home/x/.local/share/Steam" = {
       device = "xnixtank/scratch/user/x/steam";
       fsType = "zfs";
