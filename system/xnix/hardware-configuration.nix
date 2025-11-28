@@ -206,6 +206,13 @@
       neededForBoot = false;
     };
 
+    "/home/x/.cache" = {
+      device = "xnixtank/scratch/user/x/cache";
+      fsType = "zfs";
+      # options = ["noatime" "nodiratime"];
+      neededForBoot = false;
+    };
+
     "/home/x/.ollama" = {
       device = "xnixtank/scratch/user/x/ollama";
       fsType = "zfs";
