@@ -31,7 +31,7 @@
 
     tmp = {
       useTmpfs = true;
-      tmpfsSize = "35%";
+      tmpfsSize = "75%";
     };
     initrd = {
       network = {
