@@ -21,7 +21,6 @@
     ) {
       boot.supportedFilesystems = {
         btrfs = true;
-        zfs = true;
       };
       environment.systemPackages = [
         pkgs.apfs-fuse

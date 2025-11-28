@@ -153,7 +153,11 @@
     blacklistedKernelModules = ["amdgpu"];
     extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
     # optional, but ensures rpc-statsd is running for on demand nfs mounting
-    supportedFilesystems = ["nfs"];
+    supportedFilesystems = [
+      "btrfs"
+      "nfs"
+      "zfs"
+    ];
   };
 
   services.fstrim.enable = true;
