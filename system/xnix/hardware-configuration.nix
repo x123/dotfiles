@@ -220,6 +220,20 @@
       neededForBoot = false;
     };
 
+    "/home/x/Dropbox" = {
+      device = "xnixtank/state/user/x/dropbox";
+      fsType = "zfs";
+      # options = ["noatime" "nodiratime"];
+      neededForBoot = false;
+    };
+
+    "/home/x/src" = {
+      device = "xnixtank/state/user/x/src";
+      fsType = "zfs";
+      # options = ["noatime" "nodiratime"];
+      neededForBoot = false;
+    };
+
     "/nix" = {
       device = "xnixtank/scratch/nix";
       fsType = "zfs";
