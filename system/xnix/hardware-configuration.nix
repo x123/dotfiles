@@ -162,76 +162,19 @@
   networking.hostId = "d7219f63";
 
   fileSystems = {
-    # OLDROOT
-    # "/" = {
-    #   device = "/dev/disk/by-label/NIXROOT";
-    #   fsType = "ext4";
-    #   options = ["noatime" "nodiratime"];
-    # };
-
-    # OLDBOOT
-    # "/boot" = {
-    #   device = "/dev/disk/by-label/NIXBOOT";
-    #   fsType = "vfat";
-    # };
-
     "/" = {
       device = "xnixtank/state/root";
       fsType = "zfs";
-      # options = ["noatime" "nodiratime"];
     };
-    # "/" = {
-    #   device = "/dev/disk/by-label/NEWROOT";
-    #   fsType = "ext4";
-    #   options = ["noatime" "nodiratime"];
-    # };
+
+    "/boot" = {
+      device = "/dev/disk/by-label/NIXBOOT";
+      fsType = "vfat";
+    };
 
     "/home" = {
       device = "xnixtank/state/home";
       fsType = "zfs";
-      # options = ["noatime" "nodiratime"];
-    };
-
-    "/home/x/.local/share/Steam" = {
-      device = "xnixtank/scratch/user/x/steam";
-      fsType = "zfs";
-      # options = ["noatime" "nodiratime"];
-      neededForBoot = false;
-    };
-
-    "/home/x/.bm" = {
-      device = "xnixtank/scratch/user/x/bm";
-      fsType = "zfs";
-      # options = ["noatime" "nodiratime"];
-      neededForBoot = false;
-    };
-
-    "/home/x/.cache" = {
-      device = "xnixtank/scratch/user/x/cache";
-      fsType = "zfs";
-      # options = ["noatime" "nodiratime"];
-      neededForBoot = false;
-    };
-
-    "/home/x/.ollama" = {
-      device = "xnixtank/scratch/user/x/ollama";
-      fsType = "zfs";
-      # options = ["noatime" "nodiratime"];
-      neededForBoot = false;
-    };
-
-    "/home/x/Dropbox" = {
-      device = "xnixtank/state/user/x/dropbox";
-      fsType = "zfs";
-      # options = ["noatime" "nodiratime"];
-      neededForBoot = false;
-    };
-
-    "/home/x/src" = {
-      device = "xnixtank/state/user/x/src";
-      fsType = "zfs";
-      # options = ["noatime" "nodiratime"];
-      neededForBoot = false;
     };
 
     "/nix" = {
@@ -240,40 +183,64 @@
       # options = ["noatime" "nodiratime"];
     };
 
-    "/boot" = {
-      device = "/dev/disk/by-label/NIXBOOT";
-      # device = "/dev/disk/by-label/NEWBOOT";
-      fsType = "vfat";
+    "/home/x/.local/share/Steam" = {
+      device = "xnixtank/scratch/user/x/steam";
+      fsType = "zfs";
+      neededForBoot = false;
     };
 
-    # "/mnt/samsung-970-evo" = {
-    #   device = "/dev/disk/by-label/samsung-970-evo";
-    #   fsType = "ext4";
-    #   options = ["noatime" "nodiratime"];
-    # };
+    "/home/x/.bm" = {
+      device = "xnixtank/scratch/user/x/bm";
+      fsType = "zfs";
+      neededForBoot = false;
+    };
 
-    # "/mnt/nfs/xdata" = {
-    #   device = "192.168.1.187:/volume1/xdata";
-    #   fsType = "nfs";
-    #   options = ["x-systemd.automount" "noauto"];
-    # };
-    #
-    # "/mnt/nfs/xmisc" = {
-    #   device = "192.168.1.187:/volume1/xmisc";
-    #   fsType = "nfs";
-    #   options = ["x-systemd.automount" "noauto"];
-    # };
+    "/home/x/.cache" = {
+      device = "xnixtank/scratch/user/x/cache";
+      fsType = "zfs";
+      neededForBoot = false;
+    };
+
+    "/home/x/.ollama" = {
+      device = "xnixtank/scratch/user/x/ollama";
+      fsType = "zfs";
+      neededForBoot = false;
+    };
+
+    "/home/x/Dropbox" = {
+      device = "xnixtank/state/user/x/dropbox";
+      fsType = "zfs";
+      neededForBoot = false;
+    };
+
+    "/home/x/src" = {
+      device = "xnixtank/state/user/x/src";
+      fsType = "zfs";
+      neededForBoot = false;
+    };
 
     "/mnt/truenas/iron/xdata" = {
       device = "truenas.empire.internal:/mnt/iron/xdata";
       fsType = "nfs";
-      options = ["x-systemd.automount" "noauto"];
+      options = ["x-systemd.automount" "noauto" "noatime" "rsize=1048576" "wsize=1048576"];
     };
 
     "/mnt/truenas/iron/creative/f" = {
       device = "truenas.empire.internal:/mnt/iron/creative/f";
       fsType = "nfs";
-      options = ["x-systemd.automount" "noauto"];
+      options = ["x-systemd.automount" "noauto" "noatime" "rsize=1048576" "wsize=1048576"];
+    };
+
+    "/mnt/truenas/iron/critical/f" = {
+      device = "truenas.empire.internal:/mnt/iron/critical/f";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto" "noatime" "rsize=1048576" "wsize=1048576"];
+    };
+
+    "/mnt/truenas/iron/memories/shared" = {
+      device = "truenas.empire.internal:/mnt/iron/memories/shared";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto" "noatime" "rsize=1048576" "wsize=1048576"];
     };
   };
 
