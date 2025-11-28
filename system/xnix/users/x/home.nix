@@ -6,9 +6,9 @@
   imports = [
     inputs.sops-nix.homeManagerModules.sops
     ../../../../modules/user
-    ./local/borgmatic.nix
+    #./local/borgmatic.nix
     ./local/btop.nix
-    ./local/gnucash-quotes-systemd-timer.nix
+    #./local/gnucash-quotes-systemd-timer.nix
     ./local/eq.nix
     # ./local/poe.nix
     ./local/steam-coreparked.nix
