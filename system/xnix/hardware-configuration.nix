@@ -259,6 +259,12 @@
       fsType = "nfs";
       options = ["x-systemd.automount" "noauto" "noatime" "rsize=1048576" "wsize=1048576"];
     };
+
+    "/mnt/truenas/iron/work/f" = {
+      device = "truenas.empire.internal:/mnt/iron/work/f";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto" "noatime" "rsize=1048576" "wsize=1048576"];
+    };
   };
 
   swapDevices = [
