@@ -29,8 +29,93 @@
       efi.canTouchEfiVariables = true;
     };
 
-    initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" "usb_storage"];
-    initrd.kernelModules = [];
+    initrd = {
+      network = {
+        enable = true;
+        udhcpc = {
+          enable = true;
+          extraArgs = ["-i" "enp5s0"]; # to specify an interface for quicker boot
+        };
+
+        ssh = {
+          enable = true;
+          port = 2222;
+          authorizedKeys = [config.custom.common.sshKeys.adminKeys];
+          #hostKeys = [];
+        };
+      };
+
+      availableKernelModules = [
+        "xhci_pci"
+        "ahci"
+        "nvme"
+        "usbhid"
+        "sd_mod"
+        "usb_storage"
+        "r8169" # critical for networking in initrd
+      ];
+      kernelModules = [];
+
+      # # USB auto-unlock
+      # postDeviceCommands = lib.mkAfter ''
+      #   zfs_pool="xnixtank"
+      #   # TARGET THE ENCRYPTION ROOT (The Pool itself)
+      #   zfs_ds="xnixtank"
+      #   key_drive="/dev/disk/by-id/usb-Kingston_DataTraveler_2.0_00173182460CBF80194DAB60-0:0"
+      #
+      #   # Wait for USB to settle
+      #   sleep 2
+      #
+      #   if [ -e "$key_drive" ]; then
+      #     echo ">>> USB Key detected. Importing Pool..."
+      #     # Import safely without mounting (-N)
+      #     zpool import -N -f "$zfs_pool" || true
+      #
+      #     echo ">>> Attempting to unlock $zfs_ds..."
+      #     # Read 4096 bytes (legacy behavior) and pipe to zfs load-key
+      #     # We use -r to ensure children are recognized as unlocked
+      #     head -c 4096 "$key_drive" | zfs load-key -r "$zfs_ds" && echo ">>> ZFS Key Loaded Successfully."
+      #   else
+      #     echo ">>> USB Key not found."
+      #   fi
+      # '';
+      #
+      # # zfsunlock for ssh unlocking
+      # extraUtilsCommands = ''
+      #   cat > $out/bin/zfsunlock <<EOF
+      #   #!/bin/sh
+      #   echo "Unlocking ZFS Pool: xnixtank"
+      #   read -s -p "Enter Passphrase: " PASS
+      #   echo
+      #   # Import if not already imported (silently)
+      #   zpool import -N -f xnixtank 2>/dev/null
+      #
+      #   # Load key
+      #   echo "\$PASS" | zfs load-key -r xnixtank
+      #
+      #   if [ \$? -eq 0 ]; then
+      #     echo "Success. Dataset unlocked."
+      #     echo "You may now type 'exit' to continue boot."
+      #   else
+      #     echo "Failed to load key."
+      #   fi
+      #   EOF
+      #   chmod +x $out/bin/unlock-zfs
+      # '';
+
+      luks.devices = {
+        # samsung-990-pro (NEWBOOT/NEWROOT)
+        # "luks-samsung-990-pro" = {
+        #   device = "/dev/disk/by-uuid/092a6c39-88d0-4714-83cd-b58bc177ffad";
+        #   allowDiscards = true;
+        #   bypassWorkqueues = true;
+        #   keyFileSize = 4096;
+        #   keyFile = "/dev/disk/by-id/usb-Kingston_DataTraveler_2.0_00173182460CBF80194DAB60-0:0";
+        #   fallbackToPassword = true;
+        # };
+      };
+    };
+
     kernelParams = [
       # "pcie_aspm.policy=powersave"
       # "pcie_aspm.policy=powersupersave"
@@ -155,38 +240,6 @@
       device = "truenas.empire.internal:/mnt/iron/creative/f";
       fsType = "nfs";
       options = ["x-systemd.automount" "noauto"];
-    };
-  };
-
-  boot.initrd.luks.devices = {
-    # old root (NIXBOOT/NIXROOT)
-    # "luks-3062db9e-0454-4188-b0ba-d751be39e6b9" = {
-    #   device = "/dev/disk/by-uuid/3062db9e-0454-4188-b0ba-d751be39e6b9";
-    #   allowDiscards = true;
-    #   bypassWorkqueues = true;
-    #   keyFileSize = 4096;
-    #   keyFile = "/dev/disk/by-id/usb-Kingston_DataTraveler_2.0_00173182460CBF80194DAB60-0:0";
-    #   fallbackToPassword = true;
-    # };
-
-    # samsung-970-evo
-    # "luks-samsung-970-evo" = {
-    #   device = "/dev/disk/by-uuid/5a397788-b568-428e-8093-4c73891ee9d5";
-    #   allowDiscards = true;
-    #   bypassWorkqueues = true;
-    #   keyFileSize = 4096;
-    #   keyFile = "/dev/disk/by-id/usb-Kingston_DataTraveler_2.0_00173182460CBF80194DAB60-0:0";
-    #   fallbackToPassword = true;
-    # };
-
-    # samsung-990-pro (NEWBOOT/NEWROOT)
-    "luks-samsung-990-pro" = {
-      device = "/dev/disk/by-uuid/092a6c39-88d0-4714-83cd-b58bc177ffad";
-      allowDiscards = true;
-      bypassWorkqueues = true;
-      keyFileSize = 4096;
-      keyFile = "/dev/disk/by-id/usb-Kingston_DataTraveler_2.0_00173182460CBF80194DAB60-0:0";
-      fallbackToPassword = true;
     };
   };
 
