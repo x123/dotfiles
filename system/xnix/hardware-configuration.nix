@@ -29,6 +29,10 @@
       efi.canTouchEfiVariables = true;
     };
 
+    tmp = {
+      useTmpfs = true;
+      tmpfsSize = "35%";
+    };
     initrd = {
       network = {
         enable = true;
