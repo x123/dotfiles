@@ -240,6 +240,7 @@
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEn0u0tbuy5pbF5oGkcLQIe+fGYE7vllDaiix/qfvnEw root@mini"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPcS29HjO7PMB6JJmXLO90uJ2hB4952TdbjGBW1vFPPR root@privnix"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIRUp2hF+EOoXTVPDxsWyW/5xJecWmljel5ZNbaCQCv6 root@forge"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7DL0W0H5iGt0SYO2OnUxhSa7C0eaGTcPKxGFMICj1F root@wgnix-vm"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ12Vj1i469avRzGH1NxENkwGlHu8L/hpP6rop6FsyjV root@transmission"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFC75+eYCJ0gY9nTUVJy/hw0SFb84BLBrRsjWfotg6N6 root@unboundednix"
