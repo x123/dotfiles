@@ -2,13 +2,13 @@
   sops.secrets = {
     "truenas/ssh-priv" = {
       mode = "0400";
-      owner = "root";
-      group = "root";
+      owner = "syncoid";
+      group = "syncoid";
     };
     "truenas/ssh-pub" = {
       mode = "0444";
-      owner = "root";
-      group = "root";
+      owner = "syncoid";
+      group = "syncoid";
     };
   };
 
@@ -47,7 +47,9 @@
         extraArgs = [
           "--recursive"
           "--create-bookmark"
-          "--sshoption=-i ${config.sops.secrets."truenas/ssh-priv".path}"
+          "--sshkey=${config.sops.secrets."truenas/ssh-priv".path}"
+          "--sshoption=StrictHostKeyChecking=no"
+          "--sshoption=UserKnownHostsFile=/dev/null"
         ];
       };
     };
