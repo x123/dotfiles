@@ -9,6 +9,15 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  sops.secrets = {
+    "dropbear-keys/pub" = {
+      mode = "0444";
+    };
+    "dropbear-keys/priv" = {
+      mode = "0400";
+    };
+  };
+
   powerManagement = {
     enable = true;
     # can be ondemand, powersave, performance
@@ -44,8 +53,8 @@
         ssh = {
           enable = true;
           port = 2222;
-          authorizedKeys = [config.custom.common.sshKeys.adminKeys];
-          #hostKeys = [];
+          authorizedKeys = config.custom.common.sshKeys.adminKeys;
+          hostKeys = [config.sops.secrets."dropbear-keys/priv".path];
         };
       };
 
